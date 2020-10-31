@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ModelInfoController: UIViewController {
+class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topBannerView: UIView!
     @IBOutlet weak var modelNameLabel: UILabel!
     @IBOutlet weak var modelCodeLabel: UILabel!
@@ -19,6 +20,21 @@ class ModelInfoController: UIViewController {
         "BCNR33" : "R33 GT-R",
         "BNR34" : "R34 GT-R"
     ]
+    
+    let tempTableViewData: [String : [String]] = [
+        "" : ["VIN Search", "Production Numbers", "VIN Ranges"],
+        "Special Models" : ["M-Spec Nür", "V-Spec II Nür", "M-Spec", "V-Spec II N1", "V-Spec N1", "Midnight Purple 3", "Midnight Purple 2"],
+        "Non-Japanese Delivered" : ["Great Britain", "Hong Kong", "New Zealand", "Singapore"],
+        "Nismo Cars" : ["Z-Tune", "Clubman Race Spec (CRS)", "F-Sport", "R-Tune", "S-Tune", "Sports Resetting"]
+    ]
+    
+    let tempSectionNames = [
+        "",
+        "Special Models",
+        "Non-Japanese Delivered",
+        "Nismo Cars"
+    ]
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -38,20 +54,45 @@ class ModelInfoController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         modelCodeLabel.text = modelCode
         modelNameLabel.text = tempModelDict[modelCode!]
+        imageView.image = UIImage(named: "\(modelCode!.lowercased())side")
     }
     
     @IBAction func didTapCloseButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK:- Table View Stuff
+    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return tempSectionNames[section]
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.font = UIFont(name: "NissanOpti", size: 15)
+        label.text = tempSectionNames[section]
+        return label
     }
-    */
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tempSectionNames.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tempTableViewData[tempSectionNames[section]]!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
+        cell.textLabel?.text = tempTableViewData[tempSectionNames[indexPath.section]]![indexPath.row]
+        
+        return cell
+    }
 
 }
