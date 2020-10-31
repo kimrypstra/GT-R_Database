@@ -13,6 +13,9 @@
 		21AFA2D3254D3DC600661DE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AFA2D1254D3DC600661DE0 /* Main.storyboard */; };
 		21AFA2D5254D3DC700661DE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21AFA2D4254D3DC700661DE0 /* Assets.xcassets */; };
 		21AFA2D8254D3DC700661DE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AFA2D6254D3DC700661DE0 /* LaunchScreen.storyboard */; };
+		21AFA2E3254D457B00661DE0 /* NissanOpti.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21AFA2E1254D3EA700661DE0 /* NissanOpti.otf */; };
+		21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */; };
+		21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		21AFA2D4254D3DC700661DE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21AFA2D7254D3DC700661DE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21AFA2D9254D3DC700661DE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21AFA2E1254D3EA700661DE0 /* NissanOpti.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NissanOpti.otf; sourceTree = "<group>"; };
+		21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +65,23 @@
 				21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */,
 				21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */,
 				21AFA2CF254D3DC600661DE0 /* ViewController.swift */,
+				21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */,
+				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
 				21AFA2D1254D3DC600661DE0 /* Main.storyboard */,
 				21AFA2D4254D3DC700661DE0 /* Assets.xcassets */,
+				21AFA2E0254D3E9600661DE0 /* Fonts */,
 				21AFA2D6254D3DC700661DE0 /* LaunchScreen.storyboard */,
 				21AFA2D9254D3DC700661DE0 /* Info.plist */,
 			);
 			path = "GT-R Database";
+			sourceTree = "<group>";
+		};
+		21AFA2E0254D3E9600661DE0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				21AFA2E1254D3EA700661DE0 /* NissanOpti.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21AFA2D8254D3DC700661DE0 /* LaunchScreen.storyboard in Resources */,
+				21AFA2E3254D457B00661DE0 /* NissanOpti.otf in Resources */,
 				21AFA2D5254D3DC700661DE0 /* Assets.xcassets in Resources */,
 				21AFA2D3254D3DC600661DE0 /* Main.storyboard in Resources */,
 			);
@@ -138,7 +156,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				21AFA2D0254D3DC600661DE0 /* ViewController.swift in Sources */,
+				21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */,
 				21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */,
+				21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */,
 				21AFA2CE254D3DC600661DE0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
