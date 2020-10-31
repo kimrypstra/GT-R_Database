@@ -70,6 +70,7 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         label.font = UIFont(name: "NissanOpti", size: 15)
+        label.textColor = .black
         label.text = tempSectionNames[section]
         return label
     }
@@ -91,8 +92,12 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
         cell.textLabel?.text = tempTableViewData[tempSectionNames[indexPath.section]]![indexPath.row]
-        
+        //cell.selectedBackgroundView?.backgroundColor = .white
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }

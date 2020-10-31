@@ -33,8 +33,8 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     @IBAction func didTapContactButton(_ sender: Any) {
         // Modify following variables with your text / recipient
         let recipientEmail = "test@email.com"
-        let subject = "Multi client email support"
-        let body = "This code supports sending email via multiple different email apps on iOS! :)"
+        let subject = "GT-R Database Enquiry"
+        let body = ""
         
         // Show default mail composer
         if MFMailComposeViewController.canSendMail() {
