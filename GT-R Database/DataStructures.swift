@@ -8,14 +8,14 @@
 import Foundation
 
 struct R34 {
-    let ID: String
-    let VIN: String
-    let Grade: String
-    let Series: String
-    let Colour: String
-    let Production: String
-    let Date: String
-    let Plant: String
-    let Seat: String
-    let Model: String
+    let ID: String?
+    let VIN: String?
+    let Grade: String?
+    let Series: String?
+    let Colour: String?
+    let Production: String?
+    let Date: String?
+    let Plant: String?
+    let Seat: String?
+    let Model: String?
 }

@@ -59,6 +59,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let dbMan = DBManager()
+        if dbMan.openDB() {
+            let result = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: "BNR34-000055", fuzzy: false)
+            print(result)
+        } else {
+            print("DB not opened")
+        }
+        
         // Set up top banner
         let gradient = CAGradientLayer()
         gradient.frame = topBannerBackgroundView.bounds
@@ -87,6 +95,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             r34label1,
             r34label2
         ]
+        
+    
         
     }
     

@@ -9,6 +9,7 @@ import UIKit
 
 class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topBannerView: UIView!
     @IBOutlet weak var modelNameLabel: UILabel!
@@ -49,6 +50,8 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
         topBannerView.layer.insertSublayer(gradient, at: 0)
         // Do any additional setup after loading the view.
+        
+        //tableView.contentInset.left = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,11 +71,30 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
 //    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.font = UIFont(name: "NissanOpti", size: 15)
-        label.textColor = .black
-        label.text = tempSectionNames[section]
-        return label
+        if section == 3 {
+            let topBannerBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width - 30, height: 30))
+            let gradient = CAGradientLayer()
+            gradient.frame = topBannerBackgroundView.bounds
+            gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
+            topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+            label.font = UIFont(name: "NissanOpti", size: 15)
+            label.textColor = .white
+            label.textAlignment = .center
+            label.text = tempSectionNames[section]
+            topBannerBackgroundView.addSubview(label)
+            label.center = topBannerBackgroundView.center
+//            label.center.y = topBannerBackgroundView.center.y
+//            label.center.x = (label.frame.width / 2)
+            return topBannerBackgroundView
+        } else {
+            let label = UILabel()
+            label.font = UIFont(name: "NissanOpti", size: 15)
+            label.textColor = .black
+            label.text = tempSectionNames[section]
+            return label
+        }
+        
     }
     
     
@@ -95,6 +117,8 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         //cell.selectedBackgroundView?.backgroundColor = .white
         return cell
     }
+    
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

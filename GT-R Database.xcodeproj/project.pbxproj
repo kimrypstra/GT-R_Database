@@ -19,6 +19,7 @@
 		21AFA2E3254D457B00661DE0 /* NissanOpti.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21AFA2E1254D3EA700661DE0 /* NissanOpti.otf */; };
 		21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */; };
 		21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */; };
+		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		21AFA2E1254D3EA700661DE0 /* NissanOpti.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NissanOpti.otf; sourceTree = "<group>"; };
 		21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoController.swift; sourceTree = "<group>"; };
+		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +82,11 @@
 				21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */,
 				21AFA2CF254D3DC600661DE0 /* ViewController.swift */,
 				2146102C254F0D5B00E6453C /* CSVParser.swift */,
+				21DE917C25543C7600B9B4F2 /* DBManager.swift */,
 				2146102F254F0D8500E6453C /* DataStructures.swift */,
 				21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */,
-				21461028254F0C4200E6453C /* Data */,
 				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
+				21461028254F0C4200E6453C /* Data */,
 				21AFA2D1254D3DC600661DE0 /* Main.storyboard */,
 				21AFA2D4254D3DC700661DE0 /* Assets.xcassets */,
 				21AFA2E0254D3E9600661DE0 /* Fonts */,
@@ -176,6 +179,7 @@
 				21461030254F0D8500E6453C /* DataStructures.swift in Sources */,
 				21AFA2D0254D3DC600661DE0 /* ViewController.swift in Sources */,
 				21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */,
+				21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */,
 				21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */,
 				21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */,
 				21AFA2CE254D3DC600661DE0 /* SceneDelegate.swift in Sources */,
