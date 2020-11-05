@@ -50,19 +50,21 @@ class DBManager {
         var returnArray: [R34] = []
         
         while(sqlite3_step(readstmt) == SQLITE_ROW){
+            // TODO: Do the full database, and implement the additional columns. And add tolerance for nil values
+
             let id = String(cString: sqlite3_column_text(readstmt, 0))
             let vin = String(cString: sqlite3_column_text(readstmt, 1))
             let grade = String(cString: sqlite3_column_text(readstmt, 2))
             let series = String(cString: sqlite3_column_text(readstmt, 3))
+            let colour = String(cString: sqlite3_column_text(readstmt, 4))
+            let prodDate = String(cString: sqlite3_column_text(readstmt, 5))
+            let plant = String(cString: sqlite3_column_text(readstmt, 6))
+            let seat = String(cString: sqlite3_column_text(readstmt, 7))
+            let model1 = String(cString: sqlite3_column_text(readstmt, modelNumberStartColumn.r34 + modelNumberOffset.bodyType)) // TODO: this is wrong, the number spans several columns
             
-            // TODO: Do the full database, and implement the additional columns. And add tolerance for nil values
-//            let colour = String(cString: sqlite3_column_text(readstmt, 4))
-//            let prodDate = String(cString: sqlite3_column_text(readstmt, 5))
-//            let plant = String(cString: sqlite3_column_text(readstmt, 6))
-//            let seat = String(cString: sqlite3_column_text(readstmt, 7))
-//            let modelNumber = String(cString: sqlite3_column_text(readstmt, 8)) // this is wrong, the number spans several columns
             
-            let record = R34(ID: id, VIN: vin, Grade: grade, Series: series, Colour: nil, Production: nil, Date: nil, Plant: nil, Seat: nil, Model: nil) 
+            
+            let record = R34(ID: id, VIN: vin, Grade: grade, Series: series, Colour: colour, Production: prodDate, Date: nil, Plant: plant, Seat: seat, Model: model1)
             
             returnArray.append(record)
             //print("ID: \(id), VIN: \(vin), GRADE: \(grade), SERIES: \(series), COLOUR: \(colour), PRODDATE: \(prodDate), PLANT: \(plant), SEAT: \(seat), MODELNUM: \(modelNumber)")

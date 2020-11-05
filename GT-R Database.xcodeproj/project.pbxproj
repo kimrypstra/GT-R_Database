@@ -20,6 +20,7 @@
 		21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */; };
 		21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
+		21DE9186255451B300B9B4F2 /* GTRRegistry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 21DE9185255451B300B9B4F2 /* GTRRegistry.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoController.swift; sourceTree = "<group>"; };
 		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		21DE9185255451B300B9B4F2 /* GTRRegistry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GTRRegistry.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		21461028254F0C4200E6453C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				21DE9185255451B300B9B4F2 /* GTRRegistry.sqlite */,
 				21461029254F0D3B00E6453C /* R34.csv */,
 			);
 			path = Data;
@@ -161,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21DE9186255451B300B9B4F2 /* GTRRegistry.sqlite in Resources */,
 				2146102A254F0D3B00E6453C /* R34.csv in Resources */,
 				21AFA2D8254D3DC700661DE0 /* LaunchScreen.storyboard in Resources */,
 				21AFA2E3254D457B00661DE0 /* NissanOpti.otf in Resources */,
