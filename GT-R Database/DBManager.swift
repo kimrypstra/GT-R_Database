@@ -7,17 +7,23 @@
 
 import Foundation
 import SQLite3
+import UIKit
 
 class DBManager {
     var db: OpaquePointer?
     let nameOfDB = "GTRRegistry"
+    
+    
+    
     func readVINDataFromDB(tableName: String, attributesToRetrieve: [String], attributeToSearch: String, valueToSearch: String, fuzzy: Bool) -> [R34] {
-
+        
         var attributesSubstring = ""
-        var fuzzySubstring = ""
+        var fuzzySubstring = "IS"
+        var fuzzyWildcard = ""
         
         if fuzzy {
-            fuzzySubstring = "LIKE "
+            fuzzySubstring = "LIKE"
+            fuzzyWildcard = "%"
         }
         
         if attributesToRetrieve.count == 0 {
@@ -32,7 +38,7 @@ class DBManager {
         }
         
         //this is our select query
-        let readQueryString = "SELECT \(attributesSubstring) FROM \(tableName) WHERE \(attributeToSearch) IS \(fuzzySubstring)'\(valueToSearch)'"
+        let readQueryString = "SELECT \(attributesSubstring) FROM \(tableName) WHERE \(attributeToSearch)  \(fuzzySubstring) '\(fuzzyWildcard)\(valueToSearch)\(fuzzyWildcard)'"
         
         //statement pointer
         var readstmt:OpaquePointer?
@@ -51,22 +57,24 @@ class DBManager {
         
         while(sqlite3_step(readstmt) == SQLITE_ROW){
             // TODO: Do the full database, and implement the additional columns. And add tolerance for nil values
-
-            let id = String(cString: sqlite3_column_text(readstmt, 0))
-            let vin = String(cString: sqlite3_column_text(readstmt, 1))
-            let grade = String(cString: sqlite3_column_text(readstmt, 2))
-            let series = String(cString: sqlite3_column_text(readstmt, 3))
-            let colour = String(cString: sqlite3_column_text(readstmt, 4))
-            let prodDate = String(cString: sqlite3_column_text(readstmt, 5))
-            let plant = String(cString: sqlite3_column_text(readstmt, 6))
-            let seat = String(cString: sqlite3_column_text(readstmt, 7))
-            let model1 = String(cString: sqlite3_column_text(readstmt, modelNumberStartColumn.r34 + modelNumberOffset.bodyType)) // TODO: this is wrong, the number spans several columns
+            var car = R34()
             
+            var varIndex: [String] = []
+            let mirror = Mirror(reflecting: car)
+            for child in mirror.children {
+                varIndex.append(child.label!)
+            }
             
+            let columnCount: Int32 = Int32(varIndex.count - 1)
             
-            let record = R34(ID: id, VIN: vin, Grade: grade, Series: series, Colour: colour, Production: prodDate, Date: nil, Plant: plant, Seat: seat, Model: model1)
+            for column in 0...columnCount {
+                if sqlite3_column_type(readstmt, column) != SQLITE_NULL {
+                    let value = String(cString: sqlite3_column_text(readstmt, column))
+                    car.setValue(value, forKey: varIndex[Int(column)])
+                }
+            }
             
-            returnArray.append(record)
+            returnArray.append(car)
             //print("ID: \(id), VIN: \(vin), GRADE: \(grade), SERIES: \(series), COLOUR: \(colour), PRODDATE: \(prodDate), PLANT: \(plant), SEAT: \(seat), MODELNUM: \(modelNumber)")
         }
         

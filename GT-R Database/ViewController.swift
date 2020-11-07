@@ -61,8 +61,18 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let dbMan = DBManager()
         if dbMan.openDB() {
-            let result = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: "BNR34-000055", fuzzy: false)
-            print(result)
+            let results = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: "BNR34-000055", fuzzy: true)
+            //print(result.first)
+            if results.count > 1 {
+                print("Multiple results:")
+                for result in results {
+                    print(result)
+                }
+            } else if results.count == 1 {
+                print(results.first!)
+            } else {
+                print("No result - here's where we segue to the no result page")
+            }
         } else {
             print("DB not opened")
         }

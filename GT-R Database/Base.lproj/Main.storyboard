@@ -305,7 +305,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lLB-2V-4kb">
                                 <rect key="frame" x="0.0" y="238" width="375" height="429"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="0ZI-Aa-AuU" style="IBUITableViewCellStyleDefault" id="czo-wO-Kqh">
@@ -324,7 +324,6 @@
                                                                 <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <font key="NSFont" size="12" name="NissanOpti"/>
                                                                 <font key="NSOriginalFont" size="12" name="NissanOpti"/>
-                                                                <integer key="NSUnderline" value="1"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -333,7 +332,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -371,11 +370,131 @@
                         <outlet property="modelNameLabel" destination="yYY-72-kf9" id="2MO-N1-di0"/>
                         <outlet property="tableView" destination="lLB-2V-4kb" id="Hip-Pk-rJv"/>
                         <outlet property="topBannerView" destination="aTm-eX-FgN" id="aVt-T0-C0z"/>
+                        <segue destination="H7M-gA-aiI" kind="show" identifier="VINSearch" id="ZyL-lw-3Ti"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8A-si-LMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1078" y="832"/>
+        </scene>
+        <!--Search Controller-->
+        <scene sceneID="Vfw-jg-4pj">
+            <objects>
+                <viewController id="H7M-gA-aiI" customClass="VINSearchController" customModule="GT_R_Database" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TQT-pB-pYR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gr-wb-hSQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BNR34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niR-Ll-Irm">
+                                        <rect key="frame" x="68.5" y="75" width="89" height="25"/>
+                                        <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R34 VIN Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhl-ic-crW">
+                                        <rect key="frame" x="90" y="75" width="195.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="AXU-JX-IW2">
+                                        <rect key="frame" x="167.5" y="35" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="3of-1X-zY7"/>
+                                            <constraint firstAttribute="height" constant="40" id="gY8-Dw-05K"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pu-Yg-QPh">
+                                        <rect key="frame" x="20" y="60" width="30" height="30"/>
+                                        <connections>
+                                            <action selector="didTapCloseButton:" destination="SGc-pW-HTJ" eventType="touchUpInside" id="231-xZ-DHD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8Pu-Yg-QPh" firstAttribute="leading" secondItem="6gr-wb-hSQ" secondAttribute="leading" constant="20" id="287-Cm-mDy"/>
+                                    <constraint firstItem="niR-Ll-Irm" firstAttribute="trailing" secondItem="6gr-wb-hSQ" secondAttribute="centerX" constant="-30" id="CK0-Rm-9cZ"/>
+                                    <constraint firstItem="8Pu-Yg-QPh" firstAttribute="centerY" secondItem="AXU-JX-IW2" secondAttribute="bottom" id="Ftm-dn-nji"/>
+                                    <constraint firstItem="AXU-JX-IW2" firstAttribute="centerX" secondItem="6gr-wb-hSQ" secondAttribute="centerX" id="ek2-La-EpK"/>
+                                    <constraint firstAttribute="height" constant="110" id="i43-RO-Pzo"/>
+                                    <constraint firstItem="Qhl-ic-crW" firstAttribute="centerX" secondItem="6gr-wb-hSQ" secondAttribute="centerX" id="ipT-24-M9p"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qhl-ic-crW" secondAttribute="bottom" constant="10" id="lSX-FH-7wr"/>
+                                    <constraint firstItem="AXU-JX-IW2" firstAttribute="bottom" secondItem="Qhl-ic-crW" secondAttribute="top" id="lW8-V7-c70"/>
+                                    <constraint firstAttribute="bottom" secondItem="niR-Ll-Irm" secondAttribute="bottom" constant="10" id="mJd-5F-MSE"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="niR-Ll-Irm"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BNR34xxxxxx" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tVx-3s-Xc3">
+                                <rect key="frame" x="185" y="118" width="170" height="34"/>
+                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chassis Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tS4-Lr-CZf">
+                                <rect key="frame" x="20" y="125.5" width="145" height="19"/>
+                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ept-3L-31q">
+                                <rect key="frame" x="291" y="162" width="64" height="31"/>
+                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="15"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bnr34side" translatesAutoresizingMaskIntoConstraints="NO" id="87e-Co-HD5">
+                                <rect key="frame" x="0.0" y="226" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="7gn-cg-aHA"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nqW-NF-oMg">
+                                <rect key="frame" x="0.0" y="354" width="375" height="313"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="H7M-gA-aiI" id="wxa-hj-iEN"/>
+                                    <outlet property="delegate" destination="H7M-gA-aiI" id="0N8-Lj-Syh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ynR-eg-FS0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="87e-Co-HD5" firstAttribute="centerX" secondItem="ynR-eg-FS0" secondAttribute="centerX" id="3RJ-7L-lfZ"/>
+                            <constraint firstItem="ynR-eg-FS0" firstAttribute="trailing" secondItem="tVx-3s-Xc3" secondAttribute="trailing" constant="20" id="5fW-bt-7qi"/>
+                            <constraint firstItem="6gr-wb-hSQ" firstAttribute="centerX" secondItem="ynR-eg-FS0" secondAttribute="centerX" id="6oK-Ux-u8W"/>
+                            <constraint firstItem="tVx-3s-Xc3" firstAttribute="top" secondItem="6gr-wb-hSQ" secondAttribute="bottom" constant="8" symbolic="YES" id="B9H-w8-nbc"/>
+                            <constraint firstItem="nqW-NF-oMg" firstAttribute="width" secondItem="87e-Co-HD5" secondAttribute="width" id="Bgq-gk-PDo"/>
+                            <constraint firstItem="87e-Co-HD5" firstAttribute="top" secondItem="Ept-3L-31q" secondAttribute="bottom" constant="33" id="CQF-nP-bnl"/>
+                            <constraint firstItem="6gr-wb-hSQ" firstAttribute="width" secondItem="TQT-pB-pYR" secondAttribute="width" id="Gyq-KQ-Ih8"/>
+                            <constraint firstItem="tVx-3s-Xc3" firstAttribute="leading" secondItem="tS4-Lr-CZf" secondAttribute="trailing" constant="20" id="Ka5-dR-qjn"/>
+                            <constraint firstItem="6gr-wb-hSQ" firstAttribute="top" secondItem="TQT-pB-pYR" secondAttribute="top" id="S31-ea-XMs"/>
+                            <constraint firstItem="Ept-3L-31q" firstAttribute="trailing" secondItem="tVx-3s-Xc3" secondAttribute="trailing" id="b8s-bY-SMk"/>
+                            <constraint firstItem="Ept-3L-31q" firstAttribute="top" secondItem="tVx-3s-Xc3" secondAttribute="bottom" constant="10" id="bVT-Jg-WeF"/>
+                            <constraint firstItem="nqW-NF-oMg" firstAttribute="top" secondItem="87e-Co-HD5" secondAttribute="bottom" id="cGi-BQ-QpF"/>
+                            <constraint firstItem="tS4-Lr-CZf" firstAttribute="leading" secondItem="TQT-pB-pYR" secondAttribute="leading" constant="20" id="hzO-X1-sGB"/>
+                            <constraint firstItem="tS4-Lr-CZf" firstAttribute="centerY" secondItem="tVx-3s-Xc3" secondAttribute="centerY" id="j1c-dq-4KL"/>
+                            <constraint firstItem="87e-Co-HD5" firstAttribute="width" secondItem="TQT-pB-pYR" secondAttribute="width" id="mzZ-hd-DXq"/>
+                            <constraint firstItem="ynR-eg-FS0" firstAttribute="bottom" secondItem="nqW-NF-oMg" secondAttribute="bottom" id="qH3-a4-1w4"/>
+                            <constraint firstItem="nqW-NF-oMg" firstAttribute="centerX" secondItem="87e-Co-HD5" secondAttribute="centerX" id="weG-TP-mBT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="puu-Gt-UfS"/>
+                    <connections>
+                        <outlet property="tableView" destination="nqW-NF-oMg" id="fK5-zl-fTz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uku-ec-vFD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1885.5999999999999" y="831.63418290854577"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="rOZ-a1-hen">
@@ -411,8 +530,8 @@
                                     <constraint firstAttribute="height" constant="110" id="JHc-QY-ey7"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fu-vg-Cx5">
-                                <rect key="frame" x="20" y="130" width="124.5" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Disclaimer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fu-vg-Cx5">
+                                <rect key="frame" x="20" y="130" width="182" height="24"/>
                                 <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -561,7 +680,7 @@ This app utilises Google Analytics</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQL-7k-QuF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1887" y="80"/>
+            <point key="canvasLocation" x="1885.5999999999999" y="79.610194902548727"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3LI-1E-uH9">
@@ -592,6 +711,9 @@ This app utilises Google Analytics</string>
         <image name="logo" width="100" height="75"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

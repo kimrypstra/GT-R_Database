@@ -10,6 +10,10 @@
 		2146102A254F0D3B00E6453C /* R34.csv in Resources */ = {isa = PBXBuildFile; fileRef = 21461029254F0D3B00E6453C /* R34.csv */; };
 		2146102D254F0D5B00E6453C /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2146102C254F0D5B00E6453C /* CSVParser.swift */; };
 		21461030254F0D8500E6453C /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2146102F254F0D8500E6453C /* DataStructures.swift */; };
+		217F36EE255692A900113937 /* VINSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36ED255692A900113937 /* VINSearchController.swift */; };
+		217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F02556A58900113937 /* UIView + Anchor.swift */; };
+		217F36F42556A5AB00113937 /* SmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F32556A5AB00113937 /* SmallCell.swift */; };
+		217F36F82556A6FF00113937 /* String + CamelToHuman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F72556A6FF00113937 /* String + CamelToHuman.swift */; };
 		21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */; };
 		21AFA2CE254D3DC600661DE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */; };
 		21AFA2D0254D3DC600661DE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CF254D3DC600661DE0 /* ViewController.swift */; };
@@ -20,13 +24,17 @@
 		21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */; };
 		21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
-		21DE9186255451B300B9B4F2 /* GTRRegistry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 21DE9185255451B300B9B4F2 /* GTRRegistry.sqlite */; };
+		21DE918B25564EE000B9B4F2 /* GTRRegistry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 21DE918A25564EE000B9B4F2 /* GTRRegistry.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		21461029254F0D3B00E6453C /* R34.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34.csv; sourceTree = "<group>"; };
 		2146102C254F0D5B00E6453C /* CSVParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
 		2146102F254F0D8500E6453C /* DataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
+		217F36ED255692A900113937 /* VINSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINSearchController.swift; sourceTree = "<group>"; };
+		217F36F02556A58900113937 /* UIView + Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Anchor.swift"; sourceTree = "<group>"; };
+		217F36F32556A5AB00113937 /* SmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCell.swift; sourceTree = "<group>"; };
+		217F36F72556A6FF00113937 /* String + CamelToHuman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + CamelToHuman.swift"; sourceTree = "<group>"; };
 		21AFA2C8254D3DC600661DE0 /* GT-R Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GT-R Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +47,7 @@
 		21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoController.swift; sourceTree = "<group>"; };
 		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		21DE9185255451B300B9B4F2 /* GTRRegistry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GTRRegistry.sqlite; sourceTree = "<group>"; };
+		21DE918A25564EE000B9B4F2 /* GTRRegistry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GTRRegistry.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +64,7 @@
 		21461028254F0C4200E6453C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				21DE9185255451B300B9B4F2 /* GTRRegistry.sqlite */,
+				21DE918A25564EE000B9B4F2 /* GTRRegistry.sqlite */,
 				21461029254F0D3B00E6453C /* R34.csv */,
 			);
 			path = Data;
@@ -82,13 +90,17 @@
 			isa = PBXGroup;
 			children = (
 				21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */,
-				21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */,
-				21AFA2CF254D3DC600661DE0 /* ViewController.swift */,
+				2146102F254F0D8500E6453C /* DataStructures.swift */,
 				2146102C254F0D5B00E6453C /* CSVParser.swift */,
 				21DE917C25543C7600B9B4F2 /* DBManager.swift */,
-				2146102F254F0D8500E6453C /* DataStructures.swift */,
+				21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */,
+				21AFA2CF254D3DC600661DE0 /* ViewController.swift */,
 				21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */,
 				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
+				217F36ED255692A900113937 /* VINSearchController.swift */,
+				217F36F72556A6FF00113937 /* String + CamelToHuman.swift */,
+				217F36F32556A5AB00113937 /* SmallCell.swift */,
+				217F36F02556A58900113937 /* UIView + Anchor.swift */,
 				21461028254F0C4200E6453C /* Data */,
 				21AFA2D1254D3DC600661DE0 /* Main.storyboard */,
 				21AFA2D4254D3DC700661DE0 /* Assets.xcassets */,
@@ -164,8 +176,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21DE9186255451B300B9B4F2 /* GTRRegistry.sqlite in Resources */,
 				2146102A254F0D3B00E6453C /* R34.csv in Resources */,
+				21DE918B25564EE000B9B4F2 /* GTRRegistry.sqlite in Resources */,
 				21AFA2D8254D3DC700661DE0 /* LaunchScreen.storyboard in Resources */,
 				21AFA2E3254D457B00661DE0 /* NissanOpti.otf in Resources */,
 				21AFA2D5254D3DC700661DE0 /* Assets.xcassets in Resources */,
@@ -182,10 +194,14 @@
 			files = (
 				21461030254F0D8500E6453C /* DataStructures.swift in Sources */,
 				21AFA2D0254D3DC600661DE0 /* ViewController.swift in Sources */,
+				217F36F82556A6FF00113937 /* String + CamelToHuman.swift in Sources */,
 				21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */,
+				217F36EE255692A900113937 /* VINSearchController.swift in Sources */,
+				217F36F42556A5AB00113937 /* SmallCell.swift in Sources */,
 				21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */,
 				21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */,
 				21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */,
+				217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */,
 				21AFA2CE254D3DC600661DE0 /* SceneDelegate.swift in Sources */,
 				2146102D254F0D5B00E6453C /* CSVParser.swift in Sources */,
 			);

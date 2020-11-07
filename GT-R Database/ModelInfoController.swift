@@ -72,7 +72,7 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 3 {
-            let topBannerBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width - 30, height: 30))
+            let topBannerBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 50))
             let gradient = CAGradientLayer()
             gradient.frame = topBannerBackgroundView.bounds
             gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
@@ -86,6 +86,7 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
             label.center = topBannerBackgroundView.center
 //            label.center.y = topBannerBackgroundView.center.y
 //            label.center.x = (label.frame.width / 2)
+            topBannerBackgroundView.layer.zPosition = -100
             return topBannerBackgroundView
         } else {
             let label = UILabel()
@@ -122,6 +123,24 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.row {
+        case 0:
+            self.performSegue(withIdentifier: "VINSearch", sender: self)
+        default:
+            print("Unimplemented")
+            return
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "VINSearch":
+            let IVC = segue.destination as! VINSearchController
+        default:
+            print("Unimplemented")
+            return
+        }
     }
 
 }
