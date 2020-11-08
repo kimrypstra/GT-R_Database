@@ -13,9 +13,11 @@ class DBManager {
     var db: OpaquePointer?
     let nameOfDB = "GTRRegistry"
     
-    
-    
     func readVINDataFromDB(tableName: String, attributesToRetrieve: [String], attributeToSearch: String, valueToSearch: String, fuzzy: Bool) -> [R34] {
+        
+        if db == nil {
+            openDB()
+        }
         
         var attributesSubstring = ""
         var fuzzySubstring = "IS"

@@ -36,22 +36,17 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         "Nismo Cars"
     ]
     
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Set up top banner
         let gradient = CAGradientLayer()
         gradient.frame = topBannerView.bounds
         gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
         topBannerView.layer.insertSublayer(gradient, at: 0)
-        // Do any additional setup after loading the view.
-        
-        //tableView.contentInset.left = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,12 +58,6 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     @IBAction func didTapCloseButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    // MARK:- Table View Stuff
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return tempSectionNames[section]
-//    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 3 {
@@ -84,8 +73,6 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
             label.text = tempSectionNames[section]
             topBannerBackgroundView.addSubview(label)
             label.center = topBannerBackgroundView.center
-//            label.center.y = topBannerBackgroundView.center.y
-//            label.center.x = (label.frame.width / 2)
             topBannerBackgroundView.layer.zPosition = -100
             return topBannerBackgroundView
         } else {
@@ -95,10 +82,7 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
             label.text = tempSectionNames[section]
             return label
         }
-        
     }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
@@ -115,15 +99,11 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
         cell.textLabel?.text = tempTableViewData[tempSectionNames[indexPath.section]]![indexPath.row]
-        //cell.selectedBackgroundView?.backgroundColor = .white
         return cell
     }
     
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         switch indexPath.row {
         case 0:
             self.performSegue(withIdentifier: "VINSearch", sender: self)
@@ -142,5 +122,4 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
             return
         }
     }
-
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		214473FC25583F71004DDEE0 /* ModelNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214473FB25583F71004DDEE0 /* ModelNumberCell.swift */; };
+		214473FF255844DB004DDEE0 /* ModelCodeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214473FE255844DB004DDEE0 /* ModelCodeMap.swift */; };
 		2146102A254F0D3B00E6453C /* R34.csv in Resources */ = {isa = PBXBuildFile; fileRef = 21461029254F0D3B00E6453C /* R34.csv */; };
 		2146102D254F0D5B00E6453C /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2146102C254F0D5B00E6453C /* CSVParser.swift */; };
 		21461030254F0D8500E6453C /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2146102F254F0D8500E6453C /* DataStructures.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		214473FB25583F71004DDEE0 /* ModelNumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNumberCell.swift; sourceTree = "<group>"; };
+		214473FE255844DB004DDEE0 /* ModelCodeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCodeMap.swift; sourceTree = "<group>"; };
 		21461029254F0D3B00E6453C /* R34.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34.csv; sourceTree = "<group>"; };
 		2146102C254F0D5B00E6453C /* CSVParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
 		2146102F254F0D8500E6453C /* DataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
@@ -98,8 +102,10 @@
 				21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */,
 				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
 				217F36ED255692A900113937 /* VINSearchController.swift */,
+				214473FE255844DB004DDEE0 /* ModelCodeMap.swift */,
 				217F36F72556A6FF00113937 /* String + CamelToHuman.swift */,
 				217F36F32556A5AB00113937 /* SmallCell.swift */,
+				214473FB25583F71004DDEE0 /* ModelNumberCell.swift */,
 				217F36F02556A58900113937 /* UIView + Anchor.swift */,
 				21461028254F0C4200E6453C /* Data */,
 				21AFA2D1254D3DC600661DE0 /* Main.storyboard */,
@@ -193,9 +199,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				21461030254F0D8500E6453C /* DataStructures.swift in Sources */,
+				214473FF255844DB004DDEE0 /* ModelCodeMap.swift in Sources */,
 				21AFA2D0254D3DC600661DE0 /* ViewController.swift in Sources */,
 				217F36F82556A6FF00113937 /* String + CamelToHuman.swift in Sources */,
 				21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */,
+				214473FC25583F71004DDEE0 /* ModelNumberCell.swift in Sources */,
 				217F36EE255692A900113937 /* VINSearchController.swift in Sources */,
 				217F36F42556A5AB00113937 /* SmallCell.swift in Sources */,
 				21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */,

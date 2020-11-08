@@ -31,6 +31,10 @@ class R34: NSObject {
     @objc dynamic var Model13: String = "_"
     @objc dynamic var Model14: String = "_"
     @objc dynamic var Model15: String = "_"
+    @objc dynamic var numberInSeries: String = "_"
+    @objc dynamic var numberInColour: String = "_"
+    @objc dynamic var VINRanges: String = "_"
+    @objc dynamic var prodNumbers: String = "_"
     
     @objc dynamic var modelCode: String {
         return "\(Model1)\(Model2)\(Model3)\(Model4)\(Model5)\(Model6)\(Model7)\(Model8)\(Model9)\(Model10)\(Model11)\(Model12)\(Model13)\(Model14)\(Model15)"

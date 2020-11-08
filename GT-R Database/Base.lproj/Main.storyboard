@@ -449,6 +449,9 @@
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchButton:" destination="H7M-gA-aiI" eventType="touchUpInside" id="v7d-nw-Otw"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bnr34side" translatesAutoresizingMaskIntoConstraints="NO" id="87e-Co-HD5">
                                 <rect key="frame" x="0.0" y="226" width="375" height="128"/>
@@ -456,9 +459,9 @@
                                     <constraint firstAttribute="height" constant="128" id="7gn-cg-aHA"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nqW-NF-oMg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nqW-NF-oMg">
                                 <rect key="frame" x="0.0" y="354" width="375" height="313"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <connections>
                                     <outlet property="dataSource" destination="H7M-gA-aiI" id="wxa-hj-iEN"/>
                                     <outlet property="delegate" destination="H7M-gA-aiI" id="0N8-Lj-Syh"/>
@@ -489,6 +492,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="puu-Gt-UfS"/>
                     <connections>
+                        <outlet property="searchField" destination="tVx-3s-Xc3" id="CgG-iW-eA7"/>
                         <outlet property="tableView" destination="nqW-NF-oMg" id="fK5-zl-fTz"/>
                     </connections>
                 </viewController>

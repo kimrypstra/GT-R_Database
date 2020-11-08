@@ -15,7 +15,7 @@ class SmallCell: UITableViewCell {
     
     var label : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "NissanOpti", size: 14)
+        label.font = UIFont(name: "NissanOpti", size: 12)
         label.textAlignment = .left
         label.text = "test"
         label.textColor = .black
@@ -24,7 +24,7 @@ class SmallCell: UITableViewCell {
     
     var value : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "NissanOpti", size: 14)
+        label.font = UIFont(name: "NissanOpti", size: 12)
         label.textAlignment = .right
         label.text = "test"
         label.textColor = .black
