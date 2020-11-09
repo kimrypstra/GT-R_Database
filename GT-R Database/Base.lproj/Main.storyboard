@@ -411,6 +411,7 @@
                                         <rect key="frame" x="20" y="60" width="30" height="30"/>
                                         <connections>
                                             <action selector="didTapCloseButton:" destination="SGc-pW-HTJ" eventType="touchUpInside" id="231-xZ-DHD"/>
+                                            <action selector="exitButton:" destination="H7M-gA-aiI" eventType="touchUpInside" id="1qq-ib-brn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -432,20 +433,20 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BNR34xxxxxx" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tVx-3s-Xc3">
-                                <rect key="frame" x="185" y="118" width="170" height="34"/>
-                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="15"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BNR34xxxxxx" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tVx-3s-Xc3">
+                                <rect key="frame" x="169.5" y="118" width="185.5" height="34"/>
+                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chassis Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tS4-Lr-CZf">
-                                <rect key="frame" x="20" y="125.5" width="145" height="19"/>
-                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chassis Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tS4-Lr-CZf">
+                                <rect key="frame" x="20" y="127" width="129.5" height="16.5"/>
+                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ept-3L-31q">
-                                <rect key="frame" x="291" y="162" width="64" height="31"/>
-                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="15"/>
+                                <rect key="frame" x="299" y="162" width="56" height="29"/>
+                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="13"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -453,14 +454,14 @@
                                     <action selector="searchButton:" destination="H7M-gA-aiI" eventType="touchUpInside" id="v7d-nw-Otw"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bnr34side" translatesAutoresizingMaskIntoConstraints="NO" id="87e-Co-HD5">
-                                <rect key="frame" x="0.0" y="226" width="375" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="87e-Co-HD5">
+                                <rect key="frame" x="0.0" y="191" width="375" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="7gn-cg-aHA"/>
+                                    <constraint firstAttribute="height" id="7gn-cg-aHA"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nqW-NF-oMg">
-                                <rect key="frame" x="0.0" y="354" width="375" height="313"/>
+                                <rect key="frame" x="0.0" y="191" width="375" height="476"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <connections>
                                     <outlet property="dataSource" destination="H7M-gA-aiI" id="wxa-hj-iEN"/>
@@ -476,7 +477,7 @@
                             <constraint firstItem="6gr-wb-hSQ" firstAttribute="centerX" secondItem="ynR-eg-FS0" secondAttribute="centerX" id="6oK-Ux-u8W"/>
                             <constraint firstItem="tVx-3s-Xc3" firstAttribute="top" secondItem="6gr-wb-hSQ" secondAttribute="bottom" constant="8" symbolic="YES" id="B9H-w8-nbc"/>
                             <constraint firstItem="nqW-NF-oMg" firstAttribute="width" secondItem="87e-Co-HD5" secondAttribute="width" id="Bgq-gk-PDo"/>
-                            <constraint firstItem="87e-Co-HD5" firstAttribute="top" secondItem="Ept-3L-31q" secondAttribute="bottom" constant="33" id="CQF-nP-bnl"/>
+                            <constraint firstItem="87e-Co-HD5" firstAttribute="top" secondItem="Ept-3L-31q" secondAttribute="bottom" id="CQF-nP-bnl"/>
                             <constraint firstItem="6gr-wb-hSQ" firstAttribute="width" secondItem="TQT-pB-pYR" secondAttribute="width" id="Gyq-KQ-Ih8"/>
                             <constraint firstItem="tVx-3s-Xc3" firstAttribute="leading" secondItem="tS4-Lr-CZf" secondAttribute="trailing" constant="20" id="Ka5-dR-qjn"/>
                             <constraint firstItem="6gr-wb-hSQ" firstAttribute="top" secondItem="TQT-pB-pYR" secondAttribute="top" id="S31-ea-XMs"/>
@@ -492,8 +493,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="puu-Gt-UfS"/>
                     <connections>
+                        <outlet property="imageView" destination="87e-Co-HD5" id="5en-iz-zdS"/>
+                        <outlet property="imageViewHeight" destination="7gn-cg-aHA" id="H9O-eG-1rl"/>
                         <outlet property="searchField" destination="tVx-3s-Xc3" id="CgG-iW-eA7"/>
                         <outlet property="tableView" destination="nqW-NF-oMg" id="fK5-zl-fTz"/>
+                        <outlet property="topBannerView" destination="6gr-wb-hSQ" id="5Oh-xM-jzM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uku-ec-vFD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

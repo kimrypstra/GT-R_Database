@@ -59,7 +59,7 @@ class DBManager {
         
         while(sqlite3_step(readstmt) == SQLITE_ROW){
             // TODO: Do the full database, and implement the additional columns. And add tolerance for nil values
-            var car = R34()
+            let car = R34()
             
             var varIndex: [String] = []
             let mirror = Mirror(reflecting: car)
@@ -107,20 +107,7 @@ class DBManager {
             for (index, value) in parameterValues.enumerated() {
                 sqlite3_bind_text(insertStatement, Int32(index + 1), NSString(string: value).utf8String, -1, nil)
             }
-            
-//            let id: Int32 = 999
-//            let vin: NSString = "300"
-//            let grade: NSString = "leGrade"
-//            let series: NSString = "series peepee"
-//            // 2
-//            sqlite3_bind_int(insertStatement, 1, id)
-//            // 3
-//            sqlite3_bind_text(insertStatement, 2, vin.utf8String, -1, nil)
-//            // 4
-//            sqlite3_bind_text(insertStatement, 3, grade.utf8String, -1, nil)
-//
-//            sqlite3_bind_text(insertStatement, 4, series.utf8String, -1, nil)
-//
+
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 //print("\nSuccessfully inserted row.")
             } else {

@@ -7,12 +7,15 @@
 
 import UIKit
 
-class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     @IBOutlet weak var tableView: UITableView!
-
     @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var topBannerView: UIView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     
-    var searchResult: [R34] = []
+    var searchResult: R34?
+    var searchPrefix = "BNR34-"
     
     var map: [String : String] = [
         "VIN" : "VIN",
@@ -22,8 +25,8 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         "Plant" : "Plant",
         "Seat" : "Seat",
         "Production Date" : "ProductionDate",
-        "numberInSeries" : "numberInSeries",
-        "numberInColour" : "numberInColour",
+        "Number in Grade" : "numberInGrade",
+        "Number in Colour" : "numberInColour",
         "VIN Ranges" : "VINRanges",
         "Production Numbers" : "prodNumbers",
         "1" : "Model1",
@@ -62,8 +65,8 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     ]
     
     @objc dynamic var keysSection1: [String] = [
-        "numberInSeries",
-        "numberInColour",
+        "Number in Grade",
+        "Number in Colour",
         "Plant"
     ]
     
@@ -95,9 +98,15 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchField.delegate = self
+        searchField.text = searchPrefix //This needs to adapt to the series
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let gradient = CAGradientLayer()
+        gradient.frame = topBannerView.bounds
+        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
+        topBannerView.layer.insertSublayer(gradient, at: 0)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ModelNumberCell.self, forCellReuseIdentifier: "modelNumberCell")
@@ -105,9 +114,51 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.reloadData()
     }
     
+    @IBAction func exitButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func searchButton(_ sender: Any) {
+        searchField.resignFirstResponder()
         doASearch()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let imageRatio = imageView.image!.size.height / imageView.image!.size.width
+
+        imageViewHeight.constant = (self.view.frame.width * imageRatio) - (scrollView.contentOffset.y)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if searchField.text == searchPrefix && string == "" {
+            return false
+        }
+        
+        let allowedChars = ["0","1","2","3","4","5","6","7","8","9"]
+        var flag = true
+        for char in string {
+            if allowedChars.contains(String(char)) == false {
+                flag = false
+                print("Nope")
+            }
+        }
+        
+        return flag
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        // examine the string
+        // make sure the first characters are "BNR34-"
+        
+        let prefix = "BNR34-"
+        let commonPrefix = textField.text?.commonPrefix(with: prefix)
+        if commonPrefix == prefix {
+            print("IS OK")
+        } else {
+            print("IS NO OK")
+            textField.text = "\(prefix)\(textField.text!)"
+        }
     }
     
     func doASearch() {
@@ -115,14 +166,44 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         
         guard searchField.text != nil else {return}
         
-        searchResult = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false)
+        searchResult = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false).first
         
+        guard searchResult != nil else {
+            return
+        }
+        
+        let colourPath = searchResult!.ColourPath
+        let filename = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").first
+        let filetype = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").last
+        
+        if let path = Bundle.main.path(forResource: filename, ofType: filetype) {
+            imageView.image = UIImage(contentsOfFile: path)
+        } else {
+            print("Path not found")
+        }
+        
+        let imageRatio = imageView.image!.size.height / imageView.image!.size.width
+        
+        UIView.animate(withDuration: 0.2) {
+            
+            self.imageViewHeight.constant = self.view.frame.width * imageRatio
+            self.view.layoutIfNeeded()
+        }
+        
+        searchResult!.getNumbers()
         tableView.reloadData()
+        //tableView.reloadSections([0], with: .top)
+//        self.tableView.performBatchUpdates({
+//                self.tableView.insertRows(at: [IndexPath(row: self.keysSection0.count - 1,
+//                                                         section: 0)],
+//                                          with: .automatic)
+//            }, completion: nil)
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard searchResult.count > 0 else {
-            print("SearchResult is empty")
+        guard searchResult != nil else {
+            print("SearchResult is nil")
             return 0
         }
         
@@ -139,7 +220,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard searchResult.count > 0 else {
+        guard searchResult != nil else {
             print("SearchResult is empty")
             return 0
         }
@@ -150,17 +231,17 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "modelNumberCell") as! ModelNumberCell
             cell.label.text = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
-            let codeValue = searchResult.first!.value(forKey: "Model\(indexPath.row + 1)") as! String
+            let codeValue = searchResult!.value(forKey: "Model\(indexPath.row + 1)") as! String
             cell.code.text = codeValue
             let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
-            cell.value.text = "\(searchResult.first!.value(forKey: map[keys[indexPath.row]]!)!)"
+            cell.value.text = "\(searchResult!.value(forKey: map[keys[indexPath.row]]!)!)"
             
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "smallCell") as! SmallCell
             cell.label.text = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
             let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
-            cell.value.text = "\(searchResult.first!.value(forKey: map[keys[indexPath.row]]!)!)"
+            cell.value.text = "\(searchResult!.value(forKey: map[keys[indexPath.row]]!)!)"
             
             return cell
         }

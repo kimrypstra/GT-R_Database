@@ -13,6 +13,7 @@ class R34: NSObject {
     @objc dynamic var Grade: String = "_"
     @objc dynamic var Series: String = "_"
     @objc dynamic var Colour: String = "_"
+    @objc dynamic var ColourPath: String = "_"
     @objc dynamic var ProductionDate: String = "_"
     @objc dynamic var Plant: String = "_"
     @objc dynamic var Seat: String = "_"
@@ -31,10 +32,44 @@ class R34: NSObject {
     @objc dynamic var Model13: String = "_"
     @objc dynamic var Model14: String = "_"
     @objc dynamic var Model15: String = "_"
-    @objc dynamic var numberInSeries: String = "_"
-    @objc dynamic var numberInColour: String = "_"
     @objc dynamic var VINRanges: String = "_"
     @objc dynamic var prodNumbers: String = "_"
+    @objc dynamic var numberInColour: String = "_"
+    @objc dynamic var numberInGrade: String = "_"
+    
+    private func getGradeNumber() {
+        let dbMan = DBManager()
+        var result = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "Grade", valueToSearch: Grade, fuzzy: false)
+        let count = result.count
+        //print(result)
+        //result.sort(by: {$0.VIN < $1.VIN})
+        let reference = result.filter({$0.VIN == self.VIN})
+        let index = result.firstIndex(of: reference.first!)! + 1
+        
+        numberInGrade = "\(index) of \(count)"
+    }
+    
+     private func getColourNumber() {
+        let dbMan = DBManager()
+        var result = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "Colour", valueToSearch: Colour, fuzzy: false)
+        result = result.filter({$0.Grade == Grade})
+        let count = result.count
+        //print(result)
+        //result.sort(by: {$0.VIN < $1.VIN})
+        let reference = result.filter({$0.VIN == self.VIN})
+        let index = result.firstIndex(of: reference.first!)! + 1
+        
+        numberInColour = "\(index) of \(count)"
+    }
+    
+    func getNumbers() {
+        getColourNumber()
+        getGradeNumber()
+    }
+    
+    override class func value(forUndefinedKey key: String) -> Any? {
+        return nil 
+    }
     
     @objc dynamic var modelCode: String {
         return "\(Model1)\(Model2)\(Model3)\(Model4)\(Model5)\(Model6)\(Model7)\(Model8)\(Model9)\(Model10)\(Model11)\(Model12)\(Model13)\(Model14)\(Model15)"

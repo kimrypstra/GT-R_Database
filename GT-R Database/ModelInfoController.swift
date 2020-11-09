@@ -104,13 +104,19 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
-            self.performSegue(withIdentifier: "VINSearch", sender: self)
+            switch indexPath.row {
+            case 0:
+                self.performSegue(withIdentifier: "VINSearch", sender: self)
+            default:
+                print("Unimplemented")
+                return
+            }
         default:
-            print("Unimplemented")
             return
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
