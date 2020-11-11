@@ -13,7 +13,7 @@ class DBManager {
     var db: OpaquePointer?
     let nameOfDB = "GTRRegistry"
     
-    func readVINDataFromDB(tableName: String, attributesToRetrieve: [String], attributeToSearch: String, valueToSearch: String, fuzzy: Bool) -> [R34] {
+    func readVINDataFromDB(tableName: String, attributesToRetrieve: [String], attributeToSearch: String, valueToSearch: String, fuzzy: Bool) -> [Car] {
         
         if db == nil {
             openDB()
@@ -55,26 +55,51 @@ class DBManager {
         //ID, VIN, Grade, Series, Colour, ProductionDate, Plant, Seat, ModelNumber
         //traversing through all the records
         
-        var returnArray: [R34] = []
+        var returnArray: [Car] = []
         
         while(sqlite3_step(readstmt) == SQLITE_ROW){
             // TODO: Do the full database, and implement the additional columns. And add tolerance for nil values
-            let car = R34()
+            var car = Car()
+            
+            // get string value for model code
+            let modelCode = String(cString: sqlite3_column_text(readstmt, 5))
             
             var varIndex: [String] = []
             let mirror = Mirror(reflecting: car)
             for child in mirror.children {
                 varIndex.append(child.label!)
             }
-            
+            //print(varIndex)
             let columnCount: Int32 = Int32(varIndex.count - 1)
             
             for column in 0...columnCount {
+                if modelCode == "R32" && column == 8 {
+                    continue
+                }
+                
+                if modelCode == "R33" && column == 9 {
+                    continue
+                }
+                
+                let colName = String(cString: sqlite3_column_name(readstmt, column))
+                
                 if sqlite3_column_type(readstmt, column) != SQLITE_NULL {
                     let value = String(cString: sqlite3_column_text(readstmt, column))
                     car.setValue(value, forKey: varIndex[Int(column)])
                 }
             }
+            
+            if modelCode == "R32" {
+                let value = String(cString: sqlite3_column_text(readstmt, 8))
+                car.interiorCode = value
+            }
+            
+            if modelCode == "R33" {
+                let value = String(cString: sqlite3_column_text(readstmt, 9))
+                car.interiorCode = value
+            }
+            
+            
             
             returnArray.append(car)
             //print("ID: \(id), VIN: \(vin), GRADE: \(grade), SERIES: \(series), COLOUR: \(colour), PRODDATE: \(prodDate), PLANT: \(plant), SEAT: \(seat), MODELNUM: \(modelNumber)")

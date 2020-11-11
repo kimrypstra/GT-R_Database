@@ -7,39 +7,74 @@
 
 import Foundation
 
-class R34: NSObject {
-    @objc dynamic var ID: String = "_"
-    @objc dynamic var VIN: String = "_"
-    @objc dynamic var Grade: String = "_"
-    @objc dynamic var Series: String = "_"
-    @objc dynamic var Colour: String = "_"
-    @objc dynamic var ColourPath: String = "_"
-    @objc dynamic var ProductionDate: String = "_"
-    @objc dynamic var Plant: String = "_"
-    @objc dynamic var Seat: String = "_"
-    @objc dynamic var Model1: String = "_"
-    @objc dynamic var Model2: String = "_"
-    @objc dynamic var Model3: String = "_"
-    @objc dynamic var Model4: String = "_"
-    @objc dynamic var Model5: String = "_"
-    @objc dynamic var Model6: String = "_"
-    @objc dynamic var Model7: String = "_"
-    @objc dynamic var Model8: String = "_"
-    @objc dynamic var Model9: String = "_"
-    @objc dynamic var Model10: String = "_"
-    @objc dynamic var Model11: String = "_"
-    @objc dynamic var Model12: String = "_"
-    @objc dynamic var Model13: String = "_"
-    @objc dynamic var Model14: String = "_"
-    @objc dynamic var Model15: String = "_"
-    @objc dynamic var VINRanges: String = "_"
-    @objc dynamic var prodNumbers: String = "_"
-    @objc dynamic var numberInColour: String = "_"
-    @objc dynamic var numberInGrade: String = "_"
+class Car: NSObject {
     
-    private func getGradeNumber() {
+    // It's critical that this is in the same order as the SQL Columns
+    
+    @objc dynamic var ID: String = "Unknown"
+    @objc dynamic var VIN: String = "Unknown"
+    @objc dynamic var Grade: String = "Unknown"
+    @objc dynamic var Series: String = "Unknown"
+    @objc dynamic var Colour: String = "Unknown"
+    @objc dynamic var ColourPath: String = "Unknown" 
+    @objc dynamic var ProductionDate: String = "Unknown"
+    @objc dynamic var Plant: String = "Unknown"
+    @objc dynamic var Seat: String = "Unknown"
+    
+    @objc dynamic var Model1: String = "Unknown"
+    @objc dynamic var DescriptionModel1D: String = "Unknown"
+
+    @objc dynamic var Model2: String = "Unknown"
+    @objc dynamic var DescriptionModel2D: String = "Unknown"
+
+    @objc dynamic var Model3: String = "Unknown"
+    @objc dynamic var DescriptionModel3D: String = "Unknown"
+
+    @objc dynamic var Model4: String = "Unknown"
+    @objc dynamic var DescriptionModel4D: String = "Unknown"
+
+    @objc dynamic var Model5: String = "Unknown"
+    @objc dynamic var DescriptionModel5D: String = "Unknown"
+
+    @objc dynamic var Model6: String = "Unknown"
+    @objc dynamic var DescriptionModel6D: String = "Unknown"
+
+    @objc dynamic var Model7: String = "Unknown"
+    @objc dynamic var DescriptionModel7D: String = "Unknown"
+
+    @objc dynamic var Model8: String = "Unknown"
+    @objc dynamic var DescriptionModel8D: String = "Unknown"
+
+    @objc dynamic var Model9: String = "Unknown"
+    @objc dynamic var DescriptionModel9D: String = "Unknown"
+
+    @objc dynamic var Model10: String = "Unknown"
+    @objc dynamic var DescriptionModel10D: String = "Unknown"
+
+    @objc dynamic var Model11: String = "Unknown"
+    @objc dynamic var DescriptionModel11D: String = "Unknown"
+
+    @objc dynamic var Model12: String = "Unknown"
+    @objc dynamic var DescriptionModel12D: String = "Unknown"
+
+    @objc dynamic var Model13: String = "Unknown"
+    @objc dynamic var DescriptionModel13D: String = "Unknown"
+
+    @objc dynamic var Model14: String = "Unknown"
+    @objc dynamic var DescriptionModel14D: String = "Unknown"
+
+    @objc dynamic var Model15: String = "Unknown"
+    @objc dynamic var DescriptionModel15D: String = "Unknown"
+    
+    @objc dynamic var VINRanges: String = "Unknown"
+    @objc dynamic var prodNumbers: String = "Unknown"
+    @objc dynamic var numberInColour: String = "Unknown"
+    @objc dynamic var numberInGrade: String = "Unknown"
+    @objc dynamic var interiorCode: String = "Unknown"
+    
+    private func getGradeNumber(gen: String) {
         let dbMan = DBManager()
-        var result = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "Grade", valueToSearch: Grade, fuzzy: false)
+        var result = dbMan.readVINDataFromDB(tableName: gen, attributesToRetrieve: [], attributeToSearch: "Grade", valueToSearch: Grade, fuzzy: false)
         let count = result.count
         //print(result)
         //result.sort(by: {$0.VIN < $1.VIN})
@@ -49,9 +84,9 @@ class R34: NSObject {
         numberInGrade = "\(index) of \(count)"
     }
     
-     private func getColourNumber() {
+    private func getColourNumber(gen: String) {
         let dbMan = DBManager()
-        var result = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "Colour", valueToSearch: Colour, fuzzy: false)
+        var result = dbMan.readVINDataFromDB(tableName: gen, attributesToRetrieve: [], attributeToSearch: "Colour", valueToSearch: Colour, fuzzy: false)
         result = result.filter({$0.Grade == Grade})
         let count = result.count
         //print(result)
@@ -62,9 +97,9 @@ class R34: NSObject {
         numberInColour = "\(index) of \(count)"
     }
     
-    func getNumbers() {
-        getColourNumber()
-        getGradeNumber()
+    func getNumbers(generation: String) {
+        getColourNumber(gen: generation)
+        getGradeNumber(gen: generation)
     }
     
     override class func value(forUndefinedKey key: String) -> Any? {
@@ -72,7 +107,16 @@ class R34: NSObject {
     }
     
     @objc dynamic var modelCode: String {
-        return "\(Model1)\(Model2)\(Model3)\(Model4)\(Model5)\(Model6)\(Model7)\(Model8)\(Model9)\(Model10)\(Model11)\(Model12)\(Model13)\(Model14)\(Model15)"
+        var string = ""
+        
+        for index in 1...15 {
+            let val = value(forKey: "Model\(index)") as! String
+            if val != "Unknown" {
+                string.append(val)
+            }
+        }
+        
+        return string
     }
     
     override var description: String {
@@ -83,27 +127,9 @@ class R34: NSObject {
         }
         return returnString
     }
-
+    
 }
 
-//struct modelNumberStartColumn {
-//    static let r34: Int32 = 8
-//}
-//
-//struct modelNumberOffset {
-//    static let bodyType: Int32 = 0
-//    static let engine: Int32 = 1
-//    static let drive: Int32 = 2
-//    static let driverSide: Int32 = 3
-//    static let grade: Int32 = 4
-//    static let gearbox: Int32 = 5
-//    static let generation: Int32 = 6
-//    static let aspiration: Int32 = 7
-//    static let coldWeather: Int32 = 8
-//    static let seatCapacity: Int32 = 9
-//    static let superFineHardCoat: Int32 = 10
-//    static let glass: Int32 = 11
-//    static let trim: Int32 = 12
-//    static let stereo: Int32 = 13
-//    static let safety: Int32 = 14
-//}
+
+
+

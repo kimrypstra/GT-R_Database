@@ -14,8 +14,22 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     
-    var searchResult: R34?
-    var searchPrefix = "BNR34-"
+    var searchResult: Car?
+    var series: String?
+    var searchPrefix: String {
+        switch series! {
+        case "R34":
+            return "BNR34-"
+        case "R33":
+            return "BCNR33-"
+        case "R32":
+            return "BNR32-"
+        default:
+            print("Error - invalid model code: \(series)")
+            return ""
+        }
+    }
+    
     
     var map: [String : String] = [
         "VIN" : "VIN",
@@ -70,23 +84,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         "Plant"
     ]
     
-    @objc dynamic var keysSection2: [String] = [
-        "1",
-        "2-3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8-10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "17",
-        "18"
-    ]
+    @objc dynamic var keysSection2: [String] = []
     
     @objc dynamic var keysSection3: [String] = [
         "VIN Ranges"
@@ -99,10 +97,30 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         searchField.delegate = self
-        searchField.text = searchPrefix //This needs to adapt to the series
+         //This needs to adapt to the series
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        searchField.text = searchPrefix
+        
+        // Set up model keys
+        var max = 0
+        switch series {
+        case "R32":
+            max = 12
+        case "R33":
+            max = 15
+        case "R34":
+            max = 15
+        default:
+            max = 1
+        }
+        
+        for int in 1...max {
+            keysSection2.append("\(int)")
+        }
+        
+        
         let gradient = CAGradientLayer()
         gradient.frame = topBannerView.bounds
         gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
@@ -124,6 +142,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard imageView.image != nil else {return}
         let imageRatio = imageView.image!.size.height / imageView.image!.size.width
 
         imageViewHeight.constant = (self.view.frame.width * imageRatio) - (scrollView.contentOffset.y)
@@ -151,13 +170,13 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         // examine the string
         // make sure the first characters are "BNR34-"
         
-        let prefix = "BNR34-"
-        let commonPrefix = textField.text?.commonPrefix(with: prefix)
-        if commonPrefix == prefix {
+        
+        let commonPrefix = textField.text?.commonPrefix(with: searchPrefix)
+        if commonPrefix == searchPrefix {
             print("IS OK")
         } else {
             print("IS NO OK")
-            textField.text = "\(prefix)\(textField.text!)"
+            textField.text = "\(searchPrefix)\(textField.text!)"
         }
     }
     
@@ -166,31 +185,32 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         
         guard searchField.text != nil else {return}
         
-        searchResult = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false).first
+        searchResult = dbMan.readVINDataFromDB(tableName: series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false).first
         
         guard searchResult != nil else {
             return
         }
-        
+        print(searchResult)
         let colourPath = searchResult!.ColourPath
         let filename = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").first
         let filetype = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").last
         
         if let path = Bundle.main.path(forResource: filename, ofType: filetype) {
             imageView.image = UIImage(contentsOfFile: path)
-        } else {
-            print("Path not found")
-        }
-        
-        let imageRatio = imageView.image!.size.height / imageView.image!.size.width
-        
-        UIView.animate(withDuration: 0.2) {
+            let imageRatio = imageView.image!.size.height / imageView.image!.size.width
             
-            self.imageViewHeight.constant = self.view.frame.width * imageRatio
-            self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.2) {
+                
+                self.imageViewHeight.constant = self.view.frame.width * imageRatio
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            print("Image path not found")
         }
         
-        searchResult!.getNumbers()
+        
+        
+        searchResult!.getNumbers(generation: series!)
         tableView.reloadData()
         //tableView.reloadSections([0], with: .top)
 //        self.tableView.performBatchUpdates({
@@ -231,11 +251,13 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "modelNumberCell") as! ModelNumberCell
             cell.label.text = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
+            
             let codeValue = searchResult!.value(forKey: "Model\(indexPath.row + 1)") as! String
             cell.code.text = codeValue
-            let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
-            cell.value.text = "\(searchResult!.value(forKey: map[keys[indexPath.row]]!)!)"
             
+            let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
+            cell.descriptionLabel.text = "\(searchResult!.value(forKey: "DescriptionModel\(indexPath.row + 1)D")!)".replacingOccurrences(of: "\"", with: "")
+
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "smallCell") as! SmallCell
@@ -260,6 +282,10 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     /*

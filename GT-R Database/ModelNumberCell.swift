@@ -31,7 +31,7 @@ class ModelNumberCell: UITableViewCell {
         return label
     }()
     
-    var value: UILabel = {
+    var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "NissanOpti", size: 10)
         label.textAlignment = .right
@@ -45,11 +45,11 @@ class ModelNumberCell: UITableViewCell {
         
         addSubview(label)
         addSubview(code)
-        addSubview(value)
+        addSubview(descriptionLabel)
         
         label.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 50, height: 0, enableInsets: false)
         code.anchor(top: topAnchor, left: label.rightAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 0, width: 50, height: 0, enableInsets: false)
-        value.anchor(top: topAnchor, left: code.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: 0, enableInsets: false)
+        descriptionLabel.anchor(top: topAnchor, left: code.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: 0, enableInsets: false)
         
     }
     

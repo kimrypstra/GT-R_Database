@@ -14,12 +14,12 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     @IBOutlet weak var topBannerView: UIView!
     @IBOutlet weak var modelNameLabel: UILabel!
     @IBOutlet weak var modelCodeLabel: UILabel!
-    var modelCode: String?
+    var series: String?
     
     let tempModelDict = [
-        "BNR32" : "R32 GT-R",
-        "BCNR33" : "R33 GT-R",
-        "BNR34" : "R34 GT-R"
+        "R32" : "R32 GT-R",
+        "R33" : "R33 GT-R",
+        "R34" : "R34 GT-R"
     ]
     
     let tempTableViewData: [String : [String]] = [
@@ -50,9 +50,9 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        modelCodeLabel.text = modelCode
-        modelNameLabel.text = tempModelDict[modelCode!]
-        imageView.image = UIImage(named: "\(modelCode!.lowercased())side")
+        modelCodeLabel.text = series
+        modelNameLabel.text = tempModelDict[series!]
+        imageView.image = UIImage(named: "\(series!.lowercased())side")
     }
     
     @IBAction func didTapCloseButton(_ sender: Any) {
@@ -123,6 +123,8 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         switch segue.identifier {
         case "VINSearch":
             let IVC = segue.destination as! VINSearchController
+            IVC.series = series
+            
         default:
             print("Unimplemented")
             return

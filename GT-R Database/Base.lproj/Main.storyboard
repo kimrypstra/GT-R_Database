@@ -53,7 +53,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVA-DO-QqW">
                                                 <rect key="frame" x="0.0" y="0.0" width="177.5" height="133.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bnr32side" translatesAutoresizingMaskIntoConstraints="NO" id="UPU-gV-x6b">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="r32side" translatesAutoresizingMaskIntoConstraints="NO" id="UPU-gV-x6b">
                                                         <rect key="frame" x="10" y="0.0" width="157.5" height="133.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -100,7 +100,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzS-F2-NZU">
                                                 <rect key="frame" x="0.0" y="0.0" width="177.5" height="133"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bcnr33side" translatesAutoresizingMaskIntoConstraints="NO" id="Ige-WX-odu">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="r33side" translatesAutoresizingMaskIntoConstraints="NO" id="Ige-WX-odu">
                                                         <rect key="frame" x="10" y="0.0" width="157.5" height="133"/>
                                                     </imageView>
                                                 </subviews>
@@ -147,7 +147,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q0X-wN-5g7">
                                                 <rect key="frame" x="0.0" y="0.0" width="177.5" height="133.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bnr34side" translatesAutoresizingMaskIntoConstraints="NO" id="wPI-I4-Pla">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="r34side" translatesAutoresizingMaskIntoConstraints="NO" id="wPI-I4-Pla">
                                                         <rect key="frame" x="5" y="0.0" width="167.5" height="133.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -711,12 +711,12 @@ This app utilises Google Analytics</string>
         </scene>
     </scenes>
     <resources>
-        <image name="bcnr33side" width="360" height="165"/>
-        <image name="bnr32side" width="360" height="160"/>
-        <image name="bnr34side" width="332" height="166"/>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="facebook" width="240" height="240"/>
         <image name="logo" width="100" height="75"/>
+        <image name="r32side" width="360" height="160"/>
+        <image name="r33side" width="360" height="165"/>
+        <image name="r34side" width="332" height="166"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

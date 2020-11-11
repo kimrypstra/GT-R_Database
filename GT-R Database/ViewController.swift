@@ -61,18 +61,18 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let dbMan = DBManager()
         if dbMan.openDB() {
-            let results = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: "BNR34-000055", fuzzy: true)
-            //print(result.first)
-            if results.count > 1 {
-                print("Multiple results:")
-                for result in results {
-                    print(result)
-                }
-            } else if results.count == 1 {
-                print(results.first!)
-            } else {
-                print("No result - here's where we segue to the no result page")
-            }
+//            let results = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: "BNR34-000055", fuzzy: true)
+//            //print(result.first)
+//            if results.count > 1 {
+//                print("Multiple results:")
+//                for result in results {
+//                    print(result)
+//                }
+//            } else if results.count == 1 {
+//                print(results.first!)
+//            } else {
+//                print("No result - here's where we segue to the no result page")
+//            }
         } else {
             print("DB not opened")
         }
@@ -140,24 +140,24 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func didTapR32() {
-        selectedModel = "BNR32"
+        selectedModel = "R32"
         self.performSegue(withIdentifier: "modelInfo", sender: self)
     }
     
     @objc func didTapR33() {
-        selectedModel = "BCNR33"
+        selectedModel = "R33"
         self.performSegue(withIdentifier: "modelInfo", sender: self)
 
     }
     
     @objc func didTapR34() {
-        selectedModel = "BNR34"
+        selectedModel = "R34"
         self.performSegue(withIdentifier: "modelInfo", sender: self)
 
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if selectedModel == "BNR32" || selectedModel == "BCNR33" || selectedModel == "BNR34" {
+        if selectedModel == "R32" || selectedModel == "R33" || selectedModel == "R34" {
             return true
         } else if identifier == "about" {
             return true
@@ -170,7 +170,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         switch segue.identifier {
         case "modelInfo":
             let IVC = segue.destination as! ModelInfoController
-            IVC.modelCode = selectedModel
+            IVC.series = selectedModel
         default:
             print("Unknown segue identifier")
         }
