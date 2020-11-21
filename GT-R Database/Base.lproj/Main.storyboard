@@ -413,7 +413,7 @@
                                             <constraint firstAttribute="width" constant="30" id="HSg-2c-xs4"/>
                                             <constraint firstAttribute="width" secondItem="8Pu-Yg-QPh" secondAttribute="height" multiplier="1:1" id="qiQ-wi-lyO"/>
                                         </constraints>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="didTapCloseButton:" destination="SGc-pW-HTJ" eventType="touchUpInside" id="231-xZ-DHD"/>
                                             <action selector="exitButton:" destination="H7M-gA-aiI" eventType="touchUpInside" id="1qq-ib-brn"/>
@@ -739,9 +739,6 @@ This app utilises Google Analytics</string>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

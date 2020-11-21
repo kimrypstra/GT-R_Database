@@ -61,20 +61,33 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 3 {
-            let topBannerBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 50))
+            
+            let topBannerBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 75))
+            topBannerBackgroundView.frame.size.width = topBannerBackgroundView.frame.width - (tableView.separatorInset.left * 2)
+            topBannerBackgroundView.layer.cornerRadius = 10
+            topBannerBackgroundView.clipsToBounds = true
+            
+            let view = UIView(frame: topBannerBackgroundView.frame)
+            view.addSubview(topBannerBackgroundView)
+            view.clipsToBounds = false
+            
             let gradient = CAGradientLayer()
             gradient.frame = topBannerBackgroundView.bounds
             gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
             topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
+            
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
             label.font = UIFont(name: "NissanOpti", size: 15)
             label.textColor = .white
             label.textAlignment = .center
             label.text = tempSectionNames[section]
-            topBannerBackgroundView.addSubview(label)
-            label.center = topBannerBackgroundView.center
-            topBannerBackgroundView.layer.zPosition = -100
-            return topBannerBackgroundView
+            view.addSubview(label)
+            label.center = view.center
+            label.center.y -= 10
+            
+            view.layer.zPosition = -100
+            
+            return view
         } else {
             let label = UILabel()
             label.font = UIFont(name: "NissanOpti", size: 15)
@@ -85,7 +98,12 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        switch section {
+        case 3:
+            return 50
+        default:
+            return 30
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
