@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		212F2796255C1A2B00B840DD /* GTRRegistry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 212F2795255C1A2B00B840DD /* GTRRegistry.sqlite */; };
 		214473FC25583F71004DDEE0 /* ModelNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214473FB25583F71004DDEE0 /* ModelNumberCell.swift */; };
 		214473FF255844DB004DDEE0 /* ModelCodeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214473FE255844DB004DDEE0 /* ModelCodeMap.swift */; };
 		2144741D25594BE9004DDEE0 /* 1-lx0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144740925594BE6004DDEE0 /* 1-lx0.jpg */; };
@@ -58,6 +57,10 @@
 		21846099255C182600E68F45 /* kh2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21846090255C182500E68F45 /* kh2.jpg */; };
 		2184609A255C182600E68F45 /* ah3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21846091255C182500E68F45 /* ah3.jpg */; };
 		2184609B255C182600E68F45 /* th1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21846092255C182600E68F45 /* th1.jpg */; };
+		218C7F2B25628EAA009A7063 /* R32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C7F2A25628EAA009A7063 /* R32.swift */; };
+		218C7F2E25628EB6009A7063 /* R33.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C7F2D25628EB6009A7063 /* R33.swift */; };
+		218C7F3125628EC5009A7063 /* R34.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C7F3025628EC5009A7063 /* R34.swift */; };
+		218C7F3A2568C8C6009A7063 /* GTRRegistry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 218C7F392568C8C6009A7063 /* GTRRegistry.sqlite */; };
 		21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */; };
 		21AFA2CE254D3DC600661DE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */; };
 		21AFA2D0254D3DC600661DE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CF254D3DC600661DE0 /* ViewController.swift */; };
@@ -71,7 +74,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		212F2795255C1A2B00B840DD /* GTRRegistry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GTRRegistry.sqlite; sourceTree = "<group>"; };
 		214473FB25583F71004DDEE0 /* ModelNumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNumberCell.swift; sourceTree = "<group>"; };
 		214473FE255844DB004DDEE0 /* ModelCodeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCodeMap.swift; sourceTree = "<group>"; };
 		2144740925594BE6004DDEE0 /* 1-lx0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-lx0.jpg"; sourceTree = "<group>"; };
@@ -122,6 +124,10 @@
 		21846090255C182500E68F45 /* kh2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kh2.jpg; sourceTree = "<group>"; };
 		21846091255C182500E68F45 /* ah3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ah3.jpg; sourceTree = "<group>"; };
 		21846092255C182600E68F45 /* th1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = th1.jpg; sourceTree = "<group>"; };
+		218C7F2A25628EAA009A7063 /* R32.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R32.swift; sourceTree = "<group>"; };
+		218C7F2D25628EB6009A7063 /* R33.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R33.swift; sourceTree = "<group>"; };
+		218C7F3025628EC5009A7063 /* R34.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R34.swift; sourceTree = "<group>"; };
+		218C7F392568C8C6009A7063 /* GTRRegistry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GTRRegistry.sqlite; sourceTree = "<group>"; };
 		21AFA2C8254D3DC600661DE0 /* GT-R Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GT-R Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,7 +229,7 @@
 		21461028254F0C4200E6453C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				212F2795255C1A2B00B840DD /* GTRRegistry.sqlite */,
+				218C7F392568C8C6009A7063 /* GTRRegistry.sqlite */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -249,6 +255,9 @@
 			children = (
 				21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */,
 				2146102F254F0D8500E6453C /* DataStructures.swift */,
+				218C7F2A25628EAA009A7063 /* R32.swift */,
+				218C7F2D25628EB6009A7063 /* R33.swift */,
+				218C7F3025628EC5009A7063 /* R34.swift */,
 				2146102C254F0D5B00E6453C /* CSVParser.swift */,
 				21DE917C25543C7600B9B4F2 /* DBManager.swift */,
 				21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */,
@@ -342,6 +351,7 @@
 				2144742425594BE9004DDEE0 /* 1-ar2.jpg in Resources */,
 				2144742925594BE9004DDEE0 /* 2-tv2.jpg in Resources */,
 				2144742725594BE9004DDEE0 /* 1-gv1.jpg in Resources */,
+				218C7F3A2568C8C6009A7063 /* GTRRegistry.sqlite in Resources */,
 				21846088255C180500E68F45 /* ar1.jpg in Resources */,
 				2144742825594BE9004DDEE0 /* 2-kv2.jpg in Resources */,
 				2144742325594BE9004DDEE0 /* 1-qm1.jpg in Resources */,
@@ -358,7 +368,6 @@
 				2144742D25594BE9004DDEE0 /* 2-qm1-n1.jpg in Resources */,
 				21846085255C180500E68F45 /* kl1.jpg in Resources */,
 				21846080255C180500E68F45 /* bt2.jpg in Resources */,
-				212F2796255C1A2B00B840DD /* GTRRegistry.sqlite in Resources */,
 				2144742C25594BE9004DDEE0 /* 1-tv2.jpg in Resources */,
 				2144743025594BE9004DDEE0 /* 2-ey0.jpg in Resources */,
 				21AFA2D8254D3DC700661DE0 /* LaunchScreen.storyboard in Resources */,
@@ -394,9 +403,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				218C7F2B25628EAA009A7063 /* R32.swift in Sources */,
 				21461030254F0D8500E6453C /* DataStructures.swift in Sources */,
 				214473FF255844DB004DDEE0 /* ModelCodeMap.swift in Sources */,
 				21AFA2D0254D3DC600661DE0 /* ViewController.swift in Sources */,
+				218C7F3125628EC5009A7063 /* R34.swift in Sources */,
 				217F36F82556A6FF00113937 /* String + CamelToHuman.swift in Sources */,
 				21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */,
 				214473FC25583F71004DDEE0 /* ModelNumberCell.swift in Sources */,
@@ -405,6 +416,7 @@
 				21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */,
 				21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */,
 				21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */,
+				218C7F2E25628EB6009A7063 /* R33.swift in Sources */,
 				217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */,
 				21AFA2CE254D3DC600661DE0 /* SceneDelegate.swift in Sources */,
 				2146102D254F0D5B00E6453C /* CSVParser.swift in Sources */,

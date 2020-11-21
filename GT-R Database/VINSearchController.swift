@@ -13,6 +13,8 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var topBannerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     var searchResult: Car?
     var series: String?
@@ -30,13 +32,12 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    
     var map: [String : String] = [
         "VIN" : "VIN",
         "Grade" : "Grade",
         "Colour" : "Colour",
-        "Model Number" : "modelCode",
-        "Plant" : "Plant",
+        "Model Code" : "modelCode",
+        "Manufactured at" : "Plant",
         "Seat" : "Seat",
         "Production Date" : "ProductionDate",
         "Number in Grade" : "numberInGrade",
@@ -57,15 +58,15 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         "15" : "Model12",
         "16" : "Model13",
         "17" : "Model14",
-        "18" : "Model15"
+        "18" : "Model15",
+        "Interior Code" : "interiorCode",
+        "Extended Model Code" : "extendedModelCode"
     ]
     
     let sectionNames = [
         "Result",
-        "Production",
+        "Your Production Number",
         "Model Code",
-        "VIN Ranges",
-        "Production Numbers",
         "More Information"
     ]
     
@@ -75,24 +76,26 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         "Grade",
         "Colour",
         "Production Date",
-        "Model Number"
+        "Model Code",
+        "Interior Code",
+        "Seat"
     ]
     
     @objc dynamic var keysSection1: [String] = [
         "Number in Grade",
         "Number in Colour",
-        "Plant"
+        "Manufactured at"
     ]
     
     @objc dynamic var keysSection2: [String] = []
     
     @objc dynamic var keysSection3: [String] = [
-        "VIN Ranges"
-    ]
-    
-    @objc dynamic var keysSection4: [String] = [
+        "VIN Ranges",
         "Production Numbers"
     ]
+    
+    var labelText: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,22 +104,32 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func viewWillAppear(_ animated: Bool) {
+
         searchField.text = searchPrefix
         
-        // Set up model keys
-        var max = 0
+        // Set up model numbers and row labels for specific cases
+        var highestModelNumberIndex = 0
         switch series {
         case "R32":
-            max = 12
+            highestModelNumberIndex = 12
+            labelText = "BNR32 GT-R VIN Search"
+            keysSection0.insert("Extended Model Code", at: keysSection0.firstIndex(of: "Interior Code")!)
+            keysSection0.remove(at: keysSection0.firstIndex(of: "Seat")!)
         case "R33":
-            max = 15
+            highestModelNumberIndex = 15
+            labelText = "BCNR33 GT-R VIN Search"
         case "R34":
-            max = 15
+            highestModelNumberIndex = 15
+            labelText = "BNR34 GT-R VIN Search"
+            imageView.contentMode = .scaleAspectFill
+            keysSection0.remove(at: keysSection0.firstIndex(of: "Interior Code")!)
         default:
-            max = 1
+            highestModelNumberIndex = 1
         }
         
-        for int in 1...max {
+        titleLabel.text = labelText
+        
+        for int in 1...highestModelNumberIndex {
             keysSection2.append("\(int)")
         }
         
@@ -143,7 +156,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard imageView.image != nil else {return}
-        let imageRatio = imageView.image!.size.height / imageView.image!.size.width
+        let imageRatio: CGFloat = 200 / 480
 
         imageViewHeight.constant = (self.view.frame.width * imageRatio) - (scrollView.contentOffset.y)
     }
@@ -185,7 +198,23 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         
         guard searchField.text != nil else {return}
         
-        searchResult = dbMan.readVINDataFromDB(tableName: series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false).first
+        switch series! {
+        case "R32":
+            let searchResult = dbMan.readVINDataFromDB(tableName: series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false)
+            if !searchResult.isEmpty {
+                self.searchResult = searchResult.first as! R32
+            } else {
+                
+            }
+        case "R33":
+            searchResult = dbMan.readVINDataFromDB(tableName: series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false).first as! R33
+        case "R34":
+            searchResult = dbMan.readVINDataFromDB(tableName: series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false).first as! R34
+        default:
+            searchResult = nil
+        }
+        
+        
         
         guard searchResult != nil else {
             return
@@ -197,7 +226,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if let path = Bundle.main.path(forResource: filename, ofType: filetype) {
             imageView.image = UIImage(contentsOfFile: path)
-            let imageRatio = imageView.image!.size.height / imageView.image!.size.width
+            let imageRatio: CGFloat = 200 / 480
             
             UIView.animate(withDuration: 0.2) {
                 
@@ -248,23 +277,47 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "modelNumberCell") as! ModelNumberCell
-            cell.label.text = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
+        switch indexPath.section {
+        case 2:
+            // MODEL NUMBERS
             
+            let cell = tableView.dequeueReusableCell(withIdentifier: "modelNumberCell") as! ModelNumberCell
+            
+            // Eg: 2
+            cell.label.text = (searchResult!.value(forKey: "modelCodeDigits") as! [String])[indexPath.row]
+            
+            // Eg: B
             let codeValue = searchResult!.value(forKey: "Model\(indexPath.row + 1)") as! String
             cell.code.text = codeValue
             
-            let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
-            cell.descriptionLabel.text = "\(searchResult!.value(forKey: "DescriptionModel\(indexPath.row + 1)D")!)".replacingOccurrences(of: "\"", with: "")
+            // Eg: RB26DETT Type Engine
+            cell.descriptionLabel.text = "\(searchResult!.value(forKey: "Readable\(indexPath.row + 1)")!)".replacingOccurrences(of: "\"", with: "")
 
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "smallCell") as! SmallCell
-            cell.label.text = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
-            let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
-            cell.value.text = "\(searchResult!.value(forKey: map[keys[indexPath.row]]!)!)"
+            // Eg: Engine
+            cell.modelNumberIdentifier.text = searchResult!.modelSubstringIdentifier(for: series!, at: indexPath.row)
             
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
+            cell.accessoryType = .disclosureIndicator
+            cell.textLabel?.text = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
+            cell.textLabel?.font = UIFont(name: "NissanOpti", size: 10)
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "smallCell") as! SmallCell
+            
+            var labelText = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
+            if labelText == "Number in Grade" {
+                labelText = searchResult!.Grade
+            }
+            if labelText == "Number in Colour" {
+                labelText = "\(searchResult!.Grade) and \(searchResult!.Colour)"
+            }
+            cell.label.text = labelText
+            
+            let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
+            let value = searchResult!.value(forKey: map[keys[indexPath.row]]!)! as! String
+            cell.value.text = "\(value)"
             return cell
         }
     }
@@ -276,12 +329,28 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel(frame: CGRect(x: 20, y: 0, width: 300, height: 30))
         label.text = sectionNames[section]
+        if section == 3 {
+            var prefix = searchPrefix
+            label.text = "\(prefix.components(separatedBy: "-").first!) More Information"
+        }
         label.font = UIFont(name: "NissanOpti", size: 15)
         return label
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        switch indexPath.section {
+        case 2:
+//            let aCell = ModelNumberCell()
+//            aCell.descriptionLabel.text = "\(searchResult!.value(forKey: "DescriptionModel\(indexPath.row + 1)D")!)".replacingOccurrences(of: "\"", with: "")
+//            aCell.layoutIfNeeded()
+//            let height = aCell.descriptionLabel.textRect(forBounds: aCell.descriptionLabel.bounds, limitedToNumberOfLines: 3).height
+//
+            //CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+
+            return 80
+        default:
+            return 40
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

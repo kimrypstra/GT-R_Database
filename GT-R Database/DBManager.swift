@@ -28,7 +28,7 @@ class DBManager {
             fuzzyWildcard = "%"
         }
         
-        if attributesToRetrieve.count == 0 {
+        if attributesToRetrieve.isEmpty {
             attributesSubstring = "*"
         } else {
             for (index, attribute) in attributesToRetrieve.enumerated() {
@@ -59,45 +59,62 @@ class DBManager {
         
         while(sqlite3_step(readstmt) == SQLITE_ROW){
             // TODO: Do the full database, and implement the additional columns. And add tolerance for nil values
-            var car = Car()
+            var car: Car!
+            
+            switch tableName {
+            case "R32":
+                car = R32()
+            case "R33":
+                car = R33()
+            case "R34":
+                car = R34()
+            default:
+                print("Invalid car type ")
+                return []
+            }
             
             // get string value for model code
-            let modelCode = String(cString: sqlite3_column_text(readstmt, 5))
+            //let modelCode = String(cString: sqlite3_column_text(readstmt, 5))
             
             var varIndex: [String] = []
-            let mirror = Mirror(reflecting: car)
+            let mirror = Mirror(reflecting: car!)
             for child in mirror.children {
                 varIndex.append(child.label!)
             }
             //print(varIndex)
-            let columnCount: Int32 = Int32(varIndex.count - 1)
-            
-            for column in 0...columnCount {
-                if modelCode == "R32" && column == 8 {
-                    continue
+            //let columnCount: Int32 = Int32(varIndex.count - 1)
+            let dbColCount = sqlite3_column_count(readstmt) - 1
+            for column in 0...dbColCount {
+//                if modelCode == "R32" && column == 8 {
+//                    continue
+//                }
+//
+//                if modelCode == "R33" && column == 9 {
+//                    continue
+//                }
+                
+                let cString: UnsafePointer<Int8> = sqlite3_column_name(readstmt, column)
+                if strlen(cString) > 0 {
+                    let colName = String(cString: cString)
+                    if sqlite3_column_type(readstmt, column) != SQLITE_NULL {
+                        let value = String(cString: sqlite3_column_text(readstmt, column))
+                        car.setValue(value, forKey: colName)
+                    }
                 }
                 
-                if modelCode == "R33" && column == 9 {
-                    continue
-                }
                 
-                let colName = String(cString: sqlite3_column_name(readstmt, column))
                 
-                if sqlite3_column_type(readstmt, column) != SQLITE_NULL {
-                    let value = String(cString: sqlite3_column_text(readstmt, column))
-                    car.setValue(value, forKey: varIndex[Int(column)])
-                }
             }
             
-            if modelCode == "R32" {
-                let value = String(cString: sqlite3_column_text(readstmt, 8))
-                car.interiorCode = value
-            }
-            
-            if modelCode == "R33" {
-                let value = String(cString: sqlite3_column_text(readstmt, 9))
-                car.interiorCode = value
-            }
+//            if modelCode == "R32" {
+//                let value = String(cString: sqlite3_column_text(readstmt, 8))
+//                car.interiorCode = value
+//            }
+//
+//            if modelCode == "R33" {
+//                let value = String(cString: sqlite3_column_text(readstmt, 9))
+//                car.interiorCode = value
+//            }
             
             
             

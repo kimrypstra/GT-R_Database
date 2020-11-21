@@ -279,7 +279,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd6-oE-6uY">
-                                        <rect key="frame" x="20" y="60" width="30" height="30"/>
+                                        <rect key="frame" x="20" y="40" width="30" height="30"/>
                                         <connections>
                                             <action selector="didTapCloseButton:" destination="SGc-pW-HTJ" eventType="touchUpInside" id="yG1-iv-CGf"/>
                                         </connections>
@@ -295,7 +295,7 @@
                                     <constraint firstAttribute="bottom" secondItem="yYY-72-kf9" secondAttribute="bottom" constant="10" id="e38-bE-ySQ"/>
                                     <constraint firstItem="FnC-cL-omo" firstAttribute="trailing" secondItem="aTm-eX-FgN" secondAttribute="centerX" constant="-30" id="g5h-mO-PsK"/>
                                     <constraint firstItem="bd6-oE-6uY" firstAttribute="leading" secondItem="aTm-eX-FgN" secondAttribute="leading" constant="20" id="hxz-8d-Dfl"/>
-                                    <constraint firstItem="bd6-oE-6uY" firstAttribute="centerY" secondItem="q7H-fB-e2S" secondAttribute="bottom" id="nED-9h-bgb"/>
+                                    <constraint firstItem="bd6-oE-6uY" firstAttribute="centerY" secondItem="q7H-fB-e2S" secondAttribute="centerY" id="nED-9h-bgb"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -408,7 +408,12 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pu-Yg-QPh">
-                                        <rect key="frame" x="20" y="60" width="30" height="30"/>
+                                        <rect key="frame" x="20" y="40" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="HSg-2c-xs4"/>
+                                            <constraint firstAttribute="width" secondItem="8Pu-Yg-QPh" secondAttribute="height" multiplier="1:1" id="qiQ-wi-lyO"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
                                         <connections>
                                             <action selector="didTapCloseButton:" destination="SGc-pW-HTJ" eventType="touchUpInside" id="231-xZ-DHD"/>
                                             <action selector="exitButton:" destination="H7M-gA-aiI" eventType="touchUpInside" id="1qq-ib-brn"/>
@@ -419,7 +424,7 @@
                                 <constraints>
                                     <constraint firstItem="8Pu-Yg-QPh" firstAttribute="leading" secondItem="6gr-wb-hSQ" secondAttribute="leading" constant="20" id="287-Cm-mDy"/>
                                     <constraint firstItem="niR-Ll-Irm" firstAttribute="trailing" secondItem="6gr-wb-hSQ" secondAttribute="centerX" constant="-30" id="CK0-Rm-9cZ"/>
-                                    <constraint firstItem="8Pu-Yg-QPh" firstAttribute="centerY" secondItem="AXU-JX-IW2" secondAttribute="bottom" id="Ftm-dn-nji"/>
+                                    <constraint firstItem="8Pu-Yg-QPh" firstAttribute="centerY" secondItem="AXU-JX-IW2" secondAttribute="centerY" id="Ftm-dn-nji"/>
                                     <constraint firstItem="AXU-JX-IW2" firstAttribute="centerX" secondItem="6gr-wb-hSQ" secondAttribute="centerX" id="ek2-La-EpK"/>
                                     <constraint firstAttribute="height" constant="110" id="i43-RO-Pzo"/>
                                     <constraint firstItem="Qhl-ic-crW" firstAttribute="centerX" secondItem="6gr-wb-hSQ" secondAttribute="centerX" id="ipT-24-M9p"/>
@@ -454,7 +459,7 @@
                                     <action selector="searchButton:" destination="H7M-gA-aiI" eventType="touchUpInside" id="v7d-nw-Otw"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="87e-Co-HD5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="87e-Co-HD5">
                                 <rect key="frame" x="0.0" y="191" width="375" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="7gn-cg-aHA"/>
@@ -463,6 +468,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nqW-NF-oMg">
                                 <rect key="frame" x="0.0" y="191" width="375" height="476"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="3Hn-Sy-x8V">
+                                        <rect key="frame" x="16" y="55.5" width="343" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Hn-Sy-x8V" id="55g-Xd-SXV">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="H7M-gA-aiI" id="wxa-hj-iEN"/>
                                     <outlet property="delegate" destination="H7M-gA-aiI" id="0N8-Lj-Syh"/>
@@ -493,10 +508,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="puu-Gt-UfS"/>
                     <connections>
+                        <outlet property="backButton" destination="8Pu-Yg-QPh" id="Wik-Tt-Gnm"/>
                         <outlet property="imageView" destination="87e-Co-HD5" id="5en-iz-zdS"/>
                         <outlet property="imageViewHeight" destination="7gn-cg-aHA" id="H9O-eG-1rl"/>
                         <outlet property="searchField" destination="tVx-3s-Xc3" id="CgG-iW-eA7"/>
                         <outlet property="tableView" destination="nqW-NF-oMg" id="fK5-zl-fTz"/>
+                        <outlet property="titleLabel" destination="Qhl-ic-crW" id="zpk-4s-Vjg"/>
                         <outlet property="topBannerView" destination="6gr-wb-hSQ" id="5Oh-xM-jzM"/>
                     </connections>
                 </viewController>
@@ -722,6 +739,9 @@ This app utilises Google Analytics</string>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

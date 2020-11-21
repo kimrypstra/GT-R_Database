@@ -37,6 +37,17 @@ class ModelNumberCell: UITableViewCell {
         label.textAlignment = .right
         label.text = "test"
         label.textColor = .black
+        label.numberOfLines = 3
+        //label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+    
+    var modelNumberIdentifier: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.italicSystemFont(ofSize: 10)
+        label.textAlignment = .right
+        label.text = "test"
+        label.textColor = .red
         return label
     }()
     
@@ -46,10 +57,12 @@ class ModelNumberCell: UITableViewCell {
         addSubview(label)
         addSubview(code)
         addSubview(descriptionLabel)
+        addSubview(modelNumberIdentifier)
         
-        label.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 50, height: 0, enableInsets: false)
-        code.anchor(top: topAnchor, left: label.rightAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 0, width: 50, height: 0, enableInsets: false)
-        descriptionLabel.anchor(top: topAnchor, left: code.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: 0, enableInsets: false)
+        label.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 35, height: 0, enableInsets: false)
+        code.anchor(top: topAnchor, left: label.rightAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 0, width: 30, height: 0, enableInsets: false)
+        descriptionLabel.anchor(top: topAnchor, left: code.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 20, paddingLeft: 20, paddingBottom: 20, paddingRight: 20, width: 0, height: 0, enableInsets: false)
+        modelNumberIdentifier.anchor(top: topAnchor, left: nil, bottom: descriptionLabel.topAnchor, right: rightAnchor, paddingTop: 5, paddingLeft: 0, paddingBottom: 0, paddingRight: 20, width: 0, height: 10, enableInsets: false)
         
     }
     

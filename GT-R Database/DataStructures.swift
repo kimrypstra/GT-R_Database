@@ -11,6 +11,18 @@ class Car: NSObject {
     
     // It's critical that this is in the same order as the SQL Columns
     
+    
+    
+    /*
+     
+     FUTURE KIM,
+     - Rename columns in DB to match these
+     Love,
+     PAST KIM
+     
+     */
+    
+    
     @objc dynamic var ID: String = "Unknown"
     @objc dynamic var VIN: String = "Unknown"
     @objc dynamic var Grade: String = "Unknown"
@@ -22,55 +34,81 @@ class Car: NSObject {
     @objc dynamic var Seat: String = "Unknown"
     
     @objc dynamic var Model1: String = "Unknown"
-    @objc dynamic var DescriptionModel1D: String = "Unknown"
+    @objc dynamic var Readable1: String = "Unknown"
 
     @objc dynamic var Model2: String = "Unknown"
-    @objc dynamic var DescriptionModel2D: String = "Unknown"
+    @objc dynamic var Readable2: String = "Unknown"
 
     @objc dynamic var Model3: String = "Unknown"
-    @objc dynamic var DescriptionModel3D: String = "Unknown"
+    @objc dynamic var Readable3: String = "Unknown"
 
     @objc dynamic var Model4: String = "Unknown"
-    @objc dynamic var DescriptionModel4D: String = "Unknown"
+    @objc dynamic var Readable4: String = "Unknown"
 
     @objc dynamic var Model5: String = "Unknown"
-    @objc dynamic var DescriptionModel5D: String = "Unknown"
+    @objc dynamic var Readable5: String = "Unknown"
 
     @objc dynamic var Model6: String = "Unknown"
-    @objc dynamic var DescriptionModel6D: String = "Unknown"
+    @objc dynamic var Readable6: String = "Unknown"
 
     @objc dynamic var Model7: String = "Unknown"
-    @objc dynamic var DescriptionModel7D: String = "Unknown"
+    @objc dynamic var Readable7: String = "Unknown"
 
     @objc dynamic var Model8: String = "Unknown"
-    @objc dynamic var DescriptionModel8D: String = "Unknown"
+    @objc dynamic var Readable8: String = "Unknown"
 
     @objc dynamic var Model9: String = "Unknown"
-    @objc dynamic var DescriptionModel9D: String = "Unknown"
+    @objc dynamic var Readable9: String = "Unknown"
 
     @objc dynamic var Model10: String = "Unknown"
-    @objc dynamic var DescriptionModel10D: String = "Unknown"
+    @objc dynamic var Readable10: String = "Unknown"
 
     @objc dynamic var Model11: String = "Unknown"
-    @objc dynamic var DescriptionModel11D: String = "Unknown"
+    @objc dynamic var Readable11: String = "Unknown"
 
     @objc dynamic var Model12: String = "Unknown"
-    @objc dynamic var DescriptionModel12D: String = "Unknown"
+    @objc dynamic var Readable12: String = "Unknown"
 
     @objc dynamic var Model13: String = "Unknown"
-    @objc dynamic var DescriptionModel13D: String = "Unknown"
+    @objc dynamic var Readable13: String = "Unknown"
 
     @objc dynamic var Model14: String = "Unknown"
-    @objc dynamic var DescriptionModel14D: String = "Unknown"
+    @objc dynamic var Readable14: String = "Unknown"
 
     @objc dynamic var Model15: String = "Unknown"
-    @objc dynamic var DescriptionModel15D: String = "Unknown"
+    @objc dynamic var Readable15: String = "Unknown"
     
     @objc dynamic var VINRanges: String = "Unknown"
     @objc dynamic var prodNumbers: String = "Unknown"
     @objc dynamic var numberInColour: String = "Unknown"
     @objc dynamic var numberInGrade: String = "Unknown"
     @objc dynamic var interiorCode: String = "Unknown"
+    @objc dynamic var extendedModelCode: String = "Unknown"
+    
+    func modelSubstringIdentifier(for series: String, at index: Int) -> String {
+        switch series {
+        case "R32":
+            return r32identifiers[index]
+        case "R33":
+            return r33identifiers[index]
+        case "R34":
+            return r34identifiers[index]
+        default:
+            return "Unknown Identifier"
+        }
+    }
+    
+    private let r32identifiers = [
+        "Body", "Engine", "Axle", "Car Model", "Doors", "Base Grade", "Transmission", "Fuel System", "Headlights", "Stereo and AC", "Rear Window", "Wiper/Police"
+    ]
+    
+    private let r33identifiers = [
+        "Body", "Engine", "Axle", "Handle", "Base Grade", "Transmission", "Car Model", "Intake", "Destination", "Seating Capacity", "Paint", "Rear Window", "Spec", "Stereo", "Safety"
+    ]
+    
+    private let r34identifiers = [
+        "Body", "Engine", "Axle", "Handle", "Drive", "Grade", "Transmission", "Car Model", "Fuel System", "UNKNOWN", "Seating Capacity", "UNKNOWN", "Spec", "Stereo", "Unknown"
+    ]
     
     private func getGradeNumber(gen: String) {
         let dbMan = DBManager()
@@ -78,6 +116,7 @@ class Car: NSObject {
         let count = result.count
         //print(result)
         //result.sort(by: {$0.VIN < $1.VIN})
+        
         let reference = result.filter({$0.VIN == self.VIN})
         let index = result.firstIndex(of: reference.first!)! + 1
         

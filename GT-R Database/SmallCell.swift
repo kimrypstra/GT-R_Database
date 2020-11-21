@@ -19,6 +19,7 @@ class SmallCell: UITableViewCell {
         label.textAlignment = .left
         label.text = "test"
         label.textColor = .black
+        label.numberOfLines = 2
         return label
     }()
     
@@ -28,6 +29,7 @@ class SmallCell: UITableViewCell {
         label.textAlignment = .right
         label.text = "test"
         label.textColor = .black
+        label.numberOfLines = 2
         return label
     }()
     
