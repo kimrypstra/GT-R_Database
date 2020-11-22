@@ -136,7 +136,6 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         default:
             return
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -147,6 +146,7 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         case "SpecialModel":
             let IVC = segue.destination as! SpecialModelViewController
             IVC.specialModelName = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel!.text
+            IVC.series = series
         default:
             print("Unimplemented")
             return

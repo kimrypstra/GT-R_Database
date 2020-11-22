@@ -229,7 +229,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             let imageRatio: CGFloat = 200 / 480
             
             UIView.animate(withDuration: 0.2) {
-                
                 self.imageViewHeight.constant = self.view.frame.width * imageRatio
                 self.view.layoutIfNeeded()
             }

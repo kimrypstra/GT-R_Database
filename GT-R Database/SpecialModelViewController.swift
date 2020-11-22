@@ -15,7 +15,8 @@ class SpecialModelViewController: UIViewController {
     @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var textView: UITextView!
     
-    var specialModelName: String!
+    var series: String! // R32,R33,R34
+    var specialModelName: String! // M-Spec Nür (special chars included, this is display text)
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -32,83 +33,76 @@ class SpecialModelViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         titleLabel.text = specialModelName
+        populateImages()
         
-        // Extract the image name
-        if let path = Bundle.main.path(forResource: specialModelName, ofType: "txt") {
-            do {
-                let text = try String(contentsOfFile: path)
-                
+        do {
+            //let text = try String(contentsOfFile: path)
+            if let text = getModelInfoText() {
                 textView.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
                 let firstLine = text.components(separatedBy: "\n").first?.replacingOccurrences(of: "\r", with: "")
-                let imageName = firstLine?.components(separatedBy: "\\").last
-                let imageNamePrefix = imageName?.components(separatedBy: ".").first
-                if let imagePath = Bundle.main.path(forResource: imageNamePrefix, ofType: "jpg") {
-                    let image = UIImage(contentsOfFile: imagePath)
-                    imageView.image = image
-                    
-                    let imageRatio: CGFloat = image!.size.height / image!.size.width
-
-                    self.imageViewHeight.constant = self.view.frame.width * imageRatio
-                    self.view.layoutIfNeeded()
-                    
-                } else {
-                    print("Can't get path for image")
-                }
-                
-                // TODO: Some way for the double tab indented information to line up
-                
-                /*
-                 
-                
-                 
-                let displayText = NSMutableAttributedString(string: text.replacingOccurrences(of: firstLine!, with: ""))
-                let para = NSMutableParagraphStyle()
-                para.alignment = NSTextAlignment.left
-                var tabRanges: [NSRange] = []
-                do {
-                    let regex = try NSRegularExpression(pattern: "\t\t", options: .caseInsensitive)
-                    let results = regex.matches(in: displayText.string, options: .withTransparentBounds, range: NSMakeRange(0, displayText.length))
-                    for result in results {
-                        tabRanges.append(result.range)
-                    }
-                    for range in tabRanges {
-                        var counter = 0
-                        var end = false
-                        while end == false {
-                            let char = displayText.mutableString.substring(with: NSMakeRange(range.location + range.length + counter, 1))
-                            print(char)
-                            if char == "\r" {
-                                end = true
-                            } else {
-                                counter += 1
-                            }
-                        }
-                        displayText.addAttribute(NSAttributedString.Key.paragraphStyle, value: para, range: NSMakeRange(range.location + 1, range.location + counter))
-                    }
-                    
-                } catch let error {
-                    print("Regex Error: \(error)")
-                }
-                
-                print("Discovered \(tabRanges.count) double tabs")
-                */
-                
-                
-                
                 var displayText = text.replacingOccurrences(of: firstLine!, with: "")
                 displayText = displayText.replacingOccurrences(of: "\t\t", with: ": ")
                 displayText = displayText.replacingOccurrences(of: "*", with: "●")
-                    
                 textView.text = displayText
-                
-            } catch let error {
-                print("Error: \(error)")
+            }
+        } catch let error {
+            print("Error: \(error)")
+        }
+        
+    }
+    
+    func populateImages() {
+        if let path = imagePaths["\(series!) \(specialModelName!)"] {
+            var filenames = getContentsOfFolder(path: path)
+            // Then populate image views with images
+            
+            if let coverImage = UIImage(contentsOfFile: "\(path)/cover.jpg") {
+                filenames.removeAll(where: {$0 == "cover.jpg"})
+                imageView.image = coverImage
+                let imageRatio: CGFloat = coverImage.size.height / coverImage.size.width
+                self.imageViewHeight.constant = self.view.frame.width * imageRatio
+            } else {
+                print("Couldn't find cover image for \(path)/cover.jpg")
             }
             
+            let brochureImages = filenames.filter({$0.contains("brochure")})
+            print("Found \(brochureImages.count) brochure images")
+            filenames.removeAll(where: {$0.contains("brochure")})
+            
+            print("Found \(filenames.filter({$0.contains(".jpg")}).count) miscellaneous images")
+            
         } else {
-            print("Text path not found")
+            print("Coudn't get imagePath")
         }
     }
+    
+    func getModelInfoText() -> String? {
+        if let path = imagePaths["\(series!) \(specialModelName!)"] {
+            do {
+                let text = try String(contentsOfFile: "\(path)/\(specialModelName!).txt")
+                return text
+            } catch let error {
+                print("Coudn't get string for \(path): \(error)")
+                return nil
+            }
+        } else {
+            print("Couldn't get path for text file")
+            return nil
+        }
+    }
+    
+    func getContentsOfFolder(path: String) -> [String] {
+        let fm = FileManager()
+        do {
+            let contents = try fm.contentsOfDirectory(atPath: path)
+            return contents
+        } catch let error {
+            print("Error getting folder contents: \(error)")
+            return []
+        }
+    }
+    
+    
     
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
