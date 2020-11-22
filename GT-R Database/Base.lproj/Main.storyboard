@@ -371,11 +371,98 @@
                         <outlet property="tableView" destination="lLB-2V-4kb" id="Hip-Pk-rJv"/>
                         <outlet property="topBannerView" destination="aTm-eX-FgN" id="aVt-T0-C0z"/>
                         <segue destination="H7M-gA-aiI" kind="show" identifier="VINSearch" id="ZyL-lw-3Ti"/>
+                        <segue destination="CbD-sd-90h" kind="show" identifier="SpecialModel" id="RVc-D6-Pov"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8A-si-LMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1078" y="832"/>
+        </scene>
+        <!--Special Model View Controller-->
+        <scene sceneID="xyS-H0-1Zo">
+            <objects>
+                <viewController id="CbD-sd-90h" customClass="SpecialModelViewController" customModule="GT_R_Database" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l17-Kv-776">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNT-FL-f82">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R34 GT-R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5q-ai-2Il">
+                                        <rect key="frame" x="129.5" y="75" width="116" height="25"/>
+                                        <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="5Ln-mc-hZZ">
+                                        <rect key="frame" x="167.5" y="35" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="dQB-OT-aua"/>
+                                            <constraint firstAttribute="height" constant="40" id="vAN-ga-y5V"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhh-c0-IQW">
+                                        <rect key="frame" x="20" y="40" width="30" height="30"/>
+                                        <connections>
+                                            <action selector="backButton:" destination="CbD-sd-90h" eventType="touchUpInside" id="4Am-Jz-cdt"/>
+                                            <action selector="didTapCloseButton:" destination="SGc-pW-HTJ" eventType="touchUpInside" id="naS-lJ-Rf1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="a5q-ai-2Il" secondAttribute="bottom" constant="10" id="FSc-bD-U2s"/>
+                                    <constraint firstAttribute="height" constant="110" id="KaY-PN-2ib"/>
+                                    <constraint firstItem="nhh-c0-IQW" firstAttribute="leading" secondItem="MNT-FL-f82" secondAttribute="leading" constant="20" id="SXq-Dv-4t7"/>
+                                    <constraint firstItem="5Ln-mc-hZZ" firstAttribute="centerX" secondItem="MNT-FL-f82" secondAttribute="centerX" id="SZm-sV-tha"/>
+                                    <constraint firstItem="nhh-c0-IQW" firstAttribute="centerY" secondItem="5Ln-mc-hZZ" secondAttribute="centerY" id="X4e-yy-jRg"/>
+                                    <constraint firstItem="a5q-ai-2Il" firstAttribute="centerX" secondItem="MNT-FL-f82" secondAttribute="centerX" id="YGr-qZ-10M"/>
+                                    <constraint firstItem="5Ln-mc-hZZ" firstAttribute="bottom" secondItem="a5q-ai-2Il" secondAttribute="top" id="adC-yZ-le7"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NyL-rA-CC9">
+                                <rect key="frame" x="0.0" y="110" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="d8N-F8-B9O"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWv-ka-RXT">
+                                <rect key="frame" x="0.0" y="238" width="375" height="429"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nK9-IU-CcM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MNT-FL-f82" firstAttribute="top" secondItem="l17-Kv-776" secondAttribute="top" id="0NL-ax-OJb"/>
+                            <constraint firstItem="NyL-rA-CC9" firstAttribute="top" secondItem="MNT-FL-f82" secondAttribute="bottom" id="3TP-nh-0nl"/>
+                            <constraint firstItem="nK9-IU-CcM" firstAttribute="bottom" secondItem="HWv-ka-RXT" secondAttribute="bottom" id="4Q0-Nf-jDt"/>
+                            <constraint firstItem="HWv-ka-RXT" firstAttribute="width" secondItem="l17-Kv-776" secondAttribute="width" id="G3g-CE-191"/>
+                            <constraint firstItem="MNT-FL-f82" firstAttribute="width" secondItem="l17-Kv-776" secondAttribute="width" id="a1b-W8-AhT"/>
+                            <constraint firstItem="NyL-rA-CC9" firstAttribute="centerX" secondItem="nK9-IU-CcM" secondAttribute="centerX" id="iD1-wu-7rv"/>
+                            <constraint firstItem="HWv-ka-RXT" firstAttribute="top" secondItem="NyL-rA-CC9" secondAttribute="bottom" id="qye-Oe-lSR"/>
+                            <constraint firstItem="NyL-rA-CC9" firstAttribute="width" secondItem="l17-Kv-776" secondAttribute="width" id="sZi-x4-DSq"/>
+                            <constraint firstItem="HWv-ka-RXT" firstAttribute="centerX" secondItem="nK9-IU-CcM" secondAttribute="centerX" id="ucc-hZ-jf1"/>
+                            <constraint firstItem="MNT-FL-f82" firstAttribute="centerX" secondItem="nK9-IU-CcM" secondAttribute="centerX" id="vZD-oM-JQB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fMa-cx-kVJ"/>
+                    <connections>
+                        <outlet property="imageView" destination="NyL-rA-CC9" id="GWe-Ck-Anz"/>
+                        <outlet property="imageViewHeight" destination="d8N-F8-B9O" id="EmM-Ja-qlg"/>
+                        <outlet property="textView" destination="HWv-ka-RXT" id="MZT-hj-Zlc"/>
+                        <outlet property="titleLabel" destination="a5q-ai-2Il" id="sPV-IS-XDH"/>
+                        <outlet property="topBannerView" destination="MNT-FL-f82" id="bgt-Oo-Fip"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hXf-eX-PC0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1886" y="1600"/>
         </scene>
         <!--Search Controller-->
         <scene sceneID="Vfw-jg-4pj">
@@ -734,6 +821,9 @@ This app utilises Google Analytics</string>
         <image name="r32side" width="360" height="160"/>
         <image name="r33side" width="360" height="165"/>
         <image name="r34side" width="332" height="166"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

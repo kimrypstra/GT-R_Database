@@ -121,7 +121,6 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
         case 0:
             switch indexPath.row {
@@ -131,6 +130,9 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
                 print("Unimplemented")
                 return
             }
+        case 1:
+            // Special Models
+            self.performSegue(withIdentifier: "SpecialModel", sender: self)
         default:
             return
         }
@@ -142,10 +144,13 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         case "VINSearch":
             let IVC = segue.destination as! VINSearchController
             IVC.series = series
-            
+        case "SpecialModel":
+            let IVC = segue.destination as! SpecialModelViewController
+            IVC.specialModelName = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel!.text
         default:
             print("Unimplemented")
             return
         }
+        tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
     }
 }

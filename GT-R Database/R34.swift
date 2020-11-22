@@ -8,55 +8,13 @@
 import UIKit
 
 class R34: Car {
-    /*
-    // It's essential that these variables are named according to the database column names
-    @objc dynamic var ID: String = "Unknown"
-    @objc dynamic var VIN: String = "Unknown"
-    @objc dynamic var Grade: String = "Unknown"
-    @objc dynamic var Series: String = "Unknown"
-    @objc dynamic var Colour: String = "Unknown"
-    @objc dynamic var ColourPath: String = "Unknown"
-    @objc dynamic var ProductionDate: String = "Unknown"
-    @objc dynamic var Plant: String = "Unknown"
-    @objc dynamic var interiorCode: String = "Unknown"
-    @objc dynamic var VINRanges: String = "Unknown"
-    @objc dynamic var prodNumbers: String = "Unknown"
-    @objc dynamic var numberInColour: String = "Unknown"
-    @objc dynamic var numberInGrade: String = "Unknown"
-    @objc dynamic var extendedModelCode: String = "Unknown"
     
-    @objc dynamic var Model1: String = "Unknown"
-    @objc dynamic var Readable1: String = "Unknown"
-    @objc dynamic var Model2: String = "Unknown"
-    @objc dynamic var Readable2: String = "Unknown"
-    @objc dynamic var Model3: String = "Unknown"
-    @objc dynamic var Readable3: String = "Unknown"
-    @objc dynamic var Model4: String = "Unknown"
-    @objc dynamic var Readable4: String = "Unknown"
-    @objc dynamic var Model5: String = "Unknown"
-    @objc dynamic var Readable5: String = "Unknown"
-    @objc dynamic var Model6: String = "Unknown"
-    @objc dynamic var Readable6: String = "Unknown"
-    @objc dynamic var Model7: String = "Unknown"
-    @objc dynamic var Readable7: String = "Unknown"
-    @objc dynamic var Model8: String = "Unknown"
-    @objc dynamic var Readable8: String = "Unknown"
-    @objc dynamic var Model9: String = "Unknown"
-    @objc dynamic var Readable9: String = "Unknown"
-    @objc dynamic var Model10: String = "Unknown"
-    @objc dynamic var Readable10: String = "Unknown"
-    @objc dynamic var Model11: String = "Unknown"
-    @objc dynamic var Readable11: String = "Unknown"
-    @objc dynamic var Model12: String = "Unknown"
-    @objc dynamic var Readable12: String = "Unknown"
-    
- */
-    
-    // Text in red to describe what the value actually is
+    // Text in red to describe what the digit represents 
     let modelNumberDescriptions = [
         "Body", "Engine", "Axle", "Car Model", "Doors", "Base Grade", "Transmission", "Fuel System", "Headlights", "Stereo and AC", "Rear Window", "Wiper/Police"
     ]
     
+    // Descriptor for which model code digit it is
     @objc dynamic let modelCodeDigits = [
         "1",
         "2-3",
