@@ -22,6 +22,13 @@ class SpecialModelViewController: UIViewController {
         return .lightContent
     }
     
+    /*
+     - Implement CocoaMarkdown
+     - Add as many textviews as substrings we have and render markdown to them
+     - Search for and split strings on any <<image tags>>
+     - Add images to carousels
+     */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let gradient = CAGradientLayer()
