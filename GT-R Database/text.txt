@@ -1,0 +1,7 @@
+# Heading
+
+## Heading also 
+
+Normal text with an empty line above and image below
+
+![Icon](Icon.png)

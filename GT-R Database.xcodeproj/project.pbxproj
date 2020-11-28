@@ -77,6 +77,9 @@
 		218C7F6C2568F141009A7063 /* nur-7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 218C7F5D2568F141009A7063 /* nur-7.jpg */; };
 		218C81E7256A384B009A7063 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C81E6256A384B009A7063 /* Constants.swift */; };
 		218C81ED256A7E8A009A7063 /* ModelData in Resources */ = {isa = PBXBuildFile; fileRef = 218C81EC256A7E8A009A7063 /* ModelData */; };
+		218C8229256FF38A009A7063 /* CocoaMarkdown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218C8204256FF19F009A7063 /* CocoaMarkdown.framework */; };
+		218C822A256FF38A009A7063 /* CocoaMarkdown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 218C8204256FF19F009A7063 /* CocoaMarkdown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		218C822D256FF41B009A7063 /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 218C822C256FF41A009A7063 /* text.txt */; };
 		21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */; };
 		21AFA2CE254D3DC600661DE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */; };
 		21AFA2D0254D3DC600661DE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CF254D3DC600661DE0 /* ViewController.swift */; };
@@ -88,6 +91,65 @@
 		21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		218C8203256FF19F009A7063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 218C81F8256FF19A009A7063 /* CocoaMarkdown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 729F53DA1A68641400CC7448;
+			remoteInfo = "CocoaMarkdown-iOS";
+		};
+		218C8205256FF19F009A7063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 218C81F8256FF19A009A7063 /* CocoaMarkdown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 729F53E51A68641400CC7448;
+			remoteInfo = "CocoaMarkdownTests-iOS";
+		};
+		218C8207256FF19F009A7063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 218C81F8256FF19A009A7063 /* CocoaMarkdown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 729F53FB1A68649200CC7448;
+			remoteInfo = "CocoaMarkdown-Mac";
+		};
+		218C8209256FF19F009A7063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 218C81F8256FF19A009A7063 /* CocoaMarkdown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 729F54051A68649200CC7448;
+			remoteInfo = "CocoaMarkdownTests-Mac";
+		};
+		218C820B256FF19F009A7063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 218C81F8256FF19A009A7063 /* CocoaMarkdown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 72FE7EC91A68692400F23F46;
+			remoteInfo = "Example-iOS";
+		};
+		218C820D256FF19F009A7063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 218C81F8256FF19A009A7063 /* CocoaMarkdown.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 72FE7EF41A68695100F23F46;
+			remoteInfo = "Example-Mac";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		218C822B256FF38B009A7063 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				218C822A256FF38A009A7063 /* CocoaMarkdown.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		214473FB25583F71004DDEE0 /* ModelNumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNumberCell.swift; sourceTree = "<group>"; };
@@ -160,6 +222,8 @@
 		218C7F5D2568F141009A7063 /* nur-7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "nur-7.jpg"; sourceTree = "<group>"; };
 		218C81E6256A384B009A7063 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		218C81EC256A7E8A009A7063 /* ModelData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ModelData; sourceTree = "<group>"; };
+		218C81F8256FF19A009A7063 /* CocoaMarkdown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaMarkdown.xcodeproj; path = ../../../CocoaMarkdown/CocoaMarkdown/CocoaMarkdown.xcodeproj; sourceTree = "<group>"; };
+		218C822C256FF41A009A7063 /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
 		21AFA2C8254D3DC600661DE0 /* GT-R Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GT-R Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +243,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				218C8229256FF38A009A7063 /* CocoaMarkdown.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,11 +371,33 @@
 			path = "M-Sec Nur";
 			sourceTree = "<group>";
 		};
+		218C81F9256FF19A009A7063 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				218C8204256FF19F009A7063 /* CocoaMarkdown.framework */,
+				218C8206256FF19F009A7063 /* CocoaMarkdownTests-iOS.xctest */,
+				218C8208256FF19F009A7063 /* CocoaMarkdown.framework */,
+				218C820A256FF19F009A7063 /* CocoaMarkdownTests-Mac.xctest */,
+				218C820C256FF19F009A7063 /* Example-iOS.app */,
+				218C820E256FF19F009A7063 /* Example-Mac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		218C8228256FF38A009A7063 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		21AFA2BF254D3DC600661DE0 = {
 			isa = PBXGroup;
 			children = (
+				218C81F8256FF19A009A7063 /* CocoaMarkdown.xcodeproj */,
 				21AFA2CA254D3DC600661DE0 /* GT-R Database */,
 				21AFA2C9254D3DC600661DE0 /* Products */,
+				218C8228256FF38A009A7063 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -343,6 +430,7 @@
 				217F36F02556A58900113937 /* UIView + Anchor.swift */,
 				217F36F72556A6FF00113937 /* String + CamelToHuman.swift */,
 				21AFA2D1254D3DC600661DE0 /* Main.storyboard */,
+				218C822C256FF41A009A7063 /* text.txt */,
 				2144740525594BBC004DDEE0 /* Data */,
 				21461028254F0C4200E6453C /* Database */,
 				21AFA2D4254D3DC700661DE0 /* Assets.xcassets */,
@@ -371,6 +459,7 @@
 				21AFA2C4254D3DC600661DE0 /* Sources */,
 				21AFA2C5254D3DC600661DE0 /* Frameworks */,
 				21AFA2C6254D3DC600661DE0 /* Resources */,
+				218C822B256FF38B009A7063 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -406,12 +495,63 @@
 			mainGroup = 21AFA2BF254D3DC600661DE0;
 			productRefGroup = 21AFA2C9254D3DC600661DE0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 218C81F9256FF19A009A7063 /* Products */;
+					ProjectRef = 218C81F8256FF19A009A7063 /* CocoaMarkdown.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				21AFA2C7254D3DC600661DE0 /* GT-R Database */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		218C8204256FF19F009A7063 /* CocoaMarkdown.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaMarkdown.framework;
+			remoteRef = 218C8203256FF19F009A7063 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		218C8206256FF19F009A7063 /* CocoaMarkdownTests-iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CocoaMarkdownTests-iOS.xctest";
+			remoteRef = 218C8205256FF19F009A7063 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		218C8208256FF19F009A7063 /* CocoaMarkdown.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaMarkdown.framework;
+			remoteRef = 218C8207256FF19F009A7063 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		218C820A256FF19F009A7063 /* CocoaMarkdownTests-Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CocoaMarkdownTests-Mac.xctest";
+			remoteRef = 218C8209256FF19F009A7063 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		218C820C256FF19F009A7063 /* Example-iOS.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Example-iOS.app";
+			remoteRef = 218C820B256FF19F009A7063 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		218C820E256FF19F009A7063 /* Example-Mac.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Example-Mac.app";
+			remoteRef = 218C820D256FF19F009A7063 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		21AFA2C6254D3DC600661DE0 /* Resources */ = {
@@ -445,6 +585,7 @@
 				2144742D25594BE9004DDEE0 /* 2-qm1-n1.jpg in Resources */,
 				21846085255C180500E68F45 /* kl1.jpg in Resources */,
 				21846080255C180500E68F45 /* bt2.jpg in Resources */,
+				218C822D256FF41B009A7063 /* text.txt in Resources */,
 				218C81ED256A7E8A009A7063 /* ModelData in Resources */,
 				2144742C25594BE9004DDEE0 /* 1-tv2.jpg in Resources */,
 				2144743025594BE9004DDEE0 /* 2-ey0.jpg in Resources */,
