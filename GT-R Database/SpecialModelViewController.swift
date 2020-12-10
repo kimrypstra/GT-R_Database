@@ -19,11 +19,20 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewHeight: NSLayoutConstraint!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var brochureScrollView: UIScrollView!
+    @IBOutlet weak var miscScrollView: UIScrollView!
     @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var brochureHeight: NSLayoutConstraint!
+    @IBOutlet weak var miscHeight: NSLayoutConstraint!
+
+    @IBOutlet weak var miscLabel: UILabel!
+    @IBOutlet weak var brochureLabel: UILabel!
+
     var series: String! // R32,R33,R34
     var specialModelName: String! // M-Spec Nür (special chars included, this is display text)
-    var images: [UIImage] = []
+    var brochureImages: [UIImage] = []
+    var miscImages: [UIImage] = []
     let ind = UIPageControl()
     var timer: Timer? = nil
     
@@ -49,8 +58,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         titleLabel.text = specialModelName
-        populateImages()
-        
+
         if let text = getModelInfoText() {
             textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
             let parsed = CMDocument(string: text, options: .hardBreaks)
@@ -60,6 +68,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             attr.addFontAttributes([.family : "NissanOpti", .size : 14], forElementWithKinds: .header2)
             attr.addFontAttributes([.family : "NissanOpti", .size : 12], forElementWithKinds: .header3)
             attr.addFontAttributes([.family : "Futura", .size : 16, .face : "Bold"], forElementWithKinds: .header4)
+            attr.addFontAttributes([.family : "NissanOpti", .size : 14], forElementWithKinds: .header5)
             
             attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .inlineCode)
             attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .text)
@@ -68,21 +77,33 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             
             attr.addParagraphStyleAttributes([.alignment : NSTextAlignment.right.rawValue], forElementWithKinds: .inlineCode)
             attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 0, .headExtraIndent : 20], forElementWithKinds: .unorderedList)
+            attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 20, .headExtraIndent : 20], forElementWithKinds: .header5)
+
             //attr.addFontAttributes([.family : "NissanOpti", .size : 14], forElementWithKinds: .header1)
 
             let renderer = CMAttributedStringRenderer(document: parsed, attributes: attr)
         
             textView.attributedText = renderer!.render()
             
-            textViewHeight.constant = 600
-        }
+            //textViewHeight.constant = 600
+            
+            let bDoc = CMDocument(string: "##### Brochure", options: .hardBreaks)
+            let bRend = CMAttributedStringRenderer(document: bDoc, attributes: attr)
         
+            brochureLabel.attributedText = bRend?.render()
+            
+            let mDoc = CMDocument(string: "##### Miscellaneous Images", options: .hardBreaks)
+            let mRend = CMAttributedStringRenderer(document: mDoc, attributes: attr)
+            
+            miscLabel.attributedText = mRend?.render()
+        }
         
     }
     
     func populateImages() {
         if let path = imagePaths["\(series!) \(specialModelName!)"] {
             var filenames = getContentsOfFolder(path: path)
+            print(miscScrollView.subviews)
             // Then populate image views with images
             
             if let coverImage = UIImage(contentsOfFile: "\(path)/cover.jpg") {
@@ -94,7 +115,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
                 print("Couldn't find cover image for \(path)/cover.jpg")
             }
             
-            let brochureImages = filenames.filter({$0.contains("brochure")})
+            let brochureImageFilenames = filenames.filter({$0.contains("brochure")})
             filenames.removeAll(where: {$0.contains("brochure")})
             
             print("Found \(brochureImages.count) brochure images")
@@ -102,60 +123,110 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             
             // Generate a scroll view in code and fill it with brochure images, then add it to the stack view
             
-            
-            
-            for filename in brochureImages {
+            for filename in brochureImageFilenames {
                 let image = UIImage(contentsOfFile: "\(path)\(filename)")
-                images.append(image!)
+                brochureImages.append(image!)
             }
             
-            print("Added \(images.count) images")
+            print("Added \(brochureImages.count) images")
             
-            var totalWidth: CGFloat = CGFloat(images.count) * self.view.frame.width
+            // Add the brochure scrollView
             
+            let brochureTotalWidth: CGFloat = CGFloat(brochureImages.count) * self.view.frame.width
+            print("total width: \(brochureTotalWidth)")
+
+            //brochureScrollView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.width)
+            //brochureScrollView.backgroundColor = .systemTeal
+            brochureScrollView.isPagingEnabled = true
+            brochureScrollView.bounces = false
+            brochureScrollView.showsVerticalScrollIndicator = false
+            brochureScrollView.showsHorizontalScrollIndicator = false
+            brochureScrollView.delegate = self
             
-            print("total width: \(totalWidth)")
+            print(brochureScrollView.frame.height)
+
+            brochureScrollView.contentSize = CGSize(width: brochureTotalWidth, height: self.view.bounds.width)
+            brochureHeight.constant = brochureScrollView.contentSize.height
             
-            let scrollView = UIScrollView()
-            // Set the scrollView's frame to be the size of the screen
-            scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-            scrollView.backgroundColor = .systemTeal
-            scrollView.isPagingEnabled = true
-            scrollView.bounces = false
-            scrollView.showsVerticalScrollIndicator = false
-            scrollView.showsHorizontalScrollIndicator = false
-            scrollView.delegate = self
-            
-            
-            self.view.addSubview(ind)
-            ind.numberOfPages = images.count
-            ind.alpha = 0
-            ind.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 20, height: 50)
-            ind.center.x = scrollView.bounds.width / 2
-            ind.center.y = scrollView.bounds.maxY - 20
-            ind.layer.zPosition = 300
-            let aspect = images.first!.size.height / images.first!.size.width
-            print("Aspect: \(aspect)")
-            scrollView.contentSize = CGSize(width: totalWidth, height: self.view.frame.width * aspect)
-            
-            stackViewHeight.constant = self.view.frame.width * aspect
-            stackView.insertArrangedSubview(scrollView, at: 0)
-            
-            print("stack view contains \(stackView.arrangedSubviews.count) arranges subs")
-            
-            for (index, image) in images.enumerated() {
+            for (index, image) in brochureImages.enumerated() {
+                let aspect = image.size.height / image.size.width
                 let view = UIImageView(image: image)
-                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width * aspect)
-                view.frame.origin.x = CGFloat((Int(totalWidth) / images.count) * (index))
+                view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.width * aspect)
+                view.frame.origin.x = CGFloat((Int(brochureTotalWidth) / brochureImages.count) * (index))
                 view.contentMode = .scaleAspectFit
-                scrollView.addSubview(view)
+                brochureScrollView.addSubview(view)
+            }
+
+            print(filenames)
+            for filename in filenames where !filename.contains(".txt") {
+                let image = UIImage(contentsOfFile: "\(path)\(filename)")
+                miscImages.append(image!)
+            }
+            
+            // Set misc images scroll view to only be as tall as it needs to be to show the biggest image
+            let largestImage = miscImages.sorted(by: {$0.size.height > $1.size.height}).first!
+            let largestAspect = largestImage.size.height / largestImage.size.width
+            miscHeight.constant = self.view.bounds.width * largestAspect
+            
+            let miscTotalWidth: CGFloat = CGFloat(miscImages.count) * self.view.bounds.width
+            
+            //miscScrollView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: miscHeight.constant)
+            miscScrollView.isPagingEnabled = true
+            miscScrollView.bounces = false
+            miscScrollView.showsVerticalScrollIndicator = false
+            miscScrollView.showsHorizontalScrollIndicator = false
+            miscScrollView.delegate = self
+            //miscScrollView.backgroundColor = .purple
+            miscScrollView.contentMode = .top
+            
+            miscScrollView.contentSize = CGSize(width: miscTotalWidth, height: miscHeight.constant)
+            
+            //miscHeight.constant = miscScrollView.contentSize.height
+
+            print("stack view contains \(stackView.arrangedSubviews.count) arranged subs")
+            
+            for (index, image) in miscImages.enumerated() {
+                let view = UIImageView(image: image)
+                let imageAspect =  image.size.height / image.size.width
+                view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.width * imageAspect)
+                view.frame.origin.x = CGFloat((Int(miscTotalWidth) / miscImages.count) * (index))
+                view.contentMode = .scaleAspectFit
+                miscScrollView.addSubview(view)
+            }
+            
+            if brochureImages.count == 0 {
+                print("No brochure images")
+                //brochureHeight.constant = 0
+                stackView.arrangedSubviews[0].isHidden = true
+                stackView.arrangedSubviews[1].isHidden = true
+//                stackView.removeArrangedSubview(stackView.arrangedSubviews[0])
+//                stackView.removeArrangedSubview(stackView.arrangedSubviews[1])
+                stackViewHeight.constant = miscHeight.constant + 30
+            }
+            
+            if miscImages.count == 0 {
+                print("No misc images")
+                //miscHeight.constant = 0
+                stackView.arrangedSubviews[2].isHidden = true
+                stackView.arrangedSubviews[3].isHidden = true 
+//                stackView.removeArrangedSubview(stackView.arrangedSubviews[2])
+//                stackView.removeArrangedSubview(stackView.arrangedSubviews[3])
+                stackViewHeight.constant = brochureHeight.constant + 30
+            }
+            
+            if miscImages.count != 0 && brochureImages.count != 0 {
+                stackViewHeight.constant = miscHeight.constant + brochureHeight.constant + 60
             }
             
             self.view.layoutIfNeeded()
             
         } else {
-            print("Coudn't get imagePath")
+            print("Coudn't get imagePath. Ensure there's an entry for this model in Constants.swift")
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        populateImages()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -193,9 +264,10 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func getContentsOfFolder(path: String) -> [String] {
-        let fm = FileManager()
+        
         do {
-            let contents = try fm.contentsOfDirectory(atPath: path)
+            let contents = try FileManager.default.contentsOfDirectory(atPath: path)
+            
             return contents
         } catch let error {
             print("Error getting folder contents: \(error)")
@@ -203,9 +275,11 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    
-    
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    deinit {
+        print("Deinit")
     }
 }

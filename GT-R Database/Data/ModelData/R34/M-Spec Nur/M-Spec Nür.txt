@@ -1,4 +1,4 @@
-<!-- Don't edit this in XCode, it will strip the spaces from the end of the lines -->
+<!-- Don't edit this in Xcode, it will strip the spaces from the end of the lines -->
 
 ## Production Numbers  
 Total Produced: __285__  

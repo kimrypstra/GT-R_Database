@@ -24,7 +24,7 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     
     let tempTableViewData: [String : [String]] = [
         "" : ["VIN Search", "Production Numbers", "VIN Ranges"],
-        "Special Models" : ["M-Spec Nür", "V-Spec II Nür", "M-Spec", "V-Spec II N1", "V-Spec N1", "Midnight Purple 3", "Midnight Purple 2"],
+        "Special Models" : ["M-Spec Nür", "V-Spec II Nür", "M-Spec", "V-Spec II N1", "V-Spec N1", "Midnight Purple 3", "Midnight Purple 2", "F-Sport"],
         "Non-Japanese Delivered" : ["Great Britain", "Hong Kong", "New Zealand", "Singapore"],
         "Nismo Cars" : ["Z-Tune", "Clubman Race Spec (CRS)", "F-Sport", "R-Tune", "S-Tune", "Sports Resetting"]
     ]
@@ -126,8 +126,10 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
             switch indexPath.row {
             case 0:
                 self.performSegue(withIdentifier: "VINSearch", sender: self)
+            case 1:
+                self.performSegue(withIdentifier: "prodNumbers", sender: self)
             default:
-                print("Unimplemented")
+                print("Unknown cell selected")
                 return
             }
         case 1:
@@ -146,6 +148,9 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         case "SpecialModel":
             let IVC = segue.destination as! SpecialModelViewController
             IVC.specialModelName = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel!.text
+            IVC.series = series
+        case "prodNumbers":
+            let IVC = segue.destination as! ProdNumbersViewController
             IVC.series = series
         default:
             print("Unimplemented")
