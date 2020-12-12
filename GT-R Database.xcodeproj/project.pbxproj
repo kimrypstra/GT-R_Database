@@ -83,6 +83,7 @@
 		21AB555B2582585E00BBCF12 /* ProdNumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB555A2582585E00BBCF12 /* ProdNumberManager.swift */; };
 		21AB555D2582599100BBCF12 /* ProdNumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB555C2582599100BBCF12 /* ProdNumbersViewController.swift */; };
 		21AB555F25825BD200BBCF12 /* R34Prod.txt in Resources */ = {isa = PBXBuildFile; fileRef = 21AB555E25825BD200BBCF12 /* R34Prod.txt */; };
+		21AB55612584BC5700BBCF12 /* ProdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB55602584BC5700BBCF12 /* ProdCell.swift */; };
 		21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */; };
 		21AFA2CE254D3DC600661DE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */; };
 		21AFA2D0254D3DC600661DE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CF254D3DC600661DE0 /* ViewController.swift */; };
@@ -230,6 +231,7 @@
 		21AB555A2582585E00BBCF12 /* ProdNumberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdNumberManager.swift; sourceTree = "<group>"; };
 		21AB555C2582599100BBCF12 /* ProdNumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdNumbersViewController.swift; sourceTree = "<group>"; };
 		21AB555E25825BD200BBCF12 /* R34Prod.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34Prod.txt; sourceTree = "<group>"; };
+		21AB55602584BC5700BBCF12 /* ProdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdCell.swift; sourceTree = "<group>"; };
 		21AFA2C8254D3DC600661DE0 /* GT-R Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GT-R Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
 				217F36ED255692A900113937 /* VINSearchController.swift */,
 				21AB555C2582599100BBCF12 /* ProdNumbersViewController.swift */,
+				21AB55602584BC5700BBCF12 /* ProdCell.swift */,
 				21AB555A2582585E00BBCF12 /* ProdNumberManager.swift */,
 				218C7F3D2568E4F5009A7063 /* SpecialModelViewController.swift */,
 				218C81E6256A384B009A7063 /* Constants.swift */,
@@ -668,6 +671,7 @@
 				217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */,
 				21AB555B2582585E00BBCF12 /* ProdNumberManager.swift in Sources */,
 				21AFA2CE254D3DC600661DE0 /* SceneDelegate.swift in Sources */,
+				21AB55612584BC5700BBCF12 /* ProdCell.swift in Sources */,
 				218C81E7256A384B009A7063 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

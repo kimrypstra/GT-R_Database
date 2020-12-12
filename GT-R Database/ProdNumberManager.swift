@@ -14,6 +14,47 @@ class ProdNumberManager {
         self.series = series
     }
     
+    func getColourCodes() -> [String] {
+        do {
+            let tsvString = try String(contentsOfFile: Bundle.main.path(forResource: "\(series)Prod", ofType: ".txt")!)
+            let lines = tsvString.components(separatedBy: "\r\n")
+            // lines[0] is the colour codes
+            let colourCodes = lines[0].components(separatedBy: "\t").filter({$0 != "" && $0 != " "})
+            return colourCodes
+        } catch let error {
+            print("Error getting colour codes: \(error)")
+            return []
+        }
+        
+    }
+    
+    func keys() -> [String] {
+        var keys: [String] = []
+        do {
+            let tsvString = try String(contentsOfFile: Bundle.main.path(forResource: "\(series)Prod", ofType: ".txt")!)
+            let lines = tsvString.components(separatedBy: "\r\n")
+            // lines[0] is the colour codes
+            let colourCodes = lines[0].components(separatedBy: "\t").filter({$0 != "" && $0 != " "})
+            var codeIndices: [Int: String] = [:]
+            for (index, code) in colourCodes.enumerated() {
+                codeIndices[index] = code
+            }
+            for index in 1...lines.count - 2 {
+                let components = lines[index].components(separatedBy: "\t").filter({$0 != "" && $0 != " "})
+                // components[0] is the model
+                guard components.count > 0 else {
+                    continue
+                }
+                
+                let model = components[0]
+                keys.append(model)
+            }
+        } catch let error {
+            print("Error: \(error)")
+        }
+        return keys
+    }
+    
     func generateProdNumbers() -> [String : Any] {
         var prodNumbers: [String : Any] = [:]
         
