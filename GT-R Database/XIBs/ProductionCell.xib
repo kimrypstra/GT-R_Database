@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductionCell" customModule="GT_R_Database" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="fly-dS-y42"/>
+                <outlet property="label" destination="2tF-g1-aSS" id="WTu-lh-0bV"/>
+                <outlet property="selectionView" destination="9ys-V6-TPF" id="J72-eF-2ZI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ys-V6-TPF">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="rr5-fd-RLh" appends="YES" id="nPi-KE-lxh"/>
+                    </connections>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tF-g1-aSS">
+                    <rect key="frame" x="192.5" y="176" width="29" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="2tF-g1-aSS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="72l-as-Qp1"/>
+                <constraint firstItem="9ys-V6-TPF" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="bHf-te-bMu"/>
+                <constraint firstItem="2tF-g1-aSS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ffX-vK-L4s"/>
+                <constraint firstItem="9ys-V6-TPF" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="l3D-m7-WaB"/>
+                <constraint firstItem="9ys-V6-TPF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tnr-Z4-SqR"/>
+                <constraint firstItem="9ys-V6-TPF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zVS-sT-q96"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="52.173913043478265" y="-63.28125"/>
+        </view>
+        <tapGestureRecognizer id="rr5-fd-RLh">
+            <connections>
+                <action selector="didTap:" destination="-1" id="YCz-x8-d3M"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

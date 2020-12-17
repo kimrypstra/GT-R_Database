@@ -373,6 +373,7 @@
                         <segue destination="H7M-gA-aiI" kind="show" identifier="VINSearch" id="ZyL-lw-3Ti"/>
                         <segue destination="CbD-sd-90h" kind="show" identifier="SpecialModel" id="RVc-D6-Pov"/>
                         <segue destination="jhs-N8-6cP" kind="show" identifier="prodNumbers" id="CiI-jS-iPg"/>
+                        <segue destination="jhs-N8-6cP" kind="show" identifier="VINRanges" id="i0U-Y6-rSf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8A-si-LMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -694,10 +695,10 @@
             </objects>
             <point key="canvasLocation" x="1885.5999999999999" y="831.63418290854577"/>
         </scene>
-        <!--Prod Numbers View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="mdd-ay-je6">
             <objects>
-                <viewController id="jhs-N8-6cP" customClass="ProdNumbersViewController" customModule="GT_R_Database" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jhs-N8-6cP" customClass="TSVTableViewController" customModule="GT_R_Database" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="she-yW-zg5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -776,6 +777,7 @@
                     <navigationItem key="navigationItem" id="qo5-6T-uVn"/>
                     <connections>
                         <outlet property="containerView" destination="089-vw-TZi" id="OsU-h8-CJs"/>
+                        <outlet property="topBannerView" destination="8gb-8P-6UA" id="z1e-7g-RWV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Si-zD-kZ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -988,6 +990,9 @@ This app utilises Google Analytics</string>
             <point key="canvasLocation" x="138.40000000000001" y="79.610194902548727"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="i0U-Y6-rSf"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="facebook" width="240" height="240"/>

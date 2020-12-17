@@ -128,6 +128,8 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
                 self.performSegue(withIdentifier: "VINSearch", sender: self)
             case 1:
                 self.performSegue(withIdentifier: "prodNumbers", sender: self)
+            case 2:
+                self.performSegue(withIdentifier: "VINRanges", sender: self)
             default:
                 print("Unknown cell selected")
                 return
@@ -150,7 +152,12 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
             IVC.specialModelName = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel!.text
             IVC.series = series
         case "prodNumbers":
-            let IVC = segue.destination as! ProdNumbersViewController
+            let IVC = segue.destination as! TSVTableViewController
+            IVC.mode = .Production
+            IVC.series = series
+        case "VINRanges":
+            let IVC = segue.destination as! TSVTableViewController
+            IVC.mode = .VIN
             IVC.series = series
         default:
             print("Unimplemented")
