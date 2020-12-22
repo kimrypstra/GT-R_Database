@@ -15,6 +15,7 @@ class TSVTableViewController: UIViewController, ProductionCellDelegate {
     
     @IBOutlet weak var topBannerView: UIView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var numberOfColumns: CGFloat = 0 // including left header
     var numberOfRows: CGFloat = 0 // including top header
@@ -55,18 +56,27 @@ class TSVTableViewController: UIViewController, ProductionCellDelegate {
         gradient.frame = topBannerView.bounds
         gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
         topBannerView.layer.insertSublayer(gradient, at: 0)
-
+    
         setUpTable()
+        
+        switch mode {
+        case .Production:
+            titleLabel.text = "\(series!) Production Numbers"
+        case .VIN:
+            titleLabel.text = "\(series!) VIN Ranges"
+        default:
+            return
+        }
     }
     
     func setUpTable() {
-        let prodMan = TSVManager(series: series, mode: mode)
-        let numbers: [String : Any] = prodMan.generateData()
-        let keys = prodMan.keys()
-        let colours = prodMan.getHeaders()
+        let tsvMan = TSVManager(series: series, mode: mode)
+        let numbers: [String : Any] = tsvMan.generateData()
+        let keys = tsvMan.keys()
+        let colours = tsvMan.getHeaders()
         
         numberOfRows = CGFloat(numbers.keys.count)
-        numberOfColumns = CGFloat(prodMan.getHeaders().count + 1)
+        numberOfColumns = CGFloat(tsvMan.getHeaders().count + 1)
         
         scroll = UIScrollView(frame: CGRect(x: 0, y: 0, width: containerView.bounds.width, height: containerView.bounds.height))
         //scroll?.backgroundColor = .yellow
@@ -74,11 +84,21 @@ class TSVTableViewController: UIViewController, ProductionCellDelegate {
         scroll?.contentSize.height = (desiredCellHeight * numberOfRows)
         containerView.addSubview(scroll!)
         
+        let widths = tsvMan.getColumnWidths(for: UIFont(name: "NissanOpti", size: 10)!)
+        print(widths)
         let width = (desiredCellWidth * (numberOfColumns - 1)) + firstRowWidth
+        var totalWidth: CGFloat {
+            var total: CGFloat = 0
+            for number in widths {
+                total += number
+            }
+            return total
+        }
         let height = (desiredCellHeight * numberOfRows)
         
         columnStack = UIStackView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         columnStack!.distribution = .fill
+        
         
         for col in 0...Int(numberOfColumns - 1) {
             if col == 0 {

@@ -24,7 +24,7 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     
     let tempTableViewData: [String : [String]] = [
         "" : ["VIN Search", "Production Numbers", "VIN Ranges"],
-        "Special Models" : ["M-Spec Nür", "V-Spec II Nür", "M-Spec", "V-Spec II N1", "V-Spec N1", "Midnight Purple 3", "Midnight Purple 2", "F-Sport"],
+        "Special Models" : ["M-Spec Nür", "V-Spec II Nür", "M-Spec", "V-Spec II N1", "V-Spec N1", "Midnight Purple 3", "Midnight Purple 2"],
         "Non-Japanese Delivered" : ["Great Britain", "Hong Kong", "New Zealand", "Singapore"],
         "Nismo Cars" : ["Z-Tune", "Clubman Race Spec (CRS)", "F-Sport", "R-Tune", "S-Tune", "Sports Resetting"]
     ]
@@ -60,7 +60,11 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 3 {
+        //if section == 3 {
+        
+        if section == 0 {
+            return nil
+        }
             
             let topBannerBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 75))
             topBannerBackgroundView.frame.size.width = topBannerBackgroundView.frame.width - (tableView.separatorInset.left * 2)
@@ -76,7 +80,7 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
             gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
             topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
             
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 30))
             label.font = UIFont(name: "NissanOpti", size: 15)
             label.textColor = .white
             label.textAlignment = .center
@@ -88,21 +92,27 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
             view.layer.zPosition = -100
             
             return view
-        } else {
-            let label = UILabel()
-            label.font = UIFont(name: "NissanOpti", size: 15)
-            label.textColor = .black
-            label.text = tempSectionNames[section]
-            return label
-        }
+//        } else {
+//            let label = UILabel()
+//            label.font = UIFont(name: "NissanOpti", size: 15)
+//            label.textColor = .black
+//            label.text = tempSectionNames[section]
+//            return label
+//        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section {
-        case 3:
-            return 50
-        default:
+//        switch section {
+//        case 3:
+//            return 50
+//        default:
+//            return 30
+//        }
+        if section == 0 {
             return 30
+        } else {
+            return 50
+
         }
     }
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum ParseMode: String {
     case VIN = "VIN"
@@ -64,7 +65,32 @@ class TSVManager {
         return keys
     }
     
+    func getColumnWidths(for font: UIFont) -> [CGFloat] {
+        var widths: [CGFloat] = []
+        
+        for header in getHeaders() {
+            let label = UILabel()
+            label.text = header
+            label.font = font
+            label.sizeToFit()
+            widths.append(label.text!.size(withAttributes: [.font : label.font]).width)
+        }
+        
+        return widths
+    }
+    
     func generateData() -> [String : Any] {
+        
+        /*
+         ["V-Spec II" :
+                    ["QV1" : "20",
+                    "AR1" : "15"],
+         "M-Spec" :
+                    ["Blah" : "Blah"]
+         ]
+         */
+        
+        
         var prodNumbers: [String : Any] = [:]
         
         do {

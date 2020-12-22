@@ -777,6 +777,7 @@
                     <navigationItem key="navigationItem" id="qo5-6T-uVn"/>
                     <connections>
                         <outlet property="containerView" destination="089-vw-TZi" id="OsU-h8-CJs"/>
+                        <outlet property="titleLabel" destination="bBf-zx-Tkj" id="AGI-TX-V7I"/>
                         <outlet property="topBannerView" destination="8gb-8P-6UA" id="z1e-7g-RWV"/>
                     </connections>
                 </viewController>

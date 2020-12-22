@@ -164,6 +164,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if searchField.text == searchPrefix && string == "" {
+            print("p1")
             return false
         }
         
@@ -191,6 +192,11 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             print("IS NO OK")
             textField.text = "\(searchPrefix)\(textField.text!)"
         }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("Begin editing")
+        
     }
     
     func doASearch() {

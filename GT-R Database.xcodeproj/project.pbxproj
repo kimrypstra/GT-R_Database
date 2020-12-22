@@ -97,6 +97,10 @@
 		21AFA2E3254D457B00661DE0 /* NissanOpti.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21AFA2E1254D3EA700661DE0 /* NissanOpti.otf */; };
 		21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */; };
 		21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */; };
+		21D1F3EA25922B4100DC1B32 /* R33Prod.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3E325922B4100DC1B32 /* R33Prod.tsv */; };
+		21D1F3EC25922C4E00DC1B32 /* R32Prod.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3EB25922C4E00DC1B32 /* R32Prod.tsv */; };
+		21D1F3F22592308500DC1B32 /* R32VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3F12592308500DC1B32 /* R32VIN.tsv */; };
+		21D1F3F42592308B00DC1B32 /* R33VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3F32592308B00DC1B32 /* R33VIN.tsv */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -251,6 +255,10 @@
 		21AFA2E1254D3EA700661DE0 /* NissanOpti.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NissanOpti.otf; sourceTree = "<group>"; };
 		21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoController.swift; sourceTree = "<group>"; };
+		21D1F3E325922B4100DC1B32 /* R33Prod.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33Prod.tsv; sourceTree = "<group>"; };
+		21D1F3EB25922C4E00DC1B32 /* R32Prod.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32Prod.tsv; sourceTree = "<group>"; };
+		21D1F3F12592308500DC1B32 /* R32VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32VIN.tsv; sourceTree = "<group>"; };
+		21D1F3F32592308B00DC1B32 /* R33VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33VIN.tsv; sourceTree = "<group>"; };
 		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -356,6 +364,8 @@
 			isa = PBXGroup;
 			children = (
 				21676815258BA08B00BCCFCD /* R34VIN.tsv */,
+				21D1F3F32592308B00DC1B32 /* R33VIN.tsv */,
+				21D1F3F12592308500DC1B32 /* R32VIN.tsv */,
 			);
 			path = "VIN Ranges";
 			sourceTree = "<group>";
@@ -431,6 +441,8 @@
 			isa = PBXGroup;
 			children = (
 				21676812258B936B00BCCFCD /* R34Prod.tsv */,
+				21D1F3E325922B4100DC1B32 /* R33Prod.tsv */,
+				21D1F3EB25922C4E00DC1B32 /* R32Prod.tsv */,
 			);
 			path = "Production Numbers";
 			sourceTree = "<group>";
@@ -641,17 +653,20 @@
 				21AFA2D8254D3DC700661DE0 /* LaunchScreen.storyboard in Resources */,
 				2144741F25594BE9004DDEE0 /* 2-qx1.jpg in Resources */,
 				218C7F5E2568F141009A7063 /* cover.jpg in Resources */,
+				21D1F3EA25922B4100DC1B32 /* R33Prod.tsv in Resources */,
 				21846093255C182600E68F45 /* kg1.jpg in Resources */,
 				21846087255C180500E68F45 /* kn6.jpg in Resources */,
 				2184607E255C180500E68F45 /* lp2.jpg in Resources */,
 				218C7F6B2568F141009A7063 /* nur-5.jpg in Resources */,
 				2144742125594BE9004DDEE0 /* 2-gv1.jpg in Resources */,
+				21D1F3F42592308B00DC1B32 /* R33VIN.tsv in Resources */,
 				2144742525594BE9004DDEE0 /* 2-qt1.jpg in Resources */,
 				21AFA2E3254D457B00661DE0 /* NissanOpti.otf in Resources */,
 				2184607F255C180500E68F45 /* 2r8.jpg in Resources */,
 				218C7F622568F141009A7063 /* brochure-3.jpg in Resources */,
 				218C7F682568F141009A7063 /* brochure-5.jpg in Resources */,
 				2184609B255C182600E68F45 /* th1.jpg in Resources */,
+				21D1F3EC25922C4E00DC1B32 /* R32Prod.tsv in Resources */,
 				21AFA2D5254D3DC700661DE0 /* Assets.xcassets in Resources */,
 				2144742A25594BE9004DDEE0 /* 1-kv2.jpg in Resources */,
 				21846098255C182600E68F45 /* 326.jpg in Resources */,
@@ -669,6 +684,7 @@
 				21846086255C180500E68F45 /* qm1.jpg in Resources */,
 				2184607C255C180500E68F45 /* kh3.jpg in Resources */,
 				218C7F612568F141009A7063 /* nur-2.jpg in Resources */,
+				21D1F3F22592308500DC1B32 /* R32VIN.tsv in Resources */,
 				218C7F652568F141009A7063 /* brochure-6.jpg in Resources */,
 				218C7F6A2568F141009A7063 /* brochure-4.jpg in Resources */,
 				21AFA2D3254D3DC600661DE0 /* Main.storyboard in Resources */,
