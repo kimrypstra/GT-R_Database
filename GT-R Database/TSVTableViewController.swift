@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TSVTableViewController: UIViewController, ProductionCellDelegate {
+class TSVTableViewController: UIViewController, UIScrollViewDelegate, ProductionCellDelegate {
 
     var mode: ParseMode!
     var series: String!
@@ -16,6 +16,11 @@ class TSVTableViewController: UIViewController, ProductionCellDelegate {
     @IBOutlet weak var topBannerView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var floater: UIStackView!
+    @IBOutlet weak var floaterWidth: NSLayoutConstraint!
+    @IBOutlet weak var floaterHeight: NSLayoutConstraint!
+    @IBOutlet weak var floaterLeftAlign: NSLayoutConstraint!
     
     var numberOfColumns: CGFloat = 0 // including left header
     var numberOfRows: CGFloat = 0 // including top header
@@ -48,6 +53,7 @@ class TSVTableViewController: UIViewController, ProductionCellDelegate {
     
     var columnStack: UIStackView?
     var rowStack: UIStackView?
+    var floatingHeader: UIStackView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +75,19 @@ class TSVTableViewController: UIViewController, ProductionCellDelegate {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        setUpFloater()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        floaterLeftAlign.constant = scrollView.contentOffset.x
+    }
+    
+    func setUpFloater() {
+
+        //floater.backgroundColor = .red
+    }
+    
     func setUpTable() {
         let tsvMan = TSVManager(series: series, mode: mode)
         let numbers: [String : Any] = tsvMan.generateData()
@@ -82,6 +101,8 @@ class TSVTableViewController: UIViewController, ProductionCellDelegate {
         //scroll?.backgroundColor = .yellow
         scroll?.contentSize.width = (desiredCellWidth * (numberOfColumns - 1)) + firstRowWidth
         scroll?.contentSize.height = (desiredCellHeight * numberOfRows)
+        scroll?.delegate = self
+        scroll?.bounces = false
         containerView.addSubview(scroll!)
         
         let widths = tsvMan.getColumnWidths(for: UIFont(name: "NissanOpti", size: 10)!)
@@ -94,11 +115,15 @@ class TSVTableViewController: UIViewController, ProductionCellDelegate {
             }
             return total
         }
+        
         let height = (desiredCellHeight * numberOfRows)
         
         columnStack = UIStackView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         columnStack!.distribution = .fill
         
+        floaterHeight.constant = desiredCellHeight
+        floaterWidth.constant = width
+        //floater.distribution = .fill
         
         for col in 0...Int(numberOfColumns - 1) {
             if col == 0 {
@@ -113,7 +138,10 @@ class TSVTableViewController: UIViewController, ProductionCellDelegate {
                         // MARK: Top Left (blank)
                         let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: firstRowWidth, height: desiredCellHeight))
                         view.setUp(type: .Blank, text: "", coordinate: CGPoint(x: col, y: row), delegate: self)
-                        rowStack!.addArrangedSubview(view)
+                        let const = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: firstRowWidth)
+                        view.addConstraint(const)
+                        //rowStack!.addArrangedSubview(view)
+                        floater.addArrangedSubview(view)
                     } else {
                         // MARK: First Column
                         let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: firstRowWidth, height: desiredCellHeight))
@@ -135,10 +163,13 @@ class TSVTableViewController: UIViewController, ProductionCellDelegate {
                         //let view = ProdCell(value: colours[col - 1], frame: CGRect(x: 0, y: 0, width: desiredCellWidth, height: desiredCellHeight), type: .TopHeader)
                         let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: desiredCellWidth, height: desiredCellHeight))
                         view.setUp(type: .TopHeader, text: colours[col - 1], coordinate: CGPoint(x: col, y: row), delegate: self)
-                        rowStack!.addArrangedSubview(view)
+                        let const = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: desiredCellWidth)
+                        view.addConstraint(const)
+                        //rowStack!.addArrangedSubview(view)
+                        floater.addArrangedSubview(view)
+                        //floatingHeader!.addArrangedSubview(view)
                     } else {
                         // MARK: Main Cells
-                        
                         if let modelData = numbers[keys[row]] as? [String : String] {
                             // The model data exists
                             if let colourData = modelData[colours[col - 1]] {
