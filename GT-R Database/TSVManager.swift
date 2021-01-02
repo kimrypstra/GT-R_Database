@@ -65,15 +65,17 @@ class TSVManager {
         return keys
     }
     
-    func getColumnWidths(for font: UIFont) -> [CGFloat] {
+    func getColumnWidths(for font: UIFont, height: CGFloat) -> [CGFloat] {
         var widths: [CGFloat] = []
         
         for header in getHeaders() {
-            let label = UILabel()
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.greatestFiniteMagnitude, height: height))
             label.text = header
             label.font = font
+            label.numberOfLines = 1
             label.sizeToFit()
-            widths.append(label.text!.size(withAttributes: [.font : label.font]).width)
+            widths.append(label.frame.width)
+            
         }
         
         return widths

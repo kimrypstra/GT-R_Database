@@ -106,16 +106,21 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         scroll?.bounces = false
         containerView.addSubview(scroll!)
         
-        let widths = tsvMan.getColumnWidths(for: UIFont(name: "NissanOpti", size: 10)!)
-        print(widths)
+        let columnWidths = tsvMan.getColumnWidths(for: UIFont(name: "NissanOpti", size: 10)!, height: desiredCellHeight)
+        
+        print(columnWidths)
+        
         let width = (desiredCellWidth * (numberOfColumns - 1)) + firstRowWidth
+        
         var totalWidth: CGFloat {
             var total: CGFloat = 0
-            for number in widths {
-                total += number
+            for width in columnWidths {
+                total += width
             }
             return total
         }
+        
+        print("old: \(width) new: \(totalWidth)")
         
         let height = (desiredCellHeight * numberOfRows)
         

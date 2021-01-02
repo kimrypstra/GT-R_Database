@@ -101,6 +101,11 @@ class ProductionCell: UIView {
         }
     }
     
+    func getLabelWidth() -> CGFloat {
+        label.sizeToFit()
+        return label.frame.width
+    }
+    
     private func setType(to type: CellType) {
         self.type = type
         
