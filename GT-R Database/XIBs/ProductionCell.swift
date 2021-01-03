@@ -73,7 +73,10 @@ class ProductionCell: UIView {
     
     func setUp(type: CellType, text: String, coordinate: CGPoint, delegate: ProductionCellDelegate) {
         setType(to: type)
-        label.text = text
+        //label.text = text
+        
+        label.text = text.splitBracketedSubstringsIntoNewlines()
+        
         self.coordinate = coordinate
         self.delegate = delegate
     }
@@ -108,15 +111,20 @@ class ProductionCell: UIView {
     
     private func setType(to type: CellType) {
         self.type = type
-        
+        label.textAlignment = .center
         switch self.type {
         case .Cell:
             label.font = UIFont(name: "Futura", size: 10)
+            label.numberOfLines = 1
         case .LeftHeader:
             label.font = UIFont(name: "NissanOpti", size: 10)
+            label.numberOfLines = 2
         case .TopHeader:
             label.font = UIFont(name: "NissanOpti", size: 10)
+            label.numberOfLines = 1
+
         case .Blank:
+            label.numberOfLines = 1
             label.removeFromSuperview()
         }
     }

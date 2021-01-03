@@ -147,6 +147,13 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         case 1:
             // Special Models
             self.performSegue(withIdentifier: "SpecialModel", sender: self)
+        case 2:
+            // Non-Japanese models
+            self.performSegue(withIdentifier: "SpecialModel", sender: self)
+            return
+        case 3:
+            // Nismo Models
+            self.performSegue(withIdentifier: "SpecialModel", sender: self)
         default:
             return
         }

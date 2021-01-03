@@ -30,12 +30,14 @@
 		2144743025594BE9004DDEE0 /* 2-ey0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144741C25594BE9004DDEE0 /* 2-ey0.jpg */; };
 		21461030254F0D8500E6453C /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2146102F254F0D8500E6453C /* Car.swift */; };
 		2167680725879A0300BCCFCD /* ProductionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */; };
-		21676813258B936B00BCCFCD /* R34Prod.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21676812258B936B00BCCFCD /* R34Prod.tsv */; };
 		21676816258BA08C00BCCFCD /* R34VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21676815258BA08B00BCCFCD /* R34VIN.tsv */; };
 		217F36EE255692A900113937 /* VINSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36ED255692A900113937 /* VINSearchController.swift */; };
 		217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F02556A58900113937 /* UIView + Anchor.swift */; };
 		217F36F42556A5AB00113937 /* SmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F32556A5AB00113937 /* SmallCell.swift */; };
 		217F36F82556A6FF00113937 /* String + CamelToHuman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F72556A6FF00113937 /* String + CamelToHuman.swift */; };
+		217FEDF925A03B1200612283 /* R32Prod.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 217FEDF825A03B1200612283 /* R32Prod.tsv */; };
+		217FEDFB25A0572800612283 /* R34Prod.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 217FEDFA25A0572800612283 /* R34Prod.tsv */; };
+		217FEDFD25A0581800612283 /* String + Brackets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FEDFC25A0581800612283 /* String + Brackets.swift */; };
 		2184607C255C180500E68F45 /* kh3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2184606F255C180400E68F45 /* kh3.jpg */; };
 		2184607D255C180500E68F45 /* an0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21846070255C180400E68F45 /* an0.jpg */; };
 		2184607E255C180500E68F45 /* lp2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21846071255C180400E68F45 /* lp2.jpg */; };
@@ -98,7 +100,6 @@
 		21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */; };
 		21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */; };
 		21D1F3EA25922B4100DC1B32 /* R33Prod.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3E325922B4100DC1B32 /* R33Prod.tsv */; };
-		21D1F3EC25922C4E00DC1B32 /* R32Prod.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3EB25922C4E00DC1B32 /* R32Prod.tsv */; };
 		21D1F3F22592308500DC1B32 /* R32VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3F12592308500DC1B32 /* R32VIN.tsv */; };
 		21D1F3F42592308B00DC1B32 /* R33VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3F32592308B00DC1B32 /* R33VIN.tsv */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
@@ -187,12 +188,14 @@
 		2144741C25594BE9004DDEE0 /* 2-ey0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-ey0.jpg"; sourceTree = "<group>"; };
 		2146102F254F0D8500E6453C /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCellDelegate.swift; sourceTree = "<group>"; };
-		21676812258B936B00BCCFCD /* R34Prod.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34Prod.tsv; sourceTree = "<group>"; };
 		21676815258BA08B00BCCFCD /* R34VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34VIN.tsv; sourceTree = "<group>"; };
 		217F36ED255692A900113937 /* VINSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINSearchController.swift; sourceTree = "<group>"; };
 		217F36F02556A58900113937 /* UIView + Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Anchor.swift"; sourceTree = "<group>"; };
 		217F36F32556A5AB00113937 /* SmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCell.swift; sourceTree = "<group>"; };
 		217F36F72556A6FF00113937 /* String + CamelToHuman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + CamelToHuman.swift"; sourceTree = "<group>"; };
+		217FEDF825A03B1200612283 /* R32Prod.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32Prod.tsv; sourceTree = "<group>"; };
+		217FEDFA25A0572800612283 /* R34Prod.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34Prod.tsv; sourceTree = "<group>"; };
+		217FEDFC25A0581800612283 /* String + Brackets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Brackets.swift"; sourceTree = "<group>"; };
 		2184606F255C180400E68F45 /* kh3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kh3.jpg; sourceTree = "<group>"; };
 		21846070255C180400E68F45 /* an0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = an0.jpg; sourceTree = "<group>"; };
 		21846071255C180400E68F45 /* lp2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lp2.jpg; sourceTree = "<group>"; };
@@ -256,7 +259,6 @@
 		21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoController.swift; sourceTree = "<group>"; };
 		21D1F3E325922B4100DC1B32 /* R33Prod.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33Prod.tsv; sourceTree = "<group>"; };
-		21D1F3EB25922C4E00DC1B32 /* R32Prod.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32Prod.tsv; sourceTree = "<group>"; };
 		21D1F3F12592308500DC1B32 /* R32VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32VIN.tsv; sourceTree = "<group>"; };
 		21D1F3F32592308B00DC1B32 /* R33VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33VIN.tsv; sourceTree = "<group>"; };
 		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -440,9 +442,9 @@
 		21AB55512582567200BBCF12 /* Production Numbers */ = {
 			isa = PBXGroup;
 			children = (
-				21676812258B936B00BCCFCD /* R34Prod.tsv */,
+				217FEDFA25A0572800612283 /* R34Prod.tsv */,
 				21D1F3E325922B4100DC1B32 /* R33Prod.tsv */,
-				21D1F3EB25922C4E00DC1B32 /* R32Prod.tsv */,
+				217FEDF825A03B1200612283 /* R32Prod.tsv */,
 			);
 			path = "Production Numbers";
 			sourceTree = "<group>";
@@ -489,6 +491,7 @@
 				217F36F02556A58900113937 /* UIView + Anchor.swift */,
 				2185D431258789C600778FA2 /* UIView + Corners.swift */,
 				217F36F72556A6FF00113937 /* String + CamelToHuman.swift */,
+				217FEDFC25A0581800612283 /* String + Brackets.swift */,
 				21AFA2D1254D3DC600661DE0 /* Main.storyboard */,
 				218C822C256FF41A009A7063 /* text.txt */,
 				2144740525594BBC004DDEE0 /* Data */,
@@ -618,6 +621,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				217FEDF925A03B1200612283 /* R32Prod.tsv in Resources */,
 				21846097255C182600E68F45 /* bl0.jpg in Resources */,
 				2144742025594BE9004DDEE0 /* 2-qm1.jpg in Resources */,
 				2144742425594BE9004DDEE0 /* 1-ar2.jpg in Resources */,
@@ -638,7 +642,6 @@
 				2144742225594BE9004DDEE0 /* 1-lv4.jpg in Resources */,
 				21846099255C182600E68F45 /* kh2.jpg in Resources */,
 				218C7F602568F141009A7063 /* brochure-2.jpg in Resources */,
-				21676813258B936B00BCCFCD /* R34Prod.tsv in Resources */,
 				218C7F5F2568F141009A7063 /* brochure-1.jpg in Resources */,
 				2144742E25594BE9004DDEE0 /* 1-qm1-n1.jpg in Resources */,
 				218C7F642568F141009A7063 /* nur-3.jpg in Resources */,
@@ -666,7 +669,6 @@
 				218C7F622568F141009A7063 /* brochure-3.jpg in Resources */,
 				218C7F682568F141009A7063 /* brochure-5.jpg in Resources */,
 				2184609B255C182600E68F45 /* th1.jpg in Resources */,
-				21D1F3EC25922C4E00DC1B32 /* R32Prod.tsv in Resources */,
 				21AFA2D5254D3DC700661DE0 /* Assets.xcassets in Resources */,
 				2144742A25594BE9004DDEE0 /* 1-kv2.jpg in Resources */,
 				21846098255C182600E68F45 /* 326.jpg in Resources */,
@@ -674,6 +676,7 @@
 				218C7F6C2568F141009A7063 /* nur-7.jpg in Resources */,
 				218C7F672568F141009A7063 /* brochure-7.jpg in Resources */,
 				21846096255C182600E68F45 /* 2m8.jpg in Resources */,
+				217FEDFB25A0572800612283 /* R34Prod.tsv in Resources */,
 				2144741D25594BE9004DDEE0 /* 1-lx0.jpg in Resources */,
 				2144742F25594BE9004DDEE0 /* 1-kr4.jpg in Resources */,
 				21846094255C182600E68F45 /* 732.jpg in Resources */,
@@ -715,6 +718,7 @@
 				21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */,
 				21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */,
 				21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */,
+				217FEDFD25A0581800612283 /* String + Brackets.swift in Sources */,
 				218C7F2E25628EB6009A7063 /* R33.swift in Sources */,
 				2167680725879A0300BCCFCD /* ProductionCellDelegate.swift in Sources */,
 				217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */,

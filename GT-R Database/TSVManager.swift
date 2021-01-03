@@ -27,13 +27,16 @@ class TSVManager {
             let tsvString = try String(contentsOfFile: Bundle.main.path(forResource: "\(series)\(mode.rawValue)", ofType: ".tsv")!)
             let lines = tsvString.components(separatedBy: "\n")
             // lines[0] is the colour codes
-            var colourCodes = lines[0].components(separatedBy: "\t")
-            colourCodes[colourCodes.count - 1] = colourCodes[colourCodes.count - 1].replacingOccurrences(of: "\r", with: "")
-            colourCodes.removeFirst()
-            print(colourCodes)
-            return colourCodes
+            var headers = lines[0].components(separatedBy: "\t")
+            
+            // remove carriage returns from the last colour code
+            headers[headers.count - 1] = headers[headers.count - 1].replacingOccurrences(of: "\r", with: "")
+            
+            //colourCodes.removeFirst()
+            print("Headers: \(headers)")
+            return headers
         } catch let error {
-            print("Error getting colour codes: \(error)")
+            print("Error getting headers: \(error)")
             return []
         }
     }
@@ -65,20 +68,54 @@ class TSVManager {
         return keys
     }
     
-    func getColumnWidths(for font: UIFont, height: CGFloat) -> [CGFloat] {
+    func getColumnWidths(for font: UIFont, height: CGFloat, pad: CGFloat) -> [CGFloat] {
         var widths: [CGFloat] = []
         
-        for header in getHeaders() {
+        for column in 0...getHeaders().count - 1 {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.greatestFiniteMagnitude, height: height))
-            label.text = header
+            label.text = getLongestStringForColumn(col: column).string.lengthOfLongestBracketedComponent()
             label.font = font
-            label.numberOfLines = 1
+            if column == 0 {
+                label.numberOfLines = 2
+            } else {
+                label.numberOfLines = 1
+            }
             label.sizeToFit()
-            widths.append(label.frame.width)
-            
+            widths.append(label.frame.width + pad)
         }
         
         return widths
+    }
+    
+    func getLongestStringForColumn(col: Int) -> (string: String, index: Int) {
+        do {
+            // An array to hold all the strings in the column
+            var strings: [(string: String, index: Int)] = []
+            
+            // Split into lines
+            let tsvString = try String(contentsOfFile: Bundle.main.path(forResource: "\(series)\(mode.rawValue)", ofType: ".tsv")!)
+            let lines = tsvString.components(separatedBy: "\n")
+            
+            // Get the string for the column for each line
+            for index in 0...lines.count - 1 {
+                let components = lines[index].components(separatedBy: "\t")
+                
+                guard components.count > 0 else {
+                    continue
+                }
+                
+                let string = components[col]
+                strings.append((string, col))
+            }
+            
+            // Get the largest string value
+            return strings.sorted(by: {$0.string.count > $1.string.count}).first!
+            
+        } catch let error {
+            print("Error: \(error)")
+            return ("Error: \(error)", -1)
+        }
+        
     }
     
     func generateData() -> [String : Any] {
