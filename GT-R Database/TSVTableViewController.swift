@@ -73,6 +73,8 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
             titleLabel.text = "\(series!) Production Numbers"
         case .VIN:
             titleLabel.text = "\(series!) VIN Ranges"
+        case .Pricing:
+            titleLabel.text = "\(series!) New Pricing"
         default:
             return
         }
@@ -190,10 +192,11 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                         // MARK: Main Cells
                         if let modelData = numbers[keys[row]] as? [String : String] {
                             // The model data exists
-                            if let colourData = modelData[colours[col]] {
+                            if let data = modelData[colours[col]] {
                                 // There is a number for that colour
                                 let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))
-                                view.setUp(type: .Cell, text: "\(colourData)", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
+                                
+                                view.setUp(type: .Cell, text: "\(data.replacingOccurrences(of: "\"", with: ""))", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
                                 rowStack!.addArrangedSubview(view)
                             } else {
                                 let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))

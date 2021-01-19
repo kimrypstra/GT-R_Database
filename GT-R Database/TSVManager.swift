@@ -11,6 +11,7 @@ import UIKit
 enum ParseMode: String {
     case VIN = "VIN"
     case Production = "Prod"
+    case Pricing = "NewPricing"
 }
 
 class TSVManager {

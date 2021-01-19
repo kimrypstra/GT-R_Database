@@ -375,6 +375,7 @@
                         <segue destination="CbD-sd-90h" kind="show" identifier="SpecialModel" id="RVc-D6-Pov"/>
                         <segue destination="jhs-N8-6cP" kind="show" identifier="prodNumbers" id="CiI-jS-iPg"/>
                         <segue destination="jhs-N8-6cP" kind="show" identifier="VINRanges" id="i0U-Y6-rSf"/>
+                        <segue destination="jhs-N8-6cP" kind="show" identifier="newPricing" id="nGh-3L-m9U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8A-si-LMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -459,7 +460,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IkJ-yz-lzk">
-                                                        <rect key="frame" x="0.0" y="30" width="375" height="140"/>
+                                                        <rect key="frame" x="0.0" y="30" width="375" height="200"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="OKA-5b-MgE"/>
                                                         </constraints>
@@ -467,7 +468,7 @@
                                                         <viewLayoutGuide key="frameLayoutGuide" id="zdp-wE-Nop"/>
                                                     </scrollView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Misc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPQ-fb-XY9">
-                                                        <rect key="frame" x="0.0" y="170" width="375" height="30"/>
+                                                        <rect key="frame" x="0.0" y="230" width="375" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="e6h-H7-a7V"/>
                                                         </constraints>
@@ -476,7 +477,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dsn-dI-Rt8">
-                                                        <rect key="frame" x="0.0" y="200" width="375" height="200"/>
+                                                        <rect key="frame" x="0.0" y="260" width="375" height="140"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="8KP-Ce-TRs"/>
                                                         </constraints>
@@ -1033,7 +1034,7 @@ This app utilises Google Analytics</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Wo0-zj-Nws"/>
+        <segue reference="nGh-3L-m9U"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>

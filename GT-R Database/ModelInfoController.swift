@@ -194,6 +194,8 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
                 self.performSegue(withIdentifier: "prodNumbers", sender: self)
             case 2:
                 self.performSegue(withIdentifier: "VINRanges", sender: self)
+            case 3:
+                self.performSegue(withIdentifier: "newPricing", sender: self)
             default:
                 print("Unknown cell selected")
                 return
@@ -230,6 +232,10 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
             let IVC = segue.destination as! TSVTableViewController
             IVC.mode = .VIN
             IVC.series = series
+        case  "newPricing" :
+            let IVC = segue.destination as! TSVTableViewController
+            IVC.mode = .Pricing
+            IVC.series = series 
         default:
             print("Unimplemented")
             return

@@ -108,6 +108,8 @@
 		21D1F3F22592308500DC1B32 /* R32VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3F12592308500DC1B32 /* R32VIN.tsv */; };
 		21D1F3F42592308B00DC1B32 /* R33VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3F32592308B00DC1B32 /* R33VIN.tsv */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
+		21FEAA4E25B6BC0F005A7013 /* String + Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */; };
+		21FEAA5825B6C513005A7013 /* R34NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21FEAA5725B6C513005A7013 /* R34NewPricing.tsv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,6 +274,8 @@
 		21D1F3F12592308500DC1B32 /* R32VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32VIN.tsv; sourceTree = "<group>"; };
 		21D1F3F32592308B00DC1B32 /* R33VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33VIN.tsv; sourceTree = "<group>"; };
 		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Currency.swift"; sourceTree = "<group>"; };
+		21FEAA5725B6C513005A7013 /* R34NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34NewPricing.tsv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +293,7 @@
 		2144740525594BBC004DDEE0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				21FEAA4225B6AF0E005A7013 /* New Pricing */,
 				21676814258BA07700BCCFCD /* VIN Ranges */,
 				21AB55512582567200BBCF12 /* Production Numbers */,
 				218C81EC256A7E8A009A7063 /* ModelData */,
@@ -367,7 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				218C7F392568C8C6009A7063 /* GTRRegistry.sqlite */,
-				218C7F412568E96A009A7063 /* SpecialModelText */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -392,13 +396,6 @@
 				21A5D1BF25AFE0D40070AF8D /* Screenshot.swift */,
 			);
 			path = XIBs;
-			sourceTree = "<group>";
-		};
-		218C7F412568E96A009A7063 /* SpecialModelText */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SpecialModelText;
 			sourceTree = "<group>";
 		};
 		218C7F472568EBB2009A7063 /* Special Models */ = {
@@ -507,6 +504,7 @@
 				2185D431258789C600778FA2 /* UIView + Corners.swift */,
 				217F36F72556A6FF00113937 /* String + CamelToHuman.swift */,
 				217FEDFC25A0581800612283 /* String + Brackets.swift */,
+				21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */,
 				21AFA2D1254D3DC600661DE0 /* Main.storyboard */,
 				218C822C256FF41A009A7063 /* text.txt */,
 				2144740525594BBC004DDEE0 /* Data */,
@@ -525,6 +523,14 @@
 				21AFA2E1254D3EA700661DE0 /* NissanOpti.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		21FEAA4225B6AF0E005A7013 /* New Pricing */ = {
+			isa = PBXGroup;
+			children = (
+				21FEAA5725B6C513005A7013 /* R34NewPricing.tsv */,
+			);
+			path = "New Pricing";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -701,6 +707,7 @@
 				2184607D255C180500E68F45 /* an0.jpg in Resources */,
 				218C7F692568F141009A7063 /* nur-1.jpg in Resources */,
 				21846086255C180500E68F45 /* qm1.jpg in Resources */,
+				21FEAA5825B6C513005A7013 /* R34NewPricing.tsv in Resources */,
 				2184607C255C180500E68F45 /* kh3.jpg in Resources */,
 				218C7F612568F141009A7063 /* nur-2.jpg in Resources */,
 				21D1F3F22592308500DC1B32 /* R32VIN.tsv in Resources */,
@@ -729,6 +736,7 @@
 				2185D43625878C9900778FA2 /* ProductionCell.swift in Sources */,
 				214AC7BC25AEBDDA00C363B7 /* Colours.swift in Sources */,
 				217F36F82556A6FF00113937 /* String + CamelToHuman.swift in Sources */,
+				21FEAA4E25B6BC0F005A7013 /* String + Currency.swift in Sources */,
 				21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */,
 				214473FC25583F71004DDEE0 /* ModelNumberCell.swift in Sources */,
 				218C7F3E2568E4F5009A7063 /* SpecialModelViewController.swift in Sources */,

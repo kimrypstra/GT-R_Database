@@ -26,19 +26,12 @@ class ProductionCell: UIView {
             
         }
     }
+    
     var selected: Bool = false
     @IBOutlet weak var selectionView: UIView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var swatchView: UIView!
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,9 +45,9 @@ class ProductionCell: UIView {
     
     func commonInit() {
         let bundle = Bundle(for: ProductionCell.self)
-        let viewFromXib = bundle.loadNibNamed("Screenshot", owner: self, options: nil)![0] as! UIView
-                viewFromXib.frame = self.bounds
-        addSubview(viewFromXib)
+        bundle.loadNibNamed("ProductionCell", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
@@ -125,7 +118,9 @@ class ProductionCell: UIView {
     
     private func setType(to type: CellType) {
         self.type = type
+        
         label.textAlignment = .center
+        
         switch self.type {
         case .Cell:
             label.font = UIFont(name: "Futura", size: 10)
@@ -138,10 +133,12 @@ class ProductionCell: UIView {
         case .TopHeader:
             label.font = UIFont(name: "NissanOpti", size: 10)
             label.numberOfLines = 1
-
         case .Blank:
+            self.layer.borderWidth = 0
+            self.layer.borderColor = UIColor.clear.cgColor
             label.numberOfLines = 1
             label.removeFromSuperview()
         }
+        
     }
 }
