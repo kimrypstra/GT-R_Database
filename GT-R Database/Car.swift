@@ -71,7 +71,7 @@ class Car: NSObject {
     @objc dynamic var prodNumbers: String = "Unknown"
     @objc dynamic var numberInColour: String = "Unknown"
     @objc dynamic var numberInGrade: String = "Unknown"
-    @objc dynamic var interiorCode: String = "Unknown"
+    @objc dynamic var InteriorCode: String = "Unknown"
     @objc dynamic var extendedModelCode: String = "Unknown"
     
     @objc dynamic var modelCode: String {
@@ -135,12 +135,11 @@ class Car: NSObject {
     }
     
     private func getColourNumber(gen: String) {
+        // Gets which car this is in all cars of that colour in this generation
         let dbMan = DBManager()
         var result = dbMan.readVINDataFromDB(tableName: gen, attributesToRetrieve: [], attributeToSearch: "Colour", valueToSearch: Colour, fuzzy: false)
         result = result.filter({$0.Grade == Grade})
         let count = result.count
-        //print(result)
-        //result.sort(by: {$0.VIN < $1.VIN})
         let reference = result.filter({$0.VIN == self.VIN})
         let index = result.firstIndex(of: reference.first!)! + 1
         

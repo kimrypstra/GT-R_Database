@@ -12,6 +12,7 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="fly-dS-y42"/>
                 <outlet property="label" destination="2tF-g1-aSS" id="WTu-lh-0bV"/>
                 <outlet property="selectionView" destination="9ys-V6-TPF" id="J72-eF-2ZI"/>
+                <outlet property="swatchView" destination="yuz-Ic-VA2" id="Bbp-Zp-uC5"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,9 +24,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <gestureRecognizers/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="rr5-fd-RLh" appends="YES" id="nPi-KE-lxh"/>
-                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yuz-Ic-VA2">
+                    <rect key="frame" x="23" y="2.5" width="368" height="368"/>
+                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="yuz-Ic-VA2" secondAttribute="height" multiplier="1:1" id="7ii-a8-kA3"/>
+                    </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tF-g1-aSS">
                     <rect key="frame" x="192.5" y="176" width="29" height="21"/>
@@ -33,14 +38,28 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knE-Y2-caR">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="rr5-fd-RLh" appends="YES" id="oWt-Oo-R1M"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="knE-Y2-caR" firstAttribute="height" secondItem="9ys-V6-TPF" secondAttribute="height" id="2ox-Q0-0wl"/>
+                <constraint firstItem="knE-Y2-caR" firstAttribute="centerY" secondItem="2tF-g1-aSS" secondAttribute="centerY" id="3Ul-WE-Mki"/>
                 <constraint firstItem="2tF-g1-aSS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="72l-as-Qp1"/>
+                <constraint firstItem="knE-Y2-caR" firstAttribute="centerX" secondItem="2tF-g1-aSS" secondAttribute="centerX" id="GOs-RX-RkA"/>
+                <constraint firstItem="knE-Y2-caR" firstAttribute="width" secondItem="9ys-V6-TPF" secondAttribute="width" id="IJ7-aU-isR"/>
+                <constraint firstItem="yuz-Ic-VA2" firstAttribute="centerX" secondItem="2tF-g1-aSS" secondAttribute="centerX" id="TB7-0G-tM6"/>
                 <constraint firstItem="9ys-V6-TPF" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="bHf-te-bMu"/>
                 <constraint firstItem="2tF-g1-aSS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ffX-vK-L4s"/>
                 <constraint firstItem="9ys-V6-TPF" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="l3D-m7-WaB"/>
+                <constraint firstItem="yuz-Ic-VA2" firstAttribute="centerY" secondItem="2tF-g1-aSS" secondAttribute="centerY" id="rdP-xh-xSW"/>
                 <constraint firstItem="9ys-V6-TPF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tnr-Z4-SqR"/>
+                <constraint firstItem="yuz-Ic-VA2" firstAttribute="height" secondItem="9ys-V6-TPF" secondAttribute="height" constant="-5" id="yzM-Z0-kni"/>
                 <constraint firstItem="9ys-V6-TPF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zVS-sT-q96"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -55,6 +74,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

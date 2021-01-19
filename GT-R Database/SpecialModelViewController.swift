@@ -9,7 +9,7 @@ import UIKit
 import CocoaMarkdown
 
 class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
-
+    
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -25,10 +25,10 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var brochureHeight: NSLayoutConstraint!
     @IBOutlet weak var miscHeight: NSLayoutConstraint!
-
+    
     @IBOutlet weak var miscLabel: UILabel!
     @IBOutlet weak var brochureLabel: UILabel!
-
+    
     var series: String! // R32,R33,R34
     var specialModelName: String! // M-Spec Nür (special chars included, this is display text)
     var brochureImages: [UIImage] = []
@@ -53,67 +53,73 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         gradient.frame = topBannerView.bounds
         gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
         topBannerView.layer.insertSublayer(gradient, at: 0)
-        // Do any additional setup after loading the view.
+        stackView.alpha = 0 // Hide the stack view because otherwise we see the images flying down when the screen loads
     }
     
     override func viewWillAppear(_ animated: Bool) {
         titleLabel.text = specialModelName
-
-        if let text = getModelInfoText() {
-            textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-            let parsed = CMDocument(string: text, options: .hardBreaks)
-            
-            let attr = CMTextAttributes()
-            
-            
-// MARK:- Font and Paragraph Attributes
-
-            // Headers
-            attr.addFontAttributes([.family : "NissanOpti", .size : 16], forElementWithKinds: .header1)
-            attr.addFontAttributes([.family : "NissanOpti", .size : 14], forElementWithKinds: .header2)
-            attr.addFontAttributes([.family : "NissanOpti", .size : 12], forElementWithKinds: .header3)
-            attr.addFontAttributes([.family : "Futura", .size : 16, .face : "Bold"], forElementWithKinds: .header4)
-            attr.addFontAttributes([.family : "NissanOpti", .size : 14], forElementWithKinds: .header5)
-            attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 20, .headExtraIndent : 20], forElementWithKinds: .header5)
-            
-            // Unordered List
-            attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 10, .headExtraIndent : 20], forElementWithKinds: .unorderedList)
-            attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .unorderedList)
-            
-            // Unordered Sublist
-            attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 20, .headExtraIndent : 10], forElementWithKinds: .unorderedSublist)
-            attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .unorderedSublist)
-            let bullet = attr.unorderedListAttributes.paragraphStyleAttributes[CMParagraphStyleAttributeName.listItemBulletString]
-            attr.addParagraphStyleAttributes([.listItemBulletString : bullet], forElementWithKinds: .unorderedSublist)
-                
-            // Inline Code
-            attr.addParagraphStyleAttributes([.alignment : NSTextAlignment.right.rawValue], forElementWithKinds: .inlineCode)
-            attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .inlineCode)
-
-            // Text
-            attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .text)
-            
-
-// MARK:- END
-            
-            // MARK: Render textView text
-            let renderer = CMAttributedStringRenderer(document: parsed, attributes: attr)
-            textView.attributedText = renderer!.render()
-            
-            let bDoc = CMDocument(string: "##### Brochure", options: .hardBreaks)
-            let bRend = CMAttributedStringRenderer(document: bDoc, attributes: attr)
-            brochureLabel.attributedText = bRend?.render()
-            
-            let mDoc = CMDocument(string: "##### Miscellaneous Images", options: .hardBreaks)
-            let mRend = CMAttributedStringRenderer(document: mDoc, attributes: attr)
-            miscLabel.attributedText = mRend?.render()
+        
+        let text = getModelInfoText()
+        if text == "" {
+            textViewHeight.constant = 0
         }
         
+        textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        let parsed = CMDocument(string: text, options: .hardBreaks)
+        
+        let attr = CMTextAttributes()
+        
+        
+        // MARK:- Font and Paragraph Attributes
+        
+        // Headers
+        attr.addFontAttributes([.family : "NissanOpti", .size : 16], forElementWithKinds: .header1)
+        attr.addFontAttributes([.family : "NissanOpti", .size : 14], forElementWithKinds: .header2)
+        attr.addFontAttributes([.family : "NissanOpti", .size : 12], forElementWithKinds: .header3)
+        attr.addFontAttributes([.family : "Futura", .size : 16, .face : "Bold"], forElementWithKinds: .header4)
+        attr.addFontAttributes([.family : "NissanOpti", .size : 14], forElementWithKinds: .header5)
+        attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 20, .headExtraIndent : 20], forElementWithKinds: .header5)
+        
+        // Unordered List
+        attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 10, .headExtraIndent : 20], forElementWithKinds: .unorderedList)
+        attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .unorderedList)
+        
+        // Unordered Sublist
+        attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 20, .headExtraIndent : 10], forElementWithKinds: .unorderedSublist)
+        attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .unorderedSublist)
+        let bullet = attr.unorderedListAttributes.paragraphStyleAttributes[CMParagraphStyleAttributeName.listItemBulletString]
+        attr.addParagraphStyleAttributes([.listItemBulletString : bullet], forElementWithKinds: .unorderedSublist)
+        
+        // Inline Code
+        attr.addParagraphStyleAttributes([.alignment : NSTextAlignment.right.rawValue], forElementWithKinds: .inlineCode)
+        attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .inlineCode)
+        
+        // Text
+        attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .text)
+        
+        
+        // MARK:- END
+        
+        // MARK: Render textView text
+        let renderer = CMAttributedStringRenderer(document: parsed, attributes: attr)
+        textView.attributedText = renderer!.render()
+        
+        let bDoc = CMDocument(string: "##### Brochure", options: .hardBreaks)
+        let bRend = CMAttributedStringRenderer(document: bDoc, attributes: attr)
+        brochureLabel.attributedText = bRend?.render()
+        
+        let mDoc = CMDocument(string: "##### Miscellaneous Images", options: .hardBreaks)
+        let mRend = CMAttributedStringRenderer(document: mDoc, attributes: attr)
+        miscLabel.attributedText = mRend?.render()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        stackView.alpha = 1 // Unhide the stack view since it's out of sight now
     }
     
     func populateImages() {
         // First, construct the filepath based on the car informaiton
-        if let path = imagePaths["\(series!) \(specialModelName!)"] {
+        if let path = assetPaths["\(series!) \(specialModelName!)"] {
             // Get a list of all files in the folder
             var filenames = getContentsOfFolder(path: path)
             
@@ -128,28 +134,38 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
                 print("Couldn't find cover image for \(path)/cover.jpg")
             }
             
-            // Brochure images...
-            let brochureImageFilenames = filenames.filter({$0.contains("brochure")})
+            // Extract brochure image filenames and sort...
+            var brochureImageFilenames = filenames.filter({$0.contains("brochure")})
             filenames.removeAll(where: {$0.contains("brochure")})
+            brochureImageFilenames.sort(by: {$0 < $1})
             
             // if some brochure images are found...
             if brochureImageFilenames.count > 0 {
                 // Generate a scroll view in code and fill it with brochure images, then add it to the stack view
                 for filename in brochureImageFilenames {
-                    let image = UIImage(contentsOfFile: "\(path)\(filename)")
-                    brochureImages.append(image!)
+                    if let image = UIImage(contentsOfFile: "\(path)\(filename)") {
+                        brochureImages.append(image)
+                    } else {
+                        print("Couldn't find image for: \(path)\(filename)")
+                    }
                 }
+                
+                
+                
+                let largestImage = brochureImages.sorted(by: {$0.size.height > $1.size.height}).first!
+                let largestAspect = largestImage.size.height / largestImage.size.width
+                brochureHeight.constant = self.view.bounds.width * largestAspect
                 
                 // Add the brochure scrollView
                 let brochureTotalWidth: CGFloat = CGFloat(brochureImages.count) * self.view.frame.width
-
+                
                 brochureScrollView.isPagingEnabled = true
                 brochureScrollView.bounces = false
                 brochureScrollView.showsVerticalScrollIndicator = false
                 brochureScrollView.showsHorizontalScrollIndicator = false
                 brochureScrollView.delegate = self
-                brochureScrollView.contentSize = CGSize(width: brochureTotalWidth, height: self.view.bounds.width)
-                brochureHeight.constant = brochureScrollView.contentSize.height
+                brochureScrollView.contentSize = CGSize(width: brochureTotalWidth, height: brochureHeight.constant)
+                //brochureHeight.constant = brochureScrollView.contentSize.height
                 
                 for (index, image) in brochureImages.enumerated() {
                     let aspect = image.size.height / image.size.width
@@ -162,13 +178,17 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             } else {
                 stackView.arrangedSubviews[0].isHidden = true
                 stackView.arrangedSubviews[1].isHidden = true
-                stackViewHeight.constant = miscHeight.constant + 30
+                //stackViewHeight.constant = miscHeight.constant + 30
             }
-
+            
             // For misc images, first get everything that remains except the text
+            filenames.sort(by: {$0 < $1})
             for filename in filenames where !filename.contains(".md") {
-                let image = UIImage(contentsOfFile: "\(path)\(filename)")
-                miscImages.append(image!)
+                if let image = UIImage(contentsOfFile: "\(path)\(filename)") {
+                    miscImages.append(image)
+                } else {
+                    print("Could not find image for \(path)\(filename)")
+                }
             }
             
             if miscImages.count > 0 {
@@ -199,18 +219,22 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
                 // If there are no misc images...
                 stackView.arrangedSubviews[2].isHidden = true
                 stackView.arrangedSubviews[3].isHidden = true
-                stackViewHeight.constant = brochureHeight.constant + 30
-            }
-
-            // If there are both misc and brochure images, size the stackView to accomodate both
-            if miscImages.count != 0 && brochureImages.count != 0 {
-                stackViewHeight.constant = miscHeight.constant + brochureHeight.constant + 60
-            } else if miscImages.count == 0 && brochureImages.count == 0 {
-                // If there are no images, get rid of the stackView
-                // Note: Don't remove it from superview as it breaks it for some reason
-                stackViewHeight.constant = 0
+                //stackViewHeight.constant = brochureHeight.constant + 30
             }
             
+            // Size the stackView height to match the content
+            setStackViewHeight(scrollToBottom: false, of: nil)
+            
+            
+            //            // If there are both misc and brochure images, size the stackView to accomodate both
+            //            if miscImages.count != 0 && brochureImages.count != 0 {
+            //                stackViewHeight.constant = miscHeight.constant + brochureHeight.constant + 60
+            //            } else if miscImages.count == 0 && brochureImages.count == 0 {
+            //                // If there are no images, get rid of the stackView
+            //                // Note: Don't remove it from superview as it breaks it for some reason
+            //                stackViewHeight.constant = 0
+            //            }
+            //
             //self.view.layoutIfNeeded()
             
         } else {
@@ -222,6 +246,40 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         populateImages()
     }
     
+    func setStackViewHeight(scrollToBottom: Bool, of view: UIScrollView?) {
+        let prevHeight = stackViewHeight.constant
+        stackViewHeight.constant = 0
+        if miscImages.count != 0 {
+            stackViewHeight.constant += miscHeight.constant + miscLabel.frame.height
+        }
+        if brochureImages.count != 0 {
+            stackViewHeight.constant += brochureHeight.constant + brochureLabel.frame.height
+        }
+        if brochureImages.count != 0 && miscImages.count != 0 {
+            // Add the padding to accound for the miscLabel
+            //stackViewHeight.constant += 60
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        } completion: { (_) in
+            if prevHeight < self.stackViewHeight.constant && scrollToBottom == true {
+                guard view != nil else {
+                    print("View is nil")
+                    return
+                }
+                
+                if let origin = view!.superview {
+                    // Get the Y position of your child view
+                    let childStartPoint = origin.convert(view!.frame.origin, to: self.mainScrollView)
+                    // Scroll to a rectangle starting at the Y of your subview, with a height of the scrollview
+                    self.mainScrollView.scrollRectToVisible(CGRect(x:0, y: childStartPoint.y, width: 1, height: self.mainScrollView.frame.height), animated: true)
+                }
+                
+            }
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         timer?.invalidate()
         UIView.animate(withDuration: 0.5) {
@@ -230,29 +288,45 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        // calcualate the page
-        let page = Int(scrollView.contentOffset.x / scrollView.contentSize.width * CGFloat(ind.numberOfPages))
-        print("Page: \(page)")
-        self.ind.currentPage = page
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
-            UIView.animate(withDuration: 0.5) {
-                self.ind.alpha = 0
+        // Adjust the height if necessary to accomodate bigger images
+        if scrollView == brochureScrollView {
+            let page = Int(scrollView.contentOffset.x / scrollView.contentSize.width * CGFloat(brochureImages.count))
+            print("Brochure page: \(page)")
+            let image = brochureImages[page]
+            let aspect = image.size.height / image.size.width
+            let scaledImageHeight = scrollView.frame.width * aspect
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn) {
+                self.brochureHeight.constant = scaledImageHeight
+                self.view.layoutIfNeeded()
             }
+            setStackViewHeight(scrollToBottom: true, of: brochureScrollView)
+        } else if scrollView == miscScrollView {
+            let page = Int(scrollView.contentOffset.x / scrollView.contentSize.width * CGFloat(miscImages.count))
+            let image = miscImages[page]
+            let aspect = image.size.height / image.size.width
+            let scaledImageHeight = scrollView.frame.width * aspect
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn) {
+                self.miscHeight.constant = scaledImageHeight
+                self.view.layoutIfNeeded()
+            }
+            setStackViewHeight(scrollToBottom: true, of: miscScrollView)
         }
+        
+        
     }
     
-    func getModelInfoText() -> String? {
-        if let path = imagePaths["\(series!) \(specialModelName!)"] {
+    func getModelInfoText() -> String {
+        if let path = assetPaths["\(series!) \(specialModelName!)"] {
             do {
                 let text = try String(contentsOfFile: "\(path)/\(specialModelName!).md")
                 return text
             } catch let error {
                 print("Coudn't get string for \(path): \(error)")
-                return nil
+                return ""
             }
         } else {
             print("Couldn't get path for text file")
-            return nil
+            return ""
         }
     }
     

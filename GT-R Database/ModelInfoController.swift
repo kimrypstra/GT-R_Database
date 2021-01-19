@@ -22,11 +22,63 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         "R34" : "R34 GT-R"
     ]
     
-    let tempTableViewData: [String : [String]] = [
-        "" : ["VIN Search", "Production Numbers", "VIN Ranges"],
-        "Special Models" : ["M-Spec Nür", "V-Spec II Nür", "M-Spec", "V-Spec II N1", "V-Spec N1", "Midnight Purple 3", "Midnight Purple 2"],
-        "Non-Japanese Delivered" : ["Great Britain", "Hong Kong", "New Zealand", "Singapore"],
-        "Nismo Cars" : ["Z-Tune", "Clubman Race Spec (CRS)", "F-Sport", "R-Tune", "S-Tune", "Sports Resetting"]
+    @objc dynamic let R34TableViewData: [String : [String]] = [
+        "" : ["VIN Search",
+              "Production Numbers",
+              "VIN Ranges",
+              "New Pricing"],
+        "Special Models" :
+            ["M-Spec Nür",
+             "V-Spec II Nür",
+             "M-Spec", "V-Spec II N1",
+             "V-Spec N1",
+             "Midnight Purple 3",
+             "Midnight Purple 2"],
+        "Non-Japanese Delivered" :
+            ["Great Britain",
+             "Hong Kong",
+             "New Zealand",
+             "Singapore"],
+        "Nismo Cars" :
+            ["Z-Tune",
+             "Clubman Race Spec (CRS)",
+             "F-Sport",
+             "R-Tune",
+             "S-Tune",
+             "Sports Resetting"]
+    ]
+    
+    @objc dynamic let R33TableViewData: [String : [String]] = [
+        "" : ["VIN Search",
+              "Production Numbers",
+              "VIN Ranges",
+              "New Pricing"],
+        "Special Models" :
+            ["40th",
+            "400R",
+            "GT-R LM",
+            "LM Limited",
+            "V-Spec N1"],
+        "Non-Japanese Delivered" :
+            ["Great Britain"],
+        "Nismo Cars" :
+            ["CRS"]
+    ]
+    
+    @objc dynamic let R32TableViewData: [String : [String]] = [
+        "" : ["VIN Search",
+              "Production Numbers",
+              "VIN Ranges",
+              "New Pricing"],
+        "Special Models" :
+            ["V-Spec",
+            "V-Spec II",
+            "N1"],
+        "Non-Japanese Delivered" :
+            ["Australia"],
+        "Nismo Cars" :
+            ["GT-R Nismo",
+            "CRS"]
     ]
     
     let tempSectionNames = [
@@ -121,12 +173,14 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tempTableViewData[tempSectionNames[section]]!.count
+        let data = value(forKey: "\(series!)TableViewData") as! [String : [String]]
+        return data[tempSectionNames[section]]!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let data = value(forKey: "\(series!)TableViewData") as! [String : [String]]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
-        cell.textLabel?.text = tempTableViewData[tempSectionNames[indexPath.section]]![indexPath.row]
+        cell.textLabel?.text = data[tempSectionNames[indexPath.section]]![indexPath.row]
         return cell
     }
     

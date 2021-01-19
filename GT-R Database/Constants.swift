@@ -7,7 +7,7 @@
 
 import Foundation
 
-let imagePaths: [String : String] = [
+let assetPaths: [String : String] = [
     "R34 Clubman Race Spec (CRS)" : "\(r34path)CRS/",
     "R34 M-Spec Nür" : "\(r34path)M-Spec Nur/",
     "R34 V-Spec II Nür" : "\(r34path)V-Spec II Nur/",
@@ -24,9 +24,24 @@ let imagePaths: [String : String] = [
     "R34 Sports Resetting" : "\(r34path)Sports Resetting/",
     "R34 V-Spec II N1" : "\(r34path)V-Spec II N1/",
     "R34 V-Spec N1" : "\(r34path)V-Spec N1/",
-    "R34 Z-Tune" : "\(r34path)Z-Tune/"
+    "R34 Z-Tune" : "\(r34path)Z-Tune/",
+    "R33 40th" : "\(r33path)40th/",
+    "R33 400R" : "\(r33path)400R/",
+    "R33 GT-R LM" : "\(r33path)GT-R LM/",
+    "R33 LM Limited" : "\(r33path)LM Limited/",
+    "R33 V-Spec N1" : "\(r33path)V-Spec N1/",
+    "R33 Great Britain" : "\(r33path)Great Britain/",
+    "R33 CRS" : "\(r33path)CRS/",
+    "R32 V-Spec" : "\(r32path)V-Spec/",
+    "R32 V-Spec II" : "\(r32path)V-Spec II/",
+    "R32 N1" : "\(r32path)N1/",
+    "R32 Australia" : "\(r32path)Australia/",
+    "R32 GR-R Nismo" : "\(r32path)GT-R Nismo/",
+    "R32 CRS" : "\(r32path)CRS/"
 ]
 
 let r34path = "\(Bundle.main.bundlePath)/ModelData/R34/"
+let r33path = "\(Bundle.main.bundlePath)/ModelData/R33/"
+let r32path = "\(Bundle.main.bundlePath)/ModelData/R32/"
 
 

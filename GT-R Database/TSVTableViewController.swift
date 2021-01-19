@@ -18,10 +18,15 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var floater: UIStackView!
-    @IBOutlet weak var floaterWidth: NSLayoutConstraint!
-    @IBOutlet weak var floaterHeight: NSLayoutConstraint!
-    @IBOutlet weak var floaterLeftAlign: NSLayoutConstraint!
+    @IBOutlet weak var topFloater: UIStackView!
+    @IBOutlet weak var topFloaterWidth: NSLayoutConstraint!
+    @IBOutlet weak var topFloaterHeight: NSLayoutConstraint!
+    @IBOutlet weak var topFloaterLeftAlign: NSLayoutConstraint!
+    
+    @IBOutlet weak var leftFloater: UIStackView!
+    @IBOutlet weak var leftFloaterWidth: NSLayoutConstraint!
+    @IBOutlet weak var leftFloaterHeight: NSLayoutConstraint!
+    @IBOutlet weak var leftFloaterTopAlign: NSLayoutConstraint!
     
     var numberOfColumns: CGFloat = 0 // including left header
     var numberOfRows: CGFloat = 0 // including top header
@@ -54,7 +59,6 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     
     var columnStack: UIStackView?
     var rowStack: UIStackView?
-    var floatingHeader: UIStackView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +81,8 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        floaterLeftAlign.constant = scrollView.contentOffset.x
+        topFloaterLeftAlign.constant = scrollView.contentOffset.x
+        leftFloaterTopAlign.constant = scrollView.contentOffset.y * -1
     }
     
     func setUpTable() {
@@ -85,6 +90,7 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         let numbers: [String : Any] = tsvMan.generateData()
         let keys = tsvMan.keys()
         let colours = tsvMan.getHeaders()
+        let colourMan = ColourManager()
         
         numberOfRows = CGFloat(keys.count)
         numberOfColumns = CGFloat(colours.count)
@@ -115,8 +121,11 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         columnStack = UIStackView(frame: CGRect(x: 0, y: 0, width: totalWidth, height: height))
         columnStack!.distribution = .fill
         
-        floaterHeight.constant = desiredCellHeight
-        floaterWidth.constant = totalWidth
+        topFloaterHeight.constant = desiredCellHeight
+        topFloaterWidth.constant = totalWidth
+        
+        leftFloaterWidth.constant = columnWidths[0]
+        leftFloaterHeight.constant = height
         //floater.distribution = .fill
         
         for col in 0...Int(numberOfColumns - 1) {
@@ -132,16 +141,18 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                     if row == 0 {
                         // MARK: Top Left (blank)
                         let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))
-                        view.setUp(type: .Blank, text: colours[col], coordinate: CGPoint(x: col, y: row), delegate: self)
+                        view.setUp(type: .Blank, text: colours[col], coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
                         let const = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: columnWidths[col])
                         view.addConstraint(const)
                         //rowStack!.addArrangedSubview(view)
-                        floater.addArrangedSubview(view)
+                        topFloater.addArrangedSubview(view)
                     } else {
-                        // MARK: First Column
+                        // MARK: First Column (Left headers)
                         let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))
-                        view.setUp(type: .LeftHeader, text: keys[row], coordinate: CGPoint(x: col, y: row), delegate: self)
-                        rowStack!.addArrangedSubview(view)
+                        view.setUp(type: .LeftHeader, text: keys[row], coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
+                        let const = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: desiredCellHeight)
+                        //rowStack!.addArrangedSubview(view)
+                        leftFloater.addArrangedSubview(view)
                     }
                 }
                 columnStack!.addArrangedSubview(rowStack!)
@@ -157,11 +168,23 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                         // MARK: Top Row
                         //let view = ProdCell(value: colours[col - 1], frame: CGRect(x: 0, y: 0, width: desiredCellWidth, height: desiredCellHeight), type: .TopHeader)
                         let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))
-                        view.setUp(type: .TopHeader, text: colours[col], coordinate: CGPoint(x: col, y: row), delegate: self)
+                        let text = colours[col]
+                        var colour: CarColour? = nil
+                        if text != "Total" && text != "Unknown" && text != "???" {
+                            colour = colourMan.getColourForCode(code: text)
+                        }
+                        
+                        view.setUp(type: .TopHeader, text: text, coordinate: CGPoint(x: col, y: row), swatchColour: colour, delegate: self)
                         let const = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: columnWidths[col])
                         view.addConstraint(const)
-                        //rowStack!.addArrangedSubview(view)
-                        floater.addArrangedSubview(view)
+                        
+                        topFloater.addArrangedSubview(view)
+                        
+//                        let blank = ProductionCell(frame: view.frame)
+//                        blank.setUp(type: .Blank, text: "", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
+//                        blank.addConstraint(const)
+//                        rowStack!.addArrangedSubview(blank)
+                        
                         //floatingHeader!.addArrangedSubview(view)
                     } else {
                         // MARK: Main Cells
@@ -170,16 +193,16 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                             if let colourData = modelData[colours[col]] {
                                 // There is a number for that colour
                                 let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))
-                                view.setUp(type: .Cell, text: "\(colourData)", coordinate: CGPoint(x: col, y: row), delegate: self)
+                                view.setUp(type: .Cell, text: "\(colourData)", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
                                 rowStack!.addArrangedSubview(view)
                             } else {
                                 let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))
-                                view.setUp(type: .Blank, text: "", coordinate: CGPoint(x: col, y: row), delegate: self)
+                                view.setUp(type: .Blank, text: "", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
                                 rowStack!.addArrangedSubview(view)
                             }
                         } else {
                             let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))
-                            view.setUp(type: .Blank, text: "", coordinate: CGPoint(x: col, y: row), delegate: self)
+                            view.setUp(type: .Blank, text: "", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
                             rowStack!.addArrangedSubview(view)
                         }
                     }
@@ -228,7 +251,11 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     func setSelectionForRow(row: Int) {
         clearSelectionForRow(row: selectedRow)
         selectedRow = row
-        for subview in columnStack!.arrangedSubviews {
+        
+        let headerCell = leftFloater.arrangedSubviews[row - 1] as! ProductionCell
+        headerCell.setSelected(to: true)
+        
+        for (index, subview) in columnStack!.arrangedSubviews.enumerated() where index != 0 {
             let rowStack = subview as! UIStackView
             // Line has row-1 because the subviews don't count the empty one at the top
             let cell = rowStack.arrangedSubviews[row - 1] as! ProductionCell
@@ -240,7 +267,7 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         clearSelectionForColumn(col: selectedColumn)
         selectedColumn = column
         
-        let headerCell = floater.arrangedSubviews[column] as! ProductionCell
+        let headerCell = topFloater.arrangedSubviews[column] as! ProductionCell
         headerCell.setSelected(to: true)
         
         let stack = columnStack?.arrangedSubviews[column] as! UIStackView
@@ -253,7 +280,10 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     func clearSelectionForRow(row: Int) {
         guard selectedRow != -1 else {return}
         
-        for (index, subview) in columnStack!.arrangedSubviews.enumerated() where index != selectedColumn {
+        let headerCell = leftFloater.arrangedSubviews[row - 1] as! ProductionCell
+        headerCell.setSelected(to: false)
+        
+        for (index, subview) in columnStack!.arrangedSubviews.enumerated() where index != selectedColumn && index != 0 {
             let rowStack = subview as! UIStackView
             // Line has row-1 because the subviews don't count the empty one at the top
             let cell = rowStack.arrangedSubviews[row - 1] as! ProductionCell
@@ -264,7 +294,7 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     func clearSelectionForColumn(col: Int) {
         guard selectedColumn != -1 else {return}
         
-        let headerCell = floater.arrangedSubviews[col] as! ProductionCell
+        let headerCell = topFloater.arrangedSubviews[col] as! ProductionCell
         headerCell.setSelected(to: false)
         
         let stack = columnStack?.arrangedSubviews[col] as! UIStackView

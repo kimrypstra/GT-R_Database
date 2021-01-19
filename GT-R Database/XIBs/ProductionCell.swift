@@ -30,6 +30,7 @@ class ProductionCell: UIView {
     @IBOutlet weak var selectionView: UIView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var swatchView: UIView!
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -49,6 +50,14 @@ class ProductionCell: UIView {
         commonInit()
     }
     
+    func commonInit() {
+        let bundle = Bundle(for: ProductionCell.self)
+        let viewFromXib = bundle.loadNibNamed("Screenshot", owner: self, options: nil)![0] as! UIView
+                viewFromXib.frame = self.bounds
+        addSubview(viewFromXib)
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+    }
+    
     @IBAction func didTap(_ sender: Any) {
         switch type {
         case .Blank:
@@ -63,22 +72,27 @@ class ProductionCell: UIView {
         }
     }
     
-    func commonInit() {
-        let bundle = Bundle(for: ProductionCell.self)
-        bundle.loadNibNamed("ProductionCell", owner: self, options: nil)
-        addSubview(contentView)
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-    }
     
-    func setUp(type: CellType, text: String, coordinate: CGPoint, delegate: ProductionCellDelegate) {
+    func setUp(type: CellType, text: String, coordinate: CGPoint, swatchColour: CarColour?, delegate: ProductionCellDelegate) {
         setType(to: type)
-        //label.text = text
         
         label.text = text.splitBracketedSubstringsIntoNewlines()
         
         self.coordinate = coordinate
         self.delegate = delegate
+        
+        if swatchColour != nil {
+            swatchView.backgroundColor = swatchColour?.colour
+            swatchView.layer.cornerRadius = 8
+            
+            if swatchColour?.lightTextRequired == true {
+                label.textColor = .white
+            }
+            //swatchView.layer.borderWidth = 3
+            //swatchView.layer.borderColor = UIColor.black.cgColor
+        } else {
+            swatchView.removeFromSuperview()
+        }
     }
     
     func setSelected(to state: Bool) {
@@ -116,6 +130,8 @@ class ProductionCell: UIView {
         case .Cell:
             label.font = UIFont(name: "Futura", size: 10)
             label.numberOfLines = 1
+            self.layer.borderWidth = 0.5
+            self.layer.borderColor = UIColor.lightGray.cgColor
         case .LeftHeader:
             label.font = UIFont(name: "NissanOpti", size: 10)
             label.numberOfLines = 2

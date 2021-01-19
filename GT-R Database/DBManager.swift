@@ -85,36 +85,19 @@ class DBManager {
             //let columnCount: Int32 = Int32(varIndex.count - 1)
             let dbColCount = sqlite3_column_count(readstmt) - 1
             for column in 0...dbColCount {
-//                if modelCode == "R32" && column == 8 {
-//                    continue
-//                }
-//
-//                if modelCode == "R33" && column == 9 {
-//                    continue
-//                }
                 
                 let cString: UnsafePointer<Int8> = sqlite3_column_name(readstmt, column)
                 if strlen(cString) > 0 {
                     let colName = String(cString: cString)
                     if sqlite3_column_type(readstmt, column) != SQLITE_NULL {
-                        let value = String(cString: sqlite3_column_text(readstmt, column))
-                        car.setValue(value, forKey: colName)
+                            let value = String(cString: sqlite3_column_text(readstmt, column))
+                            car.setValue(value, forKey: colName)
                     }
                 }
                 
                 
                 
             }
-            
-//            if modelCode == "R32" {
-//                let value = String(cString: sqlite3_column_text(readstmt, 8))
-//                car.interiorCode = value
-//            }
-//
-//            if modelCode == "R33" {
-//                let value = String(cString: sqlite3_column_text(readstmt, 9))
-//                car.interiorCode = value
-//            }
             
             
             

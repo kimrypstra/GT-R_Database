@@ -9,10 +9,8 @@ import UIKit
 
 class R33: Car {
     
-    @objc dynamic var InteriorCode: String = "Unknown"
-    
     // Text in red to describe what the value actually is
-    let modelNumberDescriptions = [
+    @objc dynamic let modelNumberDescriptions = [
         "Body",
         "Engine",
         "Axle",
@@ -23,11 +21,11 @@ class R33: Car {
         "Intake",
         "Destination",
         "Seating Capacity",
-        "Paint",
-        "Rear Window",
-        "Spec",
-        "Stereo",
-        "Safety"
+        "14th Digit",
+        "15th Digit",
+        "16th Digit",
+        "17th Digit",
+        "18th Digit"
     ]
     
     @objc dynamic let modelCodeDigits = [
@@ -52,7 +50,7 @@ class R33: Car {
     @objc override dynamic var modelCode: String {
         var string = ""
         
-        for index in 1...12 {
+        for index in 1...15 {
             let val = value(forKey: "Model\(index)") as! String
             if val != "Unknown" {
                 string.append(val)

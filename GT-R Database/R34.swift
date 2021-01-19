@@ -10,8 +10,8 @@ import UIKit
 class R34: Car {
     
     // Text in red to describe what the digit represents 
-    let modelNumberDescriptions = [
-        "Body", "Engine", "Axle", "Car Model", "Doors", "Base Grade", "Transmission", "Fuel System", "Headlights", "Stereo and AC", "Rear Window", "Wiper/Police"
+    @objc dynamic let modelNumberDescriptions = [
+        "Body", "Engine", "Axle", "Handle", "Base Grade", "Transmission", "Car Model", "Intake", "Destination", "Seating Capacity", "14th Digit", "15th Digit", "16th Digit", "17th Digit", "18th Digit"
     ]
     
     // Descriptor for which model code digit it is
@@ -37,7 +37,7 @@ class R34: Car {
     @objc override dynamic var modelCode: String {
         var string = ""
         
-        for index in 1...12 {
+        for index in 1...15 {
             let val = value(forKey: "Model\(index)") as! String
             if val != "Unknown" {
                 string.append(val)
@@ -72,15 +72,17 @@ class R34: Car {
     
     private func getColourNumber(gen: String) {
         let dbMan = DBManager()
-        var result = dbMan.readVINDataFromDB(tableName: gen, attributesToRetrieve: [], attributeToSearch: "Colour", valueToSearch: Colour, fuzzy: false) as! [R34]
+        var result = dbMan.readVINDataFromDB(tableName: gen, attributesToRetrieve: [], attributeToSearch: "Colour", valueToSearch: self.Colour, fuzzy: false) as! [R34]
         result = result.filter({$0.Grade == Grade})
         let count = result.count
         //print(result)
         //result.sort(by: {$0.VIN < $1.VIN})
-        let reference = result.filter({$0.VIN == self.VIN})
-        let index = result.firstIndex(of: reference.first!)! + 1
-        
-        numberInColour = "\(index) of \(count)"
+        if let reference = result.filter({$0.VIN == self.VIN}).first {
+            let index = result.firstIndex(of: reference)! + 1
+            numberInColour = "\(index) of \(count)"
+        } else {
+            numberInColour = "Unknown"
+        }
     }
     
     override func getNumbers(generation: String) {

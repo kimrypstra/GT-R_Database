@@ -8,10 +8,20 @@
 import UIKit
 
 class R32: Car {
-
+    
     // Text in red to describe what the value actually is
-    let modelNumberDescriptions = [
-        "Body", "Engine", "Axle", "Car Model", "Doors", "Base Grade", "Transmission", "Fuel System", "Headlights", "Stereo and AC", "Rear Window", "Wiper/Police"
+    @objc dynamic let modelNumberDescriptions = [
+        "Body",
+        "Engine",
+        "Drive",
+        "Car Model",
+        "Doors",
+        "Base Grade",
+        "Transmission",
+        "Intake",
+        "11th Digit",
+        "12th Digit",
+        "13th & 14th Digit"
     ]
     
     @objc dynamic let modelCodeDigits = [
