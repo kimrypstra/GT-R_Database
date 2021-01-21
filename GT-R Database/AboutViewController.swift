@@ -16,6 +16,8 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         return .lightContent
     }
     
+    @IBOutlet weak var introTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let bannerTopColour = UIColor(displayP3Red: 39/255, green: 39/255, blue: 39/255, alpha: 1)
@@ -28,6 +30,22 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
 
         topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
         
+        //UITextView.appearance().linkTextAttributes = [.foregroundColor: UIColor.black]
+        
+        introTextView.tintColor = .black
+        
+        let attributes = [NSAttributedString.Key.underlineStyle : (NSUnderlineStyle.thick.rawValue | NSUnderlineStyle.byWord.rawValue)]
+        var attributedString = NSMutableAttributedString(attributedString: introTextView.attributedText)
+        attributedString.addAttributes(attributes, range: NSRange(location: 13, length: 16))
+        
+        introTextView.attributedText = attributedString
+        
+        //let attributedString = NSAttributedString(string: introTextView.attributedText.string, attributes: attributes)
+        
+        //introTextView.attributedText = attributedString
+        
+        //UITextView.appearance().linkTextAttributes = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.byWord]
+
     }
     
     @IBAction func didTapContactButton(_ sender: Any) {

@@ -31,7 +31,6 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     var numberOfColumns: CGFloat = 0 // including left header
     var numberOfRows: CGFloat = 0 // including top header
 
-    //TODO: Make cell width auto-sizing (column should size to fit widest text)
     var desiredCellWidth: CGFloat {
         switch mode {
         case .Production:

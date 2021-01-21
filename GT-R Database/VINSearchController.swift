@@ -306,6 +306,9 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         if let image = screenshotImage, shouldSave {
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
+        
+        host.view.removeFromSuperview()
+        
         return screenshotImage
     }
     

@@ -279,8 +279,13 @@
                                             <constraint firstAttribute="height" constant="40" id="sip-NW-V4X"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd6-oE-6uY">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd6-oE-6uY">
                                         <rect key="frame" x="20" y="40" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="rRx-3S-3qf"/>
+                                            <constraint firstAttribute="width" constant="30" id="uWn-Nv-H3i"/>
+                                        </constraints>
+                                        <state key="normal" image="backButton"/>
                                         <connections>
                                             <action selector="didTapCloseButton:" destination="SGc-pW-HTJ" eventType="touchUpInside" id="yG1-iv-CGf"/>
                                         </connections>
@@ -343,14 +348,14 @@
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PMh-yp-xbU">
                                 <rect key="frame" x="0.0" y="110" width="375" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="TKp-Cd-7Fn"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bSX-mh-qfR"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
                             <constraint firstItem="PMh-yp-xbU" firstAttribute="width" secondItem="aTm-eX-FgN" secondAttribute="width" id="0AN-Is-M6r"/>
                             <constraint firstItem="aTm-eX-FgN" firstAttribute="centerX" secondItem="bSX-mh-qfR" secondAttribute="centerX" id="2DY-EF-lg9"/>
@@ -406,8 +411,13 @@
                                             <constraint firstAttribute="height" constant="40" id="vAN-ga-y5V"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhh-c0-IQW">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhh-c0-IQW">
                                         <rect key="frame" x="20" y="40" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ALK-sd-3mt"/>
+                                            <constraint firstAttribute="width" constant="30" id="ef5-U6-8EM"/>
+                                        </constraints>
+                                        <state key="normal" image="backButton"/>
                                         <connections>
                                             <action selector="backButton:" destination="CbD-sd-90h" eventType="touchUpInside" id="4Am-Jz-cdt"/>
                                             <action selector="didTapCloseButton:" destination="SGc-pW-HTJ" eventType="touchUpInside" id="naS-lJ-Rf1"/>
@@ -582,13 +592,14 @@
                                             <constraint firstAttribute="height" constant="40" id="gY8-Dw-05K"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pu-Yg-QPh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pu-Yg-QPh">
                                         <rect key="frame" x="20" y="40" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="HSg-2c-xs4"/>
                                             <constraint firstAttribute="width" secondItem="8Pu-Yg-QPh" secondAttribute="height" multiplier="1:1" id="qiQ-wi-lyO"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="backButton"/>
                                         <connections>
                                             <action selector="didTapCloseButton:" destination="SGc-pW-HTJ" eventType="touchUpInside" id="231-xZ-DHD"/>
                                             <action selector="exitButton:" destination="H7M-gA-aiI" eventType="touchUpInside" id="1qq-ib-brn"/>
@@ -759,13 +770,14 @@
                                             <constraint firstAttribute="height" constant="40" id="oi5-Qe-GRW"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5W2-pf-dEc">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5W2-pf-dEc">
                                         <rect key="frame" x="20" y="40" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5W2-pf-dEc" secondAttribute="height" multiplier="1:1" id="VtT-xp-PqA"/>
                                             <constraint firstAttribute="width" constant="30" id="hga-W1-gM4"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="backButton"/>
                                         <connections>
                                             <action selector="backButton:" destination="jhs-N8-6cP" eventType="touchUpInside" id="nGF-vp-6kf"/>
                                             <action selector="didTapCloseButton:" destination="SGc-pW-HTJ" eventType="touchUpInside" id="AMy-qI-C1U"/>
@@ -845,8 +857,13 @@
                                             <constraint firstAttribute="height" constant="50" id="rl1-8H-gsY"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnV-qs-ggG">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnV-qs-ggG">
                                         <rect key="frame" x="16" y="60" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="iB6-pm-XOS"/>
+                                            <constraint firstAttribute="width" constant="30" id="vJo-Ew-QEJ"/>
+                                        </constraints>
+                                        <state key="normal" image="backButton"/>
                                         <connections>
                                             <action selector="didTapExitButton:" destination="xNY-Qo-CNS" eventType="touchUpInside" id="r7O-AD-ns5"/>
                                         </connections>
@@ -862,7 +879,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Disclaimer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fu-vg-Cx5">
-                                <rect key="frame" x="20" y="130" width="182" height="24"/>
+                                <rect key="frame" x="20" y="130" width="182" height="25"/>
                                 <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -895,16 +912,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9Tg-Hw-ONB">
-                                <rect key="frame" x="20" y="325" width="335" height="180"/>
+                                <rect key="frame" x="10" y="315" width="355" height="180"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Detailed Specifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGT-De-EhB">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
                                         <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="12"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PP-Ud-5W6">
-                                        <rect key="frame" x="0.0" y="30" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="355" height="30"/>
                                         <attributedString key="attributedText">
                                             <fragment content="- Nismo Cars: Z-Tune, 400R, R-Tune, S-Tune, Clubman Race Spec (CRS) &amp; more">
                                                 <attributes>
@@ -917,37 +934,31 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Nismo Engines" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zx-kQ-fFS">
-                                        <rect key="frame" x="0.0" y="60" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="60" width="355" height="30"/>
                                         <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="12"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Photos and information about Special Models" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q15-OQ-yv0">
-                                        <rect key="frame" x="0.0" y="90" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="90" width="355" height="30"/>
                                         <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="12"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- GT-R Police Vehicles" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXp-2P-6h2">
-                                        <rect key="frame" x="0.0" y="120" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="120" width="355" height="30"/>
                                         <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="12"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- R34 GT-R Racing Cars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgg-ce-2Cu">
-                                        <rect key="frame" x="0.0" y="150" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="355" height="30"/>
                                         <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="12"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please visit GTR-Registry.com for even more information about all GT-Rs including:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kW-xa-ZdF">
-                                <rect key="frame" x="20" y="285" width="335" height="30"/>
-                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="12"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzK-ta-S2w">
                                 <rect key="frame" x="147.5" y="235" width="20" height="20"/>
                                 <constraints>
@@ -957,7 +968,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="facebook"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR2-2V-Ek8">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR2-2V-Ek8" userLabel="Attribution">
                                 <rect key="frame" x="0.0" y="627" width="375" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -974,38 +985,57 @@ This app utilises Google Analytics</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bW4-ja-LQ6" userLabel="Intro text">
+                                <rect key="frame" x="10" y="265" width="355" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="750" constant="50" id="y5j-W1-ofa"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Please visit GTR-Registry.com for even more information about all GT-Rs including:">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" size="12" name="NissanOpti"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Jf-Pd-G0A"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="k18-Qh-evT" firstAttribute="centerX" secondItem="5Jf-Pd-G0A" secondAttribute="centerX" id="10G-n3-6Vf"/>
                             <constraint firstItem="rzK-ta-S2w" firstAttribute="trailing" secondItem="k18-Qh-evT" secondAttribute="centerX" constant="-20" id="6H1-oW-XWn"/>
+                            <constraint firstItem="9Tg-Hw-ONB" firstAttribute="leading" secondItem="myq-8k-dfQ" secondAttribute="leading" constant="10" id="764-Qa-hPS"/>
                             <constraint firstItem="7Fu-vg-Cx5" firstAttribute="leading" secondItem="5Jf-Pd-G0A" secondAttribute="leading" constant="20" id="8UI-Qc-WW6"/>
                             <constraint firstAttribute="top" secondItem="zzO-nI-MhX" secondAttribute="top" id="Bu6-BY-bL1"/>
                             <constraint firstItem="7Fu-vg-Cx5" firstAttribute="top" secondItem="zzO-nI-MhX" secondAttribute="bottom" constant="20" id="BxA-kg-VIZ"/>
-                            <constraint firstItem="9Tg-Hw-ONB" firstAttribute="centerX" secondItem="5kW-xa-ZdF" secondAttribute="centerX" id="C6q-Fa-qg3"/>
                             <constraint firstItem="k18-Qh-evT" firstAttribute="top" secondItem="Zri-o0-1Lr" secondAttribute="bottom" constant="20" id="Cft-8y-R7u"/>
                             <constraint firstItem="5Jf-Pd-G0A" firstAttribute="bottom" secondItem="cR2-2V-Ek8" secondAttribute="bottom" id="GzN-Qm-XGv"/>
                             <constraint firstItem="rzK-ta-S2w" firstAttribute="centerY" secondItem="k18-Qh-evT" secondAttribute="centerY" id="I4N-1A-Syn"/>
-                            <constraint firstItem="5kW-xa-ZdF" firstAttribute="trailing" secondItem="5Jf-Pd-G0A" secondAttribute="trailing" constant="-20" id="JZ1-Fw-3Fx"/>
                             <constraint firstItem="zcp-Uy-yP4" firstAttribute="leading" secondItem="k18-Qh-evT" secondAttribute="centerX" constant="20" id="KVG-nW-4fc"/>
+                            <constraint firstItem="bW4-ja-LQ6" firstAttribute="leading" secondItem="myq-8k-dfQ" secondAttribute="leading" constant="10" id="LDU-Pk-QRh"/>
                             <constraint firstItem="zzO-nI-MhX" firstAttribute="centerX" secondItem="5Jf-Pd-G0A" secondAttribute="centerX" id="NE9-Nh-LC2"/>
                             <constraint firstItem="k18-Qh-evT" firstAttribute="width" secondItem="myq-8k-dfQ" secondAttribute="width" id="Nu9-8q-KPG"/>
                             <constraint firstItem="Zri-o0-1Lr" firstAttribute="trailing" secondItem="5Jf-Pd-G0A" secondAttribute="trailing" constant="-20" id="QMh-sk-KWL"/>
-                            <constraint firstItem="5kW-xa-ZdF" firstAttribute="top" secondItem="k18-Qh-evT" secondAttribute="bottom" constant="20" id="R0F-mX-j1d"/>
+                            <constraint firstAttribute="trailing" secondItem="9Tg-Hw-ONB" secondAttribute="trailing" constant="10" id="Sp0-Ph-RRg"/>
+                            <constraint firstItem="9Tg-Hw-ONB" firstAttribute="top" secondItem="bW4-ja-LQ6" secondAttribute="bottom" id="Tlh-75-ZwL"/>
                             <constraint firstItem="Zri-o0-1Lr" firstAttribute="leading" secondItem="7Fu-vg-Cx5" secondAttribute="leading" id="Xsk-rF-Q8I"/>
+                            <constraint firstItem="cR2-2V-Ek8" firstAttribute="top" secondItem="9Tg-Hw-ONB" secondAttribute="bottom" priority="250" constant="10" id="baY-mc-hAU"/>
                             <constraint firstItem="cR2-2V-Ek8" firstAttribute="width" secondItem="myq-8k-dfQ" secondAttribute="width" id="cUW-jV-Rd0"/>
                             <constraint firstItem="Zri-o0-1Lr" firstAttribute="top" secondItem="7Fu-vg-Cx5" secondAttribute="bottom" constant="20" id="doi-U9-7fW"/>
-                            <constraint firstItem="5kW-xa-ZdF" firstAttribute="leading" secondItem="Zri-o0-1Lr" secondAttribute="leading" id="gGg-63-bBb"/>
                             <constraint firstItem="zcp-Uy-yP4" firstAttribute="centerY" secondItem="k18-Qh-evT" secondAttribute="centerY" id="hLQ-ff-yB3"/>
-                            <constraint firstItem="9Tg-Hw-ONB" firstAttribute="top" secondItem="5kW-xa-ZdF" secondAttribute="bottom" constant="10" id="rXD-zs-4Xr"/>
+                            <constraint firstAttribute="trailing" secondItem="bW4-ja-LQ6" secondAttribute="trailing" constant="10" id="pJv-IB-QiS"/>
+                            <constraint firstItem="bW4-ja-LQ6" firstAttribute="top" secondItem="k18-Qh-evT" secondAttribute="bottom" id="sle-gQ-XRQ"/>
                             <constraint firstItem="cR2-2V-Ek8" firstAttribute="centerX" secondItem="5Jf-Pd-G0A" secondAttribute="centerX" id="uYG-fQ-gya"/>
                             <constraint firstItem="zzO-nI-MhX" firstAttribute="width" secondItem="myq-8k-dfQ" secondAttribute="width" id="w5x-2Q-zvs"/>
-                            <constraint firstItem="9Tg-Hw-ONB" firstAttribute="width" secondItem="5kW-xa-ZdF" secondAttribute="width" id="zag-5a-3a8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NjR-p7-P9J"/>
                     <connections>
+                        <outlet property="introTextView" destination="bW4-ja-LQ6" id="bCG-WC-0AK"/>
                         <outlet property="topBannerBackgroundView" destination="zzO-nI-MhX" id="g5c-zP-A4j"/>
                     </connections>
                 </viewController>
@@ -1034,9 +1064,10 @@ This app utilises Google Analytics</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nGh-3L-m9U"/>
+        <segue reference="i0U-Y6-rSf"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="backButton" width="50" height="50"/>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="facebook" width="240" height="240"/>
         <image name="logo" width="100" height="75"/>
