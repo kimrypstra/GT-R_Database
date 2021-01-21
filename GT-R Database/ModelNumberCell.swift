@@ -38,13 +38,16 @@ class ModelNumberCell: UITableViewCell {
         label.text = "test"
         label.textColor = .black
         label.numberOfLines = 3
+        label.adjustsFontSizeToFitWidth = true
+        label.allowsDefaultTighteningForTruncation = true
+        label.minimumScaleFactor = 0.5
         //label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     var modelNumberIdentifier: UILabel = {
         let label = UILabel()
-        label.font = UIFont.italicSystemFont(ofSize: 10)
+        label.font = UIFont(name: "Futura Medium Italic", size: 10)
         label.textAlignment = .right
         label.text = "test"
         label.textColor = .red

@@ -105,6 +105,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         searchField.delegate = self
+        
         shareButton.isEnabled = false
          //This needs to adapt to the series
     }
@@ -122,7 +123,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         var highestModelNumberIndex = 0
         switch series {
         case "R32":
-            highestModelNumberIndex = 12
+            highestModelNumberIndex = 11
             labelText = "BNR32 GT-R VIN Search"
             keysSection0.insert("Extended Model Code", at: keysSection0.firstIndex(of: "Interior Code")!)
             keysSection0.remove(at: keysSection0.firstIndex(of: "Seat")!)

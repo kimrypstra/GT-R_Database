@@ -54,6 +54,7 @@ struct ScreenshotView: View {
                             Text(title).foregroundColor(textColour).font(Font.custom("NissanOpti", size: 20))
                             // MARK: Subtitle
                             Text("Information retreived from gtr-registry.com").foregroundColor(textColour).font(Font.custom("Futura", size: 12))
+                            
                         })
                         
                         Spacer()
@@ -108,7 +109,7 @@ struct ScreenshotView: View {
                     }
                     
                     if carImage != nil {
-                        Image(uiImage: carImage!).resizable().aspectRatio(contentMode: .fit)
+                        Image(uiImage: carImage!).resizable().aspectRatio(contentMode: .fit).cornerRadius(8)
 
                     }
                     
