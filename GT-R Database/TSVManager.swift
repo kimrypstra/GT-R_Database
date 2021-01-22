@@ -61,6 +61,7 @@ class TSVManager {
                 }
                 
                 let model = components[0]
+                
                 keys.append(model)
             }
         } catch let error {

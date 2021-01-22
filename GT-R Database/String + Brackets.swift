@@ -12,19 +12,16 @@ extension String {
     func extractBracketedComponents() -> [String] {
         var returnValue: [String] = []
         guard self.contains("(") && self.contains(")") else {
-            print("Incomplete or no brackets")
             return [self]
         }
     
         let components = self.components(separatedBy: "(")
-        
         for (index, component) in components.enumerated() {
             if index > 0 {
                 returnValue.append("(\(component)")
             } else {
                 returnValue.append(component)
             }
-            
         }
         
         return returnValue

@@ -183,7 +183,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func didTapVINRangesButton() {
-        print("tapped vin ranges in vin plate")
+        performSegue(withIdentifier: "vin", sender: nil)
     }
     
     @IBAction func exitButton(_ sender: Any) {

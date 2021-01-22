@@ -11,7 +11,7 @@ import UIKit
 
 class DBManager {
     var db: OpaquePointer?
-    let nameOfDB = "GTRRegistry"
+    let nameOfDB = "GTR Registry"
     
     func readVINDataFromDB(tableName: String, attributesToRetrieve: [String], attributeToSearch: String, valueToSearch: String, fuzzy: Bool) -> [Car] {
         
@@ -90,19 +90,13 @@ class DBManager {
                 if strlen(cString) > 0 {
                     let colName = String(cString: cString)
                     if sqlite3_column_type(readstmt, column) != SQLITE_NULL {
-                            let value = String(cString: sqlite3_column_text(readstmt, column))
-                            car.setValue(value, forKey: colName)
+                        let value = String(cString: sqlite3_column_text(readstmt, column))
+                        car.setValue(value, forKey: colName)
                     }
                 }
-                
-                
-                
             }
-            
-            
-            
+
             returnArray.append(car)
-            //print("ID: \(id), VIN: \(vin), GRADE: \(grade), SERIES: \(series), COLOUR: \(colour), PRODDATE: \(prodDate), PLANT: \(plant), SEAT: \(seat), MODELNUM: \(modelNumber)")
         }
         
         return returnArray
