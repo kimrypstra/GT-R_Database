@@ -9,7 +9,8 @@ import UIKit
 import SwiftUI
 
 
-class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, VINPlateDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var topBannerView: UIView!
@@ -18,6 +19,9 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    
+    var vinPlate = UIHostingController(rootView: VINPlate())
     
     var alreadyPresented: Bool = false
     
@@ -105,9 +109,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         searchField.delegate = self
-        
         shareButton.isEnabled = false
-         //This needs to adapt to the series
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,14 +129,17 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             labelText = "BNR32 GT-R VIN Search"
             keysSection0.insert("Extended Model Code", at: keysSection0.firstIndex(of: "Interior Code")!)
             keysSection0.remove(at: keysSection0.firstIndex(of: "Seat")!)
+            
         case "R33":
             highestModelNumberIndex = 15
             labelText = "BCNR33 GT-R VIN Search"
+            
         case "R34":
             highestModelNumberIndex = 15
             labelText = "BNR34 GT-R VIN Search"
             imageView.contentMode = .scaleAspectFill
             keysSection0.remove(at: keysSection0.firstIndex(of: "Interior Code")!)
+            
         default:
             highestModelNumberIndex = 1
         }
@@ -154,6 +159,31 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.register(ModelNumberCell.self, forCellReuseIdentifier: "modelNumberCell")
         tableView.register(SmallCell.self, forCellReuseIdentifier: "smallCell")
         tableView.reloadData()
+        
+        vinPlate.rootView.series = series!
+        vinPlate.rootView.delegate = self
+        vinPlate.view.backgroundColor = .clear
+        
+        let sidePad = 10
+        let topPad = 0
+        let width = Int(self.view.bounds.width) - (sidePad * 2)
+        
+        // This should be a square otherwise the layout shifts to the left
+        vinPlate.view.frame = CGRect(x: sidePad, y: Int(searchButton.frame.maxY) + topPad, width: width, height: width)
+        
+        let recog = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        vinPlate.view.addGestureRecognizer(recog)
+        
+        self.view.addSubview(vinPlate.view)
+    }
+    
+    @objc func handleTap() {
+        print("Tap")
+        searchField.resignFirstResponder()
+    }
+    
+    func didTapVINRangesButton() {
+        print("tapped vin ranges in vin plate")
     }
     
     @IBAction func exitButton(_ sender: Any) {
@@ -221,6 +251,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             if !searchResult.isEmpty {
                 self.searchResult = searchResult.first as! R32
             } else {
+                self.searchResult = nil
                 print("No result")
             }
         case "R33":
@@ -228,6 +259,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             if !searchResult.isEmpty {
                 self.searchResult = searchResult.first as! R33
             } else {
+                self.searchResult = nil
                 print("No result")
             }
         case "R34":
@@ -235,6 +267,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             if !searchResult.isEmpty {
                 self.searchResult = searchResult.first as! R34
             } else {
+                self.searchResult = nil
                 print("No result")
             }
         default:
@@ -242,7 +275,19 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         guard searchResult != nil else {
+            vinPlate.rootView.failedSearch = true
+            
+            UIView.animate(withDuration: 0.5) {
+                self.vinPlate.view.alpha = 1
+            }
+            imageView.image = nil
+            imageViewHeight.constant = 0
+            tableView.reloadData()
             return
+        }
+        
+        UIView.animate(withDuration: 0.1) {
+            self.vinPlate.view.alpha = 0
         }
         
         shareButton.isEnabled = true

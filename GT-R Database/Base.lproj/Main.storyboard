@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -211,6 +212,7 @@
                                 </state>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="bYX-1d-ASg"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="q0p-cA-UoS" secondAttribute="bottom" constant="30" id="50d-d8-Z4G"/>
@@ -354,6 +356,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="f2j-ck-wgl"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstItem="PMh-yp-xbU" firstAttribute="width" secondItem="aTm-eX-FgN" secondAttribute="width" id="0AN-Is-M6r"/>
@@ -470,7 +473,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IkJ-yz-lzk">
-                                                        <rect key="frame" x="0.0" y="30" width="375" height="140"/>
+                                                        <rect key="frame" x="0.0" y="30" width="375" height="200"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="OKA-5b-MgE"/>
                                                         </constraints>
@@ -478,7 +481,7 @@
                                                         <viewLayoutGuide key="frameLayoutGuide" id="zdp-wE-Nop"/>
                                                     </scrollView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Misc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPQ-fb-XY9">
-                                                        <rect key="frame" x="0.0" y="170" width="375" height="30"/>
+                                                        <rect key="frame" x="0.0" y="230" width="375" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="e6h-H7-a7V"/>
                                                         </constraints>
@@ -487,7 +490,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dsn-dI-Rt8">
-                                                        <rect key="frame" x="0.0" y="200" width="375" height="200"/>
+                                                        <rect key="frame" x="0.0" y="260" width="375" height="140"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="8KP-Ce-TRs"/>
                                                         </constraints>
@@ -525,6 +528,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="4Sm-QB-eBK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MNT-FL-f82" firstAttribute="top" secondItem="l17-Kv-776" secondAttribute="top" id="0NL-ax-OJb"/>
@@ -685,6 +689,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Khr-wt-yfF"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="87e-Co-HD5" firstAttribute="centerX" secondItem="TQT-pB-pYR" secondAttribute="centerX" id="3RJ-7L-lfZ"/>
@@ -711,6 +716,7 @@
                         <outlet property="backButton" destination="8Pu-Yg-QPh" id="Wik-Tt-Gnm"/>
                         <outlet property="imageView" destination="87e-Co-HD5" id="5en-iz-zdS"/>
                         <outlet property="imageViewHeight" destination="7gn-cg-aHA" id="H9O-eG-1rl"/>
+                        <outlet property="searchButton" destination="Ept-3L-31q" id="qpP-oo-rL6"/>
                         <outlet property="searchField" destination="tVx-3s-Xc3" id="CgG-iW-eA7"/>
                         <outlet property="shareButton" destination="he0-GU-UEZ" id="pAY-Rf-NHx"/>
                         <outlet property="tableView" destination="nqW-NF-oMg" id="fK5-zl-fTz"/>
@@ -807,6 +813,7 @@
                                 </variation>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="p9U-P2-FtC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="089-vw-TZi" firstAttribute="leading" secondItem="MJl-fe-Jtj" secondAttribute="leading" id="AHz-JJ-xMY"/>
@@ -1005,6 +1012,7 @@ This app utilises Google Analytics</string>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="FyG-Ou-TmW"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="k18-Qh-evT" firstAttribute="centerX" secondItem="myq-8k-dfQ" secondAttribute="centerX" id="10G-n3-6Vf"/>
@@ -1065,7 +1073,7 @@ This app utilises Google Analytics</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="i0U-Y6-rSf"/>
+        <segue reference="aqq-LD-YRx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="backButton" width="50" height="50"/>

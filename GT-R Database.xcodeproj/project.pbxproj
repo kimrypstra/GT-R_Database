@@ -31,6 +31,8 @@
 		21461030254F0D8500E6453C /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2146102F254F0D8500E6453C /* Car.swift */; };
 		214AC7BC25AEBDDA00C363B7 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AC7BB25AEBDDA00C363B7 /* Colours.swift */; };
 		2150328025B2B4F80054D8DE /* ScreenshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150327F25B2B4F70054D8DE /* ScreenshotView.swift */; };
+		215A9F3A25B9B469001E3BD6 /* VINPlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A9F3925B9B469001E3BD6 /* VINPlate.swift */; };
+		215A9F4225BA7312001E3BD6 /* VINPlateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */; };
 		2167680725879A0300BCCFCD /* ProductionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */; };
 		21676816258BA08C00BCCFCD /* R34VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21676815258BA08B00BCCFCD /* R34VIN.tsv */; };
 		217F36EE255692A900113937 /* VINSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36ED255692A900113937 /* VINSearchController.swift */; };
@@ -196,6 +198,8 @@
 		2146102F254F0D8500E6453C /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		214AC7BB25AEBDDA00C363B7 /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
 		2150327F25B2B4F70054D8DE /* ScreenshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotView.swift; sourceTree = "<group>"; };
+		215A9F3925B9B469001E3BD6 /* VINPlate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINPlate.swift; sourceTree = "<group>"; };
+		215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINPlateDelegate.swift; sourceTree = "<group>"; };
 		2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCellDelegate.swift; sourceTree = "<group>"; };
 		21676815258BA08B00BCCFCD /* R34VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34VIN.tsv; sourceTree = "<group>"; };
 		217F36ED255692A900113937 /* VINSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINSearchController.swift; sourceTree = "<group>"; };
@@ -492,6 +496,8 @@
 				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
 				217F36ED255692A900113937 /* VINSearchController.swift */,
 				2150327F25B2B4F70054D8DE /* ScreenshotView.swift */,
+				215A9F3925B9B469001E3BD6 /* VINPlate.swift */,
+				215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */,
 				218C7F3D2568E4F5009A7063 /* SpecialModelViewController.swift */,
 				21AB555C2582599100BBCF12 /* TSVTableViewController.swift */,
 				21AB555A2582585E00BBCF12 /* TSVManager.swift */,
@@ -725,7 +731,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215A9F4225BA7312001E3BD6 /* VINPlateDelegate.swift in Sources */,
 				218C7F2B25628EAA009A7063 /* R32.swift in Sources */,
+				215A9F3A25B9B469001E3BD6 /* VINPlate.swift in Sources */,
 				2185D432258789C600778FA2 /* UIView + Corners.swift in Sources */,
 				21A5D1A925AF0AE50070AF8D /* StoreManager.swift in Sources */,
 				21AB555D2582599100BBCF12 /* TSVTableViewController.swift in Sources */,
