@@ -117,7 +117,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         
-        alreadyPresented = true
+        alreadyPresented = true // A flag that, when true, blocks the search from resetting when this view is returned to from the vin ranges view 
         
         searchField.text = searchPrefix
         
@@ -154,6 +154,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         gradient.frame = topBannerView.bounds
         gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
         topBannerView.layer.insertSublayer(gradient, at: 0)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ModelNumberCell.self, forCellReuseIdentifier: "modelNumberCell")
@@ -178,7 +179,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @objc func handleTap() {
-        print("Tap")
         searchField.resignFirstResponder()
     }
     
@@ -217,15 +217,12 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
                 print("Nope")
             }
         }
-        
         return flag
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         // examine the string
         // make sure the first characters are "BNR34-"
-        
-        
         let commonPrefix = textField.text?.commonPrefix(with: searchPrefix)
         if commonPrefix == searchPrefix {
             print("IS OK")
@@ -233,11 +230,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             print("IS NO OK")
             textField.text = "\(searchPrefix)\(textField.text!)"
         }
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("Begin editing")
-        
     }
     
     func doASearch() {
@@ -311,13 +303,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         searchResult!.getNumbers(generation: series!)
         print(searchResult?.modelCode)
         tableView.reloadData()
-        //tableView.reloadSections([0], with: .top)
-//        self.tableView.performBatchUpdates({
-//                self.tableView.insertRows(at: [IndexPath(row: self.keysSection0.count - 1,
-//                                                         section: 0)],
-//                                          with: .automatic)
-//            }, completion: nil)
-
     }
     
     @IBAction func shareButton(_ sender: Any) {
@@ -325,14 +310,12 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         let image = takeScreenshot(shouldSave: false)
         
         // Present a share sheet
-        
         let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = shareButton
         self.present(activityVC, animated: true, completion: nil)
     }
     
     func takeScreenshot(shouldSave: Bool) -> UIImage? {
-        
         var screenshotImage: UIImage?
         
         var view = ScreenshotView(title: titleLabel.text!)

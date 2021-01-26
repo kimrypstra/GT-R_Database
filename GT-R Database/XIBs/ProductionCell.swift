@@ -130,9 +130,13 @@ class ProductionCell: UIView {
         case .LeftHeader:
             label.font = UIFont(name: "NissanOpti", size: 10)
             label.numberOfLines = 2
+            self.layer.borderWidth = 0
+            self.layer.borderColor = UIColor.clear.cgColor
         case .TopHeader:
             label.font = UIFont(name: "NissanOpti", size: 10)
             label.numberOfLines = 1
+            self.layer.borderWidth = 0
+            self.layer.borderColor = UIColor.clear.cgColor
         case .Blank:
             self.layer.borderWidth = 0
             self.layer.borderColor = UIColor.clear.cgColor

@@ -34,7 +34,6 @@
 		215A9F3A25B9B469001E3BD6 /* VINPlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A9F3925B9B469001E3BD6 /* VINPlate.swift */; };
 		215A9F4225BA7312001E3BD6 /* VINPlateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */; };
 		2167680725879A0300BCCFCD /* ProductionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */; };
-		21676816258BA08C00BCCFCD /* R34VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21676815258BA08B00BCCFCD /* R34VIN.tsv */; };
 		217F36EE255692A900113937 /* VINSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36ED255692A900113937 /* VINSearchController.swift */; };
 		217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F02556A58900113937 /* UIView + Anchor.swift */; };
 		217F36F42556A5AB00113937 /* SmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F32556A5AB00113937 /* SmallCell.swift */; };
@@ -110,6 +109,7 @@
 		21D1F3F22592308500DC1B32 /* R32VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3F12592308500DC1B32 /* R32VIN.tsv */; };
 		21D1F3F42592308B00DC1B32 /* R33VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3F32592308B00DC1B32 /* R33VIN.tsv */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
+		21F90A1125BBF39C0047E716 /* R34VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21F90A1025BBF39C0047E716 /* R34VIN.tsv */; };
 		21FEAA4E25B6BC0F005A7013 /* String + Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */; };
 		21FEAA5825B6C513005A7013 /* R34NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21FEAA5725B6C513005A7013 /* R34NewPricing.tsv */; };
 /* End PBXBuildFile section */
@@ -201,7 +201,6 @@
 		215A9F3925B9B469001E3BD6 /* VINPlate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINPlate.swift; sourceTree = "<group>"; };
 		215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINPlateDelegate.swift; sourceTree = "<group>"; };
 		2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCellDelegate.swift; sourceTree = "<group>"; };
-		21676815258BA08B00BCCFCD /* R34VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34VIN.tsv; sourceTree = "<group>"; };
 		217F36ED255692A900113937 /* VINSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINSearchController.swift; sourceTree = "<group>"; };
 		217F36F02556A58900113937 /* UIView + Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Anchor.swift"; sourceTree = "<group>"; };
 		217F36F32556A5AB00113937 /* SmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCell.swift; sourceTree = "<group>"; };
@@ -278,6 +277,7 @@
 		21D1F3F12592308500DC1B32 /* R32VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32VIN.tsv; sourceTree = "<group>"; };
 		21D1F3F32592308B00DC1B32 /* R33VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33VIN.tsv; sourceTree = "<group>"; };
 		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		21F90A1025BBF39C0047E716 /* R34VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34VIN.tsv; sourceTree = "<group>"; };
 		21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Currency.swift"; sourceTree = "<group>"; };
 		21FEAA5725B6C513005A7013 /* R34NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34NewPricing.tsv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -383,7 +383,7 @@
 		21676814258BA07700BCCFCD /* VIN Ranges */ = {
 			isa = PBXGroup;
 			children = (
-				21676815258BA08B00BCCFCD /* R34VIN.tsv */,
+				21F90A1025BBF39C0047E716 /* R34VIN.tsv */,
 				21D1F3F32592308B00DC1B32 /* R33VIN.tsv */,
 				21D1F3F12592308500DC1B32 /* R32VIN.tsv */,
 			);
@@ -694,6 +694,7 @@
 				21A5D1C225B030A80070AF8D /* R34Prod.tsv in Resources */,
 				21AFA2E3254D457B00661DE0 /* NissanOpti.otf in Resources */,
 				2184607F255C180500E68F45 /* 2r8.jpg in Resources */,
+				21F90A1125BBF39C0047E716 /* R34VIN.tsv in Resources */,
 				218C7F622568F141009A7063 /* brochure-3.jpg in Resources */,
 				218C7F682568F141009A7063 /* brochure-5.jpg in Resources */,
 				2184609B255C182600E68F45 /* th1.jpg in Resources */,
@@ -720,7 +721,6 @@
 				218C7F652568F141009A7063 /* brochure-6.jpg in Resources */,
 				218C7F6A2568F141009A7063 /* brochure-4.jpg in Resources */,
 				21AFA2D3254D3DC600661DE0 /* Main.storyboard in Resources */,
-				21676816258BA08C00BCCFCD /* R34VIN.tsv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,7 +917,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KimRypstra2.GT-R-Database";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -936,7 +936,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KimRypstra2.GT-R-Database";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

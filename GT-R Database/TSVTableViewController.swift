@@ -12,25 +12,25 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     // comment
     var mode: ParseMode!
     var series: String!
-    var scroll: UIScrollView?
-    
+    //var scroll: UIScrollView?
+    @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var topBannerView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var topFloater: UIStackView!
     @IBOutlet weak var topFloaterWidth: NSLayoutConstraint!
     @IBOutlet weak var topFloaterHeight: NSLayoutConstraint!
     @IBOutlet weak var topFloaterLeftAlign: NSLayoutConstraint!
-    
     @IBOutlet weak var leftFloater: UIStackView!
     @IBOutlet weak var leftFloaterWidth: NSLayoutConstraint!
     @IBOutlet weak var leftFloaterHeight: NSLayoutConstraint!
     @IBOutlet weak var leftFloaterTopAlign: NSLayoutConstraint!
+    @IBOutlet weak var floaterBlocker: UIView!
+    @IBOutlet weak var floaterBlockerHeight: NSLayoutConstraint!
+    @IBOutlet weak var floaterBlockerWidth: NSLayoutConstraint!
     
     var numberOfColumns: CGFloat = 0 // including left header
     var numberOfRows: CGFloat = 0 // including top header
-
     var desiredCellWidth: CGFloat {
         switch mode {
         case .Production:
@@ -41,7 +41,7 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
             return 100
         }
     }
-    let desiredCellHeight: CGFloat = 40
+    var desiredCellHeight: CGFloat = 40
     var firstRowWidth: CGFloat {
         switch mode {
         case .Production:
@@ -52,10 +52,8 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
             return 200
         }
     }
-    
     var selectedRow = -1
     var selectedColumn = -1
-    
     var columnStack: UIStackView?
     var rowStack: UIStackView?
     
@@ -96,7 +94,7 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         numberOfRows = CGFloat(keys.count)
         numberOfColumns = CGFloat(colours.count)
         
-        let columnWidths = tsvMan.getColumnWidths(for: UIFont(name: "NissanOpti", size: 10)!, height: desiredCellHeight, pad: 10)
+        var columnWidths = tsvMan.getColumnWidths(for: UIFont(name: "NissanOpti", size: 10)!, height: desiredCellHeight, pad: 10)
         
         var totalWidth: CGFloat {
             var total: CGFloat = 0
@@ -106,25 +104,32 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
             return total
         }
         
+        // If the total width is less than the screen width, bump up a column to make it exact
+        if totalWidth < scroll.frame.width {
+            columnWidths[0] += scroll.frame.width - totalWidth
+        }
+        
         // Set up the scroll view
-        scroll = UIScrollView(frame: CGRect(x: 0, y: 0, width: containerView.bounds.width, height: containerView.bounds.height))
         //scroll?.backgroundColor = .yellow
         scroll?.contentSize.width = totalWidth
-        scroll?.contentSize.height = (desiredCellHeight * numberOfRows)
+        scroll?.contentSize.height = desiredCellHeight * numberOfRows // +1 for the blank row under the header floater
         scroll?.delegate = self
         scroll?.bounces = false
         containerView.addSubview(scroll!)
         
-        //let width = (desiredCellWidth * (numberOfColumns - 1)) + firstRowWidth
+        floaterBlockerWidth.constant = columnWidths[0] + 20
+        floaterBlockerHeight.constant = desiredCellHeight + 20
 
-        let height = (desiredCellHeight * numberOfRows)
+        var height: CGFloat {
+            return desiredCellHeight * numberOfRows
+        }
         
         columnStack = UIStackView(frame: CGRect(x: 0, y: 0, width: totalWidth, height: height))
         columnStack!.distribution = .fill
         
         topFloaterHeight.constant = desiredCellHeight
         topFloaterWidth.constant = totalWidth
-        
+
         leftFloaterWidth.constant = columnWidths[0]
         leftFloaterHeight.constant = height
         //floater.distribution = .fill
@@ -167,7 +172,6 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                 for row in 0...Int(numberOfRows - 1) {
                     if row == 0 {
                         // MARK: Top Row
-                        //let view = ProdCell(value: colours[col - 1], frame: CGRect(x: 0, y: 0, width: desiredCellWidth, height: desiredCellHeight), type: .TopHeader)
                         let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))
                         let text = colours[col]
                         var colour: CarColour? = nil
@@ -181,12 +185,6 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                         
                         topFloater.addArrangedSubview(view)
                         
-//                        let blank = ProductionCell(frame: view.frame)
-//                        blank.setUp(type: .Blank, text: "", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
-//                        blank.addConstraint(const)
-//                        rowStack!.addArrangedSubview(blank)
-                        
-                        //floatingHeader!.addArrangedSubview(view)
                     } else {
                         // MARK: Main Cells
                         if let modelData = numbers[keys[row]] as? [String : String] {
@@ -213,6 +211,21 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
             }
         }
         scroll?.addSubview(columnStack!)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        topFloater.layer.shadowColor = UIColor.black.cgColor
+        topFloater.layer.shadowOffset = CGSize(width: 0, height: 5)
+        topFloater.layer.shadowRadius = 5
+        topFloater.layer.shadowOpacity = 0.25
+        topFloater.clipsToBounds = false
+        topFloater.layer.shadowPath = UIBezierPath(rect: topFloater.bounds).cgPath
+        
+        floaterBlocker.layer.shadowColor = UIColor.black.cgColor
+        floaterBlocker.layer.shadowOffset = CGSize(width: 0, height: 5)
+        floaterBlocker.layer.shadowRadius = 5
+        floaterBlocker.layer.shadowOpacity = 0.25
+        floaterBlocker.clipsToBounds = false
     }
     
     func didTapProductionCell(at point: CGPoint) {
