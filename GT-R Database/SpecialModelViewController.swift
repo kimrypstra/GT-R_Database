@@ -7,6 +7,7 @@
 
 import UIKit
 import CocoaMarkdown
+import Firebase
 
 class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     
@@ -29,7 +30,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var miscLabel: UILabel!
     @IBOutlet weak var brochureLabel: UILabel!
     
-    var series: String! // R32,R33,R34
+    var series: String? // R32,R33,R34
     var specialModelName: String! // M-Spec Nür (special chars included, this is display text)
     var brochureImages: [UIImage] = []
     var miscImages: [UIImage] = []
@@ -115,6 +116,15 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         stackView.alpha = 1 // Unhide the stack view since it's out of sight now
+        guard series != nil else {
+            print("Series is nil?")
+            Analytics.logEvent("NilValue", parameters: ["variable" : "series", "screen" : "SpecialModelViewController"])
+            return
+        }
+        Analytics.logEvent(AnalyticsEventScreenView,
+                           parameters: [AnalyticsParameterScreenName: "Special Model Screen",
+                                        "Series" : "\(series!)",
+                                        "Name" : "\(specialModelName!)"])
     }
     
     func populateImages() {

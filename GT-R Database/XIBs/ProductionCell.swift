@@ -69,7 +69,11 @@ class ProductionCell: UIView {
     func setUp(type: CellType, text: String, coordinate: CGPoint, swatchColour: CarColour?, delegate: ProductionCellDelegate) {
         setType(to: type)
         
-        label.text = text.splitBracketedSubstringsIntoNewlines()
+        if type == .LeftHeader || type == .TopHeader {
+            label.text = text.splitBracketedSubstringsIntoNewlines()
+        } else {
+            label.text = text
+        }
         
         self.coordinate = coordinate
         self.delegate = delegate
@@ -134,7 +138,7 @@ class ProductionCell: UIView {
             self.layer.borderColor = UIColor.clear.cgColor
         case .TopHeader:
             label.font = UIFont(name: "NissanOpti", size: 10)
-            label.numberOfLines = 1
+            label.numberOfLines = 2
             self.layer.borderWidth = 0
             self.layer.borderColor = UIColor.clear.cgColor
         case .Blank:

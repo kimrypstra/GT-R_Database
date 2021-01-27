@@ -7,6 +7,7 @@
 
 import UIKit
 import MessageUI
+import Firebase
 
 class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
@@ -48,9 +49,14 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        Analytics.logEvent(AnalyticsEventScreenView,
+                           parameters: [AnalyticsParameterScreenName: "About Screen"])
+    }
+    
     @IBAction func didTapContactButton(_ sender: Any) {
         // Modify following variables with your text / recipient
-        let recipientEmail = "test@email.com"
+        let recipientEmail = "gtrregistry1@gmail.com"
         let subject = "GT-R Database Enquiry"
         let body = ""
         

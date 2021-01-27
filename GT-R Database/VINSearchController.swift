@@ -7,7 +7,7 @@
 
 import UIKit
 import SwiftUI
-
+import Firebase
 
 class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, VINPlateDelegate {
     
@@ -170,12 +170,18 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         let width = Int(self.view.bounds.width) - (sidePad * 2)
         
         // This should be a square otherwise the layout shifts to the left
-        vinPlate.view.frame = CGRect(x: sidePad, y: Int(searchButton.frame.maxY) + topPad, width: width, height: width)
+        vinPlate.view.frame = CGRect(x: sidePad, y: Int(searchButton.frame.maxY) + topPad, width: width, height: Int(tableView.frame.height))
         
         let recog = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         vinPlate.view.addGestureRecognizer(recog)
         
         self.view.addSubview(vinPlate.view)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        Analytics.logEvent(AnalyticsEventScreenView,
+                           parameters: [AnalyticsParameterScreenName: "VIN Search Screen",
+                                        "Series" : "\(series!)"])
     }
     
     @objc func handleTap() {
@@ -310,9 +316,22 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         let image = takeScreenshot(shouldSave: false)
         
         // Present a share sheet
-        let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = shareButton
+        activityVC.completionWithItemsHandler = { activity, success, items, error in
+            if !success{
+                print("cancelled")
+                return
+            }
+            let activity = "\(activity!.rawValue.split(separator: ".").last!)"
+            Analytics.logEvent("Shared_Screenshot", parameters: ["Activity" : "\(activity)"])
+            print("Logged event")
+
+            return
+        }
+        
         self.present(activityVC, animated: true, completion: nil)
+        
     }
     
     func takeScreenshot(shouldSave: Bool) -> UIImage? {
@@ -320,6 +339,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         
         var view = ScreenshotView(title: titleLabel.text!)
         view.setup(title: "\(series!) \(searchResult!.Grade)", vin: searchResult?.VIN, grade: searchResult?.Grade, colourText: searchResult?.Colour, productionDate: searchResult?.ProductionDate, modelCode: searchResult?.modelCode, seat: searchResult?.Seat, carImage: imageView.image, interiorCode: searchResult?.InteriorCode)
+        
         
         let host = UIHostingController(rootView: view)
         host.view.frame = CGRect(x: self.view.bounds.width * -1, y: 0, width: self.view.bounds.width, height: self.view.bounds.width)

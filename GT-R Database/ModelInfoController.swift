@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
@@ -105,6 +106,12 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         modelCodeLabel.text = series
         modelNameLabel.text = tempModelDict[series!]
         imageView.image = UIImage(named: "\(series!.lowercased())side")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        Analytics.logEvent(AnalyticsEventScreenView,
+                           parameters: [AnalyticsParameterScreenName: "Model Info Screen",
+                                        "Series" : "\(series!)"])
     }
     
     @IBAction func didTapCloseButton(_ sender: Any) {

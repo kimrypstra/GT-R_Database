@@ -118,7 +118,7 @@ struct ScreenshotView: View {
                     
                 }).padding(5)
             }
-        }.ignoresSafeArea(.keyboard)
+        }.ignoresSafeArea().ignoresSafeArea(.keyboard)
     }
     
     func stringIsValid(_ string: String?) -> Bool {

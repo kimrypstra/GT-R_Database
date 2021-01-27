@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,7 +38,6 @@
 		217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F02556A58900113937 /* UIView + Anchor.swift */; };
 		217F36F42556A5AB00113937 /* SmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F32556A5AB00113937 /* SmallCell.swift */; };
 		217F36F82556A6FF00113937 /* String + CamelToHuman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F72556A6FF00113937 /* String + CamelToHuman.swift */; };
-		217FEDF925A03B1200612283 /* R32Prod.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 217FEDF825A03B1200612283 /* R32Prod.tsv */; };
 		217FEDFD25A0581800612283 /* String + Brackets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FEDFC25A0581800612283 /* String + Brackets.swift */; };
 		2184607C255C180500E68F45 /* kh3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2184606F255C180400E68F45 /* kh3.jpg */; };
 		2184607D255C180500E68F45 /* an0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21846070255C180400E68F45 /* an0.jpg */; };
@@ -90,11 +89,9 @@
 		218C822A256FF38A009A7063 /* CocoaMarkdown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 218C8204256FF19F009A7063 /* CocoaMarkdown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		218C822D256FF41B009A7063 /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 218C822C256FF41A009A7063 /* text.txt */; };
 		21A5BAC825BAD53F007768A5 /* GTR Registry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 21A5BAC725BAD53F007768A5 /* GTR Registry.sqlite */; };
-		21A5BACA25BADAB5007768A5 /* R33Prod.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21A5BAC925BADAB5007768A5 /* R33Prod.tsv */; };
 		21A5D1A925AF0AE50070AF8D /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5D1A825AF0AE50070AF8D /* StoreManager.swift */; };
 		21A5D1B825AFDF6E0070AF8D /* Screenshot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21A5D1B725AFDF6E0070AF8D /* Screenshot.xib */; };
 		21A5D1C025AFE0D40070AF8D /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5D1BF25AFE0D40070AF8D /* Screenshot.swift */; };
-		21A5D1C225B030A80070AF8D /* R34Prod.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21A5D1C125B030A80070AF8D /* R34Prod.tsv */; };
 		21AB555B2582585E00BBCF12 /* TSVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB555A2582585E00BBCF12 /* TSVManager.swift */; };
 		21AB555D2582599100BBCF12 /* TSVTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB555C2582599100BBCF12 /* TSVTableViewController.swift */; };
 		21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */; };
@@ -106,12 +103,19 @@
 		21AFA2E3254D457B00661DE0 /* NissanOpti.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21AFA2E1254D3EA700661DE0 /* NissanOpti.otf */; };
 		21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */; };
 		21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */; };
-		21D1F3F22592308500DC1B32 /* R32VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3F12592308500DC1B32 /* R32VIN.tsv */; };
-		21D1F3F42592308B00DC1B32 /* R33VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D1F3F32592308B00DC1B32 /* R33VIN.tsv */; };
+		21D01FFA25BFD35E00FD7C26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21D01FF925BFD35E00FD7C26 /* GoogleService-Info.plist */; };
+		21D01FFC25C0438400FD7C26 /* R32NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D01FFB25C0438400FD7C26 /* R32NewPricing.tsv */; };
+		21D0200025C143C400FD7C26 /* R34NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D01FFF25C143C400FD7C26 /* R34NewPricing.tsv */; };
+		21D0200225C17F4400FD7C26 /* R33NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200125C17F4400FD7C26 /* R33NewPricing.tsv */; };
+		21D0200425C17FB800FD7C26 /* R34VINRanges.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200325C17FB700FD7C26 /* R34VINRanges.tsv */; };
+		21D0200625C1832300FD7C26 /* R32VINRanges.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200525C1832300FD7C26 /* R32VINRanges.tsv */; };
+		21D0200825C1832C00FD7C26 /* R33VINRanges.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200725C1832C00FD7C26 /* R33VINRanges.tsv */; };
+		21D0200C25C187FA00FD7C26 /* R34ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200925C187F800FD7C26 /* R34ProductionNumbers.tsv */; };
+		21D0200D25C187FA00FD7C26 /* R32ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200A25C187F900FD7C26 /* R32ProductionNumbers.tsv */; };
+		21D0200E25C187FA00FD7C26 /* R33ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200B25C187FA00FD7C26 /* R33ProductionNumbers.tsv */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
-		21F90A1125BBF39C0047E716 /* R34VIN.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21F90A1025BBF39C0047E716 /* R34VIN.tsv */; };
 		21FEAA4E25B6BC0F005A7013 /* String + Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */; };
-		21FEAA5825B6C513005A7013 /* R34NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21FEAA5725B6C513005A7013 /* R34NewPricing.tsv */; };
+		2363CF43877662E076065E02 /* Pods_GT_R_Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C590AE54161ED3EFF6FB49 /* Pods_GT_R_Database.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,7 +209,6 @@
 		217F36F02556A58900113937 /* UIView + Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Anchor.swift"; sourceTree = "<group>"; };
 		217F36F32556A5AB00113937 /* SmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCell.swift; sourceTree = "<group>"; };
 		217F36F72556A6FF00113937 /* String + CamelToHuman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + CamelToHuman.swift"; sourceTree = "<group>"; };
-		217FEDF825A03B1200612283 /* R32Prod.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32Prod.tsv; sourceTree = "<group>"; };
 		217FEDFC25A0581800612283 /* String + Brackets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Brackets.swift"; sourceTree = "<group>"; };
 		2184606F255C180400E68F45 /* kh3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kh3.jpg; sourceTree = "<group>"; };
 		21846070255C180400E68F45 /* an0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = an0.jpg; sourceTree = "<group>"; };
@@ -256,11 +259,9 @@
 		218C81F8256FF19A009A7063 /* CocoaMarkdown.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaMarkdown.xcodeproj; path = ../../../CocoaMarkdown/CocoaMarkdown/CocoaMarkdown.xcodeproj; sourceTree = "<group>"; };
 		218C822C256FF41A009A7063 /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
 		21A5BAC725BAD53F007768A5 /* GTR Registry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTR Registry.sqlite"; sourceTree = "<group>"; };
-		21A5BAC925BADAB5007768A5 /* R33Prod.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33Prod.tsv; sourceTree = "<group>"; };
 		21A5D1A825AF0AE50070AF8D /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		21A5D1B725AFDF6E0070AF8D /* Screenshot.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Screenshot.xib; sourceTree = "<group>"; };
 		21A5D1BF25AFE0D40070AF8D /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
-		21A5D1C125B030A80070AF8D /* R34Prod.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34Prod.tsv; sourceTree = "<group>"; };
 		21AB555A2582585E00BBCF12 /* TSVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVManager.swift; sourceTree = "<group>"; };
 		21AB555C2582599100BBCF12 /* TSVTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVTableViewController.swift; sourceTree = "<group>"; };
 		21AFA2C8254D3DC600661DE0 /* GT-R Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GT-R Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,12 +275,21 @@
 		21AFA2E1254D3EA700661DE0 /* NissanOpti.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NissanOpti.otf; sourceTree = "<group>"; };
 		21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoController.swift; sourceTree = "<group>"; };
-		21D1F3F12592308500DC1B32 /* R32VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32VIN.tsv; sourceTree = "<group>"; };
-		21D1F3F32592308B00DC1B32 /* R33VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33VIN.tsv; sourceTree = "<group>"; };
+		21D01FF925BFD35E00FD7C26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		21D01FFB25C0438400FD7C26 /* R32NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32NewPricing.tsv; sourceTree = "<group>"; };
+		21D01FFF25C143C400FD7C26 /* R34NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34NewPricing.tsv; sourceTree = "<group>"; };
+		21D0200125C17F4400FD7C26 /* R33NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33NewPricing.tsv; sourceTree = "<group>"; };
+		21D0200325C17FB700FD7C26 /* R34VINRanges.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34VINRanges.tsv; sourceTree = "<group>"; };
+		21D0200525C1832300FD7C26 /* R32VINRanges.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32VINRanges.tsv; sourceTree = "<group>"; };
+		21D0200725C1832C00FD7C26 /* R33VINRanges.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33VINRanges.tsv; sourceTree = "<group>"; };
+		21D0200925C187F800FD7C26 /* R34ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34ProductionNumbers.tsv; sourceTree = "<group>"; };
+		21D0200A25C187F900FD7C26 /* R32ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32ProductionNumbers.tsv; sourceTree = "<group>"; };
+		21D0200B25C187FA00FD7C26 /* R33ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33ProductionNumbers.tsv; sourceTree = "<group>"; };
 		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		21F90A1025BBF39C0047E716 /* R34VIN.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34VIN.tsv; sourceTree = "<group>"; };
 		21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Currency.swift"; sourceTree = "<group>"; };
-		21FEAA5725B6C513005A7013 /* R34NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34NewPricing.tsv; sourceTree = "<group>"; };
+		58C590AE54161ED3EFF6FB49 /* Pods_GT_R_Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GT_R_Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80A86575CFDBF3FCFA195890 /* Pods-GT-R Database.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GT-R Database.debug.xcconfig"; path = "Target Support Files/Pods-GT-R Database/Pods-GT-R Database.debug.xcconfig"; sourceTree = "<group>"; };
+		D5313B92BAEA20C6B0017B06 /* Pods-GT-R Database.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GT-R Database.release.xcconfig"; path = "Target Support Files/Pods-GT-R Database/Pods-GT-R Database.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				218C8229256FF38A009A7063 /* CocoaMarkdown.framework in Frameworks */,
+				2363CF43877662E076065E02 /* Pods_GT_R_Database.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,9 +394,9 @@
 		21676814258BA07700BCCFCD /* VIN Ranges */ = {
 			isa = PBXGroup;
 			children = (
-				21F90A1025BBF39C0047E716 /* R34VIN.tsv */,
-				21D1F3F32592308B00DC1B32 /* R33VIN.tsv */,
-				21D1F3F12592308500DC1B32 /* R32VIN.tsv */,
+				21D0200325C17FB700FD7C26 /* R34VINRanges.tsv */,
+				21D0200525C1832300FD7C26 /* R32VINRanges.tsv */,
+				21D0200725C1832C00FD7C26 /* R33VINRanges.tsv */,
 			);
 			path = "VIN Ranges";
 			sourceTree = "<group>";
@@ -448,6 +459,7 @@
 		218C8228256FF38A009A7063 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58C590AE54161ED3EFF6FB49 /* Pods_GT_R_Database.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -455,9 +467,9 @@
 		21AB55512582567200BBCF12 /* Production Numbers */ = {
 			isa = PBXGroup;
 			children = (
-				21A5D1C125B030A80070AF8D /* R34Prod.tsv */,
-				21A5BAC925BADAB5007768A5 /* R33Prod.tsv */,
-				217FEDF825A03B1200612283 /* R32Prod.tsv */,
+				21D0200A25C187F900FD7C26 /* R32ProductionNumbers.tsv */,
+				21D0200B25C187FA00FD7C26 /* R33ProductionNumbers.tsv */,
+				21D0200925C187F800FD7C26 /* R34ProductionNumbers.tsv */,
 			);
 			path = "Production Numbers";
 			sourceTree = "<group>";
@@ -469,6 +481,7 @@
 				21AFA2CA254D3DC600661DE0 /* GT-R Database */,
 				21AFA2C9254D3DC600661DE0 /* Products */,
 				218C8228256FF38A009A7063 /* Frameworks */,
+				EDB7F1CF52B9920584F880F1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -519,6 +532,7 @@
 				21AFA2E0254D3E9600661DE0 /* Fonts */,
 				21AFA2D6254D3DC700661DE0 /* LaunchScreen.storyboard */,
 				21AFA2D9254D3DC700661DE0 /* Info.plist */,
+				21D01FF925BFD35E00FD7C26 /* GoogleService-Info.plist */,
 			);
 			path = "GT-R Database";
 			sourceTree = "<group>";
@@ -534,9 +548,20 @@
 		21FEAA4225B6AF0E005A7013 /* New Pricing */ = {
 			isa = PBXGroup;
 			children = (
-				21FEAA5725B6C513005A7013 /* R34NewPricing.tsv */,
+				21D01FFB25C0438400FD7C26 /* R32NewPricing.tsv */,
+				21D0200125C17F4400FD7C26 /* R33NewPricing.tsv */,
+				21D01FFF25C143C400FD7C26 /* R34NewPricing.tsv */,
 			);
 			path = "New Pricing";
+			sourceTree = "<group>";
+		};
+		EDB7F1CF52B9920584F880F1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				80A86575CFDBF3FCFA195890 /* Pods-GT-R Database.debug.xcconfig */,
+				D5313B92BAEA20C6B0017B06 /* Pods-GT-R Database.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -546,10 +571,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21AFA2DC254D3DC700661DE0 /* Build configuration list for PBXNativeTarget "GT-R Database" */;
 			buildPhases = (
+				F5DFFF45A3E5062D580404B0 /* [CP] Check Pods Manifest.lock */,
 				21AFA2C4254D3DC600661DE0 /* Sources */,
 				21AFA2C5254D3DC600661DE0 /* Frameworks */,
 				21AFA2C6254D3DC600661DE0 /* Resources */,
 				218C822B256FF38B009A7063 /* Embed Frameworks */,
+				F34CB6FA2F4D91F9E8F3AE07 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -648,10 +675,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				217FEDF925A03B1200612283 /* R32Prod.tsv in Resources */,
 				21846097255C182600E68F45 /* bl0.jpg in Resources */,
+				21D0200C25C187FA00FD7C26 /* R34ProductionNumbers.tsv in Resources */,
 				2144742025594BE9004DDEE0 /* 2-qm1.jpg in Resources */,
 				2144742425594BE9004DDEE0 /* 1-ar2.jpg in Resources */,
+				21D0200825C1832C00FD7C26 /* R33VINRanges.tsv in Resources */,
 				2144742925594BE9004DDEE0 /* 2-tv2.jpg in Resources */,
 				2144742725594BE9004DDEE0 /* 1-gv1.jpg in Resources */,
 				21846088255C180500E68F45 /* ar1.jpg in Resources */,
@@ -677,6 +705,7 @@
 				2144742D25594BE9004DDEE0 /* 2-qm1-n1.jpg in Resources */,
 				21846085255C180500E68F45 /* kl1.jpg in Resources */,
 				21846080255C180500E68F45 /* bt2.jpg in Resources */,
+				21D0200425C17FB800FD7C26 /* R34VINRanges.tsv in Resources */,
 				218C822D256FF41B009A7063 /* text.txt in Resources */,
 				218C81ED256A7E8A009A7063 /* ModelData in Resources */,
 				2144742C25594BE9004DDEE0 /* 1-tv2.jpg in Resources */,
@@ -686,45 +715,88 @@
 				218C7F5E2568F141009A7063 /* cover.jpg in Resources */,
 				21846093255C182600E68F45 /* kg1.jpg in Resources */,
 				21846087255C180500E68F45 /* kn6.jpg in Resources */,
+				21D0200D25C187FA00FD7C26 /* R32ProductionNumbers.tsv in Resources */,
 				2184607E255C180500E68F45 /* lp2.jpg in Resources */,
 				218C7F6B2568F141009A7063 /* nur-5.jpg in Resources */,
 				2144742125594BE9004DDEE0 /* 2-gv1.jpg in Resources */,
-				21D1F3F42592308B00DC1B32 /* R33VIN.tsv in Resources */,
 				2144742525594BE9004DDEE0 /* 2-qt1.jpg in Resources */,
-				21A5D1C225B030A80070AF8D /* R34Prod.tsv in Resources */,
+				21D01FFA25BFD35E00FD7C26 /* GoogleService-Info.plist in Resources */,
 				21AFA2E3254D457B00661DE0 /* NissanOpti.otf in Resources */,
 				2184607F255C180500E68F45 /* 2r8.jpg in Resources */,
-				21F90A1125BBF39C0047E716 /* R34VIN.tsv in Resources */,
 				218C7F622568F141009A7063 /* brochure-3.jpg in Resources */,
 				218C7F682568F141009A7063 /* brochure-5.jpg in Resources */,
 				2184609B255C182600E68F45 /* th1.jpg in Resources */,
-				21A5BACA25BADAB5007768A5 /* R33Prod.tsv in Resources */,
+				21D0200025C143C400FD7C26 /* R34NewPricing.tsv in Resources */,
 				21AFA2D5254D3DC700661DE0 /* Assets.xcassets in Resources */,
 				2144742A25594BE9004DDEE0 /* 1-kv2.jpg in Resources */,
 				21846098255C182600E68F45 /* 326.jpg in Resources */,
 				21846084255C180500E68F45 /* ar2.jpg in Resources */,
 				218C7F6C2568F141009A7063 /* nur-7.jpg in Resources */,
 				218C7F672568F141009A7063 /* brochure-7.jpg in Resources */,
+				21D0200E25C187FA00FD7C26 /* R33ProductionNumbers.tsv in Resources */,
 				21846096255C182600E68F45 /* 2m8.jpg in Resources */,
 				2144741D25594BE9004DDEE0 /* 1-lx0.jpg in Resources */,
 				2144742F25594BE9004DDEE0 /* 1-kr4.jpg in Resources */,
 				21846094255C182600E68F45 /* 732.jpg in Resources */,
 				2185D43425878C1A00778FA2 /* ProductionCell.xib in Resources */,
+				21D0200625C1832300FD7C26 /* R32VINRanges.tsv in Resources */,
 				21846082255C180500E68F45 /* bn6.jpg in Resources */,
 				2184607D255C180500E68F45 /* an0.jpg in Resources */,
 				218C7F692568F141009A7063 /* nur-1.jpg in Resources */,
 				21846086255C180500E68F45 /* qm1.jpg in Resources */,
-				21FEAA5825B6C513005A7013 /* R34NewPricing.tsv in Resources */,
 				2184607C255C180500E68F45 /* kh3.jpg in Resources */,
 				218C7F612568F141009A7063 /* nur-2.jpg in Resources */,
-				21D1F3F22592308500DC1B32 /* R32VIN.tsv in Resources */,
+				21D01FFC25C0438400FD7C26 /* R32NewPricing.tsv in Resources */,
 				218C7F652568F141009A7063 /* brochure-6.jpg in Resources */,
 				218C7F6A2568F141009A7063 /* brochure-4.jpg in Resources */,
+				21D0200225C17F4400FD7C26 /* R33NewPricing.tsv in Resources */,
 				21AFA2D3254D3DC600661DE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F34CB6FA2F4D91F9E8F3AE07 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GT-R Database/Pods-GT-R Database-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GT-R Database/Pods-GT-R Database-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GT-R Database/Pods-GT-R Database-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5DFFF45A3E5062D580404B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GT-R Database-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		21AFA2C4254D3DC600661DE0 /* Sources */ = {
@@ -904,6 +976,7 @@
 		};
 		21AFA2DD254D3DC700661DE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A86575CFDBF3FCFA195890 /* Pods-GT-R Database.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -923,6 +996,7 @@
 		};
 		21AFA2DE254D3DC700661DE0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5313B92BAEA20C6B0017B06 /* Pods-GT-R Database.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

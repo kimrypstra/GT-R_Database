@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 enum ParseMode: String {
-    case VIN = "VIN"
-    case Production = "Prod"
+    case VIN = "VINRanges"
+    case Production = "ProductionNumbers"
     case Pricing = "NewPricing"
 }
 
@@ -75,15 +75,16 @@ class TSVManager {
         
         for column in 0...getHeaders().count - 1 {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.greatestFiniteMagnitude, height: height))
-            label.text = getLongestStringForColumn(col: column).string.lengthOfLongestBracketedComponent()
-            label.font = font
             if column == 0 {
+                label.text = getLongestStringForColumn(col: column).string.lengthOfLongestBracketedComponent()
                 label.numberOfLines = 2
             } else {
+                label.text = getLongestStringForColumn(col: column).string
                 label.numberOfLines = 1
             }
+            label.font = font
             label.sizeToFit()
-            widths.append(label.frame.width + pad)
+            widths.append(label.frame.width + pad + pad)
         }
         
         return widths
