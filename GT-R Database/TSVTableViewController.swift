@@ -62,6 +62,10 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     var height: CGFloat = 0
     var columnWidths: [CGFloat] = []
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

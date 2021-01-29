@@ -99,6 +99,9 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var labelText: String = ""
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
