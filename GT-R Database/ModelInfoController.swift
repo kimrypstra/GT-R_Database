@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topBannerView: UIView!
@@ -55,11 +55,11 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
               "VIN Ranges",
               "New Pricing"],
         "Special Models" :
-            ["40th",
-            "400R",
-            "GT-R LM",
-            "LM Limited",
-            "V-Spec N1"],
+            ["40th Anniversary",
+             "400R",
+             "GT-R LM",
+             "LM Limited",
+             "V-Spec N1"],
         "Non-Japanese Delivered" :
             ["Great Britain"],
         "Nismo Cars" :
@@ -73,13 +73,13 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
               "New Pricing"],
         "Special Models" :
             ["V-Spec",
-            "V-Spec II",
-            "N1"],
+             "V-Spec II",
+             "N1"],
         "Non-Japanese Delivered" :
             ["Australia"],
         "Nismo Cars" :
             ["GT-R Nismo",
-            "CRS"]
+             "CRS"]
     ]
     
     let tempSectionNames = [
@@ -119,59 +119,42 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        //if section == 3 {
-        
         if section == 0 {
             return nil
         }
-            
-            let topBannerBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 75))
-            topBannerBackgroundView.frame.size.width = topBannerBackgroundView.frame.width - (tableView.separatorInset.left * 2)
-            topBannerBackgroundView.layer.cornerRadius = 10
-            topBannerBackgroundView.clipsToBounds = true
-            
-            let view = UIView(frame: topBannerBackgroundView.frame)
-            view.addSubview(topBannerBackgroundView)
-            view.clipsToBounds = false
-            
-            let gradient = CAGradientLayer()
-            gradient.frame = topBannerBackgroundView.bounds
-            gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
-            topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
-            
+        let topBannerBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 75))
+        topBannerBackgroundView.frame.size.width = topBannerBackgroundView.frame.width - (tableView.separatorInset.left * 2)
+        topBannerBackgroundView.layer.cornerRadius = 10
+        topBannerBackgroundView.clipsToBounds = true
+        
+        let view = UIView(frame: topBannerBackgroundView.frame)
+        view.addSubview(topBannerBackgroundView)
+        view.clipsToBounds = false
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = topBannerBackgroundView.bounds
+        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
+        topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
+        
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 30))
-            label.font = UIFont(name: "NissanOpti", size: 15)
-            label.textColor = .white
-            label.textAlignment = .center
-            label.text = tempSectionNames[section]
-            view.addSubview(label)
-            label.center = view.center
-            label.center.y -= 10
-            
-            view.layer.zPosition = -100
-            
-            return view
-//        } else {
-//            let label = UILabel()
-//            label.font = UIFont(name: "NissanOpti", size: 15)
-//            label.textColor = .black
-//            label.text = tempSectionNames[section]
-//            return label
-//        }
+        label.font = UIFont(name: "NissanOpti", size: 15)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.text = tempSectionNames[section]
+        view.addSubview(label)
+        label.center = view.center
+        label.center.y -= 10
+        
+        view.layer.zPosition = -100
+        
+        return view
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        switch section {
-//        case 3:
-//            return 50
-//        default:
-//            return 30
-//        }
         if section == 0 {
             return 30
         } else {
             return 50
-
         }
     }
     

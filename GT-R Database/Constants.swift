@@ -25,7 +25,7 @@ let assetPaths: [String : String] = [
     "R34 V-Spec II N1" : "\(r34path)V-Spec II N1/",
     "R34 V-Spec N1" : "\(r34path)V-Spec N1/",
     "R34 Z-Tune" : "\(r34path)Z-Tune/",
-    "R33 40th" : "\(r33path)40th/",
+    "R33 40th Anniversary" : "\(r33path)40th/",
     "R33 400R" : "\(r33path)400R/",
     "R33 GT-R LM" : "\(r33path)GT-R LM/",
     "R33 LM Limited" : "\(r33path)LM Limited/",
@@ -36,7 +36,7 @@ let assetPaths: [String : String] = [
     "R32 V-Spec II" : "\(r32path)V-Spec II/",
     "R32 N1" : "\(r32path)N1/",
     "R32 Australia" : "\(r32path)Australia/",
-    "R32 GR-R Nismo" : "\(r32path)GT-R Nismo/",
+    "R32 GT-R Nismo" : "\(r32path)GT-R Nismo/",
     "R32 CRS" : "\(r32path)CRS/"
 ]
 

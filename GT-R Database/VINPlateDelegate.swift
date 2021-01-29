@@ -9,4 +9,6 @@ import Foundation
 
 protocol VINPlateDelegate {
     func didTapVINRangesButton()
+    func didTapVINCountry(country: String)
+    func didTapContactUs()
 }

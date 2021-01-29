@@ -90,8 +90,6 @@
 		218C822D256FF41B009A7063 /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 218C822C256FF41A009A7063 /* text.txt */; };
 		21A5BAC825BAD53F007768A5 /* GTR Registry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 21A5BAC725BAD53F007768A5 /* GTR Registry.sqlite */; };
 		21A5D1A925AF0AE50070AF8D /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5D1A825AF0AE50070AF8D /* StoreManager.swift */; };
-		21A5D1B825AFDF6E0070AF8D /* Screenshot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21A5D1B725AFDF6E0070AF8D /* Screenshot.xib */; };
-		21A5D1C025AFE0D40070AF8D /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5D1BF25AFE0D40070AF8D /* Screenshot.swift */; };
 		21AB555B2582585E00BBCF12 /* TSVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB555A2582585E00BBCF12 /* TSVManager.swift */; };
 		21AB555D2582599100BBCF12 /* TSVTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB555C2582599100BBCF12 /* TSVTableViewController.swift */; };
 		21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */; };
@@ -105,7 +103,6 @@
 		21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */; };
 		21D01FFA25BFD35E00FD7C26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21D01FF925BFD35E00FD7C26 /* GoogleService-Info.plist */; };
 		21D01FFC25C0438400FD7C26 /* R32NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D01FFB25C0438400FD7C26 /* R32NewPricing.tsv */; };
-		21D0200025C143C400FD7C26 /* R34NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D01FFF25C143C400FD7C26 /* R34NewPricing.tsv */; };
 		21D0200225C17F4400FD7C26 /* R33NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200125C17F4400FD7C26 /* R33NewPricing.tsv */; };
 		21D0200425C17FB800FD7C26 /* R34VINRanges.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200325C17FB700FD7C26 /* R34VINRanges.tsv */; };
 		21D0200625C1832300FD7C26 /* R32VINRanges.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200525C1832300FD7C26 /* R32VINRanges.tsv */; };
@@ -113,6 +110,7 @@
 		21D0200C25C187FA00FD7C26 /* R34ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200925C187F800FD7C26 /* R34ProductionNumbers.tsv */; };
 		21D0200D25C187FA00FD7C26 /* R32ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200A25C187F900FD7C26 /* R32ProductionNumbers.tsv */; };
 		21D0200E25C187FA00FD7C26 /* R33ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200B25C187FA00FD7C26 /* R33ProductionNumbers.tsv */; };
+		21D39F5825C2D02C00C749DC /* R34NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D39F5725C2D02B00C749DC /* R34NewPricing.tsv */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
 		21FEAA4E25B6BC0F005A7013 /* String + Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */; };
 		2363CF43877662E076065E02 /* Pods_GT_R_Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C590AE54161ED3EFF6FB49 /* Pods_GT_R_Database.framework */; };
@@ -260,8 +258,6 @@
 		218C822C256FF41A009A7063 /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
 		21A5BAC725BAD53F007768A5 /* GTR Registry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTR Registry.sqlite"; sourceTree = "<group>"; };
 		21A5D1A825AF0AE50070AF8D /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
-		21A5D1B725AFDF6E0070AF8D /* Screenshot.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Screenshot.xib; sourceTree = "<group>"; };
-		21A5D1BF25AFE0D40070AF8D /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		21AB555A2582585E00BBCF12 /* TSVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVManager.swift; sourceTree = "<group>"; };
 		21AB555C2582599100BBCF12 /* TSVTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVTableViewController.swift; sourceTree = "<group>"; };
 		21AFA2C8254D3DC600661DE0 /* GT-R Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GT-R Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,7 +273,6 @@
 		21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoController.swift; sourceTree = "<group>"; };
 		21D01FF925BFD35E00FD7C26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21D01FFB25C0438400FD7C26 /* R32NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32NewPricing.tsv; sourceTree = "<group>"; };
-		21D01FFF25C143C400FD7C26 /* R34NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34NewPricing.tsv; sourceTree = "<group>"; };
 		21D0200125C17F4400FD7C26 /* R33NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33NewPricing.tsv; sourceTree = "<group>"; };
 		21D0200325C17FB700FD7C26 /* R34VINRanges.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34VINRanges.tsv; sourceTree = "<group>"; };
 		21D0200525C1832300FD7C26 /* R32VINRanges.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32VINRanges.tsv; sourceTree = "<group>"; };
@@ -285,6 +280,7 @@
 		21D0200925C187F800FD7C26 /* R34ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34ProductionNumbers.tsv; sourceTree = "<group>"; };
 		21D0200A25C187F900FD7C26 /* R32ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32ProductionNumbers.tsv; sourceTree = "<group>"; };
 		21D0200B25C187FA00FD7C26 /* R33ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33ProductionNumbers.tsv; sourceTree = "<group>"; };
+		21D39F5725C2D02B00C749DC /* R34NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34NewPricing.tsv; sourceTree = "<group>"; };
 		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Currency.swift"; sourceTree = "<group>"; };
 		58C590AE54161ED3EFF6FB49 /* Pods_GT_R_Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GT_R_Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -407,8 +403,6 @@
 				2185D43325878C1A00778FA2 /* ProductionCell.xib */,
 				2185D43525878C9900778FA2 /* ProductionCell.swift */,
 				2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */,
-				21A5D1B725AFDF6E0070AF8D /* Screenshot.xib */,
-				21A5D1BF25AFE0D40070AF8D /* Screenshot.swift */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -507,11 +501,11 @@
 				21AFA2CF254D3DC600661DE0 /* ViewController.swift */,
 				21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */,
 				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
+				218C7F3D2568E4F5009A7063 /* SpecialModelViewController.swift */,
 				217F36ED255692A900113937 /* VINSearchController.swift */,
 				2150327F25B2B4F70054D8DE /* ScreenshotView.swift */,
 				215A9F3925B9B469001E3BD6 /* VINPlate.swift */,
 				215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */,
-				218C7F3D2568E4F5009A7063 /* SpecialModelViewController.swift */,
 				21AB555C2582599100BBCF12 /* TSVTableViewController.swift */,
 				21AB555A2582585E00BBCF12 /* TSVManager.swift */,
 				218C81E6256A384B009A7063 /* Constants.swift */,
@@ -550,7 +544,7 @@
 			children = (
 				21D01FFB25C0438400FD7C26 /* R32NewPricing.tsv */,
 				21D0200125C17F4400FD7C26 /* R33NewPricing.tsv */,
-				21D01FFF25C143C400FD7C26 /* R34NewPricing.tsv */,
+				21D39F5725C2D02B00C749DC /* R34NewPricing.tsv */,
 			);
 			path = "New Pricing";
 			sourceTree = "<group>";
@@ -696,7 +690,6 @@
 				2144742225594BE9004DDEE0 /* 1-lv4.jpg in Resources */,
 				21846099255C182600E68F45 /* kh2.jpg in Resources */,
 				218C7F602568F141009A7063 /* brochure-2.jpg in Resources */,
-				21A5D1B825AFDF6E0070AF8D /* Screenshot.xib in Resources */,
 				218C7F5F2568F141009A7063 /* brochure-1.jpg in Resources */,
 				21A5BAC825BAD53F007768A5 /* GTR Registry.sqlite in Resources */,
 				2144742E25594BE9004DDEE0 /* 1-qm1-n1.jpg in Resources */,
@@ -707,6 +700,7 @@
 				21846080255C180500E68F45 /* bt2.jpg in Resources */,
 				21D0200425C17FB800FD7C26 /* R34VINRanges.tsv in Resources */,
 				218C822D256FF41B009A7063 /* text.txt in Resources */,
+				21D39F5825C2D02C00C749DC /* R34NewPricing.tsv in Resources */,
 				218C81ED256A7E8A009A7063 /* ModelData in Resources */,
 				2144742C25594BE9004DDEE0 /* 1-tv2.jpg in Resources */,
 				2144743025594BE9004DDEE0 /* 2-ey0.jpg in Resources */,
@@ -726,7 +720,6 @@
 				218C7F622568F141009A7063 /* brochure-3.jpg in Resources */,
 				218C7F682568F141009A7063 /* brochure-5.jpg in Resources */,
 				2184609B255C182600E68F45 /* th1.jpg in Resources */,
-				21D0200025C143C400FD7C26 /* R34NewPricing.tsv in Resources */,
 				21AFA2D5254D3DC700661DE0 /* Assets.xcassets in Resources */,
 				2144742A25594BE9004DDEE0 /* 1-kv2.jpg in Resources */,
 				21846098255C182600E68F45 /* 326.jpg in Resources */,
@@ -822,7 +815,6 @@
 				218C7F3E2568E4F5009A7063 /* SpecialModelViewController.swift in Sources */,
 				217F36EE255692A900113937 /* VINSearchController.swift in Sources */,
 				217F36F42556A5AB00113937 /* SmallCell.swift in Sources */,
-				21A5D1C025AFE0D40070AF8D /* Screenshot.swift in Sources */,
 				21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */,
 				21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */,
 				21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */,

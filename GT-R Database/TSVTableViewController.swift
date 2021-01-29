@@ -60,6 +60,7 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     var columnStack: UIStackView?
     //var rowStack: UIStackView?
     var height: CGFloat = 0
+    var columnWidths: [CGFloat] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,13 +80,35 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         default:
             return
         }
-        
+        self.view.clipsToBounds = true
         setUpTable()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         topFloaterLeftAlign.constant = scrollView.contentOffset.x
         leftFloaterTopAlign.constant = scrollView.contentOffset.y * -1
+        
+        // Just use clipsToBounds
+//        // Work out which cells are off the screen based on column widths and x offset
+//        var offset = scrollView.contentOffset.x
+//        var rightmostCellPastLeftEdge = 0
+//
+//        for (index, width) in columnWidths.enumerated() {
+//            offset -= width
+//            if offset < 0 {
+//                rightmostCellPastLeftEdge = index
+//                break
+//            }
+//        }
+//
+//        for (index, cell) in topFloater.arrangedSubviews.enumerated() where index <= rightmostCellPastLeftEdge {
+//            cell.alpha = 0
+//        }
+//
+//        for (index, cell) in topFloater.arrangedSubviews.enumerated() where index > rightmostCellPastLeftEdge {
+//            cell.alpha = 1
+//        }
+
     }
     
     func setUpTable() {
@@ -99,7 +122,7 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         
         numberOfColumns = CGFloat(colours.count)
         height = desiredCellHeight * numberOfRows
-        var columnWidths = tsvMan.getColumnWidths(for: UIFont(name: "NissanOpti", size: 10)!, height: desiredCellHeight, pad: 15)
+        columnWidths = tsvMan.getColumnWidths(for: UIFont(name: "NissanOpti", size: 10)!, height: desiredCellHeight, pad: 15)
         
         var totalWidth: CGFloat {
             var total: CGFloat = 0
@@ -124,11 +147,12 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         }
         
         // Set up the scroll view
-        //scroll?.backgroundColor = .yellow
         scroll?.contentSize.width = totalWidth
         scroll?.contentSize.height = desiredCellHeight * numberOfRows 
         scroll?.delegate = self
-        scroll?.bounces = false
+        scroll?.bounces = true
+        scroll.showsVerticalScrollIndicator = false
+        scroll.showsHorizontalScrollIndicator = false
         containerView.addSubview(scroll!)
         
         floaterBlockerWidth.constant = columnWidths[0]
@@ -142,7 +166,6 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
 
         leftFloaterWidth.constant = columnWidths[0]
         leftFloaterHeight.constant = height
-        //floater.distribution = .fill
         
         shadowCellHeight.constant = topFloaterHeight.constant
         shadowCell.backgroundColor = UIColor.white
@@ -165,13 +188,13 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                     if row == 0 {
                         // MARK: Top Left (blank)
                         let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))
-                        view.setUp(type: .Cell, text:
-                                "TopLeft", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
+                        view.setUp(type: .Blank, text:
+                                "", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
                         let const = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: columnWidths[col])
                         view.addConstraint(const)
                         
                         let duplicate = ProductionCell(frame: view.frame)
-                        duplicate.setUp(type: .Cell, text: "TL Dupe", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
+                        duplicate.setUp(type: .Blank, text: "", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
                         let dupeConst = NSLayoutConstraint(item: duplicate, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: desiredCellHeight)
                         duplicate.addConstraint(dupeConst)
                         
@@ -217,7 +240,7 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                         view.addConstraint(const)
                         
                         let duplicate = ProductionCell(frame: view.frame)
-                        duplicate.setUp(type: .Cell, text: "Spacer", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
+                        duplicate.setUp(type: .Blank, text: "", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
                         let dupeConst = NSLayoutConstraint(item: duplicate, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: desiredCellHeight)
                         duplicate.addConstraint(dupeConst)
                         
@@ -242,7 +265,7 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                         } else {
                             // The model data does not exist
                             let view = ProductionCell(frame: CGRect(x: 0, y: 0, width: columnWidths[col], height: desiredCellHeight))
-                            view.setUp(type: .Blank, text: "Spacer", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
+                            view.setUp(type: .Blank, text: "", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
                             rowStack.addArrangedSubview(view)
                         }
                     }
@@ -251,8 +274,6 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
             }
         }
         scroll?.addSubview(columnStack!)
-        
-        
     }
     
     override func viewDidLayoutSubviews() {

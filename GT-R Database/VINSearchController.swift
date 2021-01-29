@@ -10,6 +10,7 @@ import SwiftUI
 import Firebase
 
 class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, VINPlateDelegate {
+
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UITextField!
@@ -27,19 +28,12 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var searchResult: Car?
     var series: String?
-    var searchPrefix: String {
-        switch series! {
-        case "R34":
-            return "BNR34-"
-        case "R33":
-            return "BCNR33-"
-        case "R32":
-            return "BNR32-"
-        default:
-            print("Error - invalid model code: \(series)")
-            return ""
+    var searchPrefix: String = "" {
+        didSet {
+            textFieldDidChangeSelection(searchField)
         }
     }
+    var lastSearchPrefix: String = ""
     
     var map: [String : String] = [
         "VIN" : "VIN",
@@ -110,6 +104,18 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         searchField.delegate = self
         shareButton.isEnabled = false
+        
+        switch series! {
+        case "R34":
+            searchPrefix = "BNR34-"
+        case "R33":
+            searchPrefix = "BCNR33-"
+        case "R32":
+            searchPrefix = "BNR32-"
+        default:
+            print("Error - invalid model code: \(series)")
+            searchPrefix = ""
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,6 +169,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         
         vinPlate.rootView.series = series!
         vinPlate.rootView.delegate = self
+        vinPlate.rootView.imageName = "\(series!)VinPlate"
         vinPlate.view.backgroundColor = .clear
         
         let sidePad = 10
@@ -192,6 +199,42 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         performSegue(withIdentifier: "vin", sender: nil)
     }
     
+    func didTapVINCountry(country: String) {
+        lastSearchPrefix = searchPrefix
+        vinPlate.rootView.imageName = "\(series!)\(country)"
+        
+        switch country {
+        case "GreatBritain":
+            searchPrefix = "JN1GAP\(series!)"
+        case "Singapore":
+            searchPrefix = "JN1GBN\(series!)"
+        case "HongKong":
+            searchPrefix = "JN1GAP\(series!)"
+        case "NewZealand":
+            searchPrefix = "JN1GBN\(series!)"
+        default:
+            print("Unrecognised country, back to normal")
+            vinPlate.rootView.imageName = "\(series!)VinPlate"
+            switch series! {
+            case "R34":
+                searchPrefix = "BNR34-"
+            case "R33":
+                searchPrefix = "BCNR33-"
+            case "R32":
+                searchPrefix = "BNR32-"
+            default:
+                print("Unknown series")
+            }
+        }
+        
+        //searchPrefix = vinPrefix
+    }
+    
+    func didTapContactUs() {
+        performSegue(withIdentifier: "about", sender: nil)
+    }
+    
+    
     @IBAction func exitButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -215,13 +258,19 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             return false
         }
         
-        let allowedChars = ["0","1","2","3","4","5","6","7","8","9"]
+        //let allowedChars = ["0","1","2","3","4","5","6","7","8","9"]
+        let allowedChars = NSCharacterSet.alphanumerics
         var flag = true
         for char in string {
-            if allowedChars.contains(String(char)) == false {
+            if allowedChars.contains(UnicodeScalar(String(char))!) == false {
                 flag = false
                 print("Nope")
             }
+            
+//            if allowedChars.contains(String(char)) == false {
+//                flag = false
+//                print("Nope")
+//            }
         }
         return flag
     }
@@ -234,8 +283,14 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             print("IS OK")
         } else {
             print("IS NO OK")
-            textField.text = "\(searchPrefix)\(textField.text!)"
+            let text = textField.text?.replacingOccurrences(of: lastSearchPrefix, with: "")
+            textField.text = "\(searchPrefix)\(text!)"
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchButton(searchButton)
+        return true
     }
     
     func doASearch() {
@@ -444,7 +499,9 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         let label = UILabel(frame: CGRect(x: 20, y: 0, width: 300, height: 30))
         label.text = sectionNames[section]
         if section == 3 {
-            var prefix = searchPrefix
+            var prefix: String {
+                return series!
+            }
             label.text = "\(prefix.components(separatedBy: "-").first!) More Information"
         }
         label.font = UIFont(name: "NissanOpti", size: 15)

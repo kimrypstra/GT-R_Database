@@ -47,7 +47,11 @@ struct ScreenshotView: View {
                     HStack(alignment: .center, spacing: 0, content: {
                         ZStack {
                             Color(.black).frame(width: geometry.size.width * 0.15, height: geometry.size.height * 0.15, alignment: .center).cornerRadius(8)
-                            Image("logo").resizable().frame(width: geometry.size.width * 0.12, height: geometry.size.height * 0.12, alignment: .center).padding(edgeInset)
+                            
+                            let width = geometry.size.width * 0.12
+                            
+                            Image("logo").resizable().aspectRatio(contentMode: .fit).frame(width: width, height: width, alignment: .center).padding(edgeInset)
+                                
                         }
                         VStack(alignment: HorizontalAlignment.leading, spacing: nil, content: {
                             // MARK: Title
@@ -76,14 +80,6 @@ struct ScreenshotView: View {
                         }
                     }
                     
-                    if stringIsValid(colour) {
-                        HStack {
-                            Text("Colour").foregroundColor(textColour).font(Font.custom("NissanOpti", size: mainTextSize)).padding(edgeInset)
-                            Spacer()
-                            Text(colour!).foregroundColor(textColour).font(Font.custom("NissanOpti", size: mainTextSize)).padding(edgeInset)
-                        }
-                    }
-                    
                     if stringIsValid(productionDate) {
                         HStack {
                             Text("Production Date").foregroundColor(textColour).font(Font.custom("NissanOpti", size: mainTextSize)).padding(edgeInset)
@@ -105,6 +101,14 @@ struct ScreenshotView: View {
                             Text("Seat").foregroundColor(textColour).font(Font.custom("NissanOpti", size: mainTextSize)).padding(edgeInset)
                             Spacer()
                             Text(seat!).foregroundColor(textColour).font(Font.custom("NissanOpti", size: mainTextSize)).padding(edgeInset)
+                        }
+                    }
+                    
+                    if stringIsValid(colour) {
+                        HStack {
+                            Text("Colour").foregroundColor(textColour).font(Font.custom("NissanOpti", size: mainTextSize)).padding(edgeInset)
+                            Spacer()
+                            Text(colour!).foregroundColor(textColour).font(Font.custom("NissanOpti", size: mainTextSize)).padding(edgeInset)
                         }
                     }
                     

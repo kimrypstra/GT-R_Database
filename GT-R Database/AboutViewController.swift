@@ -54,6 +54,14 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
                            parameters: [AnalyticsParameterScreenName: "About Screen"])
     }
     
+    @IBAction func didTapFacebookButton(_ sender: Any) {
+        if let url = URL(string: "https://www.facebook.com/GTRRegistry") {
+            UIApplication.shared.open(url)
+        } else {
+            print("Unable to make Facebook url")
+        }
+    }
+    
     @IBAction func didTapContactButton(_ sender: Any) {
         // Modify following variables with your text / recipient
         let recipientEmail = "gtrregistry1@gmail.com"

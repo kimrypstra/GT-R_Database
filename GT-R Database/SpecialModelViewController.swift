@@ -40,14 +40,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    /*
-     - Implement CocoaMarkdown
-     - Add as many textviews as substrings we have and render markdown to them
-     - Search for and split strings on any <<image tags>>
-     - Add images to carousels
-     */
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let gradient = CAGradientLayer()
@@ -69,8 +62,6 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         let parsed = CMDocument(string: text, options: .hardBreaks)
         
         let attr = CMTextAttributes()
-        
-        
         // MARK:- Font and Paragraph Attributes
         
         // Headers
@@ -112,6 +103,8 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         let mDoc = CMDocument(string: "##### Miscellaneous Images", options: .hardBreaks)
         let mRend = CMAttributedStringRenderer(document: mDoc, attributes: attr)
         miscLabel.attributedText = mRend?.render()
+        
+        populateImages()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -159,9 +152,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
                         print("Couldn't find image for: \(path)\(filename)")
                     }
                 }
-                
-                
-                
+
                 let largestImage = brochureImages.sorted(by: {$0.size.height > $1.size.height}).first!
                 let largestAspect = largestImage.size.height / largestImage.size.width
                 brochureHeight.constant = self.view.bounds.width * largestAspect
@@ -201,7 +192,10 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
                 }
             }
             
+            filenames.removeAll()
+            
             if miscImages.count > 0 {
+                print("Misc count: \(miscImages.count)")
                 // Set misc images scroll view to only be as tall as it needs to be to show the biggest image
                 let largestImage = miscImages.sorted(by: {$0.size.height > $1.size.height}).first!
                 let largestAspect = largestImage.size.height / largestImage.size.width
@@ -225,6 +219,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
                     view.contentMode = .scaleAspectFit
                     miscScrollView.addSubview(view)
                 }
+                print("Misc count subviews: \(miscScrollView.subviews.count)")
             } else {
                 // If there are no misc images...
                 stackView.arrangedSubviews[2].isHidden = true
@@ -250,10 +245,6 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         } else {
             print("Coudn't get imagePath. Ensure there's an entry for this model in Constants.swift")
         }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        populateImages()
     }
     
     func setStackViewHeight(scrollToBottom: Bool, of view: UIScrollView?) {
@@ -307,9 +298,10 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             let scaledImageHeight = scrollView.frame.width * aspect
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn) {
                 self.brochureHeight.constant = scaledImageHeight
+                self.brochureScrollView.contentSize.height = scaledImageHeight
                 self.view.layoutIfNeeded()
             }
-            setStackViewHeight(scrollToBottom: true, of: brochureScrollView)
+            setStackViewHeight(scrollToBottom: false, of: brochureScrollView)
         } else if scrollView == miscScrollView {
             let page = Int(scrollView.contentOffset.x / scrollView.contentSize.width * CGFloat(miscImages.count))
             let image = miscImages[page]
@@ -317,12 +309,11 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             let scaledImageHeight = scrollView.frame.width * aspect
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn) {
                 self.miscHeight.constant = scaledImageHeight
+                self.miscScrollView.contentSize.height = scaledImageHeight
                 self.view.layoutIfNeeded()
             }
-            setStackViewHeight(scrollToBottom: true, of: miscScrollView)
+            setStackViewHeight(scrollToBottom: false, of: miscScrollView)
         }
-        
-        
     }
     
     func getModelInfoText() -> String {
@@ -341,7 +332,6 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func getContentsOfFolder(path: String) -> [String] {
-        
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: path)
             
@@ -354,9 +344,5 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    deinit {
-        print("Deinit")
     }
 }

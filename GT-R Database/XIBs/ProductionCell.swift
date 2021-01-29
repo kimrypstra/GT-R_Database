@@ -51,6 +51,10 @@ class ProductionCell: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
+    @IBAction func didLongPress(_ sender: Any) {
+        print("did long press")
+    }
+    
     @IBAction func didTap(_ sender: Any) {
         switch type {
         case .Blank:
