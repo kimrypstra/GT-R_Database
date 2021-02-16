@@ -58,6 +58,8 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             textViewHeight.constant = 0
         }
         
+        
+        
         textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         let parsed = CMDocument(string: text, options: .hardBreaks)
         
@@ -70,10 +72,11 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         attr.addFontAttributes([.family : "NissanOpti", .size : 12], forElementWithKinds: .header3)
         attr.addFontAttributes([.family : "Futura", .size : 16, .face : "Bold"], forElementWithKinds: .header4)
         attr.addFontAttributes([.family : "NissanOpti", .size : 14], forElementWithKinds: .header5)
-        attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 20, .headExtraIndent : 20], forElementWithKinds: .header5)
+        
+        attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 25, .headExtraIndent : 10], forElementWithKinds: .header5)
         
         // Unordered List
-        attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 10, .headExtraIndent : 20], forElementWithKinds: .unorderedList)
+        attr.addParagraphStyleAttributes([.firstLineHeadExtraIndent : 10, .headExtraIndent : 10], forElementWithKinds: .unorderedList)
         attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .unorderedList)
         
         // Unordered Sublist

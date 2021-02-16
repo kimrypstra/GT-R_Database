@@ -62,6 +62,10 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         }
     }
     
+    @IBAction func didTapBaseLegButton(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "https://baseleg.com.au")!)
+    }
+    
     @IBAction func didTapWebButton(_ sender: Any) {
         UIApplication.shared.open(URL(string: "https://www.gtr-registry.com")!)
     }

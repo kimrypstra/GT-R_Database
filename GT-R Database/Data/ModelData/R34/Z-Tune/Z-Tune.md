@@ -8,121 +8,121 @@ LX0 Midnight Purple III: __2__
 
 ## Nismo Z2 specification engine with:
 * Cylinder Head  
-	* Camshaft (Z-tune Exclusive)  
-	* Metal Head Gasket  
-	* Special Combustion Chamber shape & Volume Adjustment  
-	* Enlarged Port & Grind machining  
-	* Special Relief Machining on camshaft  
-	* Exclusive Rocker cover with Z-tune special color.  
+	Camshaft (Z-tune Exclusive)  
+	Metal Head Gasket  
+	Special Combustion Chamber shape & Volume Adjustment  
+	Enlarged Port & Grind machining  
+	Special Relief Machining on camshaft  
+	Exclusive Rocker cover with Z-tune special color.  
 
 * Cylinder Block
-** GT Engine Block (Strength & Rigidity Uprated)
-** Forged Piston (Z-tune exclusive)
-** GT Crank Shaft (Forged + Fillet Roll Machining)
-** GT Connecting Rod spec 2 (I Shaped, SNCM Material)
-** Oil Pan Baffle Plate
+	GT Engine Block (Strength & Rigidity Uprated)
+	Forged Piston (Z-tune exclusive)
+	GT Crank Shaft (Forged + Fillet Roll Machining)
+	GT Connecting Rod spec 2 (I Shaped, SNCM Material)
+	Oil Pan Baffle Plate
 
 * Engine Components
-** GT Collector Tank (special shape)
-** Turbo Charger (made by IHI, Exclusive for Z-tune)
-** Exhaust Outlet (special shape)
-** Exhaust Manifold specially machined to remove gap & stiffener processing.
+	GT Collector Tank (special shape)
+	Turbo Charger (made by IHI, Exclusive for Z-tune)
+	Exhaust Outlet (special shape)
+	Exhaust Manifold specially machined to remove gap & stiffener processing.
  	
 * Cooling
-** Twin Oil Cooler (exclusive for Z-tune)
-** Aluminum Radiator (Cooling performance upgraded)
-** Intercooler (Cooling performance upgraded)
-** Intercooler piping
+	Twin Oil Cooler (exclusive for Z-tune)
+	Aluminum Radiator (Cooling performance upgraded)
+	Intercooler (Cooling performance upgraded)
+	Intercooler piping
  	
 * Fueling
-** High-Flow Fuel Injector
-** High-Flow Fuel Pump
+	High-Flow Fuel Injector
+	High-Flow Fuel Pump
  	
 * Engine Control
-** ECM (exclusive for Z-tune)
+	ECM (exclusive for Z-tune)
  	
 * Exhaust
-** WELDINA NE-1 Titanium (Fr tube is stainless steel)
+	WELDINA NE-1 Titanium (Fr tube is stainless steel)
 
 ## Body Shell
 * Door Surrounding
-** Extra Spot Welding
+	Extra Spot Welding
 
 * Others
-** Hood Ridge Reinforcement on Front Strut Upper part
-** Carbon Fibre Reinforcement at Center Tunnel etc.
+	Hood Ridge Reinforcement on Front Strut Upper part
+	Carbon Fibre Reinforcement at Center Tunnel etc.
 
 ## Suspension
 * Shocks & Springs
-** Damp Force Adjustable in 3 variations. Ride-Height Adjustable, SACHS Suspension basis, exclusive for Z-tune
+	Damp Force Adjustable in 3 variations. Ride-Height Adjustable, SACHS Suspension basis, exclusive for Z-tune
 
 * Stabilizer Bars
-** Spring Constant Upgraded
+	Spring Constant Upgraded
  	
 * Bushings
-** Less Friction Hard Rubber Bushings
+	Less Friction Hard Rubber Bushings
  	
 * Wheel
-** LM GT4 GT500 Model Black Color 18 x 9.5J (Exclusive for Z-tune)
+	LM GT4 GT500 Model Black Color 18 x 9.5J (Exclusive for Z-tune)
  	
 * Tire
-** Bridgestone POTENZA RE01R (265/35-18)
+	Bridgestone POTENZA RE01R (265/35-18)
 
 ## Powertrain
 * Clutch
-** Twinplate Clutch (COPPERMIX TWIN)
+	Twinplate Clutch (COPPERMIX TWIN)
 
 * Differentials
-** Front: Mechanical L.S.D.
-** Rear: Active L.S.D. * Final Gear Ratio: 3.545
-** ETC Control Unit (Exclusive for Z-tune)
+	Front: Mechanical L.S.D.
+	Rear: Active L.S.D. * Final Gear Ratio: 3.545
+	ETC Control Unit (Exclusive for Z-tune)
 
 * Propeller Shaft
 ** Carbon Fiber Propeller Shaft (Exclusive for Z-tune)
 
 ## Brakes
 * Rotor & Caliper
-** Front: 365mm dia, 2-piece, Ventilated Disc + Mono-block 6 piston Caliper
-** Rear: 355mm dia, 1-piece, Ventilated Disc + Forged 4 Piston Caliper
+	Front: 365mm dia, 2-piece, Ventilated Disc + Mono-block 6 piston Caliper
+	Rear: 355mm dia, 1-piece, Ventilated Disc + Forged 4 Piston Caliper
 
 * Brake Pad & Hose
-** Z-tune Special Brake Pad + Stainless Steel Meshed Hose
+	Z-tune Special Brake Pad + Stainless Steel Meshed Hose
 
 ## Exterior
 * Front Bumper
-** New Design Type Carbon Fibre (Exclusive for Z-tune)
+	New Design Type Carbon Fibre (Exclusive for Z-tune)
 
 * Front Under Panel
-** Carbon Fibre  (Exclusive for Z-tune)
+	Carbon Fibre  (Exclusive for Z-tune)
 
 * Front Fender
-** Carbon Fibre Blister Fender (Exclusive for Z-tune)
+	Carbon Fibre Blister Fender (Exclusive for Z-tune)
 
 * Side Skirt
-** ABS Resin
+	ABS Resin
 
 * Rear Spoiler Flap
-** Carbon Fibre
+	Carbon Fibre
 
 * Badging
-** Nismo and Nismo Z-Tune emblem
-** Numbered plate in engine bay
+	Nismo and Nismo Z-Tune emblem
+	Numbered plate in engine bay
 
 ## Interior
 * Steering Wheel
-** Air-Bag Type
+	Air-Bag Type
  
 * Seat
-** Uprated Alcanta and Leather Trim (Exclusive for Z-tune)
+	Uprated Alcanta and Leather Trim (Exclusive for Z-tune)
  
 * Door Trim
-** Uprated Alcanta and Leather Trim (Exclusive for Z-tune)
+	Uprated Alcanta and Leather Trim (Exclusive for Z-tune)
  
 * Speedometer
-** 320km Display, White Background
+	320km Display, White Background
 
 * MFD
-** Version II Type
+	Version II Type
 
 ## Specification
 

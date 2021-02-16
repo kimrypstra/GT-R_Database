@@ -170,6 +170,16 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.register(SmallCell.self, forCellReuseIdentifier: "smallCell")
         tableView.reloadData()
         
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        Analytics.logEvent(AnalyticsEventScreenView,
+                           parameters: [AnalyticsParameterScreenName: "VIN Search Screen",
+                                        "Series" : "\(series!)"])
+    }
+    
+    override func viewDidLayoutSubviews() {
         vinPlate.rootView.series = series!
         vinPlate.rootView.delegate = self
         vinPlate.rootView.imageName = "\(series!)VinPlate"
@@ -182,16 +192,14 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         // This should be a square otherwise the layout shifts to the left
         vinPlate.view.frame = CGRect(x: sidePad, y: Int(searchButton.frame.maxY) + topPad, width: width, height: Int(tableView.frame.height))
         
+        
         let recog = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         vinPlate.view.addGestureRecognizer(recog)
         
         self.view.addSubview(vinPlate.view)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        Analytics.logEvent(AnalyticsEventScreenView,
-                           parameters: [AnalyticsParameterScreenName: "VIN Search Screen",
-                                        "Series" : "\(series!)"])
+        
+        let const = NSLayoutConstraint(item: vinPlate.view, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: 20)
+        self.view.addConstraint(const)
     }
     
     @objc func handleTap() {

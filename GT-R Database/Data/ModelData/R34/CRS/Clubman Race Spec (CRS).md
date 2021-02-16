@@ -14,12 +14,12 @@ From 2012-2019 The Nismo S2 engine was available as an option.
   
 ## Engine  
 * RB26DETT: __Nismo; R2 Specification__  
-** N1 Specification Parts: __Nissan; Block, Piston, Piston Ring__  
-** Injector: __Nissan; Genuine 570cc for NISSAN GT-R (R35)__  
-** Delivery Pipe: __Nismo; Exclusive Goods__  
-** Turbocharger: __Nissan; R1 Turbo Kit (with reinforced actuator)__  
-** Camshaft: __Nismo; Exclusive Goods__  
-** ECM: __Nismo; Exclusive Goods__  
+	N1 Specification Parts: __Nissan; Block, Piston, Piston Ring__  
+	Injector: __Nissan; Genuine 570cc for NISSAN GT-R (R35)__  
+	Delivery Pipe: __Nismo; Exclusive Goods__  
+	Turbocharger: __Nissan; R1 Turbo Kit (with reinforced actuator)__  
+	Camshaft: __Nismo; Exclusive Goods__  
+	ECM: __Nismo; Exclusive Goods__  
 * Engine Mount: __Nismo; Reinforced Goods__  
 * Exhaust System NE-1 Titanium Specification: __Nismo; Weight: 15.1 kg (compared to genuine-12.6 kg) ※ Measured Value of NISMO__  
 * Z-tune Conversion Air Cleaner Duct: __Nismo; Made of Dry Carbon__  
@@ -35,7 +35,7 @@ From 2012-2019 The Nismo S2 engine was available as an option.
 * Engine Oil Cooler Kit: __Nismo; H140 x W 294 x D50 (mm), 19 Stages, Made of Aluminum, with Air Guide__  
   
 ## Powertrain  
-* Super Coppermix Twin Plate Clutch: __Nismo; Competition model__v  
+* Super Coppermix Twin Plate Clutch: __Nismo; Competition model__  
 * Transmission Mount: __Nismo; Reinforced Goods__  
 * Front LSD: __Nismo; 1.5 WAY__  
 * Final Gear: __Omori; 3.916__  
