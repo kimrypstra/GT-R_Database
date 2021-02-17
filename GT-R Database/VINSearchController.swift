@@ -221,13 +221,13 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         
         switch country {
         case "GreatBritain":
-            searchPrefix = "JN1GAP\(series!)"
+            searchPrefix = "JN1GAP\(series!)U"
         case "Singapore":
-            searchPrefix = "JN1GBN\(series!)"
+            searchPrefix = "JN1GBN\(series!)A"
         case "HongKong":
-            searchPrefix = "JN1GAP\(series!)"
+            searchPrefix = "BNR34-\(series!)"
         case "NewZealand":
-            searchPrefix = "JN1GBN\(series!)"
+            searchPrefix = "JN1GBN\(series!)A"
         default:
             print("Unrecognised country, back to normal")
             vinPlate.rootView.imageName = "\(series!)VinPlate"
@@ -518,7 +518,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             var prefix: String {
                 return series!
             }
-            label.text = "\(prefix.components(separatedBy: "-").first!) More Information"
+            label.text = "\(prefix.components(separatedBy: "-").first!) GT-R More Information"
         }
         label.font = UIFont(name: "NissanOpti", size: 15)
         return label
