@@ -21,15 +21,7 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let bannerTopColour = UIColor(displayP3Red: 39/255, green: 39/255, blue: 39/255, alpha: 1)
-        let bannerBottomColour = UIColor(displayP3Red: 21/255, green: 21/255, blue: 21/255, alpha: 1)
-        
-        let gradient = CAGradientLayer()
-
-        gradient.frame = topBannerBackgroundView.bounds
-        gradient.colors = [bannerTopColour.cgColor, bannerBottomColour.cgColor]
-
-        topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
+       
         
         //UITextView.appearance().linkTextAttributes = [.foregroundColor: UIColor.black]
         
@@ -47,6 +39,18 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         
         //UITextView.appearance().linkTextAttributes = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.byWord]
 
+    }
+    
+    override func viewDidLayoutSubviews() {
+        let bannerTopColour = UIColor(displayP3Red: 39/255, green: 39/255, blue: 39/255, alpha: 1)
+        let bannerBottomColour = UIColor(displayP3Red: 21/255, green: 21/255, blue: 21/255, alpha: 1)
+        
+        let gradient = CAGradientLayer()
+
+        gradient.frame = topBannerBackgroundView.bounds
+        gradient.colors = [bannerTopColour.cgColor, bannerBottomColour.cgColor]
+
+        topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
     }
     
     override func viewDidAppear(_ animated: Bool) {

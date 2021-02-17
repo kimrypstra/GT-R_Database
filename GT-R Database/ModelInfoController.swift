@@ -95,6 +95,10 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
         // Set up top banner
         let gradient = CAGradientLayer()
         gradient.frame = topBannerView.bounds

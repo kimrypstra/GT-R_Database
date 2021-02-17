@@ -69,10 +69,7 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gradient = CAGradientLayer()
-        gradient.frame = topBannerView.bounds
-        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
-        topBannerView.layer.insertSublayer(gradient, at: 0)
+        
         
         switch mode {
         case .Production:
@@ -87,6 +84,8 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         self.view.clipsToBounds = true
         setUpTable()
     }
+    
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         topFloaterLeftAlign.constant = scrollView.contentOffset.x
@@ -281,22 +280,12 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     }
     
     override func viewDidLayoutSubviews() {
-//        topFloater.layer.shadowColor = UIColor.black.cgColor
-//        topFloater.layer.shadowOffset = CGSize(width: 0, height: 5)
-//        topFloater.layer.shadowRadius = 5
-//        topFloater.layer.shadowOpacity = 0.125
-//        topFloater.clipsToBounds = false
-//        //topFloater.layer.shadowPath = UIBezierPath(rect: topFloater.bounds).cgPath
-//        //topFloater.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: topFloater.bounds.width, height: 1)).cgPath
-//
-//        floaterBlocker.layer.shadowColor = UIColor.black.cgColor
-//        floaterBlocker.layer.shadowOffset = CGSize(width: 0, height: 5)
-//        floaterBlocker.layer.shadowRadius = 5
-//        floaterBlocker.layer.shadowOpacity = 0.125
-//        floaterBlocker.clipsToBounds = false
-//        //floaterBlocker.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: floaterBlocker.bounds.width, height: 1)).cgPath
+        let gradient = CAGradientLayer()
+        gradient.frame = topBannerView.bounds
+        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
+        topBannerView.layer.insertSublayer(gradient, at: 0)
     }
-    
+     
     override func viewDidAppear(_ animated: Bool) {
         Analytics.logEvent(AnalyticsEventScreenView,
                            parameters: [AnalyticsParameterScreenName: "Table Screen",

@@ -43,11 +43,15 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        stackView.alpha = 0 // Hide the stack view because otherwise we see the images flying down when the screen loads
+    }
+    
+    override func viewDidLayoutSubviews() {
         let gradient = CAGradientLayer()
         gradient.frame = topBannerView.bounds
         gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
         topBannerView.layer.insertSublayer(gradient, at: 0)
-        stackView.alpha = 0 // Hide the stack view because otherwise we see the images flying down when the screen loads
     }
     
     override func viewWillAppear(_ animated: Bool) {

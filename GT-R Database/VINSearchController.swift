@@ -121,6 +121,9 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         guard !alreadyPresented else {
             return
@@ -159,10 +162,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             keysSection2.append("\(int)")
         }
         
-        let gradient = CAGradientLayer()
-        gradient.frame = topBannerView.bounds
-        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
-        topBannerView.layer.insertSublayer(gradient, at: 0)
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -180,6 +180,11 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func viewDidLayoutSubviews() {
+        let gradient = CAGradientLayer()
+        gradient.frame = topBannerView.bounds
+        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
+        topBannerView.layer.insertSublayer(gradient, at: 0)
+        
         vinPlate.rootView.series = series!
         vinPlate.rootView.delegate = self
         vinPlate.rootView.imageName = "\(series!)VinPlate"

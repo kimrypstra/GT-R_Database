@@ -77,11 +77,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             print("DB not opened")
         }
         
-        // Set up top banner
-        let gradient = CAGradientLayer()
-        gradient.frame = topBannerBackgroundView.bounds
-        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
-        topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
+        
         
         // Set up gesture recognizers
         let r32recog = UITapGestureRecognizer(target: self, action:"didTapR32")
@@ -110,6 +106,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        // Set up top banner
+        let gradient = CAGradientLayer()
+        gradient.frame = topBannerBackgroundView.bounds
+        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
+        topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
+    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         switch touches.first?.gestureRecognizers?.first?.name {
