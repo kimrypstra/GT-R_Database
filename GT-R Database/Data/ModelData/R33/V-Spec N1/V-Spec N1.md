@@ -5,7 +5,7 @@ QM1 - White V-Spec N1 (Series 1): __55 known__
 QM1 - White V-Spec N1 (Series 2): __21__  
 QM1 - White V-Spec N1 (Series 3): __11__  
   
-As there are a few Series 1 BCNR33s with no production data available, the true number may be slightly higher.  
+As there are 13 Series 1 cars with no records the actual numbers may be slightly higher.  
   
 V-Spec N1 is only available in QM1 White without Super Fine Hard Coat  
   
@@ -34,6 +34,3 @@ V-Spec N1 is only available in QM1 White without Super Fine Hard Coat
 * No passenger seat vanity mirror  
 * No audio (including antenna, harness etc)  
 * No rear seat assist grip  
-  
-## New Price:  
-#### ¥Unknown  

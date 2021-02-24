@@ -94,7 +94,8 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @objc dynamic var keysSection3: [String] = [
         "VIN Ranges",
-        "Production Numbers"
+        "Production Numbers",
+        "New Pricing"
     ]
     
     var labelText: String = ""
@@ -138,17 +139,17 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         switch series {
         case "R32":
             highestModelNumberIndex = 11
-            labelText = "BNR32 GT-R VIN Search"
+            labelText = "BNR32 VIN Search"
             keysSection0.insert("Extended Model Code", at: keysSection0.firstIndex(of: "Interior Code")!)
             keysSection0.remove(at: keysSection0.firstIndex(of: "Seat")!)
             
         case "R33":
             highestModelNumberIndex = 15
-            labelText = "BCNR33 GT-R VIN Search"
+            labelText = "BCNR33 VIN Search"
             
         case "R34":
             highestModelNumberIndex = 15
-            labelText = "BNR34 GT-R VIN Search"
+            labelText = "BNR34 VIN Search"
             imageView.contentMode = .scaleAspectFill
             keysSection0.remove(at: keysSection0.firstIndex(of: "Interior Code")!)
             
@@ -311,6 +312,8 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func doASearch() {
         let dbMan = DBManager()
+        
+        // Maybe set searchResult back to nil and have the tableview/images reset to nil before searching?
         
         guard searchField.text != nil else {return}
         
@@ -550,6 +553,8 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.performSegue(withIdentifier: "vin", sender: self)
             case 1:
                 self.performSegue(withIdentifier: "prod", sender: self)
+            case 2:
+                self.performSegue(withIdentifier: "price", sender: self)
             default:
                 break
             }
@@ -568,6 +573,10 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         case "prod":
             let IVC = segue.destination as! TSVTableViewController
             IVC.mode = .Production
+            IVC.series = series
+        case "price":
+            let IVC = segue.destination as! TSVTableViewController
+            IVC.mode = .Pricing
             IVC.series = series
         default:
             return

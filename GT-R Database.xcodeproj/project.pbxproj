@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2137FBE325E53E530076C73B /* GTR Registry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2137FBE225E53E530076C73B /* GTR Registry.sqlite */; };
+		2137FBE525E5EE110076C73B /* R34NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 2137FBE425E5EE110076C73B /* R34NewPricing.tsv */; };
 		213B7AEE25DBD0CC005C24FE /* NissanOpti.otf in Resources */ = {isa = PBXBuildFile; fileRef = 213B7AED25DBD0CB005C24FE /* NissanOpti.otf */; };
 		214473FC25583F71004DDEE0 /* ModelNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214473FB25583F71004DDEE0 /* ModelNumberCell.swift */; };
 		2144741D25594BE9004DDEE0 /* 1-lx0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144740925594BE6004DDEE0 /* 1-lx0.jpg */; };
@@ -18,7 +20,7 @@
 		2144742325594BE9004DDEE0 /* 1-qm1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144740F25594BE7004DDEE0 /* 1-qm1.jpg */; };
 		2144742425594BE9004DDEE0 /* 1-ar2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144741025594BE7004DDEE0 /* 1-ar2.jpg */; };
 		2144742525594BE9004DDEE0 /* 2-qt1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144741125594BE7004DDEE0 /* 2-qt1.jpg */; };
-		2144742625594BE9004DDEE0 /* wv2-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144741225594BE7004DDEE0 /* wv2-2.jpg */; };
+		2144742625594BE9004DDEE0 /* 2-wv2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144741225594BE7004DDEE0 /* 2-wv2.jpg */; };
 		2144742725594BE9004DDEE0 /* 1-gv1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144741325594BE7004DDEE0 /* 1-gv1.jpg */; };
 		2144742825594BE9004DDEE0 /* 2-kv2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144741425594BE8004DDEE0 /* 2-kv2.jpg */; };
 		2144742925594BE9004DDEE0 /* 2-tv2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144741525594BE8004DDEE0 /* 2-tv2.jpg */; };
@@ -87,7 +89,6 @@
 		218C81E7256A384B009A7063 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C81E6256A384B009A7063 /* Constants.swift */; };
 		218C81ED256A7E8A009A7063 /* ModelData in Resources */ = {isa = PBXBuildFile; fileRef = 218C81EC256A7E8A009A7063 /* ModelData */; };
 		218C822D256FF41B009A7063 /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 218C822C256FF41A009A7063 /* text.txt */; };
-		21A5BAC825BAD53F007768A5 /* GTR Registry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 21A5BAC725BAD53F007768A5 /* GTR Registry.sqlite */; };
 		21AB555B2582585E00BBCF12 /* TSVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB555A2582585E00BBCF12 /* TSVManager.swift */; };
 		21AB555D2582599100BBCF12 /* TSVTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB555C2582599100BBCF12 /* TSVTableViewController.swift */; };
 		21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */; };
@@ -109,7 +110,6 @@
 		21D0200C25C187FA00FD7C26 /* R34ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200925C187F800FD7C26 /* R34ProductionNumbers.tsv */; };
 		21D0200D25C187FA00FD7C26 /* R32ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200A25C187F900FD7C26 /* R32ProductionNumbers.tsv */; };
 		21D0200E25C187FA00FD7C26 /* R33ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200B25C187FA00FD7C26 /* R33ProductionNumbers.tsv */; };
-		21D39F5825C2D02C00C749DC /* R34NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D39F5725C2D02B00C749DC /* R34NewPricing.tsv */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
 		21FEAA4E25B6BC0F005A7013 /* String + Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */; };
 		2363CF43877662E076065E02 /* Pods_GT_R_Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C590AE54161ED3EFF6FB49 /* Pods_GT_R_Database.framework */; };
@@ -175,6 +175,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2137FBE225E53E530076C73B /* GTR Registry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTR Registry.sqlite"; sourceTree = "<group>"; };
+		2137FBE425E5EE110076C73B /* R34NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34NewPricing.tsv; sourceTree = "<group>"; };
 		213B7AED25DBD0CB005C24FE /* NissanOpti.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NissanOpti.otf; sourceTree = "<group>"; };
 		214473FB25583F71004DDEE0 /* ModelNumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNumberCell.swift; sourceTree = "<group>"; };
 		2144740925594BE6004DDEE0 /* 1-lx0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-lx0.jpg"; sourceTree = "<group>"; };
@@ -186,7 +188,7 @@
 		2144740F25594BE7004DDEE0 /* 1-qm1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-qm1.jpg"; sourceTree = "<group>"; };
 		2144741025594BE7004DDEE0 /* 1-ar2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-ar2.jpg"; sourceTree = "<group>"; };
 		2144741125594BE7004DDEE0 /* 2-qt1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-qt1.jpg"; sourceTree = "<group>"; };
-		2144741225594BE7004DDEE0 /* wv2-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wv2-2.jpg"; sourceTree = "<group>"; };
+		2144741225594BE7004DDEE0 /* 2-wv2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-wv2.jpg"; sourceTree = "<group>"; };
 		2144741325594BE7004DDEE0 /* 1-gv1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-gv1.jpg"; sourceTree = "<group>"; };
 		2144741425594BE8004DDEE0 /* 2-kv2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-kv2.jpg"; sourceTree = "<group>"; };
 		2144741525594BE8004DDEE0 /* 2-tv2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-tv2.jpg"; sourceTree = "<group>"; };
@@ -255,7 +257,6 @@
 		218C81E6256A384B009A7063 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		218C81EC256A7E8A009A7063 /* ModelData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ModelData; sourceTree = "<group>"; };
 		218C822C256FF41A009A7063 /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
-		21A5BAC725BAD53F007768A5 /* GTR Registry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTR Registry.sqlite"; sourceTree = "<group>"; };
 		21AB555A2582585E00BBCF12 /* TSVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVManager.swift; sourceTree = "<group>"; };
 		21AB555C2582599100BBCF12 /* TSVTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVTableViewController.swift; sourceTree = "<group>"; };
 		21AFA2C8254D3DC600661DE0 /* GT-R Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GT-R Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,7 +279,6 @@
 		21D0200925C187F800FD7C26 /* R34ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34ProductionNumbers.tsv; sourceTree = "<group>"; };
 		21D0200A25C187F900FD7C26 /* R32ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32ProductionNumbers.tsv; sourceTree = "<group>"; };
 		21D0200B25C187FA00FD7C26 /* R33ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33ProductionNumbers.tsv; sourceTree = "<group>"; };
-		21D39F5725C2D02B00C749DC /* R34NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34NewPricing.tsv; sourceTree = "<group>"; };
 		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Currency.swift"; sourceTree = "<group>"; };
 		58C590AE54161ED3EFF6FB49 /* Pods_GT_R_Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GT_R_Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -336,7 +336,7 @@
 				2144741125594BE7004DDEE0 /* 2-qt1.jpg */,
 				2144740B25594BE6004DDEE0 /* 2-qx1.jpg */,
 				2144741525594BE8004DDEE0 /* 2-tv2.jpg */,
-				2144741225594BE7004DDEE0 /* wv2-2.jpg */,
+				2144741225594BE7004DDEE0 /* 2-wv2.jpg */,
 			);
 			path = R34;
 			sourceTree = "<group>";
@@ -380,7 +380,7 @@
 		21461028254F0C4200E6453C /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				21A5BAC725BAD53F007768A5 /* GTR Registry.sqlite */,
+				2137FBE225E53E530076C73B /* GTR Registry.sqlite */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -541,7 +541,7 @@
 			children = (
 				21D01FFB25C0438400FD7C26 /* R32NewPricing.tsv */,
 				21D0200125C17F4400FD7C26 /* R33NewPricing.tsv */,
-				21D39F5725C2D02B00C749DC /* R34NewPricing.tsv */,
+				2137FBE425E5EE110076C73B /* R34NewPricing.tsv */,
 			);
 			path = "New Pricing";
 			sourceTree = "<group>";
@@ -671,6 +671,7 @@
 				2144742025594BE9004DDEE0 /* 2-qm1.jpg in Resources */,
 				2144742425594BE9004DDEE0 /* 1-ar2.jpg in Resources */,
 				21D0200825C1832C00FD7C26 /* R33VINRanges.tsv in Resources */,
+				2137FBE325E53E530076C73B /* GTR Registry.sqlite in Resources */,
 				2144742925594BE9004DDEE0 /* 2-tv2.jpg in Resources */,
 				2144742725594BE9004DDEE0 /* 1-gv1.jpg in Resources */,
 				21846088255C180500E68F45 /* ar1.jpg in Resources */,
@@ -680,7 +681,7 @@
 				218C7F662568F141009A7063 /* nur-6.jpg in Resources */,
 				2144741E25594BE9004DDEE0 /* 1-ev1.jpg in Resources */,
 				21846095255C182600E68F45 /* kl0.jpg in Resources */,
-				2144742625594BE9004DDEE0 /* wv2-2.jpg in Resources */,
+				2144742625594BE9004DDEE0 /* 2-wv2.jpg in Resources */,
 				21846081255C180500E68F45 /* kr4.jpg in Resources */,
 				21846083255C180500E68F45 /* gv1.jpg in Resources */,
 				2144742B25594BE9004DDEE0 /* 2-jw0.jpg in Resources */,
@@ -688,7 +689,6 @@
 				21846099255C182600E68F45 /* kh2.jpg in Resources */,
 				218C7F602568F141009A7063 /* brochure-2.jpg in Resources */,
 				218C7F5F2568F141009A7063 /* brochure-1.jpg in Resources */,
-				21A5BAC825BAD53F007768A5 /* GTR Registry.sqlite in Resources */,
 				2144742E25594BE9004DDEE0 /* 1-qm1-n1.jpg in Resources */,
 				218C7F642568F141009A7063 /* nur-3.jpg in Resources */,
 				218C7F632568F141009A7063 /* brochure-8.jpg in Resources */,
@@ -697,7 +697,7 @@
 				21846080255C180500E68F45 /* bt2.jpg in Resources */,
 				21D0200425C17FB800FD7C26 /* R34VINRanges.tsv in Resources */,
 				218C822D256FF41B009A7063 /* text.txt in Resources */,
-				21D39F5825C2D02C00C749DC /* R34NewPricing.tsv in Resources */,
+				2137FBE525E5EE110076C73B /* R34NewPricing.tsv in Resources */,
 				218C81ED256A7E8A009A7063 /* ModelData in Resources */,
 				2144742C25594BE9004DDEE0 /* 1-tv2.jpg in Resources */,
 				2144743025594BE9004DDEE0 /* 2-ey0.jpg in Resources */,

@@ -71,8 +71,13 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
     
     @IBAction func didTapWebButton(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://www.gtr-registry.com")!)
+        UIApplication.shared.open(URL(string: "http://www.gtr-registry.com")!)
     }
+
+    @IBAction func didTapFullCredits(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "http://gtr-registry.com/contact.php#Credits")!)
+    }
+    
     
     @IBAction func didTapContactButton(_ sender: Any) {
         // Modify following variables with your text / recipient

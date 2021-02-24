@@ -16,4 +16,4 @@ TH1 - Dark Blue Pearl: __41__
 * A retuned ATTESA E-TS system.  
   
 ## New Price:  
-#### ¥5,260,000  
+__¥5,260,000__  

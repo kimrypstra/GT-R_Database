@@ -474,7 +474,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IkJ-yz-lzk">
-                                                        <rect key="frame" x="0.0" y="30" width="375" height="200"/>
+                                                        <rect key="frame" x="0.0" y="30" width="375" height="140"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="OKA-5b-MgE"/>
                                                         </constraints>
@@ -482,7 +482,7 @@
                                                         <viewLayoutGuide key="frameLayoutGuide" id="zdp-wE-Nop"/>
                                                     </scrollView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Misc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPQ-fb-XY9">
-                                                        <rect key="frame" x="0.0" y="230" width="375" height="30"/>
+                                                        <rect key="frame" x="0.0" y="170" width="375" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="e6h-H7-a7V"/>
                                                         </constraints>
@@ -491,7 +491,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dsn-dI-Rt8">
-                                                        <rect key="frame" x="0.0" y="260" width="375" height="140"/>
+                                                        <rect key="frame" x="0.0" y="200" width="375" height="200"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="8KP-Ce-TRs"/>
                                                         </constraints>
@@ -726,6 +726,7 @@
                         <segue destination="jhs-N8-6cP" kind="show" identifier="vin" id="Wo0-zj-Nws"/>
                         <segue destination="jhs-N8-6cP" kind="show" identifier="prod" id="aqq-LD-YRx"/>
                         <segue destination="xNY-Qo-CNS" kind="show" identifier="about" id="Pi8-Pe-iFu"/>
+                        <segue destination="jhs-N8-6cP" kind="show" identifier="price" id="8A8-D9-sOH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uku-ec-vFD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -794,13 +795,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R34 Production Numbers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bBf-zx-Tkj">
-                                        <rect key="frame" x="65" y="95" width="245" height="25"/>
+                                        <rect key="frame" x="65" y="96.5" width="245" height="23.5"/>
                                         <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="M9N-Nf-rvr">
-                                        <rect key="frame" x="167.5" y="55" width="40" height="40"/>
+                                        <rect key="frame" x="167.5" y="56.5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="nbA-72-uKo"/>
                                             <constraint firstAttribute="height" constant="40" id="oi5-Qe-GRW"/>
@@ -940,7 +941,7 @@
                                     <constraint firstAttribute="width" secondItem="zcp-Uy-yP4" secondAttribute="height" multiplier="1:1" id="rL4-Qv-P0a"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="mail.fill" catalog="system">
+                                <state key="normal" image="envelope.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1037,8 +1038,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7BL-v3-eu0">
                                 <rect key="frame" x="10" y="438.5" width="355" height="228.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-OK-Y3g">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content developed by Mark at GTR-Registry.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzX-IX-N37">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Fv8-b3-SN5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="10"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-OK-Y3g">
+                                        <rect key="frame" x="0.0" y="30" width="355" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="egD-OW-R61"/>
                                         </constraints>
@@ -1057,17 +1067,47 @@
                                             <action selector="didTapBaseLegButton:" destination="xNY-Qo-CNS" eventType="touchUpInside" id="dSD-C7-fNi"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Markdown rendered using CocoaMarkdown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzX-IX-N37">
-                                        <rect key="frame" x="0.0" y="30" width="355" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HHI-Jn-27r">
+                                        <rect key="frame" x="0.0" y="60" width="355" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Fv8-b3-SN5"/>
+                                            <constraint firstAttribute="height" constant="30" id="Hcp-gN-t1q"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Full Credits">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="10" name="NissanOpti"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapFullCredits:" destination="xNY-Qo-CNS" eventType="touchUpInside" id="Hfw-IQ-0Eh"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Special Thanks: Mark Newton for the majority of brochure scans." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRs-ua-aBQ">
+                                        <rect key="frame" x="0.0" y="90" width="355" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="FaN-2t-SjF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="10"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Markdown rendered using CocoaMarkdown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH2-2G-Cmb">
+                                        <rect key="frame" x="0.0" y="120" width="355" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="4Yi-Ri-1qW"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="10"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app utilises Google Analytics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHW-86-Njn">
-                                        <rect key="frame" x="0.0" y="60" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="355" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="yKX-CF-Cmf"/>
                                         </constraints>
@@ -1076,7 +1116,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ijo-9y-Mbx">
-                                        <rect key="frame" x="0.0" y="90" width="355" height="138.5"/>
+                                        <rect key="frame" x="0.0" y="180" width="355" height="48.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="250" constant="60" id="Cjr-4Y-YF2"/>
@@ -1145,14 +1185,14 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Pi8-Pe-iFu"/>
-        <segue reference="aqq-LD-YRx"/>
+        <segue reference="8A8-D9-sOH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="backButton" width="50" height="50"/>
         <image name="desktopcomputer" catalog="system" width="128" height="101"/>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="facebook" width="159" height="160"/>
         <image name="logo" width="100" height="75"/>
-        <image name="mail.fill" catalog="system" width="128" height="93"/>
         <image name="r32side" width="360" height="160"/>
         <image name="r33side" width="360" height="165"/>
         <image name="r34side" width="332" height="166"/>

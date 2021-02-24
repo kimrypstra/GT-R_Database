@@ -23,3 +23,6 @@ There are some additional prototype cars with Japanese VIN that have also been c
 * Cat 1 alarm  
 * Kenwood head unit with optional boot-mounted CD Changer  
 * Optional Connolly leather seats £2000  
+  
+## New Price:  
+__£50,000__  

@@ -13,11 +13,11 @@ As the Clubman Race Spec (CRS) is a customer specified car, any options and be a
   
 ## Engine  
 * RB26DETT: __Nismo; S2 Specification__  
-** Injector: __Nissan; Genuine 570cc for NISSAN GT-R (R35)__  
-** Delivery Pipe: __Nismo; Exclusive Goods__  
-** Turbocharger: __Nissan; BNR34 Genuine__  
-** Camshaft: __Nismo; Exclusive Goods__  
-** ECM: __Nismo; Exclusive Goods__  
+    - Injector: __Nissan; Genuine 570cc for NISSAN GT-R (R35)__  
+    - Delivery Pipe: __Nismo; Exclusive Goods__  
+    - Turbocharger: __Nissan; BNR34 Genuine__  
+    - Camshaft: __Nismo; Exclusive Goods__  
+    - ECM: __Nismo; Exclusive Goods__  
 * Exhaust System NE-1 Titanium Specification: __Nismo; Weight: 15.0 kg (compared to genuine-12.7 kg) ※ Measured Value of NISMO__  
 * Air Cleaner Box: __Omori; Made of Dry Carbon__  
 * Carbon Air Inlet Pipe: __Nismo; Made of Dry Carbon__  
@@ -56,3 +56,6 @@ As the Clubman Race Spec (CRS) is a customer specified car, any options and be a
 * Number plate Surround (front): __Nismo; Made of Carbon__  
 * Aero: __STD; GT-R NISMO Specification__  
 * Carbon Exhaust Guard: __Omori; Made of Dry Carbon__  
+
+## New Price:  
+__¥45,000,000 (est.)__  

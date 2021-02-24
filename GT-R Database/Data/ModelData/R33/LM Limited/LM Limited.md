@@ -11,5 +11,5 @@ BT2 Champion Blue V-Spec LM Limited: __102__
 * Commemorative GT-R Decals on C-Pillars  
   
 ## New Price:  
-#### GT-R: ¥4,998,000  
-#### V-Spec: ¥5,503,000  
+__GT-R: ¥4,998,000__  
+__V-Spec: ¥5,503,000__  

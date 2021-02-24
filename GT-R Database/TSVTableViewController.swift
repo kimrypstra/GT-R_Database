@@ -73,11 +73,21 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         
         switch mode {
         case .Production:
-            titleLabel.text = "\(series!) Production Numbers"
+            titleLabel.text = "\(series!) GT-R Production Numbers"
         case .VIN:
             titleLabel.text = "\(series!) VIN Ranges"
+            switch series! {
+            case "R32":
+                titleLabel.text = "BNR32 VIN Ranges"
+            case "R33":
+                titleLabel.text = "BCNR33 VIN Ranges"
+            case "R34":
+                titleLabel.text = "BNR34 VIN Ranges"
+            default:
+                titleLabel.text = "VIN Ranges"
+            }
         case .Pricing:
-            titleLabel.text = "\(series!) New Pricing"
+            titleLabel.text = "\(series!) GT-R New Pricing"
         default:
             return
         }

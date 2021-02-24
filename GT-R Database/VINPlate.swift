@@ -98,7 +98,7 @@ struct VINPlate: View {
                             .aspectRatio(contentMode: .fit)
                             .padding(sideInsets)
                         
-                        Text("Check your number is in the VIN ranges for \(series)")
+                        Text("Check your number is in the VIN ranges for \(series) GT-R")
                             .font(font)
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                             .multilineTextAlignment(.center)

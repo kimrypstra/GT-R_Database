@@ -15,4 +15,4 @@ KL0 - Spark Silver Metallic: __411__
 * Note: Only difference between V-Spec and V-Spec II is tyres, tyre placard, boot sticker and model code on VIN plate.  
   
 ## New Price:  
-#### ¥5,290,000  
+__¥5,290,000__   

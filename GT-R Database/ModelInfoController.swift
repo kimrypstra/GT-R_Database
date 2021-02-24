@@ -31,8 +31,11 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         "Special Models" :
             ["M-Spec Nür",
              "V-Spec II Nür",
-             "M-Spec", "V-Spec II N1",
+             "M-Spec",
+             "V-Spec II N1",
+             "V-Spec II",
              "V-Spec N1",
+             "V-Spec",
              "Midnight Purple 3",
              "Midnight Purple 2"],
         "Non-Japanese Delivered" :
@@ -46,8 +49,11 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
              "F-Sport",
              "R-Tune",
              "S-Tune",
+             "Nismo Restored Car",
              "Sports Resetting"]
     ]
+    
+
     
     @objc dynamic let R33TableViewData: [String : [String]] = [
         "" : ["VIN Search",
@@ -55,15 +61,16 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
               "VIN Ranges",
               "New Pricing"],
         "Special Models" :
-            ["40th Anniversary",
-             "400R",
-             "GT-R LM",
-             "LM Limited",
-             "V-Spec N1"],
+            ["V-Spec",
+            "V-Spec N1",
+            "Autech Version 40th Anniversary"],
         "Non-Japanese Delivered" :
             ["Great Britain"],
         "Nismo Cars" :
-            ["CRS"]
+            ["400R",
+            "GT-R LM Limited, V-Spec LM Limited",
+             "Clubman Race Spec (CRS)",
+            "Nismo Restored Car"]
     ]
     
     @objc dynamic let R32TableViewData: [String : [String]] = [
@@ -72,14 +79,15 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
               "VIN Ranges",
               "New Pricing"],
         "Special Models" :
-            ["V-Spec",
-             "V-Spec II",
-             "N1"],
+            ["GT-R Nismo",
+             "N1, V-Spec N1, V-Spec II N1",
+             "V-Spec",
+             "V-Spec II"],
         "Non-Japanese Delivered" :
             ["Australia"],
         "Nismo Cars" :
-            ["GT-R Nismo",
-             "CRS"]
+            ["Clubman Race Spec (CRS)",
+            "Nismo Restored Car"]
     ]
     
     let tempSectionNames = [
