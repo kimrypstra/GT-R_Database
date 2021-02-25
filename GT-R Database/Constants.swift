@@ -9,8 +9,8 @@ import Foundation
 
 let assetPaths: [String : String] = [
     "R34 Clubman Race Spec (CRS)" : "\(r34path)CRS/",
-    "R34 M-Spec Nür" : "\(r34path)M-Spec Nur/",
-    "R34 V-Spec II Nür" : "\(r34path)V-Spec II Nur/",
+    "R34 M-Spec Nür" : "\(r34path)M-Spec Nür/",
+    "R34 V-Spec II Nür" : "\(r34path)V-Spec II Nür/",
     "R34 F-Sport" : "\(r34path)F-Sport/",
     "R34 Great Britain" : "\(r34path)Great Britain/",
     "R34 Hong Kong" : "\(r34path)Hong Kong/",
