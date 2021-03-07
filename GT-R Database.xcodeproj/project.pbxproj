@@ -36,6 +36,7 @@
 		2150328025B2B4F80054D8DE /* ScreenshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150327F25B2B4F70054D8DE /* ScreenshotView.swift */; };
 		215A9F3A25B9B469001E3BD6 /* VINPlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A9F3925B9B469001E3BD6 /* VINPlate.swift */; };
 		215A9F4225BA7312001E3BD6 /* VINPlateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */; };
+		21635C5025F4A6BE00BEF254 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21635C4F25F4A6BE00BEF254 /* GoogleService-Info.plist */; };
 		2167680725879A0300BCCFCD /* ProductionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */; };
 		217F36EE255692A900113937 /* VINSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36ED255692A900113937 /* VINSearchController.swift */; };
 		217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F02556A58900113937 /* UIView + Anchor.swift */; };
@@ -99,7 +100,6 @@
 		21AFA2D8254D3DC700661DE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21AFA2D6254D3DC700661DE0 /* LaunchScreen.storyboard */; };
 		21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */; };
 		21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */; };
-		21D01FFA25BFD35E00FD7C26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21D01FF925BFD35E00FD7C26 /* GoogleService-Info.plist */; };
 		21D01FFC25C0438400FD7C26 /* R32NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D01FFB25C0438400FD7C26 /* R32NewPricing.tsv */; };
 		21D0200225C17F4400FD7C26 /* R33NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200125C17F4400FD7C26 /* R33NewPricing.tsv */; };
 		21D0200425C17FB800FD7C26 /* R34VINRanges.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200325C17FB700FD7C26 /* R34VINRanges.tsv */; };
@@ -156,6 +156,7 @@
 		2150327F25B2B4F70054D8DE /* ScreenshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotView.swift; sourceTree = "<group>"; };
 		215A9F3925B9B469001E3BD6 /* VINPlate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINPlate.swift; sourceTree = "<group>"; };
 		215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINPlateDelegate.swift; sourceTree = "<group>"; };
+		21635C4F25F4A6BE00BEF254 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCellDelegate.swift; sourceTree = "<group>"; };
 		217F36ED255692A900113937 /* VINSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINSearchController.swift; sourceTree = "<group>"; };
 		217F36F02556A58900113937 /* UIView + Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Anchor.swift"; sourceTree = "<group>"; };
@@ -221,7 +222,6 @@
 		21AFA2D9254D3DC700661DE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoController.swift; sourceTree = "<group>"; };
-		21D01FF925BFD35E00FD7C26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21D01FFB25C0438400FD7C26 /* R32NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32NewPricing.tsv; sourceTree = "<group>"; };
 		21D0200125C17F4400FD7C26 /* R33NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33NewPricing.tsv; sourceTree = "<group>"; };
 		21D0200325C17FB700FD7C26 /* R34VINRanges.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34VINRanges.tsv; sourceTree = "<group>"; };
@@ -459,7 +459,7 @@
 				21AFA2E0254D3E9600661DE0 /* Fonts */,
 				21AFA2D6254D3DC700661DE0 /* LaunchScreen.storyboard */,
 				21AFA2D9254D3DC700661DE0 /* Info.plist */,
-				21D01FF925BFD35E00FD7C26 /* GoogleService-Info.plist */,
+				21635C4F25F4A6BE00BEF254 /* GoogleService-Info.plist */,
 			);
 			path = "GT-R Database";
 			sourceTree = "<group>";
@@ -567,6 +567,7 @@
 				2144741E25594BE9004DDEE0 /* 1-ev1.jpg in Resources */,
 				21846095255C182600E68F45 /* kl0.jpg in Resources */,
 				2144742625594BE9004DDEE0 /* 2-wv2.jpg in Resources */,
+				21635C5025F4A6BE00BEF254 /* GoogleService-Info.plist in Resources */,
 				21846081255C180500E68F45 /* kr4.jpg in Resources */,
 				21846083255C180500E68F45 /* gv1.jpg in Resources */,
 				2144742B25594BE9004DDEE0 /* 2-jw0.jpg in Resources */,
@@ -596,7 +597,6 @@
 				218C7F6B2568F141009A7063 /* nur-5.jpg in Resources */,
 				2144742125594BE9004DDEE0 /* 2-gv1.jpg in Resources */,
 				2144742525594BE9004DDEE0 /* 2-qt1.jpg in Resources */,
-				21D01FFA25BFD35E00FD7C26 /* GoogleService-Info.plist in Resources */,
 				2184607F255C180500E68F45 /* 2r8.jpg in Resources */,
 				218C7F622568F141009A7063 /* brochure-3.jpg in Resources */,
 				218C7F682568F141009A7063 /* brochure-5.jpg in Resources */,
@@ -853,15 +853,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2KTM9WLRL3;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = Y9624YK333;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "GT-R Database/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.KimRypstra2.GT-R-Database";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MarkDodd.GT-R-Database";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -873,15 +877,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2KTM9WLRL3;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = Y9624YK333;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "GT-R Database/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.KimRypstra2.GT-R-Database";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MarkDodd.GT-R-Database";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

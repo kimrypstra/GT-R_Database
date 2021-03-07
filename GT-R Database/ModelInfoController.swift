@@ -49,8 +49,9 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
              "F-Sport",
              "R-Tune",
              "S-Tune",
-             "Nismo Restored Car",
-             "Sports Resetting"]
+             "Sports Resetting",
+             "Nismo Restored Car"
+             ]
     ]
     
 

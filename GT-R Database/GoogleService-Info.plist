@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>244643349495-mjg4q41cbeirjf5504ie21klrjps38dn.apps.googleusercontent.com</string>
+	<string>215361793497-s69ab8oe087f9i3ua712iihgh5ehpuqd.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.244643349495-mjg4q41cbeirjf5504ie21klrjps38dn</string>
+	<string>com.googleusercontent.apps.215361793497-s69ab8oe087f9i3ua712iihgh5ehpuqd</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBe_DAACY4CBpsSus_2KbymaFGQEDn974s</string>
+	<string>AIzaSyCv47bP2bsqa8lc6W9EubeawA8Apn8cG9w</string>
 	<key>GCM_SENDER_ID</key>
-	<string>244643349495</string>
+	<string>215361793497</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.KimRypstra2.GT-R-Database</string>
+	<string>com.MarkDodd.GT-R-Database</string>
 	<key>PROJECT_ID</key>
-	<string>gtrtest-9c229</string>
+	<string>r32-r34-gt-r-iphone-app</string>
 	<key>STORAGE_BUCKET</key>
-	<string>gtrtest-9c229.appspot.com</string>
+	<string>r32-r34-gt-r-iphone-app.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:244643349495:ios:98d81c8274d7d765ffa4f2</string>
+	<string>1:215361793497:ios:8a169d144333a7bc3cbdc8</string>
 </dict>
 </plist>
