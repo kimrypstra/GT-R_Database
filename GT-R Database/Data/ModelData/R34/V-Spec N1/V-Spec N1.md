@@ -1,9 +1,9 @@
 ## Production Numbers  
 Total Produced: __38 known__  
   
-QM1 - White: __38__  
+V-Spec N1 only available in QM1 - White.
   
-As there are a few BNR34s with no production data available, the true number may be slightly higher.  
+As there are a 13 Series 1 cars with no production data available, the true number may be slightly higher.  
   
 ## V-Spec N1 Specific Equipment:  
   
@@ -35,4 +35,4 @@ As there are a few BNR34s with no production data available, the true number may
 * Large Air Cooled Engine Oil Cooler  
   
 ## New Price:  
-#### ¥5,998,000  
+__¥5,998,000__  

@@ -13,4 +13,4 @@ WV2 - Sparkling Silver: __112__
 * Note: All M-Spec have the cold weather package fitted as standard.  
   
 ## New Price:  
-#### 5,950,000 yen  
+__5,950,000 yen__  

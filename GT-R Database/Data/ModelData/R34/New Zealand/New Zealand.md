@@ -21,6 +21,3 @@ There was at least 1 additional prototype with JDM VIN bought to New Zealand for
 * Locally tuned stereo  
 * English owner's manual  
 * Local warranty  
-  
-## New Price:  
-#### $NZD Unknown  

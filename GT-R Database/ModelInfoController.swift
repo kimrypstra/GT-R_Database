@@ -63,13 +63,14 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         "Special Models" :
             ["V-Spec",
             "V-Spec N1",
+            "GT-R LM Limited, V-Spec LM Limited",
             "Autech Version 40th Anniversary"],
         "Non-Japanese Delivered" :
             ["Great Britain"],
         "Nismo Cars" :
             ["400R",
-            "GT-R LM Limited, V-Spec LM Limited",
-             "Clubman Race Spec (CRS)",
+            "GT-R LM",
+            "Clubman Race Spec (CRS)",
             "Nismo Restored Car"]
     ]
     

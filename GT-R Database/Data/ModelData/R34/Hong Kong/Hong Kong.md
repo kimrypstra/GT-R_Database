@@ -12,6 +12,3 @@ TV2 - Bayside Blue: __8__
 * English and chinese warranty booklet  
 * English and chinese maintenance booklet  
 * 320 kph Nismo white face meter  
-  
-## New Price:  
-#### $HKD Unknown  

@@ -1,11 +1,14 @@
 ## Production Numbers  
 Total Produced: __347 known__  
   
-* As there are a few BNR34s with no production data available, the true number may be slightly higher.  
+As there are 19 Series 1 cars with no records the actual numbers may be slightly higher.  
   
 LV4 - Midnight Purple II GT-R: __65__  
-LV4 - Midnight Purple II V-Spec: __282__  
+LV4 - Midnight Purple II V-Spec: 282__  
+  
+## Midnight Purple II Specific Equipment  
+* LV4 Midnight Purple paint  
   
 ## New Price:  
-#### GT-R: ¥5,147,000  
-#### V-Spec: ¥5,748,000  
+__GT-R: ¥5,147,000__  
+__V-Spec: ¥5,748,000__  

@@ -39,7 +39,7 @@ Australian cars all have 17 digit VINs listed on NISSAN MOTOR Co. (AUSTRALIA) PT
 * Jack  
 * Vin Identification Number, Adr Compliance Plate, Build Date Plate; Emission, Cfc, Fuel, Spare Tyre, And Tyre Decals Added  
 * New Rear Number Plate Mounting. Backup Lamps Deleted  
-* Rr Combination Lamps Modified. Outer Lamps Become Turn Indicators, Plus Reflector. Inner Lamps Become Stop Tail  
+* Rear Combination Lamps Modified. Outer Lamps Become Turn Indicators, Plus Reflector. Inner Lamps Become Stop Tail  
 * Turn Indicators Changed To Backup Lamp Function  
 * Transfer Case Oil Cooler Added  
 * Rear Exhaust Muffler  
@@ -47,4 +47,4 @@ Australian cars all have 17 digit VINs listed on NISSAN MOTOR Co. (AUSTRALIA) PT
 * Rear Suspension Mounting Shields Added  
   
 ## New Price:  
-#### $AUD 120,000  
+__$AUD 120,000__  

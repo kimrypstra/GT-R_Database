@@ -1,7 +1,7 @@
 ## Production Numbers  
 Total Produced: __18__  
   
-QM1 - White: __18__  
+V-Spec II N1 only available in QM1 - White.
   
 ## V-Spec II N1 Specific Equipment:  
   
@@ -34,4 +34,4 @@ QM1 - White: __18__
 * Unpainted Carbon Fibre Bonnet  
   
 ## New Price:  
-#### ¥6,098,000  
+__¥6,098,000__  

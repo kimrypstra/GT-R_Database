@@ -10,6 +10,3 @@ TV2 - Bayside Blue: __3__
   
 ## V-Spec (Singapore) Known Specific Equipment:  
 * Singapore cars all have 17 digit VINs. They are identified by the SN code in the model code.  
-  
-## New Price:  
-#### $SGD Unknown  

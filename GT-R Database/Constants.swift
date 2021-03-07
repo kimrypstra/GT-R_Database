@@ -8,7 +8,7 @@
 import Foundation
 
 let assetPaths: [String : String] = [
-    "R34 Clubman Race Spec (CRS)" : "\(r34path)CRS/",
+    "R34 Clubman Race Spec (CRS)" : "\(r34path)Clubman Race Spec (CRS)/",
     "R34 M-Spec Nür" : "\(r34path)M-Spec Nür/",
     "R34 V-Spec II Nür" : "\(r34path)V-Spec II Nür/",
     "R34 F-Sport" : "\(r34path)F-Sport/",
@@ -31,7 +31,7 @@ let assetPaths: [String : String] = [
     "R33 Autech Version 40th Anniversary" : "\(r33path)40th/",
     "R33 400R" : "\(r33path)400R/",
     "R33 GT-R LM Limited, V-Spec LM Limited" : "\(r33path)GT-R LM Limited, V-Spec LM Limited/",
-    "R33 LM Limited" : "\(r33path)LM Limited/",
+    "R33 GT-R LM" : "\(r33path)GT-R LM/",
     "R33 V-Spec N1" : "\(r33path)V-Spec N1/",
     "R33 Great Britain" : "\(r33path)Great Britain/",
     "R33 Clubman Race Spec (CRS)" : "\(r33path)Clubman Race Spec (CRS)/",
@@ -43,8 +43,8 @@ let assetPaths: [String : String] = [
     "R32 Australia" : "\(r32path)Australia/",
     "R32 GT-R Nismo" : "\(r32path)GT-R Nismo/",
     "R32 Clubman Race Spec (CRS)" : "\(r32path)Clubman Race Spec (CRS)/",
-    "R32 Nismo Restored Car" : "\(r32path)Nismo Restored Car",
-    "R32 N1, V-Spec N1, V-Spec II N1" : "\(r32path)N1, V-Spec N1, V-Spec II N1"
+    "R32 Nismo Restored Car" : "\(r32path)Nismo Restored Car/",
+    "R32 N1, V-Spec N1, V-Spec II N1" : "\(r32path)N1, V-Spec N1, V-Spec II N1/"
 ]
 
 let r34path = "\(Bundle.main.bundlePath)/ModelData/R34/"

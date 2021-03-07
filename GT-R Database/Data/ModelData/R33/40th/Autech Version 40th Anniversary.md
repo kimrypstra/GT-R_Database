@@ -20,6 +20,8 @@ Autech Version 40th Anniversary GT-R are four door sedans.
 * 17" GT-R Wheels: __245 / 45ZR17 Tire Potenza RE010 Tyre__  
 * 40th Anniversary Emblem  
   
+Additional Standard GT-R Items fitted to all Autech Version 40th Anniversary GT-R:  
+  
 ## Visibility  
 * Xenon Headlamp  
 * Long life Water Repellent Glass (front door glass)  
