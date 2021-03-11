@@ -56,6 +56,3 @@ As the Clubman Race Spec (CRS) is a customer specified car, any options and be a
 * Number plate Surround (front): __Nismo; Made of Carbon__  
 * Aero: __STD; GT-R NISMO Specification__  
 * Carbon Exhaust Guard: __Omori; Made of Dry Carbon__  
-
-## New Price:  
-__¥45,000,000 (est.)__  

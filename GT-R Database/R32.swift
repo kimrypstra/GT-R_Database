@@ -43,7 +43,7 @@ class R32: Car {
     @objc override dynamic var modelCode: String {
         var string = ""
         
-        for index in 1...12 {
+        for index in 1...8 {
             let val = value(forKey: "Model\(index)") as! String
             if val != "Unknown" {
                 string.append(val)
@@ -52,6 +52,19 @@ class R32: Car {
         
         return string
     }
+    
+//    @objc override dynamic var ExtendedModelCode: String {
+//        var string = ""
+//        
+//        for index in 1...12 {
+//            let val = value(forKey: "Model\(index)") as! String
+//            if val != "Unknown" {
+//                string.append(val)
+//            }
+//        }
+//        
+//        return string
+//    }
     
     // Value that comes out with a print()
     override var description: String {

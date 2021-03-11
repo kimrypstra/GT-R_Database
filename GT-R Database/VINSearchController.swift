@@ -369,9 +369,11 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         let filetype = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").last
         
         if let path = Bundle.main.path(forResource: filename, ofType: filetype) {
-            imageView.image = UIImage(contentsOfFile: path)
+            let img = UIImage(contentsOfFile: path)
+            imageView.image = img
             let imageRatio: CGFloat = 200 / 480
-            
+            //let imageRatio: CGFloat = img!.size.height / img!.size.width
+
             UIView.animate(withDuration: 0.2) {
                 self.imageViewHeight.constant = self.view.frame.width * imageRatio
                 self.view.layoutIfNeeded()

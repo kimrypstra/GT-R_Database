@@ -145,3 +145,6 @@ These are checked to see if they are at the same level as when the car was new, 
 In addition, Nismo also record and present the history of continuation, replacement (including part numbers), inspections, recoating, etc., of all of the parts that constitute one vehicle.  
   
 Then, the car is delivered to the owner.  
+  
+## New Price:  
+__¥45,000,000 (est.) excluding base car__  

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2137FBE325E53E530076C73B /* GTR Registry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2137FBE225E53E530076C73B /* GTR Registry.sqlite */; };
 		2137FBE525E5EE110076C73B /* R34NewPricing.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 2137FBE425E5EE110076C73B /* R34NewPricing.tsv */; };
 		213B7AEE25DBD0CC005C24FE /* NissanOpti.otf in Resources */ = {isa = PBXBuildFile; fileRef = 213B7AED25DBD0CB005C24FE /* NissanOpti.otf */; };
 		214473FC25583F71004DDEE0 /* ModelNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214473FB25583F71004DDEE0 /* ModelNumberCell.swift */; };
@@ -38,6 +37,7 @@
 		215A9F4225BA7312001E3BD6 /* VINPlateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */; };
 		21635C5025F4A6BE00BEF254 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21635C4F25F4A6BE00BEF254 /* GoogleService-Info.plist */; };
 		2167680725879A0300BCCFCD /* ProductionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */; };
+		2175ED0725F9AF2500FADFD1 /* GTR Registry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2175ED0625F9AF2500FADFD1 /* GTR Registry.sqlite */; };
 		217F36EE255692A900113937 /* VINSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36ED255692A900113937 /* VINSearchController.swift */; };
 		217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F02556A58900113937 /* UIView + Anchor.swift */; };
 		217F36F42556A5AB00113937 /* SmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F32556A5AB00113937 /* SmallCell.swift */; };
@@ -127,7 +127,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2137FBE225E53E530076C73B /* GTR Registry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTR Registry.sqlite"; sourceTree = "<group>"; };
 		2137FBE425E5EE110076C73B /* R34NewPricing.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34NewPricing.tsv; sourceTree = "<group>"; };
 		213B7AED25DBD0CB005C24FE /* NissanOpti.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NissanOpti.otf; sourceTree = "<group>"; };
 		214473FB25583F71004DDEE0 /* ModelNumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNumberCell.swift; sourceTree = "<group>"; };
@@ -158,6 +157,7 @@
 		215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINPlateDelegate.swift; sourceTree = "<group>"; };
 		21635C4F25F4A6BE00BEF254 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCellDelegate.swift; sourceTree = "<group>"; };
+		2175ED0625F9AF2500FADFD1 /* GTR Registry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTR Registry.sqlite"; sourceTree = "<group>"; };
 		217F36ED255692A900113937 /* VINSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINSearchController.swift; sourceTree = "<group>"; };
 		217F36F02556A58900113937 /* UIView + Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Anchor.swift"; sourceTree = "<group>"; };
 		217F36F32556A5AB00113937 /* SmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCell.swift; sourceTree = "<group>"; };
@@ -330,7 +330,7 @@
 		21461028254F0C4200E6453C /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				2137FBE225E53E530076C73B /* GTR Registry.sqlite */,
+				2175ED0625F9AF2500FADFD1 /* GTR Registry.sqlite */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -556,7 +556,7 @@
 				2144742025594BE9004DDEE0 /* 2-qm1.jpg in Resources */,
 				2144742425594BE9004DDEE0 /* 1-ar2.jpg in Resources */,
 				21D0200825C1832C00FD7C26 /* R33VINRanges.tsv in Resources */,
-				2137FBE325E53E530076C73B /* GTR Registry.sqlite in Resources */,
+				2175ED0725F9AF2500FADFD1 /* GTR Registry.sqlite in Resources */,
 				2144742925594BE9004DDEE0 /* 2-tv2.jpg in Resources */,
 				2144742725594BE9004DDEE0 /* 1-gv1.jpg in Resources */,
 				21846088255C180500E68F45 /* ar1.jpg in Resources */,
