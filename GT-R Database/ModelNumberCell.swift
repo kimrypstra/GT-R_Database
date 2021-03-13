@@ -17,7 +17,7 @@ class ModelNumberCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "NissanOpti", size: 10)
         label.textAlignment = .left
-        label.text = "test"
+        label.text = ""
         label.textColor = .black
         return label
     }()
@@ -26,7 +26,7 @@ class ModelNumberCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "NissanOpti", size: 10)
         label.textAlignment = .left
-        label.text = "test"
+        label.text = ""
         label.textColor = .black
         return label
     }()
@@ -35,7 +35,7 @@ class ModelNumberCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "NissanOpti", size: 10)
         label.textAlignment = .right
-        label.text = "test"
+        label.text = ""
         label.textColor = .black
         label.numberOfLines = 3
         label.adjustsFontSizeToFitWidth = true
@@ -49,7 +49,7 @@ class ModelNumberCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Futura Medium Italic", size: 10)
         label.textAlignment = .right
-        label.text = "test"
+        label.text = ""
         label.textColor = .red
         return label
     }()

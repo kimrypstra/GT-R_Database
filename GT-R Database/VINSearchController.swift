@@ -358,6 +358,8 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         
+        // From this point, the search is successful
+        
         UIView.animate(withDuration: 0.1) {
             self.vinPlate.view.alpha = 0
         }
@@ -379,7 +381,12 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.view.layoutIfNeeded()
             }
         } else {
-            print("Image path not found")
+            print("Image path not found for \(colourPath)")
+            imageView.image = nil
+            UIView.animate(withDuration: 0.2) {
+                self.imageViewHeight.constant = 0
+                self.view.layoutIfNeeded()
+            }
         }
 
         searchResult!.getNumbers(generation: series!)
@@ -467,21 +474,40 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         switch indexPath.section {
         case 2:
             // MODEL NUMBERS
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "modelNumberCell") as! ModelNumberCell
             
             // Eg: 2
-            cell.label.text = (searchResult!.value(forKey: "modelCodeDigits") as! [String])[indexPath.row]
+            let modelCodeDigits = (searchResult!.value(forKey: "modelCodeDigits") as! [String])[indexPath.row]
+            if stringIsValid(string: modelCodeDigits) {
+                cell.label.text = modelCodeDigits
+            } else {
+                cell.label.text = ""
+            }
             
             // Eg: B
             let codeValue = searchResult!.value(forKey: "Model\(indexPath.row + 1)") as! String
-            cell.code.text = codeValue
+            if stringIsValid(string: codeValue) {
+                cell.code.text = codeValue
+            } else {
+                cell.label.text = ""
+            }
             
             // Eg: RB26DETT Type Engine
-            cell.descriptionLabel.text = "\(searchResult!.value(forKey: "Readable\(indexPath.row + 1)")!)".replacingOccurrences(of: "\"", with: "")
+            let descriptionLabel = "\(searchResult!.value(forKey: "Readable\(indexPath.row + 1)")!)".replacingOccurrences(of: "\"", with: "")
+            if stringIsValid(string: descriptionLabel) {
+                cell.descriptionLabel.text = descriptionLabel
+            } else {
+                cell.label.text = ""
+            }
+            
             // Eg: Engine
             //cell.modelNumberIdentifier.text = searchResult!.modelSubstringIdentifier(for: series!, at: indexPath.row)
-            cell.modelNumberIdentifier.text = (searchResult?.value(forKey: "modelNumberDescriptions") as! [String])[indexPath.row]
+            let modelNumberDescription = (searchResult?.value(forKey: "modelNumberDescriptions") as! [String])[indexPath.row]
+            if stringIsValid(string: modelNumberDescription) {
+                cell.modelNumberIdentifier.text = modelNumberDescription
+            } else {
+                cell.label.text = ""
+            }
 
             return cell
         case 3:
@@ -495,21 +521,42 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             
             var labelText = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
             if labelText == "Number in Grade" {
-                labelText = searchResult!.Grade
+                let grade = searchResult!.Grade
+                if stringIsValid(string: grade) {
+                    labelText = grade
+                } else {
+                    labelText = ""
+                }
             }
             if labelText == "Number in Colour" {
-                let colourCode = searchResult!.Colour.split(separator: "-").first!.replacingOccurrences(of: " ", with: "")
-                labelText = "\(searchResult!.Grade) and \(colourCode)"
+                if let colourCode = searchResult!.Colour.split(separator: "-").first?.replacingOccurrences(of: " ", with: "") {
+                    let grade = searchResult!.Grade
+                    if stringIsValid(string: grade) {
+                        labelText = "\(searchResult!.Grade) and \(colourCode)"
+                    } else {
+                        labelText = ""
+                    }
+                }
             }
             
             cell.label.text = labelText
             
             let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
-            let key = keys[indexPath.row]
             let value = searchResult!.value(forKey: map[keys[indexPath.row]]!)! as! String
-            cell.value.text = "\(value)"
+            if stringIsValid(string: value) {
+                cell.value.text = "\(value)"
+            } else {
+                cell.value.text = "" 
+            }
             return cell
         }
+    }
+    
+    func stringIsValid(string: String) -> Bool {
+        guard string != "" else {return false}
+        guard string != " " else {return false}
+        
+        return true
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

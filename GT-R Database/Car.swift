@@ -17,7 +17,7 @@ class Car: NSObject {
     @objc dynamic var Grade: String = "Unknown"
     @objc dynamic var Series: String = "Unknown"
     @objc dynamic var Colour: String = "Unknown"
-    @objc dynamic var ColourPath: String = "Unknown" 
+    @objc dynamic var ColourPath: String = "Unknown"
     @objc dynamic var ProductionDate: String = "Unknown"
     @objc dynamic var Plant: String = "Unknown"
     @objc dynamic var Seat: String = "Unknown"

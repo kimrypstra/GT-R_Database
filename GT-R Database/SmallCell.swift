@@ -17,7 +17,7 @@ class SmallCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "NissanOpti", size: 10)
         label.textAlignment = .left
-        label.text = "test"
+        label.text = ""
         label.textColor = .black
         label.numberOfLines = 2
         return label
@@ -27,7 +27,7 @@ class SmallCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "NissanOpti", size: 10)
         label.textAlignment = .right
-        label.text = "test"
+        label.text = ""
         label.textColor = .black
         label.numberOfLines = 2
         return label
