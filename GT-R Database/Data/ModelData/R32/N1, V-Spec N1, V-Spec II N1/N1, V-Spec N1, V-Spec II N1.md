@@ -16,7 +16,7 @@ All N1 versions are only available in 326 Crystal White. All N1 versions are ide
 * N1 Engine (not stamped 24U for R32s).  
 * Large steel wheeled N1 turbos  
 * No ABS  
-* No Stereo or stereo controls on dash surround  
+* No stereo or stereo controls on dash surround  
 * No AC, although could be optioned in  
 * No rear wiper  
 * Non cross drilled brake rotors.  

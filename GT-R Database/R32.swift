@@ -21,7 +21,8 @@ class R32: Car {
         "Intake",
         "11th Digit",
         "12th Digit",
-        "13th & 14th Digit"
+        "13th Digit",
+        "14th Digit"
     ]
     
     @objc dynamic let modelCodeDigits = [
@@ -39,13 +40,13 @@ class R32: Car {
         "14"
     ]
 
-    // Returns the model code
+    // Returns the model code without any "_"
     @objc override dynamic var modelCode: String {
         var string = ""
         
-        for index in 1...8 {
+        for index in 1...12 {
             let val = value(forKey: "Model\(index)") as! String
-            if val != "Unknown" {
+            if val != "Unknown" && val != "_" {
                 string.append(val)
             }
         }

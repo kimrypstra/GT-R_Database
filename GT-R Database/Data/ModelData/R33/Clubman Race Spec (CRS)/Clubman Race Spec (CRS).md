@@ -1,6 +1,6 @@
 Available in any colour. Nismo demonstration vehicle is KAD Dark Metal Gray.  
   
-As the Clubman Race Spec (CRS) is a customer specified car, any options and be added or not included. The list below details the Clubman Race Spec demo car as specified by Nismo.  
+As the Clubman Race Spec (CRS) is a customer specified car, any options can be added or not included. The list below details the Clubman Race Spec demo car as specified by Nismo.  
   
 ## Clubman Race Spec (CRS) Specification  
   

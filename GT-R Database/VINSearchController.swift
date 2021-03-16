@@ -108,7 +108,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         searchField.delegate = self
         shareButton.isEnabled = false
-        
+
         switch series! {
         case "R34":
             searchPrefix = "BNR34-"
@@ -138,7 +138,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         var highestModelNumberIndex = 0
         switch series {
         case "R32":
-            highestModelNumberIndex = 11
+            highestModelNumberIndex = 12
             labelText = "BNR32 VIN Search"
             keysSection0.insert("Extended Model Code", at: keysSection0.firstIndex(of: "Interior Code")!)
             keysSection0.remove(at: keysSection0.firstIndex(of: "Seat")!)
@@ -206,6 +206,28 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let const = NSLayoutConstraint(item: vinPlate.view, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: 20)
         self.view.addConstraint(const)
+        
+        //        UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+        //        numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+        //        numberToolbar.items = @[[[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+        //                             [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+        //                             [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)]];
+        //        [numberToolbar sizeToFit];
+        //        numberTextField.inputAccessoryView = numberToolbar;
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        toolbar.barStyle = .default
+        let button = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(textFieldShouldReturn(_:)))
+        button.title = "Search"
+        button.tintColor = .black
+        
+        let label = UILabel()
+        label.text = "Search"
+        label.font = UIFont(name: "NissanOpti", size: 12)
+        label.tintColor = .black
+        
+        toolbar.items = [UIBarButtonItem(systemItem: .flexibleSpace), UIBarButtonItem(customView: label), button]
+        
+        searchField.inputAccessoryView = toolbar
     }
     
     @objc func handleTap() {

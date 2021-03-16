@@ -34,7 +34,10 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     var specialModelName: String! // M-Spec Nür (special chars included, this is display text)
     var brochureImages: [UIImage] = []
     var miscImages: [UIImage] = []
-    let ind = UIPageControl()
+
+    @IBOutlet weak var miscPage: UIPageControl!
+    @IBOutlet weak var brocPage: UIPageControl!
+    
     var timer: Timer? = nil
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -52,6 +55,13 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         gradient.frame = topBannerView.bounds
         gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
         topBannerView.layer.insertSublayer(gradient, at: 0)
+//        self.view.addSubview(miscPage)
+//        self.view.addSubview(brocPage)
+//        let miscX = NSLayoutConstraint(item: miscScrollView, attribute: .centerX, relatedBy: .equal, toItem: miscPage, attribute: .centerX, multiplier: 1, constant: 0)
+//        let miscY = NSLayoutConstraint(item: miscScrollView, attribute: .bottom, relatedBy: .equal, toItem: miscPage, attribute: .bottom, multiplier: 1, constant: 10)
+//        let brocX = NSLayoutConstraint(item: brochureScrollView, attribute: .centerX, relatedBy: .equal, toItem: brocPage, attribute: .centerX, multiplier: 1, constant: 0)
+//        let brocY = NSLayoutConstraint(item: brochureScrollView, attribute: .bottom, relatedBy: .equal, toItem: brocPage, attribute: .bottom, multiplier: 1, constant: 10)
+//        self.view.addConstraints([miscX, miscY, brocX, brocY])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,6 +122,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         miscLabel.attributedText = mRend?.render()
         
         populateImages()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -152,6 +163,8 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             // if some brochure images are found...
             if brochureImageFilenames.count > 0 {
                 // Generate a scroll view in code and fill it with brochure images, then add it to the stack view
+                brocPage.isHidden = false
+                brocPage.numberOfPages = brochureImageFilenames.count
                 for filename in brochureImageFilenames {
                     if let image = UIImage(contentsOfFile: "\(path)\(filename)") {
                         brochureImages.append(image)
@@ -184,6 +197,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
                     brochureScrollView.addSubview(view)
                 }
             } else {
+                brocPage.isHidden = true
                 stackView.arrangedSubviews[0].isHidden = true
                 stackView.arrangedSubviews[1].isHidden = true
                 //stackViewHeight.constant = miscHeight.constant + 30
@@ -202,11 +216,14 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             filenames.removeAll()
             
             if miscImages.count > 0 {
+                miscPage.isHidden = false
+                miscPage.numberOfPages = miscImages.count
                 print("Misc count: \(miscImages.count)")
                 // Set misc images scroll view to only be as tall as it needs to be to show the biggest image
                 let largestImage = miscImages.sorted(by: {$0.size.height > $1.size.height}).first!
                 let largestAspect = largestImage.size.height / largestImage.size.width
-                miscHeight.constant = self.view.bounds.width * largestAspect
+                let firstAspect = miscImages[0].size.height / miscImages[0].size.width
+                miscHeight.constant = self.view.bounds.width * firstAspect
                 
                 let miscTotalWidth: CGFloat = CGFloat(miscImages.count) * self.view.bounds.width
                 
@@ -229,6 +246,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
                 print("Misc count subviews: \(miscScrollView.subviews.count)")
             } else {
                 // If there are no misc images...
+                miscPage.isHidden = true
                 stackView.arrangedSubviews[2].isHidden = true
                 stackView.arrangedSubviews[3].isHidden = true
                 //stackViewHeight.constant = brochureHeight.constant + 30
@@ -268,7 +286,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             //stackViewHeight.constant += 60
         }
         
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()
         } completion: { (_) in
             if prevHeight < self.stackViewHeight.constant && scrollToBottom == true {
@@ -289,16 +307,17 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        timer?.invalidate()
-        UIView.animate(withDuration: 0.5) {
-            self.ind.alpha = 1
-        }
+//        timer?.invalidate()
+//        UIView.animate(withDuration: 0.5) {
+//            self.ind.alpha = 1
+//        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         // Adjust the height if necessary to accomodate bigger images
         if scrollView == brochureScrollView {
             let page = Int(scrollView.contentOffset.x / scrollView.contentSize.width * CGFloat(brochureImages.count))
+            brocPage.currentPage = page
             print("Brochure page: \(page)")
             let image = brochureImages[page]
             let aspect = image.size.height / image.size.width
@@ -311,6 +330,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             setStackViewHeight(scrollToBottom: false, of: brochureScrollView)
         } else if scrollView == miscScrollView {
             let page = Int(scrollView.contentOffset.x / scrollView.contentSize.width * CGFloat(miscImages.count))
+            miscPage.currentPage = page
             let image = miscImages[page]
             let aspect = image.size.height / image.size.width
             let scaledImageHeight = scrollView.frame.width * aspect
