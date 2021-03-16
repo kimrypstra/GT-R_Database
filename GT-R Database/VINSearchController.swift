@@ -216,16 +216,18 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         //        numberTextField.inputAccessoryView = numberToolbar;
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         toolbar.barStyle = .default
-        let button = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(textFieldShouldReturn(_:)))
-        button.title = "Search"
+        
+        let button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(textFieldShouldReturn(_:)), for: .touchUpInside)
+        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.titleLabel?.font = UIFont(name: "NissanOpti", size: 12)
+        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.systemGray, for: .highlighted)
+        button.setTitle("Search", for: .normal)
         button.tintColor = .black
+        button.frame.size.width += 50
         
-        let label = UILabel()
-        label.text = "Search"
-        label.font = UIFont(name: "NissanOpti", size: 12)
-        label.tintColor = .black
-        
-        toolbar.items = [UIBarButtonItem(systemItem: .flexibleSpace), UIBarButtonItem(customView: label), button]
+        toolbar.items = [UIBarButtonItem(systemItem: .flexibleSpace), UIBarButtonItem(customView: button)]
         
         searchField.inputAccessoryView = toolbar
     }
