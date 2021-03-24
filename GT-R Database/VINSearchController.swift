@@ -224,6 +224,9 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.systemGray, for: .highlighted)
         button.setTitle("Search", for: .normal)
+        button.titleLabel?.allowsDefaultTighteningForTruncation = true
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.5
         button.tintColor = .black
         button.frame.size.width += 50
         
