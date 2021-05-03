@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 @IBDesignable
 
@@ -35,8 +36,6 @@ extension UILabel {
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
-    @IBOutlet weak var topBannerBackgroundView: UIView!
-    
     @IBOutlet weak var r32Stack: UIStackView!
     @IBOutlet weak var r32label1: UILabel!
     @IBOutlet weak var r32label2: UILabel!
@@ -48,9 +47,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var r34Stack: UIStackView!
     @IBOutlet weak var r34label1: UILabel!
     @IBOutlet weak var r34label2: UILabel!
+    @IBOutlet weak var containerView: UIView!
     
     var labels: [UILabel] = []
     var selectedModel: String?
+    
+    let host = UIHostingController(rootView: HeaderView())
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -61,23 +63,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let dbMan = DBManager()
         if dbMan.openDB() {
-//            let results = dbMan.readVINDataFromDB(tableName: "R34", attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: "BNR34-000055", fuzzy: true)
-//            //print(result.first)
-//            if results.count > 1 {
-//                print("Multiple results:")
-//                for result in results {
-//                    print(result)
-//                }
-//            } else if results.count == 1 {
-//                print(results.first!)
-//            } else {
-//                print("No result - here's where we segue to the no result page")
-//            }
         } else {
             print("DB not opened")
         }
-        
-        
         
         // Set up gesture recognizers
         let r32recog = UITapGestureRecognizer(target: self, action:"didTapR32")
@@ -100,18 +88,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             r33label2,
             r34label1,
             r34label2
-        ]
-        
-    
-        
+        ] 
     }
     
     override func viewDidLayoutSubviews() {
-        // Set up top banner
-        let gradient = CAGradientLayer()
-        gradient.frame = topBannerBackgroundView.bounds
-        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
-        topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
+        host.view.frame = containerView.bounds
+        containerView.addSubview(host.view)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -13,7 +13,7 @@ __Cylinder Head__
 * Special Combustion Chamber shape & Volume Adjustment  
 * Enlarged Port & Grind machining  
 * Special Relief Machining on camshaft  
-* Exclusive Rocker cover with Z-tune special color.  
+* Exclusive Rocker cover with Z-tune special color  
   
 __Cylinder Block__  
 * GT Engine Block (Strength & Rigidity Uprated)  
@@ -26,7 +26,7 @@ __Engine Components__
 * GT Collector Tank (special shape)  
 * Turbo Charger (made by IHI, Exclusive for Z-tune)  
 * Exhaust Outlet (special shape)  
-* Exhaust Manifold specially machined to remove gap & stiffener processing.  
+* Exhaust Manifold specially machined to remove gap & stiffener processing  
  	  
 __Cooling__  
 * Twin Oil Cooler (exclusive for Z-tune)  
@@ -127,7 +127,7 @@ __MFD__
 ## Specification  
   
 * Base Model: __Skyline GT-R (BNR34) V-spec (used)__  
-* Body Color: __Z-tune Silver (KY0), special color for R34GT-R Z-tune only.__  
+* Body Color: __Z-tune Silver (KY0), special color for R34GT-R Z-tune only__  
 * Engine Model: __RB26DETT Modified spec, "Z2" (Z-tune concept engine spec.2)__  
 * Engine Type: __Water-cooling in-line 6 cylinder DOHC__  
 * Bore & Stroke: __87mm x 77.7mm__  

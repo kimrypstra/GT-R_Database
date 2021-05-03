@@ -38,6 +38,7 @@
 		21635C5025F4A6BE00BEF254 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21635C4F25F4A6BE00BEF254 /* GoogleService-Info.plist */; };
 		2167680725879A0300BCCFCD /* ProductionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */; };
 		2175ED0725F9AF2500FADFD1 /* GTR Registry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2175ED0625F9AF2500FADFD1 /* GTR Registry.sqlite */; };
+		2178FB9D263AB9B700FBCEF6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178FB9C263AB9B700FBCEF6 /* HeaderView.swift */; };
 		217F36EE255692A900113937 /* VINSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36ED255692A900113937 /* VINSearchController.swift */; };
 		217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F02556A58900113937 /* UIView + Anchor.swift */; };
 		217F36F42556A5AB00113937 /* SmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F32556A5AB00113937 /* SmallCell.swift */; };
@@ -158,6 +159,7 @@
 		21635C4F25F4A6BE00BEF254 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCellDelegate.swift; sourceTree = "<group>"; };
 		2175ED0625F9AF2500FADFD1 /* GTR Registry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTR Registry.sqlite"; sourceTree = "<group>"; };
+		2178FB9C263AB9B700FBCEF6 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		217F36ED255692A900113937 /* VINSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINSearchController.swift; sourceTree = "<group>"; };
 		217F36F02556A58900113937 /* UIView + Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Anchor.swift"; sourceTree = "<group>"; };
 		217F36F32556A5AB00113937 /* SmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCell.swift; sourceTree = "<group>"; };
@@ -345,6 +347,16 @@
 			path = "VIN Ranges";
 			sourceTree = "<group>";
 		};
+		2178FB9B263AB97A00FBCEF6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				215A9F3925B9B469001E3BD6 /* VINPlate.swift */,
+				2178FB9C263AB9B700FBCEF6 /* HeaderView.swift */,
+				2150327F25B2B4F70054D8DE /* ScreenshotView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2185D42A2587885A00778FA2 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,8 +448,7 @@
 				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
 				218C7F3D2568E4F5009A7063 /* SpecialModelViewController.swift */,
 				217F36ED255692A900113937 /* VINSearchController.swift */,
-				2150327F25B2B4F70054D8DE /* ScreenshotView.swift */,
-				215A9F3925B9B469001E3BD6 /* VINPlate.swift */,
+				2178FB9B263AB97A00FBCEF6 /* Views */,
 				215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */,
 				21AB555C2582599100BBCF12 /* TSVTableViewController.swift */,
 				21AB555A2582585E00BBCF12 /* TSVManager.swift */,
@@ -698,6 +709,7 @@
 				217F36F42556A5AB00113937 /* SmallCell.swift in Sources */,
 				21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */,
 				21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */,
+				2178FB9D263AB9B700FBCEF6 /* HeaderView.swift in Sources */,
 				21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */,
 				217FEDFD25A0581800612283 /* String + Brackets.swift in Sources */,
 				218C7F2E25628EB6009A7063 /* R33.swift in Sources */,
@@ -855,7 +867,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = Y9624YK333;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "GT-R Database/Info.plist";
@@ -879,7 +891,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = Y9624YK333;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "GT-R Database/Info.plist";

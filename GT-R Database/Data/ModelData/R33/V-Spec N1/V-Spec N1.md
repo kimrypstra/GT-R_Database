@@ -7,7 +7,7 @@ QM1 - White V-Spec N1 (Series 3): __11__
   
 As there are 13 Series 1 cars with no records the actual numbers may be slightly higher.  
   
-V-Spec N1 is only available in QM1 White without Super Fine Hard Coat  
+V-Spec N1 is only available in QM1 White without Super Fine Hard Coat.  
   
 ## V-Spec N1 Specific Equipment  
   

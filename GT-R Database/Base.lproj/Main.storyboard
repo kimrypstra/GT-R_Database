@@ -22,31 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7P-Ry-oP1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="WOQ-9C-WEa">
-                                        <rect key="frame" x="162.5" y="53.5" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="KxT-9r-sR9"/>
-                                            <constraint firstAttribute="width" constant="50" id="o4q-KC-DHP"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="1Km-Cu-c79"/>
-                                    <constraint firstItem="WOQ-9C-WEa" firstAttribute="centerX" secondItem="L7P-Ry-oP1" secondAttribute="centerX" id="Ni7-fv-Vov"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presented by GTR-Registry.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfL-nC-HS4">
-                                <rect key="frame" x="64" y="103.5" width="247" height="16.5"/>
-                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6le-nF-6w5">
-                                <rect key="frame" x="10" y="140" width="355" height="400"/>
+                                <rect key="frame" x="10" y="130" width="355" height="400"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R7p-Ft-vkO">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="133.5"/>
@@ -194,6 +171,12 @@
                                     <constraint firstAttribute="height" constant="400" id="4aR-qW-cCl"/>
                                 </constraints>
                             </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Xy-GE-1aP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="3T2-6d-dHF"/>
+                                </constraints>
+                            </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNf-VH-jfZ">
                                 <rect key="frame" x="89.5" y="590" width="196" height="37"/>
                                 <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="20"/>
@@ -216,24 +199,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="q0p-cA-UoS" secondAttribute="bottom" constant="30" id="50d-d8-Z4G"/>
-                            <constraint firstItem="wfL-nC-HS4" firstAttribute="top" secondItem="WOQ-9C-WEa" secondAttribute="bottom" id="5am-bs-K0I"/>
-                            <constraint firstItem="wfL-nC-HS4" firstAttribute="centerX" secondItem="WOQ-9C-WEa" secondAttribute="centerX" id="I2r-hq-9fk"/>
+                            <constraint firstItem="6le-nF-6w5" firstAttribute="top" secondItem="9Xy-GE-1aP" secondAttribute="bottom" constant="10" id="HVn-DL-liR"/>
                             <constraint firstItem="bYX-1d-ASg" firstAttribute="bottom" secondItem="bNf-VH-jfZ" secondAttribute="bottom" constant="40" id="IXr-xI-Ib4"/>
-                            <constraint firstItem="bYX-1d-ASg" firstAttribute="trailing" secondItem="L7P-Ry-oP1" secondAttribute="trailing" id="Iiz-j5-dey"/>
-                            <constraint firstItem="L7P-Ry-oP1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="NLi-9s-vPo"/>
-                            <constraint firstItem="L7P-Ry-oP1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PHw-HG-cgf"/>
                             <constraint firstItem="bNf-VH-jfZ" firstAttribute="centerX" secondItem="6le-nF-6w5" secondAttribute="centerX" id="Q5F-u5-jz9"/>
                             <constraint firstItem="6le-nF-6w5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RjZ-Cv-MpT"/>
-                            <constraint firstItem="6le-nF-6w5" firstAttribute="top" secondItem="L7P-Ry-oP1" secondAttribute="bottom" constant="10" id="S9k-LQ-oFK"/>
-                            <constraint firstItem="L7P-Ry-oP1" firstAttribute="leading" secondItem="bYX-1d-ASg" secondAttribute="leading" id="SiR-hq-wHc"/>
                             <constraint firstItem="q0p-cA-UoS" firstAttribute="centerX" secondItem="bNf-VH-jfZ" secondAttribute="centerX" id="SrR-cX-L4V"/>
                             <constraint firstItem="6le-nF-6w5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-20" id="dhK-zX-7eO"/>
+                            <constraint firstItem="bYX-1d-ASg" firstAttribute="trailing" secondItem="9Xy-GE-1aP" secondAttribute="trailing" id="g9h-qS-yoF"/>
+                            <constraint firstItem="9Xy-GE-1aP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lcb-rr-Rwb"/>
                             <constraint firstItem="q0p-cA-UoS" firstAttribute="top" secondItem="bYX-1d-ASg" secondAttribute="bottom" constant="-67" id="sLq-yr-UDr"/>
-                            <constraint firstItem="wfL-nC-HS4" firstAttribute="bottom" secondItem="L7P-Ry-oP1" secondAttribute="bottom" constant="-10" id="w55-XC-DDT"/>
+                            <constraint firstItem="9Xy-GE-1aP" firstAttribute="leading" secondItem="bYX-1d-ASg" secondAttribute="leading" id="wZY-42-eUe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lo0-Bk-U5b"/>
                     <connections>
+                        <outlet property="containerView" destination="9Xy-GE-1aP" id="VsB-g7-uUo"/>
                         <outlet property="r32Stack" destination="R7p-Ft-vkO" id="Wvs-0V-aBh"/>
                         <outlet property="r32label1" destination="2bd-I3-7qc" id="zCD-e6-xKj"/>
                         <outlet property="r32label2" destination="mx7-8M-Gxz" id="k1y-sb-AQ6"/>
@@ -243,7 +223,6 @@
                         <outlet property="r34Stack" destination="QRE-KR-hU3" id="ypK-c7-Djb"/>
                         <outlet property="r34label1" destination="xz6-J0-dzC" id="Jck-re-6Co"/>
                         <outlet property="r34label2" destination="6M2-pp-5t6" id="aMD-f9-PMh"/>
-                        <outlet property="topBannerBackgroundView" destination="L7P-Ry-oP1" id="cNU-i2-9Xz"/>
                         <segue destination="SGc-pW-HTJ" kind="show" identifier="modelInfo" id="25V-T1-8SF"/>
                     </connections>
                 </viewController>
@@ -1201,7 +1180,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Pi8-Pe-iFu"/>
+        <segue reference="X1R-uK-5EO"/>
         <segue reference="8A8-D9-sOH"/>
     </inferredMetricsTieBreakers>
     <resources>

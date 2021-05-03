@@ -198,7 +198,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         // This should be a square otherwise the layout shifts to the left
         vinPlate.view.frame = CGRect(x: sidePad, y: Int(searchButton.frame.maxY) + topPad, width: width, height: Int(tableView.frame.height))
         
-        
         let recog = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         vinPlate.view.addGestureRecognizer(recog)
         
@@ -448,8 +447,15 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         var screenshotImage: UIImage?
         
         var view = ScreenshotView(title: titleLabel.text!)
-        view.setup(title: "\(series!) \(searchResult!.Grade)", vin: searchResult?.VIN, grade: searchResult?.Grade, colourText: searchResult?.Colour, productionDate: searchResult?.ProductionDate, modelCode: searchResult?.modelCode, seat: searchResult?.Seat, carImage: imageView.image, interiorCode: searchResult?.InteriorCode)
-        
+        view.setup(title: "\(series!) \(searchResult!.Grade)",
+                   vin: searchResult?.VIN,
+                   grade: searchResult?.Grade,
+                   colourText: searchResult?.Colour,
+                   productionDate: searchResult?.ProductionDate,
+                   modelCode: searchResult?.modelCode,
+                   seat: searchResult?.Seat,
+                   carImage: imageView.image,
+                   interiorCode: searchResult?.InteriorCode)
         
         let host = UIHostingController(rootView: view)
         host.view.frame = CGRect(x: self.view.bounds.width * -1, y: 0, width: self.view.bounds.width, height: self.view.bounds.width)

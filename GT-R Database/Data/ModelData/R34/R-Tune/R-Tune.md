@@ -8,7 +8,7 @@ As the R-Tune is a customer specified car, any options and be added or not inclu
 * Engine Model: __RB26DETT (Nur specification) "R1 (R-tune concept ENGINE Spec 1)" Specification__  
 * Total Displacement: __2,568 cc__  
 * Maximum Output: __450 ps / 7,600 rpm__  
-* Maximum Torque: __48 kg · m / 5, 600 rpm__  
+* Maximum Torque: __48 kg·m / 5,600 rpm__  
 * Engine Mount: __Enhanced product__  
 * Head Cover & Collector Tank: __Gold crystal paint (special color)__  
 * Air Inlet Pipe: __Made of aluminum pipe__  
@@ -47,7 +47,7 @@ As the R-Tune is a customer specified car, any options and be added or not inclu
 * Super Coppermix Twin Plate Clutch  
   
 ## Chassis  
-* Suspension: __G-ATTACK R-tune Suspension kit; Stabilizer kit (front and rear); circuit link; Suspension link and reinforced bush Except for RR suspension member bush__  
+* Suspension: __G-ATTACK R-tune Suspension kit; Stabilizer kit (front and rear); circuit link; Suspension link and reinforced bush except for RR suspension member bush__  
 * Tower Bar: __FR made of titanium only__  
 * FR Brake: __Brembo made F50 caliper + 0355 rotor (2 pieces); Brake air guide__  
 * Brake Pad: __S-tune non asbestos (front & rear); RR brake is STD caliper__  
@@ -61,7 +61,7 @@ As the R-Tune is a customer specified car, any options and be added or not inclu
 * Bonnet: __R-tune carbon hood__  
 * Carbon pillar garnish: __"NISMO" logo, carbon fibre__  
 * Fuel filler cover: __Made of aluminium__  
-* Clear winker lens: __Clear__  
+* Front winker lens: __Clear__  
 * Side winker lens: __Smoked__  
 * Stripe: __NISMO Demo Car Stripe Specification__  
   

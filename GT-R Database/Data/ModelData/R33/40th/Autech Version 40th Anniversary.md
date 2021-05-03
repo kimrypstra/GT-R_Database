@@ -15,7 +15,7 @@ Autech Version 40th Anniversary GT-R are four door sedans.
 * SUPER HICAS  
 * ATTESA E-TS  
 * Front and Rear Multilink Suspension  
-* Additional Body Ridigity; __Front Crossbar; Rear Strut Tower Bar; Rear Strut Tower Bar; ront Strut Tower Bar; Floor Crossbar; High Ridigity Rubber Bushes; Triple Crossbar__  
+* Additional Body Ridigity; __Front Crossbar; Rear Strut Tower Bar; Front Strut Tower Bar; Floor Crossbar; High Ridigity Rubber Bushes; Triple Crossbar__  
 * Brembo Brakes  
 * 17" GT-R Wheels: __245 / 45ZR17 Tire Potenza RE010 Tyre__  
 * 40th Anniversary Emblem  
@@ -45,7 +45,7 @@ Additional Standard GT-R Items fitted to all Autech Version 40th Anniversary GT-
 * Trunk Lid Trim  
   
 ## Audio  
-* Kenwood Sound Cruising System (1Din Type, Cd-Body Am / Fm Electronic Tuner Radio, 200W, 8 Speakers, With Cd Autochanger Control Function)  
+* Kenwood Sound Cruising System (1DIN Type, CD-Body AM/FM Electronic Tuner Radio, 200W, 8 Speakers, With CD Autochanger Control Function)  
 * Fully Automatic Power Antenna (Half Switch)  
 * FM Stereo  
   

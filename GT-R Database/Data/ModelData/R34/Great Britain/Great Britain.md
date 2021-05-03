@@ -8,10 +8,10 @@ KV2 - Athlete Silver: __22__
 LX0 - Midnight Purple III: __1__  
 TV2 - Bayside Blue: __34__  
   
-There was an additional 8 prototypes with JDM VINs bought to UK for testing and development work, all of which are TV2 Bayside Blue.  
+There were an additional 8 prototypes with JDM VINs brought to the UK for testing and development work, all of which are TV2 Bayside Blue.  
   
 ## V-Spec (Great Britain) Specific Equipment:  
-* Great Britain cars all have 17 digit VINs. They are identified by the GB code in the model code.  
+* Great Britain cars all have 17 digit VINs. They are identified by the GB code in the model code  
 * Front air intake on bumper  
 * Non-xenon halogen headlamps  
 * 200 mph speedometer  

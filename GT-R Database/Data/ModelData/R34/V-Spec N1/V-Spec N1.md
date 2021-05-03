@@ -3,7 +3,7 @@ Total Produced: __38 known__
   
 V-Spec N1 only available in QM1 - White.
   
-As there are a 13 Series 1 cars with no production data available, the true number may be slightly higher.  
+As there are 13 Series 1 cars with no production data available, the true number may be slightly higher.  
   
 ## V-Spec N1 Specific Equipment:  
   

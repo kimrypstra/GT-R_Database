@@ -100,28 +100,6 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         topFloaterLeftAlign.constant = scrollView.contentOffset.x
         leftFloaterTopAlign.constant = scrollView.contentOffset.y * -1
-        
-        // Just use clipsToBounds
-//        // Work out which cells are off the screen based on column widths and x offset
-//        var offset = scrollView.contentOffset.x
-//        var rightmostCellPastLeftEdge = 0
-//
-//        for (index, width) in columnWidths.enumerated() {
-//            offset -= width
-//            if offset < 0 {
-//                rightmostCellPastLeftEdge = index
-//                break
-//            }
-//        }
-//
-//        for (index, cell) in topFloater.arrangedSubviews.enumerated() where index <= rightmostCellPastLeftEdge {
-//            cell.alpha = 0
-//        }
-//
-//        for (index, cell) in topFloater.arrangedSubviews.enumerated() where index > rightmostCellPastLeftEdge {
-//            cell.alpha = 1
-//        }
-
     }
     
     func setUpTable() {

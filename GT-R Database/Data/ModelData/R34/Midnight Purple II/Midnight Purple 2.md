@@ -4,7 +4,7 @@ Total Produced: __347 known__
 As there are 19 Series 1 cars with no records the actual numbers may be slightly higher.  
   
 LV4 - Midnight Purple II GT-R: __65__  
-LV4 - Midnight Purple II V-Spec: 282__  
+LV4 - Midnight Purple II V-Spec: __282__  
   
 ## Midnight Purple II Specific Equipment  
 * LV4 Midnight Purple paint  

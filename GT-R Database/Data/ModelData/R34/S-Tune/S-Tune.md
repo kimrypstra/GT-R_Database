@@ -8,7 +8,7 @@ The list below details the S-Tune as specified by Nismo.
 * Engine Model: __RB26DETT "S1 (S-tune concept ENGINE Spec 1)" Specification__  
 * Total Displacement: __2,568 cc__  
 * Maximum Output: __400 ps / 6,800 rpm__  
-* Maximum Torque: __45 kg · m / 5, 600 rpm__  
+* Maximum Torque: __45 kg·m / 5,600 rpm__  
 * Head Cover & Collector Tank: __Crystal Red or Black__  
 * Air Cleaner Duct: __FRP "NISMO" logo included__  
 * Exhaust System: __Weldina NE-1, with sports catalyzer__  
