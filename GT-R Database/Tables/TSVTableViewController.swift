@@ -1,21 +1,12 @@
-//
-//  ProdNumbersViewController.swift
-//  GT-R Database
-//
-//  Created by Kim Rypstra on 10/12/20.
-//
-
 import UIKit
 import Firebase
+import SwiftUI
 
 class TSVTableViewController: UIViewController, UIScrollViewDelegate, ProductionCellDelegate {
-
-    // comment
     var mode: ParseMode!
     var series: String!
-    //var scroll: UIScrollView?
     @IBOutlet weak var scroll: UIScrollView!
-    @IBOutlet weak var topBannerView: UIView!
+    @IBOutlet weak var topBannerContainer: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var topFloater: UIStackView!
@@ -69,33 +60,22 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        switch mode {
-        case .Production:
-            titleLabel.text = "\(series!) GT-R Production Numbers"
-        case .VIN:
-            titleLabel.text = "\(series!) VIN Ranges"
-            switch series! {
-            case "R32":
-                titleLabel.text = "BNR32 VIN Ranges"
-            case "R33":
-                titleLabel.text = "BCNR33 VIN Ranges"
-            case "R34":
-                titleLabel.text = "BNR34 VIN Ranges"
-            default:
-                titleLabel.text = "VIN Ranges"
-            }
-        case .Pricing:
-            titleLabel.text = "\(series!) GT-R New Pricing"
-        default:
-            return
-        }
         self.view.clipsToBounds = true
         setUpTable()
     }
     
-    
+    func generateTitleText() -> String {
+        switch mode {
+        case .Production:
+            return "\(series!) GT-R Production Numbers"
+        case .VIN:
+            return "\(series!) VIN Ranges"
+        case .Pricing:
+            return "\(series!) GT-R New Pricing"
+        case .none:
+            return ""
+        }
+    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         topFloaterLeftAlign.constant = scrollView.contentOffset.x
@@ -265,13 +245,6 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
             }
         }
         scroll?.addSubview(columnStack!)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        let gradient = CAGradientLayer()
-        gradient.frame = topBannerView.bounds
-        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
-        topBannerView.layer.insertSublayer(gradient, at: 0)
     }
      
     override func viewDidAppear(_ animated: Bool) {

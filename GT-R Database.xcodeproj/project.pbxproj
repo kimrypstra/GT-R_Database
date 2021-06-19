@@ -31,14 +31,19 @@
 		2144742F25594BE9004DDEE0 /* 1-kr4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144741B25594BE8004DDEE0 /* 1-kr4.jpg */; };
 		2144743025594BE9004DDEE0 /* 2-ey0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2144741C25594BE9004DDEE0 /* 2-ey0.jpg */; };
 		21461030254F0D8500E6453C /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2146102F254F0D8500E6453C /* Car.swift */; };
-		214AC7BC25AEBDDA00C363B7 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AC7BB25AEBDDA00C363B7 /* Colours.swift */; };
+		214AC7BC25AEBDDA00C363B7 /* CarColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214AC7BB25AEBDDA00C363B7 /* CarColours.swift */; };
 		2150328025B2B4F80054D8DE /* ScreenshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2150327F25B2B4F70054D8DE /* ScreenshotView.swift */; };
 		215A9F3A25B9B469001E3BD6 /* VINPlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A9F3925B9B469001E3BD6 /* VINPlate.swift */; };
 		215A9F4225BA7312001E3BD6 /* VINPlateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */; };
 		21635C5025F4A6BE00BEF254 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21635C4F25F4A6BE00BEF254 /* GoogleService-Info.plist */; };
 		2167680725879A0300BCCFCD /* ProductionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */; };
 		2175ED0725F9AF2500FADFD1 /* GTR Registry.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2175ED0625F9AF2500FADFD1 /* GTR Registry.sqlite */; };
-		2178FB9D263AB9B700FBCEF6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178FB9C263AB9B700FBCEF6 /* HeaderView.swift */; };
+		217BFB1C2674BB1300091BDF /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217BFB1B2674BB1300091BDF /* HeaderView.xib */; };
+		217BFB1E2674BBA400091BDF /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217BFB1D2674BBA400091BDF /* HeaderView.swift */; };
+		217BFB202674CC0300091BDF /* HeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217BFB1F2674CC0200091BDF /* HeaderDelegate.swift */; };
+		217BFB222674CC9F00091BDF /* ViewController + HeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217BFB212674CC9F00091BDF /* ViewController + HeaderDelegate.swift */; };
+		217BFB242674D63C00091BDF /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217BFB232674D63C00091BDF /* URLs.swift */; };
+		217BFB262674DB9800091BDF /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217BFB252674DB9800091BDF /* Colours.swift */; };
 		217F36EE255692A900113937 /* VINSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36ED255692A900113937 /* VINSearchController.swift */; };
 		217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F02556A58900113937 /* UIView + Anchor.swift */; };
 		217F36F42556A5AB00113937 /* SmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F36F32556A5AB00113937 /* SmallCell.swift */; };
@@ -90,7 +95,6 @@
 		218C7F6C2568F141009A7063 /* nur-7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 218C7F5D2568F141009A7063 /* nur-7.jpg */; };
 		218C81E7256A384B009A7063 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C81E6256A384B009A7063 /* Constants.swift */; };
 		218C81ED256A7E8A009A7063 /* ModelData in Resources */ = {isa = PBXBuildFile; fileRef = 218C81EC256A7E8A009A7063 /* ModelData */; };
-		218C822D256FF41B009A7063 /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 218C822C256FF41A009A7063 /* text.txt */; };
 		21AB555B2582585E00BBCF12 /* TSVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB555A2582585E00BBCF12 /* TSVManager.swift */; };
 		21AB555D2582599100BBCF12 /* TSVTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB555C2582599100BBCF12 /* TSVTableViewController.swift */; };
 		21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */; };
@@ -109,6 +113,7 @@
 		21D0200C25C187FA00FD7C26 /* R34ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200925C187F800FD7C26 /* R34ProductionNumbers.tsv */; };
 		21D0200D25C187FA00FD7C26 /* R32ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200A25C187F900FD7C26 /* R32ProductionNumbers.tsv */; };
 		21D0200E25C187FA00FD7C26 /* R33ProductionNumbers.tsv in Resources */ = {isa = PBXBuildFile; fileRef = 21D0200B25C187FA00FD7C26 /* R33ProductionNumbers.tsv */; };
+		21D53D4A2674DEB300DD0A88 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D53D492674DEB300DD0A88 /* GradientView.swift */; };
 		21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE917C25543C7600B9B4F2 /* DBManager.swift */; };
 		21FEAA4E25B6BC0F005A7013 /* String + Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */; };
 		2363CF43877662E076065E02 /* Pods_GT_R_Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C590AE54161ED3EFF6FB49 /* Pods_GT_R_Database.framework */; };
@@ -152,14 +157,19 @@
 		2144741B25594BE8004DDEE0 /* 1-kr4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-kr4.jpg"; sourceTree = "<group>"; };
 		2144741C25594BE9004DDEE0 /* 2-ey0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-ey0.jpg"; sourceTree = "<group>"; };
 		2146102F254F0D8500E6453C /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
-		214AC7BB25AEBDDA00C363B7 /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
+		214AC7BB25AEBDDA00C363B7 /* CarColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarColours.swift; sourceTree = "<group>"; };
 		2150327F25B2B4F70054D8DE /* ScreenshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotView.swift; sourceTree = "<group>"; };
 		215A9F3925B9B469001E3BD6 /* VINPlate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINPlate.swift; sourceTree = "<group>"; };
 		215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINPlateDelegate.swift; sourceTree = "<group>"; };
 		21635C4F25F4A6BE00BEF254 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCellDelegate.swift; sourceTree = "<group>"; };
 		2175ED0625F9AF2500FADFD1 /* GTR Registry.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTR Registry.sqlite"; sourceTree = "<group>"; };
-		2178FB9C263AB9B700FBCEF6 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		217BFB1B2674BB1300091BDF /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		217BFB1D2674BBA400091BDF /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		217BFB1F2674CC0200091BDF /* HeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDelegate.swift; sourceTree = "<group>"; };
+		217BFB212674CC9F00091BDF /* ViewController + HeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + HeaderDelegate.swift"; sourceTree = "<group>"; };
+		217BFB232674D63C00091BDF /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		217BFB252674DB9800091BDF /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
 		217F36ED255692A900113937 /* VINSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VINSearchController.swift; sourceTree = "<group>"; };
 		217F36F02556A58900113937 /* UIView + Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Anchor.swift"; sourceTree = "<group>"; };
 		217F36F32556A5AB00113937 /* SmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCell.swift; sourceTree = "<group>"; };
@@ -211,7 +221,6 @@
 		218C7F5D2568F141009A7063 /* nur-7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "nur-7.jpg"; sourceTree = "<group>"; };
 		218C81E6256A384B009A7063 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		218C81EC256A7E8A009A7063 /* ModelData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ModelData; sourceTree = "<group>"; };
-		218C822C256FF41A009A7063 /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
 		21AB555A2582585E00BBCF12 /* TSVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVManager.swift; sourceTree = "<group>"; };
 		21AB555C2582599100BBCF12 /* TSVTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVTableViewController.swift; sourceTree = "<group>"; };
 		21AFA2C8254D3DC600661DE0 /* GT-R Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GT-R Database.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +241,7 @@
 		21D0200925C187F800FD7C26 /* R34ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R34ProductionNumbers.tsv; sourceTree = "<group>"; };
 		21D0200A25C187F900FD7C26 /* R32ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R32ProductionNumbers.tsv; sourceTree = "<group>"; };
 		21D0200B25C187FA00FD7C26 /* R33ProductionNumbers.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = R33ProductionNumbers.tsv; sourceTree = "<group>"; };
+		21D53D492674DEB300DD0A88 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		21DE917C25543C7600B9B4F2 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Currency.swift"; sourceTree = "<group>"; };
 		58C590AE54161ED3EFF6FB49 /* Pods_GT_R_Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GT_R_Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,13 +264,11 @@
 		2144740525594BBC004DDEE0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				217BFB1A2674BA9C00091BDF /* Colour Pictures */,
 				21FEAA4225B6AF0E005A7013 /* New Pricing */,
 				21676814258BA07700BCCFCD /* VIN Ranges */,
 				21AB55512582567200BBCF12 /* Production Numbers */,
 				218C81EC256A7E8A009A7063 /* ModelData */,
-				2144740825594BD3004DDEE0 /* R32 */,
-				2144740725594BCE004DDEE0 /* R33 */,
-				2144740625594BC8004DDEE0 /* R34 */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -347,24 +355,142 @@
 			path = "VIN Ranges";
 			sourceTree = "<group>";
 		};
-		2178FB9B263AB97A00FBCEF6 /* Views */ = {
+		217BFB0E2674B5B100091BDF /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				215A9F3925B9B469001E3BD6 /* VINPlate.swift */,
-				2178FB9C263AB9B700FBCEF6 /* HeaderView.swift */,
-				2150327F25B2B4F70054D8DE /* ScreenshotView.swift */,
+				21AFA2CF254D3DC600661DE0 /* ViewController.swift */,
 			);
-			path = Views;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		2185D42A2587885A00778FA2 /* XIBs */ = {
+		217BFB0F2674B5BF00091BDF /* About */ = {
 			isa = PBXGroup;
 			children = (
-				2185D43325878C1A00778FA2 /* ProductionCell.xib */,
-				2185D43525878C9900778FA2 /* ProductionCell.swift */,
-				2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */,
+				21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */,
 			);
-			path = XIBs;
+			path = About;
+			sourceTree = "<group>";
+		};
+		217BFB102674B5CB00091BDF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				217F36ED255692A900113937 /* VINSearchController.swift */,
+				2150327F25B2B4F70054D8DE /* ScreenshotView.swift */,
+				215A9F3925B9B469001E3BD6 /* VINPlate.swift */,
+				215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		217BFB112674B5E500091BDF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				217BFB172674B70D00091BDF /* Constants */,
+				217BFB122674B5EA00091BDF /* Data Models */,
+				217BFB162674B6F900091BDF /* Extensions */,
+				21AFA2E0254D3E9600661DE0 /* Fonts */,
+				217BFB182674B72500091BDF /* Header */,
+				21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */,
+				21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */,
+				21DE917C25543C7600B9B4F2 /* DBManager.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		217BFB122674B5EA00091BDF /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				2146102F254F0D8500E6453C /* Car.swift */,
+				218C7F2D25628EB6009A7063 /* R33.swift */,
+				218C7F2A25628EAA009A7063 /* R32.swift */,
+				218C7F3025628EC5009A7063 /* R34.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		217BFB132674B61F00091BDF /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+				21AB555A2582585E00BBCF12 /* TSVManager.swift */,
+				21AB555C2582599100BBCF12 /* TSVTableViewController.swift */,
+				2167680625879A0300BCCFCD /* ProductionCellDelegate.swift */,
+				217F36F32556A5AB00113937 /* SmallCell.swift */,
+				2185D43525878C9900778FA2 /* ProductionCell.swift */,
+				2185D43325878C1A00778FA2 /* ProductionCell.xib */,
+			);
+			path = Tables;
+			sourceTree = "<group>";
+		};
+		217BFB142674B64500091BDF /* Model Info */ = {
+			isa = PBXGroup;
+			children = (
+				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
+				214473FB25583F71004DDEE0 /* ModelNumberCell.swift */,
+			);
+			path = "Model Info";
+			sourceTree = "<group>";
+		};
+		217BFB152674B65F00091BDF /* Model Details */ = {
+			isa = PBXGroup;
+			children = (
+				218C7F3D2568E4F5009A7063 /* SpecialModelViewController.swift */,
+			);
+			path = "Model Details";
+			sourceTree = "<group>";
+		};
+		217BFB162674B6F900091BDF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				217F36F02556A58900113937 /* UIView + Anchor.swift */,
+				2185D431258789C600778FA2 /* UIView + Corners.swift */,
+				217F36F72556A6FF00113937 /* String + CamelToHuman.swift */,
+				217FEDFC25A0581800612283 /* String + Brackets.swift */,
+				21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		217BFB172674B70D00091BDF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				218C81E6256A384B009A7063 /* Constants.swift */,
+				214AC7BB25AEBDDA00C363B7 /* CarColours.swift */,
+				217BFB232674D63C00091BDF /* URLs.swift */,
+				217BFB252674DB9800091BDF /* Colours.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		217BFB182674B72500091BDF /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				217BFB1B2674BB1300091BDF /* HeaderView.xib */,
+				21D53D492674DEB300DD0A88 /* GradientView.swift */,
+				217BFB1D2674BBA400091BDF /* HeaderView.swift */,
+				217BFB1F2674CC0200091BDF /* HeaderDelegate.swift */,
+				217BFB212674CC9F00091BDF /* ViewController + HeaderDelegate.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		217BFB192674B7D000091BDF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21AFA2D4254D3DC700661DE0 /* Assets.xcassets */,
+				21461028254F0C4200E6453C /* Database */,
+				2144740525594BBC004DDEE0 /* Data */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		217BFB1A2674BA9C00091BDF /* Colour Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				2144740825594BD3004DDEE0 /* R32 */,
+				2144740725594BCE004DDEE0 /* R33 */,
+				2144740625594BC8004DDEE0 /* R34 */,
+			);
+			path = "Colour Pictures";
 			sourceTree = "<group>";
 		};
 		218C7F472568EBB2009A7063 /* Special Models */ = {
@@ -436,38 +562,15 @@
 		21AFA2CA254D3DC600661DE0 /* GT-R Database */ = {
 			isa = PBXGroup;
 			children = (
-				21AFA2CB254D3DC600661DE0 /* AppDelegate.swift */,
-				2146102F254F0D8500E6453C /* Car.swift */,
-				218C7F2A25628EAA009A7063 /* R32.swift */,
-				218C7F2D25628EB6009A7063 /* R33.swift */,
-				218C7F3025628EC5009A7063 /* R34.swift */,
-				21DE917C25543C7600B9B4F2 /* DBManager.swift */,
-				21AFA2CD254D3DC600661DE0 /* SceneDelegate.swift */,
-				21AFA2CF254D3DC600661DE0 /* ViewController.swift */,
-				21AFA2E5254D4D8700661DE0 /* AboutViewController.swift */,
-				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
-				218C7F3D2568E4F5009A7063 /* SpecialModelViewController.swift */,
-				217F36ED255692A900113937 /* VINSearchController.swift */,
-				2178FB9B263AB97A00FBCEF6 /* Views */,
-				215A9F4125BA7312001E3BD6 /* VINPlateDelegate.swift */,
-				21AB555C2582599100BBCF12 /* TSVTableViewController.swift */,
-				21AB555A2582585E00BBCF12 /* TSVManager.swift */,
-				218C81E6256A384B009A7063 /* Constants.swift */,
-				214AC7BB25AEBDDA00C363B7 /* Colours.swift */,
-				2185D42A2587885A00778FA2 /* XIBs */,
-				217F36F32556A5AB00113937 /* SmallCell.swift */,
-				214473FB25583F71004DDEE0 /* ModelNumberCell.swift */,
-				217F36F02556A58900113937 /* UIView + Anchor.swift */,
-				2185D431258789C600778FA2 /* UIView + Corners.swift */,
-				217F36F72556A6FF00113937 /* String + CamelToHuman.swift */,
-				217FEDFC25A0581800612283 /* String + Brackets.swift */,
-				21FEAA4D25B6BC0F005A7013 /* String + Currency.swift */,
+				217BFB0F2674B5BF00091BDF /* About */,
+				217BFB0E2674B5B100091BDF /* Home */,
+				217BFB152674B65F00091BDF /* Model Details */,
+				217BFB142674B64500091BDF /* Model Info */,
+				217BFB192674B7D000091BDF /* Resources */,
+				217BFB102674B5CB00091BDF /* Search */,
+				217BFB112674B5E500091BDF /* Shared */,
+				217BFB132674B61F00091BDF /* Tables */,
 				21AFA2D1254D3DC600661DE0 /* Main.storyboard */,
-				218C822C256FF41A009A7063 /* text.txt */,
-				2144740525594BBC004DDEE0 /* Data */,
-				21461028254F0C4200E6453C /* Database */,
-				21AFA2D4254D3DC700661DE0 /* Assets.xcassets */,
-				21AFA2E0254D3E9600661DE0 /* Fonts */,
 				21AFA2D6254D3DC700661DE0 /* LaunchScreen.storyboard */,
 				21AFA2D9254D3DC700661DE0 /* Info.plist */,
 				21635C4F25F4A6BE00BEF254 /* GoogleService-Info.plist */,
@@ -593,7 +696,6 @@
 				21846085255C180500E68F45 /* kl1.jpg in Resources */,
 				21846080255C180500E68F45 /* bt2.jpg in Resources */,
 				21D0200425C17FB800FD7C26 /* R34VINRanges.tsv in Resources */,
-				218C822D256FF41B009A7063 /* text.txt in Resources */,
 				2137FBE525E5EE110076C73B /* R34NewPricing.tsv in Resources */,
 				218C81ED256A7E8A009A7063 /* ModelData in Resources */,
 				2144742C25594BE9004DDEE0 /* 1-tv2.jpg in Resources */,
@@ -614,6 +716,7 @@
 				2184609B255C182600E68F45 /* th1.jpg in Resources */,
 				21AFA2D5254D3DC700661DE0 /* Assets.xcassets in Resources */,
 				2144742A25594BE9004DDEE0 /* 1-kv2.jpg in Resources */,
+				217BFB1C2674BB1300091BDF /* HeaderView.xib in Resources */,
 				21846098255C182600E68F45 /* 326.jpg in Resources */,
 				21846084255C180500E68F45 /* ar2.jpg in Resources */,
 				218C7F6C2568F141009A7063 /* nur-7.jpg in Resources */,
@@ -699,8 +802,10 @@
 				21AFA2D0254D3DC600661DE0 /* ViewController.swift in Sources */,
 				218C7F3125628EC5009A7063 /* R34.swift in Sources */,
 				2185D43625878C9900778FA2 /* ProductionCell.swift in Sources */,
-				214AC7BC25AEBDDA00C363B7 /* Colours.swift in Sources */,
+				214AC7BC25AEBDDA00C363B7 /* CarColours.swift in Sources */,
+				217BFB242674D63C00091BDF /* URLs.swift in Sources */,
 				217F36F82556A6FF00113937 /* String + CamelToHuman.swift in Sources */,
+				217BFB262674DB9800091BDF /* Colours.swift in Sources */,
 				21FEAA4E25B6BC0F005A7013 /* String + Currency.swift in Sources */,
 				21AFA2EA254D7A4700661DE0 /* ModelInfoController.swift in Sources */,
 				214473FC25583F71004DDEE0 /* ModelNumberCell.swift in Sources */,
@@ -709,11 +814,14 @@
 				217F36F42556A5AB00113937 /* SmallCell.swift in Sources */,
 				21DE917D25543C7600B9B4F2 /* DBManager.swift in Sources */,
 				21AFA2CC254D3DC600661DE0 /* AppDelegate.swift in Sources */,
-				2178FB9D263AB9B700FBCEF6 /* HeaderView.swift in Sources */,
+				21D53D4A2674DEB300DD0A88 /* GradientView.swift in Sources */,
+				217BFB1E2674BBA400091BDF /* HeaderView.swift in Sources */,
 				21AFA2E6254D4D8700661DE0 /* AboutViewController.swift in Sources */,
 				217FEDFD25A0581800612283 /* String + Brackets.swift in Sources */,
 				218C7F2E25628EB6009A7063 /* R33.swift in Sources */,
 				2167680725879A0300BCCFCD /* ProductionCellDelegate.swift in Sources */,
+				217BFB222674CC9F00091BDF /* ViewController + HeaderDelegate.swift in Sources */,
+				217BFB202674CC0300091BDF /* HeaderDelegate.swift in Sources */,
 				217F36F12556A58A00113937 /* UIView + Anchor.swift in Sources */,
 				21AB555B2582585E00BBCF12 /* TSVManager.swift in Sources */,
 				21AFA2CE254D3DC600661DE0 /* SceneDelegate.swift in Sources */,

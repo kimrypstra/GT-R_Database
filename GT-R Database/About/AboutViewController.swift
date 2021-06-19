@@ -8,11 +8,13 @@
 import UIKit
 import MessageUI
 import Firebase
+import SafariServices
+import SwiftUI
 
 class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
-    @IBOutlet weak var topBannerBackgroundView: UIView!
-    
+    @IBOutlet weak var headerView: HeaderView!
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -21,36 +23,17 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
-        //UITextView.appearance().linkTextAttributes = [.foregroundColor: UIColor.black]
+
+        headerView.delegate = self
+        headerView.setTitle(to: "About")
         
         introTextView.tintColor = .black
         
         let attributes = [NSAttributedString.Key.underlineStyle : (NSUnderlineStyle.thick.rawValue | NSUnderlineStyle.byWord.rawValue)]
-        var attributedString = NSMutableAttributedString(attributedString: introTextView.attributedText)
+        let attributedString = NSMutableAttributedString(attributedString: introTextView.attributedText)
         attributedString.addAttributes(attributes, range: NSRange(location: 13, length: 16))
         
         introTextView.attributedText = attributedString
-        
-        //let attributedString = NSAttributedString(string: introTextView.attributedText.string, attributes: attributes)
-        
-        //introTextView.attributedText = attributedString
-        
-        //UITextView.appearance().linkTextAttributes = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.byWord]
-
-    }
-    
-    override func viewDidLayoutSubviews() {
-        let bannerTopColour = UIColor(displayP3Red: 39/255, green: 39/255, blue: 39/255, alpha: 1)
-        let bannerBottomColour = UIColor(displayP3Red: 21/255, green: 21/255, blue: 21/255, alpha: 1)
-        
-        let gradient = CAGradientLayer()
-
-        gradient.frame = topBannerBackgroundView.bounds
-        gradient.colors = [bannerTopColour.cgColor, bannerBottomColour.cgColor]
-
-        topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -132,15 +115,4 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
     @IBAction func didTapExitButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

@@ -1,24 +1,6 @@
-//
-//  ViewController.swift
-//  GT-R Database
-//
-//  Created by Kim Rypstra on 31/10/20.
-//
-
 import UIKit
 import SwiftUI
-
-@IBDesignable
-
-extension UIColor {
-    var bannerTopColour: UIColor {
-        return UIColor(displayP3Red: 39/255, green: 39/255, blue: 39/255, alpha: 1)
-    }
-    
-    var bannerBottomColour: UIColor {
-        return UIColor(displayP3Red: 21/255, green: 21/255, blue: 21/255, alpha: 1)
-    }
-}
+import SafariServices
 
 extension UILabel {
     func dim() {
@@ -47,12 +29,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var r34Stack: UIStackView!
     @IBOutlet weak var r34label1: UILabel!
     @IBOutlet weak var r34label2: UILabel!
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var headerView: HeaderView!
     
     var labels: [UILabel] = []
     var selectedModel: String?
-    
-    let host = UIHostingController(rootView: HeaderView())
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -60,6 +40,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        headerView.delegate = self
         
         let dbMan = DBManager()
         if dbMan.openDB() {
@@ -89,11 +71,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             r34label1,
             r34label2
         ] 
-    }
-    
-    override func viewDidLayoutSubviews() {
-        host.view.frame = containerView.bounds
-        containerView.addSubview(host.view)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -161,4 +138,3 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 }
-

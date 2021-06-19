@@ -1,9 +1,3 @@
-//
-//  SmallCell.swift
-//  GT-R Database
-//
-//  Created by Kim Rypstra on 7/11/20.
-//
 
 import Foundation
 import UIKit

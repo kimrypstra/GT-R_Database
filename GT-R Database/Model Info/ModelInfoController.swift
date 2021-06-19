@@ -1,20 +1,13 @@
-//
-//  ModelInfoController.swift
-//  GT-R Database
-//
-//  Created by Kim Rypstra on 31/10/20.
-//
-
 import UIKit
 import Firebase
+import SwiftUI
 
 class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var topBannerView: UIView!
-    @IBOutlet weak var modelNameLabel: UILabel!
-    @IBOutlet weak var modelCodeLabel: UILabel!
+    @IBOutlet weak var headerView: HeaderView!
+
     var series: String?
     
     let tempModelDict = [
@@ -104,21 +97,11 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
-        // Set up top banner
-        let gradient = CAGradientLayer()
-        gradient.frame = topBannerView.bounds
-        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
-        topBannerView.layer.insertSublayer(gradient, at: 0)
+        headerView.delegate = self
+        headerView.setTitle(to: tempModelDict[series!]!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        modelCodeLabel.text = series
-        modelNameLabel.text = tempModelDict[series!]
         imageView.image = UIImage(named: "\(series!.lowercased())side")
     }
     
@@ -136,6 +119,7 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         if section == 0 {
             return nil
         }
+        
         let topBannerBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 75))
         topBannerBackgroundView.frame.size.width = topBannerBackgroundView.frame.width - (tableView.separatorInset.left * 2)
         topBannerBackgroundView.layer.cornerRadius = 10
@@ -147,7 +131,7 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
         
         let gradient = CAGradientLayer()
         gradient.frame = topBannerBackgroundView.bounds
-        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
+        gradient.colors = [Colour.Banner.top, Colour.Banner.bottom]
         topBannerBackgroundView.layer.insertSublayer(gradient, at: 0)
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 30))

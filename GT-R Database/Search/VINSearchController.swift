@@ -10,17 +10,13 @@ import SwiftUI
 import Firebase
 
 class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, VINPlateDelegate {
-
     
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UITextField!
-    @IBOutlet weak var topBannerView: UIView!
+    @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var searchButton: UIButton!
     
     var vinPlate = UIHostingController(rootView: VINPlate())
     
@@ -98,7 +94,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         "New Pricing"
     ]
     
-    var labelText: String = ""
+    var titleString: String = ""
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -107,7 +103,8 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         searchField.delegate = self
-        shareButton.isEnabled = false
+        headerView.delegate = self
+        
 
         switch series! {
         case "R34":
@@ -121,10 +118,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             searchPrefix = ""
         }
     }
-    
-    
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
         guard !alreadyPresented else {
             return
@@ -139,17 +133,17 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         switch series {
         case "R32":
             highestModelNumberIndex = 12
-            labelText = "BNR32 VIN Search"
+            titleString = "BNR32 VIN Search"
             keysSection0.insert("Extended Model Code", at: keysSection0.firstIndex(of: "Interior Code")!)
             keysSection0.remove(at: keysSection0.firstIndex(of: "Seat")!)
             
         case "R33":
             highestModelNumberIndex = 15
-            labelText = "BCNR33 VIN Search"
+            titleString = "BCNR33 VIN Search"
             
         case "R34":
             highestModelNumberIndex = 15
-            labelText = "BNR34 VIN Search"
+            titleString = "BNR34 VIN Search"
             imageView.contentMode = .scaleAspectFill
             keysSection0.remove(at: keysSection0.firstIndex(of: "Interior Code")!)
             
@@ -157,20 +151,16 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             highestModelNumberIndex = 1
         }
         
-        titleLabel.text = labelText
+        headerView.setTitle(to: titleString)
         
         for int in 1...highestModelNumberIndex {
             keysSection2.append("\(int)")
         }
-        
-        
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ModelNumberCell.self, forCellReuseIdentifier: "modelNumberCell")
         tableView.register(SmallCell.self, forCellReuseIdentifier: "smallCell")
         tableView.reloadData()
-        
         
     }
     
@@ -181,22 +171,18 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func viewDidLayoutSubviews() {
-        let gradient = CAGradientLayer()
-        gradient.frame = topBannerView.bounds
-        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
-        topBannerView.layer.insertSublayer(gradient, at: 0)
-        
+        print("did layout subviews")
         vinPlate.rootView.series = series!
         vinPlate.rootView.delegate = self
         vinPlate.rootView.imageName = "\(series!)VinPlate"
         vinPlate.view.backgroundColor = .clear
         
         let sidePad = 10
-        let topPad = 0
+        let topPad = 10
         let width = Int(self.view.bounds.width) - (sidePad * 2)
         
         // This should be a square otherwise the layout shifts to the left
-        vinPlate.view.frame = CGRect(x: sidePad, y: Int(searchButton.frame.maxY) + topPad, width: width, height: Int(tableView.frame.height))
+        vinPlate.view.frame = CGRect(x: sidePad, y: Int(searchField.frame.maxY) + topPad, width: width, height: Int(tableView.frame.height))
         
         let recog = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         vinPlate.view.addGestureRecognizer(recog)
@@ -206,13 +192,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         let const = NSLayoutConstraint(item: vinPlate.view, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: 20)
         self.view.addConstraint(const)
         
-        //        UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
-        //        numberToolbar.barStyle = UIBarStyleBlackTranslucent;
-        //        numberToolbar.items = @[[[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
-        //                             [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-        //                             [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)]];
-        //        [numberToolbar sizeToFit];
-        //        numberTextField.inputAccessoryView = numberToolbar;
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         toolbar.barStyle = .default
         
@@ -269,8 +248,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
                 print("Unknown series")
             }
         }
-        
-        //searchPrefix = vinPrefix
     }
     
     func didTapContactUs() {
@@ -300,8 +277,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             print("p1")
             return false
         }
-        
-        //let allowedChars = ["0","1","2","3","4","5","6","7","8","9"]
+
         let allowedChars = NSCharacterSet.alphanumerics
         var flag = true
         for char in string {
@@ -309,11 +285,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
                 flag = false
                 print("Nope")
             }
-            
-//            if allowedChars.contains(String(char)) == false {
-//                flag = false
-//                print("Nope")
-//            }
         }
         return flag
     }
@@ -390,8 +361,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             self.vinPlate.view.alpha = 0
         }
         
-        shareButton.isEnabled = true
-        
         let colourPath = searchResult!.ColourPath
         let filename = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").first
         let filetype = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").last
@@ -400,7 +369,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             let img = UIImage(contentsOfFile: path)
             imageView.image = img
             let imageRatio: CGFloat = 200 / 480
-            //let imageRatio: CGFloat = img!.size.height / img!.size.width
 
             UIView.animate(withDuration: 0.2) {
                 self.imageViewHeight.constant = self.view.frame.width * imageRatio
@@ -416,17 +384,18 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         }
 
         searchResult!.getNumbers(generation: series!)
-        print(searchResult?.modelCode)
         tableView.reloadData()
     }
     
-    @IBAction func shareButton(_ sender: Any) {
+    func share() {
         // Take a screenshot, or render a new image how we want it
+        guard searchResult != nil else { return }
+        
         let image = takeScreenshot(shouldSave: false)
         
         // Present a share sheet
         let activityVC = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = shareButton
+        activityVC.popoverPresentationController?.sourceView = headerView
         activityVC.completionWithItemsHandler = { activity, success, items, error in
             if !success{
                 print("cancelled")
@@ -440,13 +409,12 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         self.present(activityVC, animated: true, completion: nil)
-        
     }
     
     func takeScreenshot(shouldSave: Bool) -> UIImage? {
         var screenshotImage: UIImage?
         
-        var view = ScreenshotView(title: titleLabel.text!)
+        var view = ScreenshotView(title: titleString)
         view.setup(title: "\(series!) \(searchResult!.Grade)",
                    vin: searchResult?.VIN,
                    grade: searchResult?.Grade,
@@ -645,7 +613,6 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "vin":
@@ -664,6 +631,4 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
      }
-     
-    
 }

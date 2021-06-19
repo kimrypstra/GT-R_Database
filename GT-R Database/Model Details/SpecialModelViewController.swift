@@ -8,13 +8,13 @@
 import UIKit
 import CocoaMarkdown
 import Firebase
+import SwiftUI
 
 class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
-    
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var topBannerView: UIView!
+    @IBOutlet weak var bannerContainerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var textView: UITextView!
@@ -46,22 +46,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         stackView.alpha = 0 // Hide the stack view because otherwise we see the images flying down when the screen loads
-    }
-    
-    override func viewDidLayoutSubviews() {
-        let gradient = CAGradientLayer()
-        gradient.frame = topBannerView.bounds
-        gradient.colors = [UIColor().bannerTopColour.cgColor, UIColor().bannerBottomColour.cgColor]
-        topBannerView.layer.insertSublayer(gradient, at: 0)
-//        self.view.addSubview(miscPage)
-//        self.view.addSubview(brocPage)
-//        let miscX = NSLayoutConstraint(item: miscScrollView, attribute: .centerX, relatedBy: .equal, toItem: miscPage, attribute: .centerX, multiplier: 1, constant: 0)
-//        let miscY = NSLayoutConstraint(item: miscScrollView, attribute: .bottom, relatedBy: .equal, toItem: miscPage, attribute: .bottom, multiplier: 1, constant: 10)
-//        let brocX = NSLayoutConstraint(item: brochureScrollView, attribute: .centerX, relatedBy: .equal, toItem: brocPage, attribute: .centerX, multiplier: 1, constant: 0)
-//        let brocY = NSLayoutConstraint(item: brochureScrollView, attribute: .bottom, relatedBy: .equal, toItem: brocPage, attribute: .bottom, multiplier: 1, constant: 10)
-//        self.view.addConstraints([miscX, miscY, brocX, brocY])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,9 +56,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         if text == "" {
             textViewHeight.constant = 0
         }
-        
-        
-        
+
         textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         let parsed = CMDocument(string: text, options: .hardBreaks)
         
@@ -106,9 +89,6 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         // Text
         attr.addFontAttributes([.family : "Futura", .size : 12], forElementWithKinds: .text)
         
-        
-        // MARK:- END
-        
         // MARK: Render textView text
         let renderer = CMAttributedStringRenderer(document: parsed, attributes: attr)
         textView.attributedText = renderer!.render()
@@ -122,7 +102,6 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
         miscLabel.attributedText = mRend?.render()
         
         populateImages()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -254,19 +233,6 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             
             // Size the stackView height to match the content
             setStackViewHeight(scrollToBottom: false, of: nil)
-            
-            
-            //            // If there are both misc and brochure images, size the stackView to accomodate both
-            //            if miscImages.count != 0 && brochureImages.count != 0 {
-            //                stackViewHeight.constant = miscHeight.constant + brochureHeight.constant + 60
-            //            } else if miscImages.count == 0 && brochureImages.count == 0 {
-            //                // If there are no images, get rid of the stackView
-            //                // Note: Don't remove it from superview as it breaks it for some reason
-            //                stackViewHeight.constant = 0
-            //            }
-            //
-            //self.view.layoutIfNeeded()
-            
         } else {
             print("Coudn't get imagePath. Ensure there's an entry for this model in Constants.swift")
         }
@@ -305,14 +271,7 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
             }
         }
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        timer?.invalidate()
-//        UIView.animate(withDuration: 0.5) {
-//            self.ind.alpha = 1
-//        }
-    }
-    
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         // Adjust the height if necessary to accomodate bigger images
         if scrollView == brochureScrollView {
