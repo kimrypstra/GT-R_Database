@@ -13,8 +13,7 @@ import SwiftUI
 class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var bannerContainerView: UIView!
+    @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var textView: UITextView!
@@ -47,10 +46,12 @@ class SpecialModelViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         stackView.alpha = 0 // Hide the stack view because otherwise we see the images flying down when the screen loads
+        headerView.delegate = self
+        headerView.setTitle(to: specialModelName)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        titleLabel.text = specialModelName
+        
         
         let text = getModelInfoText()
         if text == "" {

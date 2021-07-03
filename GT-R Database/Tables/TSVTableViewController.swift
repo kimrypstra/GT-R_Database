@@ -6,9 +6,8 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
     var mode: ParseMode!
     var series: String!
     @IBOutlet weak var scroll: UIScrollView!
-    @IBOutlet weak var topBannerContainer: UIView!
+    @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var topFloater: UIStackView!
     @IBOutlet weak var topFloaterWidth: NSLayoutConstraint!
     @IBOutlet weak var topFloaterHeight: NSLayoutConstraint!
@@ -62,6 +61,8 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
         
         self.view.clipsToBounds = true
         setUpTable()
+        headerView.delegate = self
+        headerView.setTitle(to: generateTitleText())
     }
     
     func generateTitleText() -> String {
@@ -169,7 +170,6 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                         let dupeConst = NSLayoutConstraint(item: duplicate, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: desiredCellHeight)
                         duplicate.addConstraint(dupeConst)
                         
-                        //rowStack.addArrangedSubview(duplicate)
                         topFloater.addArrangedSubview(view)
                         leftFloater.addArrangedSubview(duplicate)
                     } else {
@@ -179,12 +179,6 @@ class TSVTableViewController: UIViewController, UIScrollViewDelegate, Production
                         let const = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: desiredCellHeight)
                         view.addConstraint(const)
                         
-//                        let duplicate = ProductionCell(frame: view.frame)
-//                        duplicate.setUp(type: .Cell, text: "Spacer", coordinate: CGPoint(x: col, y: row), swatchColour: nil, delegate: self)
-//                        let dupeConst = NSLayoutConstraint(item: duplicate, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: desiredCellHeight)
-//                        duplicate.addConstraint(dupeConst)
-//
-//                        rowStack.addArrangedSubview(duplicate)
                         leftFloater.addArrangedSubview(view)
                     }
                 }

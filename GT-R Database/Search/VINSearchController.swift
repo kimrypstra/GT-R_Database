@@ -547,7 +547,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             if stringIsValid(string: value) {
                 cell.value.text = "\(value)"
             } else {
-                cell.value.text = "" 
+                cell.value.text = ""
             }
             return cell
         }
