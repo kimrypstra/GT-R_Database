@@ -495,6 +495,16 @@
                                     <constraint firstAttribute="height" constant="120" id="MbW-yN-dX9"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ja-Ot-rBS" userLabel="Blocker">
+                                <rect key="frame" x="0.0" y="120" width="375" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chassis Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tS4-Lr-CZf">
+                                <rect key="frame" x="10" y="139.5" width="120" height="15"/>
+                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="12"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="JN1GAPR34U0000101" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tVx-3s-Xc3">
                                 <rect key="frame" x="140" y="130" width="225" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -502,24 +512,16 @@
                                 <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="numberPad" returnKeyType="search"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chassis Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tS4-Lr-CZf">
-                                <rect key="frame" x="10" y="139.5" width="120" height="15"/>
-                                <fontDescription key="fontDescription" name="NissanOpti" family="NissanOpti" pointSize="12"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="87e-Co-HD5">
-                                <rect key="frame" x="0.0" y="174" width="375" height="0.0"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" id="7gn-cg-aHA"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nqW-NF-oMg">
                                 <rect key="frame" x="0.0" y="174" width="375" height="493"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="87e-Co-HD5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="3Hn-Sy-x8V">
-                                        <rect key="frame" x="16" y="55.5" width="343" height="43.5"/>
+                                        <rect key="frame" x="16" y="105.5" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Hn-Sy-x8V" id="55g-Xd-SXV">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
@@ -533,33 +535,39 @@
                                     <outlet property="delegate" destination="H7M-gA-aiI" id="0N8-Lj-Syh"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="kou-qo-13A">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Khr-wt-yfF"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="87e-Co-HD5" firstAttribute="centerX" secondItem="TQT-pB-pYR" secondAttribute="centerX" id="3RJ-7L-lfZ"/>
                             <constraint firstAttribute="trailing" secondItem="tVx-3s-Xc3" secondAttribute="trailing" constant="10" id="5fW-bt-7qi"/>
-                            <constraint firstItem="nqW-NF-oMg" firstAttribute="width" secondItem="87e-Co-HD5" secondAttribute="width" id="Bgq-gk-PDo"/>
                             <constraint firstItem="6gr-wb-hSQ" firstAttribute="leading" secondItem="Khr-wt-yfF" secondAttribute="leading" id="F6Z-Wq-mAC"/>
+                            <constraint firstItem="4Ja-Ot-rBS" firstAttribute="leading" secondItem="TQT-pB-pYR" secondAttribute="leading" id="FBc-kJ-efG"/>
+                            <constraint firstItem="4Ja-Ot-rBS" firstAttribute="top" secondItem="6gr-wb-hSQ" secondAttribute="bottom" id="HRF-OV-w1F"/>
                             <constraint firstItem="tVx-3s-Xc3" firstAttribute="leading" secondItem="tS4-Lr-CZf" secondAttribute="trailing" constant="10" id="Ka5-dR-qjn"/>
-                            <constraint firstItem="87e-Co-HD5" firstAttribute="top" secondItem="tVx-3s-Xc3" secondAttribute="bottom" constant="10" id="Kdq-rN-rZv"/>
                             <constraint firstItem="tVx-3s-Xc3" firstAttribute="top" secondItem="6gr-wb-hSQ" secondAttribute="bottom" constant="10" id="NoA-8J-FhO"/>
+                            <constraint firstItem="kou-qo-13A" firstAttribute="centerY" secondItem="TQT-pB-pYR" secondAttribute="centerY" id="TP8-3F-DFw"/>
+                            <constraint firstItem="kou-qo-13A" firstAttribute="centerX" secondItem="TQT-pB-pYR" secondAttribute="centerX" id="UWe-T4-F6q"/>
+                            <constraint firstAttribute="trailing" secondItem="4Ja-Ot-rBS" secondAttribute="trailing" id="UbD-gY-xCz"/>
                             <constraint firstItem="6gr-wb-hSQ" firstAttribute="top" secondItem="TQT-pB-pYR" secondAttribute="top" id="Xax-kS-rlX"/>
-                            <constraint firstItem="nqW-NF-oMg" firstAttribute="top" secondItem="87e-Co-HD5" secondAttribute="bottom" id="cGi-BQ-QpF"/>
+                            <constraint firstItem="4Ja-Ot-rBS" firstAttribute="bottom" secondItem="tVx-3s-Xc3" secondAttribute="bottom" constant="10" id="YYN-ae-CWf"/>
+                            <constraint firstItem="nqW-NF-oMg" firstAttribute="trailing" secondItem="TQT-pB-pYR" secondAttribute="trailing" id="fTK-da-7rt"/>
                             <constraint firstItem="tS4-Lr-CZf" firstAttribute="leading" secondItem="TQT-pB-pYR" secondAttribute="leading" constant="10" id="hzO-X1-sGB"/>
                             <constraint firstItem="tS4-Lr-CZf" firstAttribute="centerY" secondItem="tVx-3s-Xc3" secondAttribute="centerY" id="j1c-dq-4KL"/>
-                            <constraint firstItem="87e-Co-HD5" firstAttribute="width" secondItem="TQT-pB-pYR" secondAttribute="width" id="mzZ-hd-DXq"/>
+                            <constraint firstItem="nqW-NF-oMg" firstAttribute="top" secondItem="4Ja-Ot-rBS" secondAttribute="bottom" id="n4W-aM-QG5"/>
+                            <constraint firstItem="nqW-NF-oMg" firstAttribute="leading" secondItem="TQT-pB-pYR" secondAttribute="leading" id="qGv-Pv-JJh"/>
                             <constraint firstAttribute="bottom" secondItem="nqW-NF-oMg" secondAttribute="bottom" id="qH3-a4-1w4"/>
                             <constraint firstItem="6gr-wb-hSQ" firstAttribute="trailing" secondItem="Khr-wt-yfF" secondAttribute="trailing" id="vNk-oz-vRp"/>
-                            <constraint firstItem="nqW-NF-oMg" firstAttribute="centerX" secondItem="87e-Co-HD5" secondAttribute="centerX" id="weG-TP-mBT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="puu-Gt-UfS"/>
                     <connections>
                         <outlet property="headerView" destination="6gr-wb-hSQ" id="W8D-MO-3dC"/>
                         <outlet property="imageView" destination="87e-Co-HD5" id="5en-iz-zdS"/>
-                        <outlet property="imageViewHeight" destination="7gn-cg-aHA" id="H9O-eG-1rl"/>
                         <outlet property="searchField" destination="tVx-3s-Xc3" id="CgG-iW-eA7"/>
+                        <outlet property="spinner" destination="kou-qo-13A" id="evF-c6-A6d"/>
                         <outlet property="tableView" destination="nqW-NF-oMg" id="fK5-zl-fTz"/>
                         <segue destination="jhs-N8-6cP" kind="show" identifier="vin" id="Wo0-zj-Nws"/>
                         <segue destination="jhs-N8-6cP" kind="show" identifier="prod" id="aqq-LD-YRx"/>

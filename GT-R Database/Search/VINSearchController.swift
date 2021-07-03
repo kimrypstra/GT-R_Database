@@ -1,22 +1,16 @@
-//
-//  VINSearchResultController.swift
-//  GT-R Database
-//
-//  Created by Kim Rypstra on 7/11/20.
-//
-
 import UIKit
 import SwiftUI
 import Firebase
+import SafariServices
 
 class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, VINPlateDelegate {
     
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var headerView: HeaderView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var vinPlate = UIHostingController(rootView: VINPlate())
     
@@ -65,6 +59,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     let sectionNames = [
         "Result",
         "Your Production Number",
+        "Ads",
         "Model Code",
         "More Information"
     ]
@@ -86,9 +81,14 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         "Manufactured at"
     ]
     
-    @objc dynamic var keysSection2: [String] = []
+    @objc dynamic var keysSection2: [String] = [
+        "Japanese History Check",
+        //        "Order Verification Letter & Dash Plaque"
+    ]
     
-    @objc dynamic var keysSection3: [String] = [
+    @objc dynamic var keysSection3: [String] = []
+    
+    @objc dynamic var keysSection4: [String] = [
         "VIN Ranges",
         "Production Numbers",
         "New Pricing"
@@ -105,7 +105,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         searchField.delegate = self
         headerView.delegate = self
         
-
+        
         switch series! {
         case "R34":
             searchPrefix = "BNR34-"
@@ -118,7 +118,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             searchPrefix = ""
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         guard !alreadyPresented else {
             return
@@ -154,7 +154,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         headerView.setTitle(to: titleString)
         
         for int in 1...highestModelNumberIndex {
-            keysSection2.append("\(int)")
+            keysSection3.append("\(int)")
         }
         tableView.delegate = self
         tableView.dataSource = self
@@ -196,7 +196,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         toolbar.barStyle = .default
         
         let button = UIButton(type: .system)
-        button.addTarget(self, action: #selector(textFieldShouldReturn(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(doASearch), for: .touchUpInside)
         button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         button.titleLabel?.font = UIFont(name: "NissanOpti", size: 12)
         button.setTitleColor(.black, for: .normal)
@@ -265,10 +265,9 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard imageView.image != nil else {return}
-        let imageRatio: CGFloat = 200 / 480 // What??
-
-        imageViewHeight.constant = (self.view.frame.width * imageRatio) - (scrollView.contentOffset.y)
+        guard let image = imageView.image else { return }
+        let imageRatio: CGFloat = image.size.height / image.size.width
+        imageView.frame.size.height = self.view.frame.width * imageRatio
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -277,7 +276,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             print("p1")
             return false
         }
-
+        
         let allowedChars = NSCharacterSet.alphanumerics
         var flag = true
         for char in string {
@@ -307,84 +306,101 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         return true
     }
     
-    func doASearch() {
-        let dbMan = DBManager()
+    @objc func doASearch() {
+        guard let query = self.searchField.text else { return }
         
-        // Maybe set searchResult back to nil and have the tableview/images reset to nil before searching?
-        
-        guard searchField.text != nil else {return}
-        
-        switch series! {
-        case "R32":
-            let searchResult = dbMan.readVINDataFromDB(tableName: series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false)
-            if !searchResult.isEmpty {
-                self.searchResult = searchResult.first as! R32
-            } else {
-                self.searchResult = nil
-                print("No result")
-            }
-        case "R33":
-            let searchResult = dbMan.readVINDataFromDB(tableName: series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false)
-            if !searchResult.isEmpty {
-                self.searchResult = searchResult.first as! R33
-            } else {
-                self.searchResult = nil
-                print("No result")
-            }
-        case "R34":
-            let searchResult = dbMan.readVINDataFromDB(tableName: series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: searchField.text!, fuzzy: false)
-            if !searchResult.isEmpty {
-                self.searchResult = searchResult.first as! R34
-            } else {
-                self.searchResult = nil
-                print("No result")
-            }
-        default:
-            searchResult = nil
-        }
-        
-        guard searchResult != nil else {
-            vinPlate.rootView.failedSearch = true
-            
-            UIView.animate(withDuration: 0.5) {
-                self.vinPlate.view.alpha = 1
-            }
-            imageView.image = nil
-            imageViewHeight.constant = 0
-            tableView.reloadData()
-            return
-        }
-        
-        // From this point, the search is successful
-        
-        UIView.animate(withDuration: 0.1) {
+        DispatchQueue.main.async {
+            self.searchField.resignFirstResponder()
             self.vinPlate.view.alpha = 0
+            self.imageView.image = nil 
+            self.spinner.isHidden = false
+            self.spinner.startAnimating()
         }
         
-        let colourPath = searchResult!.ColourPath
-        let filename = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").first
-        let filetype = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").last
-        
-        if let path = Bundle.main.path(forResource: filename, ofType: filetype) {
-            let img = UIImage(contentsOfFile: path)
-            imageView.image = img
-            let imageRatio: CGFloat = 200 / 480
-
-            UIView.animate(withDuration: 0.2) {
-                self.imageViewHeight.constant = self.view.frame.width * imageRatio
-                self.view.layoutIfNeeded()
+        DispatchQueue.global().async {
+            
+            let dbMan = DBManager()
+            
+            switch self.series! {
+            case "R32":
+                let searchResult = dbMan.readVINDataFromDB(tableName: self.series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: query, fuzzy: false)
+                if !searchResult.isEmpty {
+                    self.searchResult = searchResult.first as! R32
+                } else {
+                    self.searchResult = nil
+                    print("No result")
+                }
+            case "R33":
+                let searchResult = dbMan.readVINDataFromDB(tableName: self.series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: query, fuzzy: false)
+                if !searchResult.isEmpty {
+                    self.searchResult = searchResult.first as! R33
+                } else {
+                    self.searchResult = nil
+                    print("No result")
+                }
+            case "R34":
+                let searchResult = dbMan.readVINDataFromDB(tableName: self.series!, attributesToRetrieve: [], attributeToSearch: "VIN", valueToSearch: query, fuzzy: false)
+                if !searchResult.isEmpty {
+                    self.searchResult = searchResult.first as! R34
+                } else {
+                    self.searchResult = nil
+                    print("No result")
+                }
+            default:
+                self.searchResult = nil
             }
-        } else {
-            print("Image path not found for \(colourPath)")
-            imageView.image = nil
-            UIView.animate(withDuration: 0.2) {
-                self.imageViewHeight.constant = 0
-                self.view.layoutIfNeeded()
+            
+            guard self.searchResult != nil else {
+                self.vinPlate.rootView.failedSearch = true
+                self.vinPlate.view.alpha = 1
+                self.spinner.stopAnimating()
+                
+                UIView.animate(withDuration: 0.5) {
+                    self.vinPlate.view.alpha = 1
+                }
+                self.imageView.image = nil
+                self.imageView.frame.size.height = 0
+                self.tableView.reloadData()
+                return
+            }
+            
+            // From this point, the search is successful
+            
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                UIView.animate(withDuration: 0.1) {
+                    self.vinPlate.view.alpha = 0
+                }
+                
+                
+                
+                let colourPath = self.searchResult!.ColourPath
+                let filename = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").first
+                let filetype = colourPath.components(separatedBy: "\\").last?.components(separatedBy: ".").last
+                
+                if let path = Bundle.main.path(forResource: filename, ofType: filetype) {
+                    if let img = UIImage(contentsOfFile: path) {
+                        self.imageView.image = img
+                        let desiredImageViewAspectRatio: CGFloat = img.size.height / img.size.width
+                        
+                        UIView.animate(withDuration: 0.2) {
+                            self.imageView.frame.size.height = self.view.frame.width * desiredImageViewAspectRatio
+                            self.view.layoutIfNeeded()
+                        }
+                    }
+                } else {
+                    print("Image path not found for \(colourPath)")
+                    self.imageView.image = nil
+                    UIView.animate(withDuration: 0.2) {
+                        self.imageView.frame.size.height = 0
+                        self.view.layoutIfNeeded()
+                    }
+                }
+                
+                self.searchResult!.getNumbers(generation: self.series!)
+                self.tableView.reloadData()
             }
         }
-
-        searchResult!.getNumbers(generation: series!)
-        tableView.reloadData()
     }
     
     func share() {
@@ -404,7 +420,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             let activity = "\(activity!.rawValue.split(separator: ".").last!)"
             Analytics.logEvent("Shared_Screenshot", parameters: ["Activity" : "\(activity)"])
             print("Logged event")
-
+            
             return
         }
         
@@ -428,7 +444,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         let host = UIHostingController(rootView: view)
         host.view.frame = CGRect(x: self.view.bounds.width * -1, y: 0, width: self.view.bounds.width, height: self.view.bounds.width)
         self.view.addSubview(host.view)
-
+        
         let layer = host.view.layer
         //let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0.0);
@@ -446,21 +462,11 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard searchResult != nil else {
-            print("SearchResult is nil")
+        if searchResult == nil {
             return 0
+        } else {
+            return sectionNames.count
         }
-        
-        let mirror = Mirror(reflecting: self)
-        var sectionNumbers: [Int] = []
-        for child in mirror.children {
-            if child.label?.contains("keysSection") == true {
-                sectionNumbers.append(Int(child.label!.replacingOccurrences(of: "keysSection", with: ""))!)
-            }
-        }
-        sectionNumbers.sort()
-        print("Number of Sections: \(sectionNumbers.last)")
-        return sectionNumbers.last! + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -468,12 +474,107 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             print("SearchResult is empty")
             return 0
         }
-        return (value(forKey: "keysSection\(section)") as! [String]).count
+        
+        switch section {
+        case 0:
+            return keysSection0.count
+        case 1:
+            return keysSection1.count
+        case 2:
+            return keysSection2.count
+        case 3:
+            return keysSection3.count
+        case 4:
+            return keysSection1.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
+        case 0:
+            // Search Result
+            let cell = tableView.dequeueReusableCell(withIdentifier: "smallCell") as! SmallCell
+            
+            var labelText = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
+            if labelText == "Number in Grade" {
+                let grade = searchResult!.Grade
+                if stringIsValid(string: grade) {
+                    labelText = grade
+                } else {
+                    labelText = ""
+                }
+            }
+            if labelText == "Number in Colour" {
+                if let colourCode = searchResult!.Colour.split(separator: "-").first?.replacingOccurrences(of: " ", with: "") {
+                    let grade = searchResult!.Grade
+                    if stringIsValid(string: grade) {
+                        labelText = "\(searchResult!.Grade) and \(colourCode)"
+                    } else {
+                        labelText = ""
+                    }
+                }
+            }
+            
+            cell.label.text = labelText
+            
+            let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
+            let value = searchResult!.value(forKey: map[keys[indexPath.row]]!)! as! String
+            if stringIsValid(string: value) {
+                cell.value.text = "\(value)"
+            } else {
+                cell.value.text = ""
+            }
+            return cell
+            
+        case 1:
+            // Your production number
+            let cell = tableView.dequeueReusableCell(withIdentifier: "smallCell") as! SmallCell
+            
+            var labelText = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
+            if labelText == "Number in Grade" {
+                let grade = searchResult!.Grade
+                if stringIsValid(string: grade) {
+                    labelText = grade
+                } else {
+                    labelText = ""
+                }
+            }
+            if labelText == "Number in Colour" {
+                if let colourCode = searchResult!.Colour.split(separator: "-").first?.replacingOccurrences(of: " ", with: "") {
+                    let grade = searchResult!.Grade
+                    if stringIsValid(string: grade) {
+                        labelText = "\(searchResult!.Grade) and \(colourCode)"
+                    } else {
+                        labelText = ""
+                    }
+                }
+            }
+            
+            cell.label.text = labelText
+            
+            let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
+            let value = searchResult!.value(forKey: map[keys[indexPath.row]]!)! as! String
+            if stringIsValid(string: value) {
+                cell.value.text = "\(value)"
+            } else {
+                cell.value.text = ""
+            }
+            return cell
+            
         case 2:
+            // Ads
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+            cell.textLabel?.text = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
+            cell.textLabel?.font = UIFont(name: "NissanOpti", size: 10)
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.textColor = .white
+            cell.accessoryType = .none
+            cell.contentView.backgroundColor = UIColor(named: "torqueGTred")
+            return cell
+            
+        case 3:
             // MODEL NUMBERS
             let cell = tableView.dequeueReusableCell(withIdentifier: "modelNumberCell") as! ModelNumberCell
             
@@ -509,47 +610,21 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
             } else {
                 cell.label.text = ""
             }
-
+            
             return cell
-        case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
+        case 4:
+            // Links
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
             cell.accessoryType = .disclosureIndicator
             cell.textLabel?.text = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
             cell.textLabel?.font = UIFont(name: "NissanOpti", size: 10)
+            cell.textLabel?.textColor = .black
+            cell.textLabel?.textAlignment = .left
+            cell.contentView.backgroundColor = .white
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "smallCell") as! SmallCell
-            
-            var labelText = (value(forKey: "keysSection\(indexPath.section)") as! [String])[indexPath.row]
-            if labelText == "Number in Grade" {
-                let grade = searchResult!.Grade
-                if stringIsValid(string: grade) {
-                    labelText = grade
-                } else {
-                    labelText = ""
-                }
-            }
-            if labelText == "Number in Colour" {
-                if let colourCode = searchResult!.Colour.split(separator: "-").first?.replacingOccurrences(of: " ", with: "") {
-                    let grade = searchResult!.Grade
-                    if stringIsValid(string: grade) {
-                        labelText = "\(searchResult!.Grade) and \(colourCode)"
-                    } else {
-                        labelText = ""
-                    }
-                }
-            }
-            
-            cell.label.text = labelText
-            
-            let keys = value(forKey: "keysSection\(indexPath.section)") as! [String]
-            let value = searchResult!.value(forKey: map[keys[indexPath.row]]!)! as! String
-            if stringIsValid(string: value) {
-                cell.value.text = "\(value)"
-            } else {
-                cell.value.text = ""
-            }
-            return cell
+            // Should never happen
+            fatalError("Invalid section")
         }
     }
     
@@ -565,6 +640,10 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 2 {
+            return nil
+        }
+        
         let label = UILabel(frame: CGRect(x: 20, y: 0, width: 300, height: 30))
         label.text = sectionNames[section]
         if section == 3 {
@@ -579,14 +658,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 2:
-//            let aCell = ModelNumberCell()
-//            aCell.descriptionLabel.text = "\(searchResult!.value(forKey: "DescriptionModel\(indexPath.row + 1)D")!)".replacingOccurrences(of: "\"", with: "")
-//            aCell.layoutIfNeeded()
-//            let height = aCell.descriptionLabel.textRect(forBounds: aCell.descriptionLabel.bounds, limitedToNumberOfLines: 3).height
-//
-            //CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-
+        case 3:
             return 80
         default:
             return 40
@@ -597,7 +669,18 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.deselectRow(at: indexPath, animated: true)
         
         switch indexPath.section {
-        case 3:
+        case 2:
+            // Ads
+            switch indexPath.row {
+            case 0:
+                handleJapaneseHistoryCheckButton()
+            case 1:
+                handleDashPlaqueButton()
+            default:
+                break
+            }
+        case 4:
+            // Links
             switch indexPath.row {
             case 0:
                 self.performSegue(withIdentifier: "vin", sender: self)
@@ -613,7 +696,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "vin":
             let IVC = segue.destination as! TSVTableViewController
@@ -630,5 +713,25 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
         default:
             return
         }
-     }
+    }
+}
+
+extension VINSearchController {
+    func handleJapaneseHistoryCheckButton() {
+        if let url = URL(string: BaseURL.japaneseHistoryCheck + "?vin=\(searchResult?.VIN ?? "")") {
+            let webView = SFSafariViewController(url: url)
+            self.present(webView, animated: true)
+            Analytics.logEvent(AnalyticsEventViewItem,
+                               parameters: [AnalyticsParameterItemName: "Japanese History Check Website"])
+        }
+    }
+    
+    func handleDashPlaqueButton() {
+        if let url = URL(string: BaseURL.dashPlaque) {
+            let webView = SFSafariViewController(url: url)
+            self.present(webView, animated: true)
+            Analytics.logEvent(AnalyticsEventViewItem,
+                               parameters: [AnalyticsParameterItemName: "Dash Plaque Website"])
+        }
+    }
 }

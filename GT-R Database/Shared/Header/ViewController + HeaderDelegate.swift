@@ -22,7 +22,16 @@ extension UIViewController: HeaderDelegate {
     }
     
     func handleTorqueGTButton() {
-        if let url = URL(string: BaseURL.torqueGT) {
+        if let url = URL(string: BaseURL.torqueGThome) {
+            let webView = SFSafariViewController(url: url)
+            self.present(webView, animated: true)
+            Analytics.logEvent(AnalyticsEventViewItem,
+                               parameters: [AnalyticsParameterItemName: "TorqueGT Website"])
+        }
+    }
+    
+    func handleGTRButton() {
+        if let url = URL(string: BaseURL.gtrDatabaseHome) {
             let webView = SFSafariViewController(url: url)
             self.present(webView, animated: true)
             Analytics.logEvent(AnalyticsEventViewItem,

@@ -40,7 +40,7 @@ class HeaderView: UIView {
     private func configureViews() {
         let hiddenElements = delegate.headerShouldHideOptionalElements()
         
-        torqueGTLogo.isHidden = !hiddenElements.contains(.ShareButton)
+//        torqueGTLogo.isHidden = !hiddenElements.contains(.ShareButton)
         shareButton.isHidden = hiddenElements.contains(.ShareButton)
         titleLabel.isHidden = hiddenElements.contains(.Title)
         backButton.isHidden = hiddenElements.contains(.BackButton)
@@ -52,6 +52,10 @@ class HeaderView: UIView {
     
     func setTitle(to title: String) {
         titleLabel.text = title 
+    }
+    
+    @IBAction func tappedGTR(_ sender: Any) {
+        delegate.handleGTRButton()
     }
     
     @IBAction func tappedTorqueGT(_ sender: Any) {
