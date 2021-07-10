@@ -82,7 +82,7 @@ class VINSearchController: UIViewController, UITableViewDelegate, UITableViewDat
     ]
     
     @objc dynamic var keysSection2: [String] = [
-        "Japanese History Check",
+        "Order Japanese History Check",
         //        "Order Verification Letter & Dash Plaque"
     ]
     

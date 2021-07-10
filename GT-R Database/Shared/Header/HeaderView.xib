@@ -64,9 +64,10 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZJ-IW-mVj">
-                                    <rect key="frame" x="0.0" y="40" width="60" height="38"/>
+                                    <rect key="frame" x="4.5" y="40" width="51" height="38"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="38" id="Pb9-QY-tPX"/>
+                                        <constraint firstAttribute="width" secondItem="rZJ-IW-mVj" secondAttribute="height" multiplier="100:75" id="pX9-Xg-Qba"/>
                                     </constraints>
                                     <state key="normal" title="Button" image="logo"/>
                                     <connections>

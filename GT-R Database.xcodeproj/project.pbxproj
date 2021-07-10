@@ -374,6 +374,7 @@
 		217BFB102674B5CB00091BDF /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				214473FB25583F71004DDEE0 /* ModelNumberCell.swift */,
 				217F36ED255692A900113937 /* VINSearchController.swift */,
 				2150327F25B2B4F70054D8DE /* ScreenshotView.swift */,
 				215A9F3925B9B469001E3BD6 /* VINPlate.swift */,
@@ -425,7 +426,6 @@
 			isa = PBXGroup;
 			children = (
 				21AFA2E9254D7A4700661DE0 /* ModelInfoController.swift */,
-				214473FB25583F71004DDEE0 /* ModelNumberCell.swift */,
 			);
 			path = "Model Info";
 			sourceTree = "<group>";
@@ -975,7 +975,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = Y9624YK333;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "GT-R Database/Info.plist";
@@ -983,6 +983,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MarkDodd.GT-R-Database";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -999,7 +1000,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = Y9624YK333;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "GT-R Database/Info.plist";
@@ -1007,6 +1008,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MarkDodd.GT-R-Database";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

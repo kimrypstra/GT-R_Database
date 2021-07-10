@@ -206,28 +206,30 @@ class ModelInfoController: UIViewController,UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "VINSearch":
-            let IVC = segue.destination as! VINSearchController
+            guard let IVC = segue.destination as? VINSearchController else { return }
             IVC.series = series
         case "SpecialModel":
-            let IVC = segue.destination as! SpecialModelViewController
-            IVC.specialModelName = tableView.cellForRow(at: tableView.indexPathForSelectedRow!)?.textLabel!.text
+            guard let index = tableView.indexPathForSelectedRow,
+                  let IVC = segue.destination as? SpecialModelViewController,
+                  let modelName = tableView.cellForRow(at: index)?.textLabel?.text else { return }
+            IVC.specialModelName = modelName
             IVC.series = series
         case "prodNumbers":
-            let IVC = segue.destination as! TSVTableViewController
+            guard let IVC = segue.destination as? TSVTableViewController else { return }
             IVC.mode = .Production
             IVC.series = series
         case "VINRanges":
-            let IVC = segue.destination as! TSVTableViewController
+            guard let IVC = segue.destination as? TSVTableViewController else { return }
             IVC.mode = .VIN
             IVC.series = series
         case  "newPricing" :
-            let IVC = segue.destination as! TSVTableViewController
+            guard let IVC = segue.destination as? TSVTableViewController else { return }
             IVC.mode = .Pricing
             IVC.series = series 
         default:
-            print("Unimplemented")
             return
         }
+        
         tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
     }
 }
